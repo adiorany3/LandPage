@@ -72,10 +72,15 @@ let _cachedRepos = null;
 let _displayCount = 6;
 
 async function fetchGitHubRepos(username = 'adiorany3'){
-  const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=pushed&direction=desc`);
-  if(!res.ok) throw new Error('Gagal mengambil repositori');
-  const repos = await res.json();
-  return repos.filter(r => !r.fork);
+  try {
+    const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=pushed&direction=desc`);
+    if(!res.ok) throw new Error('Gagal mengambil repositori');
+    const repos = await res.json();
+    return repos.filter(r => !r.fork);
+  } catch (error) {
+    console.error('Error fetching GitHub repos:', error);
+    throw error;
+  }
 }
 
 function formatDate(iso){
@@ -194,9 +199,11 @@ function getFlagEmoji(countryCode) {
 async function getUserInfo() {
   try {
     const response = await fetch('https://api.ipify.org?format=json');
+    if (!response.ok) throw new Error('Failed to fetch IP');
     const data = await response.json();
     const ip = data.ip;
     const countryResponse = await fetch(`https://ipapi.co/${ip}/json/`);
+    if (!countryResponse.ok) throw new Error('Failed to fetch country');
     const countryData = await countryResponse.json();
     const country = countryData.country_name || 'Tidak dapat mendeteksi';
     const countryCode = countryData.country_code || '';
