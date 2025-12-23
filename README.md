@@ -12,7 +12,7 @@ Catatan:
 - Fokus keahlian: Data Analytics. Tools utama: Python (Pandas, NumPy, Matplotlib, scikit-learn).
 - Kontak: hanya melalui email di `adioranye@ugm.ac.id`.
 - Proyek: otomatis dimuat dari GitHub (`https://github.com/adiorany3`) dan secara default menampilkan repositori Python. Tekan "Muat lebih banyak" untuk menampilkan lebih banyak repositori.
-- Modal Salam: saat halaman dimuat, muncul modal yang menampilkan informasi pengunjung seperti IP, negara asal, browser yang digunakan, jenis perangkat (desktop, tablet, atau mobile), suhu, dan kelembaban di lokasi pengakses. Modal dapat ditutup dengan tombol "Tutup".
+- Modal Salam: saat halaman dimuat, muncul modal yang menampilkan informasi pengunjung seperti IP, negara asal, browser yang digunakan, dan jenis perangkat (desktop, tablet, atau mobile). Modal dapat ditutup dengan tombol "Tutup".
 - Footer: menampilkan copyright dengan tahun otomatis, dan counter kunjungan berdasarkan localStorage (menghitung kunjungan per browser).
 
 ## License

@@ -212,23 +212,18 @@ async function getUserInfo() {
     const country = countryData.country_name || 'Tidak dapat mendeteksi';
     const browser = getBrowserName();
     const device = getDeviceType();
-    // Fetch weather
-    const weatherResponse = await fetch('https://wttr.in/?format=j1');
-    const weatherData = await weatherResponse.json();
-    const temperature = weatherData.current_condition[0].temp_C || 'N/A';
-    const humidity = weatherData.current_condition[0].humidity || 'N/A';
-    return { ip, country, browser, device, temperature, humidity };
+    return { ip, country, browser, device };
   } catch (error) {
     console.error('Error fetching user info:', error);
     const browser = getBrowserName();
     const device = getDeviceType();
-    return { ip: 'Tidak dapat mendeteksi', country: 'Tidak dapat mendeteksi', browser, device, temperature: 'N/A', humidity: 'N/A' };
+    return { ip: 'Tidak dapat mendeteksi', country: 'Tidak dapat mendeteksi', browser, device };
   }
 }
 
 async function showGreeting() {
-  const { ip, country, browser, device, temperature, humidity } = await getUserInfo();
-  greetingText.textContent = `IP Anda: ${ip} dari ${country} menggunakan ${browser} pada ${device}. Suhu: ${temperature}°C, Kelembaban: ${humidity}%. Selamat datang di landing page Galuh Adi Insani!`;
+  const { ip, country, browser, device } = await getUserInfo();
+  greetingText.textContent = `IP Anda: ${ip} dari ${country} menggunakan ${browser} pada ${device}. Selamat datang di landing page Galuh Adi Insani!`;
   greetingModal.classList.add('show');
 }
 
