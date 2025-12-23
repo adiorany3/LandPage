@@ -98,6 +98,13 @@ body{font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial; margin:
 @media (max-width:1000px){
   .projects-grid{grid-template-columns:1fr}
 }
+.demos{padding:3rem 0}
+.demos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.demo-card{background:var(--card);padding:1.5rem;border-radius:16px;border:1px solid var(--light-border);box-shadow:none;transition:transform .18s ease,box-shadow .18s ease}
+.demo-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(11,17,34,0.06)}
+.demo-card h3{margin:0 0 0.5rem 0;font-size:1.1rem}
+.demo-card p{margin:0 0 1rem 0;color:var(--muted);font-size:0.95rem}
+.demo-card .btn{margin-top:0.5rem}
 .site-footer{padding:1.75rem 0;border-top:1px solid rgba(15,23,36,0.04);margin-top:2rem}
 .footer-inner{display:flex;justify-content:space-between;align-items:center}
 .socials a{color:var(--muted);margin-left:0.5rem;text-decoration:none}
