@@ -186,6 +186,11 @@ function getDeviceType() {
   return 'Desktop';
 }
 
+function getFlagEmoji(countryCode) {
+  if (!countryCode || countryCode === 'Tidak dapat mendeteksi') return '';
+  return countryCode.toUpperCase().replace(/./g, char => String.fromCodePoint(char.charCodeAt(0) + 127397));
+}
+
 async function getUserInfo() {
   try {
     const response = await fetch('https://api.ipify.org?format=json');
@@ -194,20 +199,22 @@ async function getUserInfo() {
     const countryResponse = await fetch(`https://ipapi.co/${ip}/json/`);
     const countryData = await countryResponse.json();
     const country = countryData.country_name || 'Tidak dapat mendeteksi';
+    const countryCode = countryData.country_code || '';
+    const flag = getFlagEmoji(countryCode);
     const browser = getBrowserName();
     const device = getDeviceType();
-    return { ip, country, browser, device };
+    return { ip, country, flag, browser, device };
   } catch (error) {
     console.error('Error fetching user info:', error);
     const browser = getBrowserName();
     const device = getDeviceType();
-    return { ip: 'Tidak dapat mendeteksi', country: 'Tidak dapat mendeteksi', browser, device };
+    return { ip: 'Tidak dapat mendeteksi', country: 'Tidak dapat mendeteksi', flag: '', browser, device };
   }
 }
 
 async function showGreeting() {
-  const { ip, country, browser, device } = await getUserInfo();
-  greetingText.textContent = `IP Anda: ${ip} dari ${country} menggunakan ${browser} pada ${device}. Selamat datang di landing page Galuh Adi Insani!`;
+  const { ip, country, flag, browser, device } = await getUserInfo();
+  greetingText.textContent = `IP Anda: ${ip} dari ${flag} ${country} menggunakan ${browser} pada ${device}. Selamat datang di landing page Galuh Adi Insani!`;
   greetingModal.classList.add('show');
 }
 
