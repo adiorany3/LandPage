@@ -178,8 +178,8 @@ body.dark .card{box-shadow:0 10px 30px rgba(255,107,53,0.1); border: 1px solid r
 .timeline-content:hover{box-shadow:0 20px 40px rgba(15,23,36,0.12); border-color: var(--accent);}
 .timeline-content h3{margin:0 0 0.3rem 0;font-size:1rem}
 .timeline-date{color:var(--muted);font-size:0.85rem;margin-bottom:0.3rem}
-.schedule{padding:2rem 0}
-.schedule iframe{max-width:100%;height:600px;border:none}
+.schedule{padding:2rem 0; text-align: center;}
+.schedule iframe{max-width:100%;height:600px;border:none;margin: 0 auto; display: block;}
 @media (max-width:1000px){
   .schedule iframe{height:400px}
 }
