@@ -195,6 +195,13 @@ function getBrowserName() {
   return 'Browser tidak dikenal';
 }
 
+function getDeviceType() {
+  const ua = navigator.userAgent;
+  if (/Mobi|Android/i.test(ua)) return 'Mobile';
+  if (/Tablet|iPad/i.test(ua)) return 'Tablet';
+  return 'Desktop';
+}
+
 async function getUserInfo() {
   try {
     const response = await fetch('https://api.ipify.org?format=json');
@@ -204,17 +211,19 @@ async function getUserInfo() {
     const countryData = await countryResponse.json();
     const country = countryData.country_name || 'Tidak dapat mendeteksi';
     const browser = getBrowserName();
-    return { ip, country, browser };
+    const device = getDeviceType();
+    return { ip, country, browser, device };
   } catch (error) {
     console.error('Error fetching user info:', error);
     const browser = getBrowserName();
-    return { ip: 'Tidak dapat mendeteksi', country: 'Tidak dapat mendeteksi', browser };
+    const device = getDeviceType();
+    return { ip: 'Tidak dapat mendeteksi', country: 'Tidak dapat mendeteksi', browser, device };
   }
 }
 
 async function showGreeting() {
-  const { ip, country, browser } = await getUserInfo();
-  greetingText.textContent = `IP Anda: ${ip} dari ${country} menggunakan ${browser}. Selamat datang di landing page Galuh Adi Insani!`;
+  const { ip, country, browser, device } = await getUserInfo();
+  greetingText.textContent = `IP Anda: ${ip} dari ${country} menggunakan ${browser} pada ${device}. Selamat datang di landing page Galuh Adi Insani!`;
   greetingModal.classList.add('show');
 }
 
