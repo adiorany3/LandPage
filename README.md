@@ -10,12 +10,13 @@ Cara pakai:
 
 Catatan:
 - Fokus keahlian: Data Analytics. Tools utama: Python (Pandas, NumPy, Matplotlib, scikit-learn).
+- CV: tersedia di https://acadstaff.ugm.ac.id/GaluhAdIInsani#.
 - Pengalaman: timeline pengalaman kerja dan akademik.
 - Jadwal Kegiatan: embed Google Calendar untuk melihat jadwal kegiatan.
 - Proyek: otomatis dimuat dari GitHub (`https://github.com/adiorany3`) dan secara default menampilkan repositori Python. Tekan "Muat lebih banyak" untuk menampilkan lebih banyak repositori.
 - Demo Aplikasi: menampilkan aplikasi demo Streamlit untuk analisis usaha ayam kampung, pengukuran berat badan ternak, dan penyusunan pakan ternak.
 - Modal Salam: saat halaman dimuat, muncul modal yang menampilkan informasi pengunjung seperti IP, negara asal, browser yang digunakan, dan jenis perangkat (desktop, tablet, atau mobile). Modal dapat ditutup dengan tombol "Tutup".
-- Footer: menampilkan copyright dengan tahun otomatis, dan counter kunjungan berdasarkan localStorage (menghitung kunjungan per browser).
+- Footer: menampilkan copyright dengan tahun otomatis, counter kunjungan, dan link ke GitHub, LinkedIn, serta Google Scholar.
 
 ## License
 
