@@ -225,6 +225,11 @@ closeGreeting.addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', () => {
   loadGitHubProjects();
   showGreeting();
+  // Update footer year
+  const footerYear = document.getElementById('footerYear');
+  if (footerYear) {
+    footerYear.innerHTML = `© ${new Date().getFullYear()} Galuh Adi Insani — Semua hak dilindungi.`;
+  }
 });
 
 // Back to Top button
