@@ -180,25 +180,41 @@ if(copyBtn && emailBtn){
   });
 }
 
-// Greeting modal with IP
+// Greeting modal with IP, country, and browser
 const greetingModal = document.getElementById('greetingModal');
 const greetingText = document.getElementById('greetingText');
 const closeGreeting = document.getElementById('closeGreeting');
 
-async function getUserIP() {
+function getBrowserName() {
+  const ua = navigator.userAgent;
+  if (ua.includes('Chrome') && !ua.includes('Edg')) return 'Chrome';
+  if (ua.includes('Firefox')) return 'Firefox';
+  if (ua.includes('Safari') && !ua.includes('Chrome')) return 'Safari';
+  if (ua.includes('Edg')) return 'Edge';
+  if (ua.includes('Opera') || ua.includes('OPR')) return 'Opera';
+  return 'Browser tidak dikenal';
+}
+
+async function getUserInfo() {
   try {
     const response = await fetch('https://api.ipify.org?format=json');
     const data = await response.json();
-    return data.ip;
+    const ip = data.ip;
+    const countryResponse = await fetch(`https://ipapi.co/${ip}/json/`);
+    const countryData = await countryResponse.json();
+    const country = countryData.country_name || 'Tidak dapat mendeteksi';
+    const browser = getBrowserName();
+    return { ip, country, browser };
   } catch (error) {
-    console.error('Error fetching IP:', error);
-    return 'Tidak dapat mendeteksi';
+    console.error('Error fetching user info:', error);
+    const browser = getBrowserName();
+    return { ip: 'Tidak dapat mendeteksi', country: 'Tidak dapat mendeteksi', browser };
   }
 }
 
 async function showGreeting() {
-  const ip = await getUserIP();
-  greetingText.textContent = `IP Anda: ${ip}. Selamat datang di landing page Galuh Adi Insani!`;
+  const { ip, country, browser } = await getUserInfo();
+  greetingText.textContent = `IP Anda: ${ip} dari ${country} menggunakan ${browser}. Selamat datang di landing page Galuh Adi Insani!`;
   greetingModal.classList.add('show');
 }
 
