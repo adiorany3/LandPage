@@ -30,22 +30,6 @@ menuToggle && menuToggle.addEventListener('click', () => {
   }
 })
 
-// Animate skill bars when visible
-const skillBars = document.querySelectorAll('.skill-bar');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      const fill = entry.target.querySelector('.fill');
-      const p = window.getComputedStyle(entry.target).getPropertyValue('--p').trim();
-      if(fill){
-        fill.style.width = p || '60%';
-      }
-      observer.unobserve(entry.target);
-    }
-  })
-},{threshold:0.25});
-skillBars.forEach(s => observer.observe(s));
-
 // Animate stat numbers when visible
 const statNumbers = document.querySelectorAll('.stat-number');
 const statObserver = new IntersectionObserver((entries) => {
