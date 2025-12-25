@@ -378,12 +378,17 @@ sections.forEach(section => {
 const musicToggle = document.getElementById('musicToggle');
 const backgroundMusic = document.getElementById('backgroundMusic');
 backgroundMusic.volume = 0.5; // Set medium volume for better audibility
+backgroundMusic.load(); // Ensure audio is loaded
+console.log('Audio loaded, readyState:', backgroundMusic.readyState);
 musicToggle.textContent = backgroundMusic.muted ? '🎵' : '🔊';
 musicToggle.addEventListener('click', () => {
-  if (backgroundMusic.muted) {
+  console.log('Music toggle clicked, paused:', backgroundMusic.paused, 'muted:', backgroundMusic.muted);
+  if (backgroundMusic.paused || backgroundMusic.muted) {
     backgroundMusic.muted = false;
-    backgroundMusic.play(); // Ensure play after unmute
-    musicToggle.textContent = '🔊';
+    backgroundMusic.play().then(() => {
+      console.log('Music started playing from toggle');
+      musicToggle.textContent = '🔊';
+    }).catch(e => console.log('Play failed from toggle:', e));
   } else {
     backgroundMusic.muted = true;
     musicToggle.textContent = '🎵';
@@ -401,4 +406,28 @@ window.addEventListener('scroll', () => {
 });
 backToTopBtn.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Auto play music on any button click
+document.querySelectorAll('button').forEach(button => {
+  if (button.id !== 'musicToggle') { // Exclude the music toggle button itself
+    button.addEventListener('click', () => {
+      console.log('Button clicked, music paused:', backgroundMusic.paused, 'muted:', backgroundMusic.muted);
+      if (backgroundMusic.muted) {
+        backgroundMusic.muted = false;
+        musicToggle.textContent = '🔊';
+      }
+    });
+  }
+});
+
+// Fallback: unmute music on first document click if muted
+let musicUnmuted = false;
+document.addEventListener('click', () => {
+  if (!musicUnmuted && backgroundMusic.muted) {
+    console.log('Document clicked, unmuting music');
+    backgroundMusic.muted = false;
+    musicUnmuted = true;
+    musicToggle.textContent = '🔊';
+  }
 });
