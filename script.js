@@ -373,3 +373,19 @@ sections.forEach(section => {
   section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
   sectionObserver.observe(section);
 });
+
+// Music toggle
+const musicToggle = document.getElementById('musicToggle');
+const backgroundMusic = document.getElementById('backgroundMusic');
+backgroundMusic.volume = 0.5; // Set medium volume for better audibility
+musicToggle.textContent = backgroundMusic.muted ? '🎵' : '🔊';
+musicToggle.addEventListener('click', () => {
+  if (backgroundMusic.muted) {
+    backgroundMusic.muted = false;
+    backgroundMusic.play(); // Ensure play after unmute
+    musicToggle.textContent = '🔊';
+  } else {
+    backgroundMusic.muted = true;
+    musicToggle.textContent = '🎵';
+  }
+});
