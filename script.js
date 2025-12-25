@@ -340,6 +340,9 @@ if (dismissGreeting) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
+  // Set default theme to dark
+  document.body.classList.add('dark');
+  tBtn.textContent = '☀️';
   await loadGitHubProjects();
   // Defer greeting modal to improve initial load
   setTimeout(showGreeting, 1000);
