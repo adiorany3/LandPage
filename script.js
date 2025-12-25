@@ -293,6 +293,7 @@ function dismissBanner() {
 }
 
 async function showGreeting() {
+  console.log('showGreeting called');
   // Removed dismissal check to show greeting on every load
   let country = 'Indonesia', flag = '';
   try {
@@ -303,8 +304,18 @@ async function showGreeting() {
   const lang = (country === 'Indonesia') ? 'id' : 'en';
   const greeting = getGreetingMessage(lang);
   const welcomeText = (lang === 'id') ? 'Selamat datang dari' : 'Welcome from';
+  const now = new Date();
+  const dateTime = now.toLocaleString('id-ID', { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric', 
+    hour: '2-digit', 
+    minute: '2-digit', 
+    second: '2-digit' 
+  });
+  console.log('Greeting text:', `${greeting}! ${welcomeText} ${flag} ${country}. Akses pada: ${dateTime}.`);
   if (greetingText) {
-    greetingText.textContent = `${greeting}! ${welcomeText} ${flag} ${country}.`;
+    greetingText.textContent = `${greeting}! ${welcomeText} ${flag} ${country}. Akses pada: ${dateTime}.`;
   }
   if (greetingBanner) {
     greetingBanner.classList.add('show');
