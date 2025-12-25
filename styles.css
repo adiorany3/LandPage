@@ -25,7 +25,7 @@ body{line-height:var(--base-line-height);-webkit-font-smoothing:antialiased}
 *{box-sizing:border-box}
 html,body{height:100%}
 body{font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial; margin:0; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 25%, #bae6fd 50%, #f0f9ff 75%, #ffffff 100%); color:var(--text); -webkit-font-smoothing:antialiased}
-.container{max-width:var(--container);margin:0 auto;padding:2rem}
+.container{max-width:var(--container);margin:0 auto;padding:1.5rem}
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
 .brand{font-weight:700;color:var(--text);text-decoration:none;font-size:1.05rem}
 .nav{display:flex;align-items:center;gap:0.75rem}
@@ -46,7 +46,7 @@ body{font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial; margin:
 .btn-small{padding:0.4rem 0.75rem;font-size:0.9rem;border-radius:10px}
 .btn-ghost{background:transparent;border:0;font-size:1.1rem;color:var(--muted)}
 .hero{
-  padding:4rem 0;
+  padding:3rem 0;
   background: linear-gradient(135deg, rgba(59,130,246,0.08) 0%, rgba(37,99,235,0.05) 25%, rgba(16,185,129,0.03) 50%, rgba(139,92,246,0.02) 75%, transparent 100%), radial-gradient(circle at 30% 40%, rgba(59,130,246,0.06) 0%, transparent 40%), radial-gradient(circle at 70% 60%, rgba(16,185,129,0.04) 0%, transparent 40%);
   border-bottom:1px solid var(--light-border);
   position:relative;
@@ -259,13 +259,17 @@ body.dark .card{box-shadow:0 10px 30px rgba(37,99,235,0.1); border: 1px solid rg
 .stat-number{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:0.25rem}
 .stat-card p{margin:0;color:var(--muted);font-size:0.9rem}
 .about, .experience, .statistics, .skills, .projects, .demos, .news, .contact, .schedule {
-  padding: 3rem 0;
+  padding: 1rem 0;
+}
+.schedule {
+  padding: 1.5rem 0;
+}
 }
 
 /* Mobile optimizations for better attractiveness */
 @media (max-width: 600px) {
   .container { padding: 1rem; }
-  .hero { padding: 2rem 0; }
+  .hero { padding: 1.5rem 0; }
   .hero-inner { grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
   .hero h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
   .lead { font-size: 1.1rem; max-width: none; margin-top: 0.5rem; }
@@ -362,11 +366,12 @@ body.dark .card{box-shadow:0 10px 30px rgba(37,99,235,0.1); border: 1px solid rg
 /* Desktop optimizations for larger screens */
 @media (min-width: 1200px) {
   .container { max-width: 1400px; }
-  .hero { padding: 5rem 0; }
+  .hero { padding: 2rem 0; }
   .hero h1 { font-size: 3rem; }
   .hero-inner { gap: 3rem; }
   .hero-avatar img { width: 320px; height: 320px; }
-  .about, .experience, .statistics, .skills, .projects, .demos, .news, .contact, .schedule { padding: 4rem 0; }
+  .about, .experience, .statistics, .skills, .projects, .demos, .news, .contact, .schedule { padding: 1.5rem 0; }
+  .schedule { padding: 2rem 0; }
   .projects-grid { grid-template-columns: repeat(3, 1fr); }
   .demos-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
   .news-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
