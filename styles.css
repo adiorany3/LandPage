@@ -73,7 +73,7 @@ body{font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial; margin:
   50% { transform: translateY(-20px); }
 }
 .hero-inner{display:grid;grid-template-columns:1fr 320px;gap:2rem;align-items:center}
-.hero h1{font-size:2.5rem;margin:0;letter-spacing:-0.02em;font-weight:700;}
+.hero h1{font-size:2.5rem;margin:0;letter-spacing:-0.02em;font-weight:700; background: linear-gradient(45deg, var(--accent), var(--accent-2), var(--data-green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;}
 .lead{color:var(--text);margin-top:0.8rem;font-size:1.125rem;max-width:60ch;line-height:1.55}
 .hero .cta{margin-top:1.2rem;display:flex;gap:0.5rem;align-items:center}
 .hero .cta .btn-outline{background:#fff;border:1px solid var(--light-border);color:var(--text);}
@@ -144,6 +144,15 @@ body{font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial; margin:
 .tag{background:var(--data-blue);color:#fff;padding:0.25rem 0.5rem;border-radius:12px;font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
 .fade-in{animation:fadeInUp 0.6s ease forwards;opacity:0;transform:translateY(20px)}
 @keyframes fadeInUp{to{opacity:1;transform:translateY(0)}}
+
+.news{padding:2rem 0}
+.news-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0.75rem}
+.news-card{background:var(--card);padding:1.5rem;border-radius:16px;border:1px solid var(--light-border);box-shadow:var(--shadow-medium);transition:transform 0.3s ease,box-shadow 0.3s ease, border-color 0.3s ease;}
+.news-card:hover{box-shadow:0 20px 40px rgba(59,130,246,0.3); border-color: var(--accent); transform: translateY(-8px) scale(1.02);}
+.news-card h3{margin:0 0 0.5rem 0;font-size:1.1rem}
+.news-card p{margin:0 0 1rem 0;color:var(--muted);font-size:0.95rem}
+.news-card .btn{margin-top:0.5rem}
+.news-icon{font-size:2.5rem;margin-bottom:0.5rem;text-align:center}
 .site-footer{padding:0.75rem 0;border-top:1px solid rgba(15,23,36,0.04);margin-top:1rem}
 .footer-inner{display:flex;justify-content:space-between;align-items:center}
 .socials a{color:var(--muted);margin-left:0.5rem;text-decoration:none}
@@ -198,6 +207,7 @@ body.dark .stat-card{box-shadow:0 10px 30px rgba(37,99,235,0.1);border:1px solid
 body.dark .timeline-content{box-shadow:0 10px 30px rgba(37,99,235,0.1);border:1px solid rgba(255,255,255,0.05)}
 body.dark .project-card{box-shadow:0 10px 30px rgba(37,99,235,0.1);border:1px solid rgba(255,255,255,0.05)}
 body.dark .demo-card{box-shadow:0 10px 30px rgba(37,99,235,0.1);border:1px solid rgba(255,255,255,0.05)}
+body.dark .news-card{box-shadow:0 10px 30px rgba(37,99,235,0.1);border:1px solid rgba(255,255,255,0.05)}
 body.dark .greeting-content{box-shadow:0 20px 60px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1)}
 body.dark .back-to-top{box-shadow:0 8px 24px rgba(37,99,235,0.4)}
 .contact img{border:1px solid rgba(255,255,255,0.1);}
@@ -248,7 +258,7 @@ body.dark .card{box-shadow:0 10px 30px rgba(37,99,235,0.1); border: 1px solid rg
 .stat-icon{font-size:1.5rem;margin-bottom:0.5rem}
 .stat-number{font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:0.25rem}
 .stat-card p{margin:0;color:var(--muted);font-size:0.9rem}
-.about, .experience, .statistics, .skills, .projects, .demos, .contact, .schedule {
+.about, .experience, .statistics, .skills, .projects, .demos, .news, .contact, .schedule {
   padding: 3rem 0;
 }
 
@@ -307,10 +317,10 @@ body.dark .card{box-shadow:0 10px 30px rgba(37,99,235,0.1); border: 1px solid rg
   .back-to-top { bottom: 1rem; right: 1rem; width: 2.5rem; height: 2.5rem; font-size: 1rem; }
 
   /* Reduce animations for better performance on mobile */
-  .project-card, .skill-card, .stat-card, .demo-card, .timeline-content {
+  .project-card, .skill-card, .stat-card, .demo-card, .news-card, .timeline-content {
     transition: none;
   }
-  .project-card:hover, .skill-card:hover, .stat-card:hover, .demo-card:hover, .timeline-content:hover {
+  .project-card:hover, .skill-card:hover, .stat-card:hover, .demo-card:hover, .news-card:hover, .timeline-content:hover {
     transform: none;
     box-shadow: 0 10px 30px rgba(15,23,36,0.08);
     border-color: var(--light-border);
