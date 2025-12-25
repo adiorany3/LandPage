@@ -20,7 +20,9 @@ tBtn.addEventListener('click', () => {
 // Mobile menu toggle
 const menuToggle = document.getElementById('menuToggle');
 const primaryMenu = document.getElementById('primaryMenu');
-menuToggle && menuToggle.addEventListener('click', () => {
+const toggleMenu = (e) => {
+  console.log('Menu toggle activated');
+  e.preventDefault();
   const open = menuToggle.getAttribute('aria-expanded') === 'true';
   menuToggle.setAttribute('aria-expanded', String(!open));
   if(!open){
@@ -28,7 +30,9 @@ menuToggle && menuToggle.addEventListener('click', () => {
   } else {
     primaryMenu.style.display = '';
   }
-})
+};
+menuToggle && menuToggle.addEventListener('click', toggleMenu);
+menuToggle && menuToggle.addEventListener('touchstart', toggleMenu);
 
 // Animate stat numbers when visible
 const statNumbers = document.querySelectorAll('.stat-number');
