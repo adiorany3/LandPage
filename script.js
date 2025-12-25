@@ -243,11 +243,17 @@ async function getUserInfo() {
   }
 }
 
-function getGreetingMessage() {
+function getGreetingMessage(lang = 'id') {
   const hour = new Date().getHours();
-  if (hour >= 5 && hour < 12) return 'Selamat pagi';
-  if (hour >= 12 && hour < 18) return 'Selamat siang';
-  return 'Selamat malam';
+  if (lang === 'en') {
+    if (hour >= 5 && hour < 12) return 'Good morning';
+    if (hour >= 12 && hour < 18) return 'Good afternoon';
+    return 'Good evening';
+  } else {
+    if (hour >= 5 && hour < 12) return 'Selamat pagi';
+    if (hour >= 12 && hour < 18) return 'Selamat siang';
+    return 'Selamat malam';
+  }
 }
 
 function greetingDismissedToday() {
@@ -265,12 +271,7 @@ function dismissBanner() {
 
 async function showGreeting() {
   console.log('showGreeting called');
-  if (greetingDismissedToday()) {
-    console.log('Greeting already dismissed today');
-    return;
-  }
-  const greeting = getGreetingMessage();
-  console.log('Greeting message:', greeting);
+  // Removed dismissal check to show greeting on every load
   let country = 'Indonesia', flag = '';
   try {
     const info = await getUserInfo();
@@ -280,8 +281,12 @@ async function showGreeting() {
   } catch (e) {
     console.error('Error fetching user info:', e);
   }
+  const lang = (country === 'Indonesia') ? 'id' : 'en';
+  const greeting = getGreetingMessage(lang);
+  console.log('Greeting message:', greeting, 'Lang:', lang);
+  const welcomeText = (lang === 'id') ? 'Selamat datang dari' : 'Welcome from';
   if (greetingText) {
-    greetingText.textContent = `${greeting}! Selamat datang dari ${flag} ${country}.`;
+    greetingText.textContent = `${greeting}! ${welcomeText} ${flag} ${country}.`;
     console.log('Greeting text set:', greetingText.textContent);
   } else {
     console.error('greetingText not found');
