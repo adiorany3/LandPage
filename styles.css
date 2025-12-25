@@ -359,4 +359,19 @@ body.dark .card{box-shadow:0 10px 30px rgba(37,99,235,0.1); border: 1px solid rg
 .greeting-banner .btn-ghost { font-size:1rem; padding:0.3rem 0.6rem; }
 .greeting-banner .btn-ghost:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
+/* Desktop optimizations for larger screens */
+@media (min-width: 1200px) {
+  .container { max-width: 1400px; }
+  .hero { padding: 5rem 0; }
+  .hero h1 { font-size: 3rem; }
+  .hero-inner { gap: 3rem; }
+  .hero-avatar img { width: 320px; height: 320px; }
+  .about, .experience, .statistics, .skills, .projects, .demos, .news, .contact, .schedule { padding: 4rem 0; }
+  .projects-grid { grid-template-columns: repeat(3, 1fr); }
+  .demos-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+  .news-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+  .stats-grid { grid-template-columns: repeat(4, 1fr); }
+  .skill-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
 
