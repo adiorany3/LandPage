@@ -408,7 +408,6 @@ backToTopBtn.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// Auto play music on any button click
 document.querySelectorAll('button').forEach(button => {
   if (button.id !== 'musicToggle') { // Exclude the music toggle button itself
     button.addEventListener('click', () => {
@@ -430,4 +429,36 @@ document.addEventListener('click', () => {
     musicUnmuted = true;
     musicToggle.textContent = '🔊';
   }
+});
+
+// Background music: ensure autoplay muted, unmute & play on any button click, fallback for any click
+document.addEventListener('DOMContentLoaded', () => {
+  // Ensure music is muted and loaded on start
+  backgroundMusic.muted = true;
+  backgroundMusic.load();
+  let musicUnmuted = false;
+
+  // Unmute and play on any button click (kecuali tombol musicToggle)
+  document.querySelectorAll('button').forEach(button => {
+    if (button.id !== 'musicToggle') {
+      button.addEventListener('click', () => {
+        if (backgroundMusic.muted || backgroundMusic.paused) {
+          backgroundMusic.muted = false;
+          backgroundMusic.play().catch(() => {});
+          musicToggle.textContent = '🔊';
+          musicUnmuted = true;
+        }
+      });
+    }
+  });
+
+  // Fallback: unmute & play on first document click anywhere
+  document.addEventListener('click', () => {
+    if (!musicUnmuted && (backgroundMusic.muted || backgroundMusic.paused)) {
+      backgroundMusic.muted = false;
+      backgroundMusic.play().catch(() => {});
+      musicToggle.textContent = '🔊';
+      musicUnmuted = true;
+    }
+  }, { once: true });
 });
