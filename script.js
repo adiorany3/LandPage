@@ -43,6 +43,23 @@ const statObserver = new IntersectionObserver((entries) => {
 },{threshold:0.5});
 statNumbers.forEach(s => statObserver.observe(s));
 
+// Animate skill bars when visible
+const skillCards = document.querySelectorAll('.skill-card');
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      const fill = entry.target.querySelector('.skill-fill');
+      if(fill){
+        const width = fill.style.width;
+        fill.style.width = '0';
+        setTimeout(() => fill.style.width = width, 100);
+      }
+      skillObserver.unobserve(entry.target);
+    }
+  })
+},{threshold:0.5});
+skillCards.forEach(card => skillObserver.observe(card));
+
 function animateNumber(element, start, end, duration) {
   const startTime = performance.now();
   const update = (currentTime) => {
@@ -128,6 +145,13 @@ async function loadGitHubProjects(username = 'adiorany3') {
   if(!grid) return;
   try {
     if(!_cachedRepos) _cachedRepos = await fetchGitHubRepos(username);
+    // Update projects stat with actual Python repos count
+    const pythonReposCount = _cachedRepos.filter(r => r.language === 'Python').length;
+    const projectsStat = document.getElementById('projectsStat');
+    if(projectsStat){
+      const statNumber = projectsStat.querySelector('.stat-number');
+      if(statNumber) statNumber.setAttribute('data-target', pythonReposCount);
+    }
     renderProjects(_cachedRepos, {onlyPython: filterEl && filterEl.checked, limit: _displayCount});
   } catch (err) {
     grid.innerHTML = `<p class="muted">Terjadi kesalahan saat memuat proyek. <a href="https://github.com/${username}" target="_blank" rel="noopener">Lihat GitHub</a>.</p>`;
@@ -169,10 +193,10 @@ if(copyBtn && emailBtn){
   });
 }
 
-// Greeting modal with IP, country, and browser
-const greetingModal = document.getElementById('greetingModal');
+// Greeting banner (compact, once-per-day)
+const greetingBanner = document.getElementById('greetingBanner');
 const greetingText = document.getElementById('greetingText');
-const closeGreeting = document.getElementById('closeGreeting');
+const dismissGreeting = document.getElementById('dismissGreeting');
 
 function getBrowserName() {
   const ua = navigator.userAgent;
@@ -219,19 +243,74 @@ async function getUserInfo() {
   }
 }
 
-async function showGreeting() {
-  const { ip, country, flag, browser, device } = await getUserInfo();
-  greetingText.textContent = `IP Anda: ${ip} dari ${flag} ${country} menggunakan ${browser} pada ${device}. Selamat datang di landing page Galuh Adi Insani!`;
-  greetingModal.classList.add('show');
+function getGreetingMessage() {
+  const hour = new Date().getHours();
+  if (hour >= 5 && hour < 12) return 'Selamat pagi';
+  if (hour >= 12 && hour < 18) return 'Selamat siang';
+  return 'Selamat malam';
 }
 
-closeGreeting.addEventListener('click', () => {
-  greetingModal.classList.remove('show');
-});
+function greetingDismissedToday() {
+  const val = localStorage.getItem('greetingDismissDate');
+  return val === new Date().toISOString().slice(0,10);
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-  loadGitHubProjects();
-  showGreeting();
+function dismissBanner() {
+  if (greetingBanner) {
+    greetingBanner.classList.remove('show');
+    greetingBanner.setAttribute('aria-hidden', 'true');
+  }
+  localStorage.setItem('greetingDismissDate', new Date().toISOString().slice(0,10));
+}
+
+async function showGreeting() {
+  console.log('showGreeting called');
+  if (greetingDismissedToday()) {
+    console.log('Greeting already dismissed today');
+    return;
+  }
+  const greeting = getGreetingMessage();
+  console.log('Greeting message:', greeting);
+  let country = 'Indonesia', flag = '';
+  try {
+    const info = await getUserInfo();
+    country = info.country || country;
+    flag = info.flag || '';
+    console.log('User info:', info);
+  } catch (e) {
+    console.error('Error fetching user info:', e);
+  }
+  if (greetingText) {
+    greetingText.textContent = `${greeting}! Selamat datang dari ${flag} ${country}.`;
+    console.log('Greeting text set:', greetingText.textContent);
+  } else {
+    console.error('greetingText not found');
+  }
+  if (greetingBanner) {
+    greetingBanner.classList.add('show');
+    greetingBanner.setAttribute('aria-hidden', 'false');
+    console.log('Greeting banner shown');
+    // Focus to dismiss button for accessibility
+    setTimeout(() => dismissGreeting && dismissGreeting.focus(), 100);
+  } else {
+    console.error('greetingBanner not found');
+  }
+}
+
+if (dismissGreeting) {
+  dismissGreeting.addEventListener('click', dismissBanner);
+  dismissGreeting.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      dismissBanner();
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+  await loadGitHubProjects();
+  // Defer greeting modal to improve initial load
+  setTimeout(showGreeting, 1000);
   // Update footer year
   const footerYearText = document.getElementById('footerYearText');
   if (footerYearText) {
@@ -245,6 +324,17 @@ document.addEventListener('DOMContentLoaded', () => {
   if (counterEl) {
     counterEl.textContent = visitCount;
   }
+  // Trigger stat animation if already visible
+  setTimeout(() => {
+    statNumbers.forEach(s => {
+      const rect = s.getBoundingClientRect();
+      if(rect.top < window.innerHeight && rect.bottom > 0){
+        const target = parseInt(s.getAttribute('data-target'));
+        animateNumber(s, 0, target, 2000);
+        statObserver.unobserve(s);
+      }
+    });
+  }, 500);
 });
 
 // Back to Top button
@@ -258,4 +348,22 @@ window.addEventListener('scroll', () => {
 });
 backToTopBtn.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Fade-in animation for sections
+const sections = document.querySelectorAll('section');
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, {threshold: 0.1});
+
+sections.forEach(section => {
+  section.style.opacity = '0';
+  section.style.transform = 'translateY(20px)';
+  section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  sectionObserver.observe(section);
 });
