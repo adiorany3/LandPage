@@ -105,6 +105,17 @@ function formatDate(iso){
   return d.toLocaleDateString('id-ID', {year:'numeric',month:'short',day:'numeric'});
 }
 
+function getLanguageIcon(lang) {
+  switch(lang) {
+    case 'Python': return '🐍';
+    case 'JavaScript': return '🟨';
+    case 'HTML': return '🌐';
+    case 'CSS': return '🎨';
+    case 'Jupyter Notebook': return '📓';
+    default: return '📁';
+  }
+}
+
 function renderProjects(repos, {onlyPython=true, limit=6} = {}){
   const grid = document.getElementById('projectsGrid');
   if(!grid) return;
@@ -116,20 +127,30 @@ function renderProjects(repos, {onlyPython=true, limit=6} = {}){
   }
   const slice = list.slice(0, limit);
   grid.innerHTML = '';
-  slice.forEach(r => {
+  slice.forEach((r, index) => {
     const card = document.createElement('article');
-    card.className = 'project-card';
-    const desc = r.description ? r.description : '';
+    card.className = 'project-card fade-in';
+    card.style.animationDelay = `${index * 0.1}s`;
+    const desc = r.description ? r.description : 'Tidak ada deskripsi.';
+    const icon = getLanguageIcon(r.language);
+    let tags = '';
+    if(r.topics && r.topics.length) {
+      tags = r.topics.slice(0,3).map(t => `<span class="project-tag">${t}</span>`).join('');
+    }
     card.innerHTML = `
-      <h3><a href="${r.html_url}" target="_blank" rel="noopener">${r.name}</a></h3>
+      <div class="project-header">
+        <div class="project-icon">${icon}</div>
+        <h3><a href="${r.html_url}" target="_blank" rel="noopener">${r.name}</a></h3>
+      </div>
       <p>${desc}</p>
+      ${tags ? `<div class="project-tags">${tags}</div>` : ''}
       <div class="project-meta">
         <span>🛠 ${r.language || '—'}</span>
         <span>⭐ ${r.stargazers_count}</span>
         <span>● ${formatDate(r.pushed_at)}</span>
       </div>
-      <div class="project-links" style="margin-top:0.75rem">
-        <a class="btn btn-outline" href="${r.html_url}" target="_blank" rel="noopener">Repo</a>
+      <div class="project-links">
+        <a class="btn btn-outline" href="${r.html_url}" target="_blank" rel="noopener">Lihat Repo</a>
       </div>
     `;
     grid.appendChild(card);
@@ -143,6 +164,8 @@ async function loadGitHubProjects(username = 'adiorany3') {
   const filterEl = document.getElementById('filterPython');
   const grid = document.getElementById('projectsGrid');
   if(!grid) return;
+  // Show skeleton loading
+  grid.innerHTML = '<div class="skeleton-card"></div>'.repeat(6);
   try {
     if(!_cachedRepos) _cachedRepos = await fetchGitHubRepos(username);
     // Update projects stat with actual Python repos count
@@ -270,35 +293,24 @@ function dismissBanner() {
 }
 
 async function showGreeting() {
-  console.log('showGreeting called');
   // Removed dismissal check to show greeting on every load
   let country = 'Indonesia', flag = '';
   try {
     const info = await getUserInfo();
     country = info.country || country;
     flag = info.flag || '';
-    console.log('User info:', info);
-  } catch (e) {
-    console.error('Error fetching user info:', e);
-  }
+  } catch (e) {}
   const lang = (country === 'Indonesia') ? 'id' : 'en';
   const greeting = getGreetingMessage(lang);
-  console.log('Greeting message:', greeting, 'Lang:', lang);
   const welcomeText = (lang === 'id') ? 'Selamat datang dari' : 'Welcome from';
   if (greetingText) {
     greetingText.textContent = `${greeting}! ${welcomeText} ${flag} ${country}.`;
-    console.log('Greeting text set:', greetingText.textContent);
-  } else {
-    console.error('greetingText not found');
   }
   if (greetingBanner) {
     greetingBanner.classList.add('show');
     greetingBanner.setAttribute('aria-hidden', 'false');
-    console.log('Greeting banner shown');
     // Focus to dismiss button for accessibility
     setTimeout(() => dismissGreeting && dismissGreeting.focus(), 100);
-  } else {
-    console.error('greetingBanner not found');
   }
 }
 
@@ -342,18 +354,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }, 500);
 });
 
-// Back to Top button
-const backToTopBtn = document.getElementById('backToTop');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    backToTopBtn.classList.add('show');
-  } else {
-    backToTopBtn.classList.remove('show');
-  }
-});
-backToTopBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+// Demo carousel removed, now static grid with animations
 
 // Fade-in animation for sections
 const sections = document.querySelectorAll('section');
