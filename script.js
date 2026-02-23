@@ -317,9 +317,16 @@ async function showGreeting() {
     minute: '2-digit', 
     second: '2-digit' 
   });
-  console.log('Greeting text:', `${greeting}! ${welcomeText} ${flag} ${country}. Akses pada: ${dateTime}.`);
-  if (greetingText) {
-    greetingText.textContent = `${greeting}! ${welcomeText} ${flag} ${country}. Akses pada: ${dateTime}.`;
+  if (country === 'Tidak dapat mendeteksi' || !country) {
+    console.log('Greeting text:', `${greeting}! ${welcomeText}. Akses pada: ${dateTime}.`);
+    if (greetingText) {
+      greetingText.textContent = `${greeting}! ${welcomeText}. Akses pada: ${dateTime}.`;
+    }
+  } else {
+    console.log('Greeting text:', `${greeting}! ${welcomeText} ${flag} ${country}. Akses pada: ${dateTime}.`);
+    if (greetingText) {
+      greetingText.textContent = `${greeting}! ${welcomeText} ${flag} ${country}. Akses pada: ${dateTime}.`;
+    }
   }
   if (greetingBanner) {
     greetingBanner.classList.add('show');
