@@ -3,290 +3,297 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Galuh Adi Insani — AgriTech developer, data science builder, and open-source contributor building practical tools with Python, TypeScript, and web technologies." />
-  <meta name="keywords" content="Galuh Adi Insani, AgriTech, Python, TypeScript, Data Science, Open Source, Streamlit, FastAPI, Next.js" />
+  <meta name="description" content="Galuh Adi Insani — AgriTech developer, data science builder, and open-source contributor building tools for livestock, statistics, and research workflows." />
+  <meta name="keywords" content="Galuh Adi Insani, AgriTech, Python, TypeScript, Data Science, Open Source, Streamlit, FastAPI, Next.js, Statistics" />
   <meta name="author" content="Galuh Adi Insani" />
-  <meta property="og:title" content="Galuh Adi Insani — Tech Landing Page" />
-  <meta property="og:description" content="Developer-focused landing page for AgriTech, data science, research tools, and open-source projects." />
-  <meta property="og:image" content="https://avatars.githubusercontent.com/u/158135665?v=4" />
-  <meta property="og:url" content="https://adioranye.vercel.app" />
-  <meta property="og:type" content="website" />
-  <title>Galuh Adi Insani — AgriTech Developer</title>
+  <title>Galuh Adi Insani — AgriTech & Data Science Developer</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <div class="noise"></div>
-  <div class="orb orb-a"></div>
-  <div class="orb orb-b"></div>
+  <div class="grid-bg"></div>
+  <div class="glow glow-one"></div>
+  <div class="glow glow-two"></div>
 
-  <header class="site-header">
-    <a class="brand" href="#home" aria-label="Back to home">
-      <span class="brand-mark">G</span>
-      <span class="brand-text">adioranye.dev</span>
+  <header class="header">
+    <a href="#home" class="brand">
+      <span class="brand-logo">GA</span>
+      <span>adioranye.dev</span>
     </a>
 
-    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+    <button class="menu-btn" id="menuBtn" aria-label="Open navigation">☰</button>
 
     <nav class="nav" id="nav">
-      <a href="#about">About</a>
-      <a href="#stack">Stack</a>
+      <a href="#about">Profile</a>
+      <a href="#expertise">Expertise</a>
       <a href="#projects">Projects</a>
-      <a href="#demos">Demos</a>
+      <a href="#workflow">Workflow</a>
       <a href="#contact">Contact</a>
     </nav>
 
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-      <span id="themeIcon">◐</span>
-    </button>
+    <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">◐</button>
   </header>
 
   <main>
-    <section class="hero section" id="home">
-      <div class="hero-content reveal">
-        <div class="eyebrow">
-          <span class="status-dot"></span>
-          Available for OSS, research, and freelance collaboration
-        </div>
+    <section class="hero" id="home">
+      <div class="hero-left reveal">
+        <p class="badge"><span></span> AgriTech • Data Science • Open Source</p>
 
         <h1>
-          Building <span class="gradient-text">data-driven AgriTech</span>
-          tools for real-world impact.
+          Building practical software for
+          <em>agriculture, research, and analytics.</em>
         </h1>
 
-        <p class="hero-copy">
-          I’m <strong>Galuh Adi Insani</strong>, a developer and researcher from Indonesia.
-          I transform agricultural, livestock, and statistical workflows into clean,
-          usable, and scalable web applications.
+        <p class="lead">
+          I’m <strong>Galuh Adi Insani</strong>, an Indonesia-based developer focused on
+          turning agricultural formulas, livestock workflows, and statistical methods into
+          useful web applications.
         </p>
 
         <div class="hero-actions">
-          <a class="btn primary" href="#projects">View Projects</a>
-          <a class="btn secondary" href="https://github.com/adiorany3" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn primary" href="#projects">Explore Projects</a>
+          <a class="btn ghost" href="https://github.com/adiorany3" target="_blank" rel="noopener">GitHub Profile</a>
         </div>
 
-        <div class="metrics-grid">
-          <div class="metric-card">
-            <span class="metric-value" data-count="1000">0</span>
-            <span class="metric-label">Open-source contributions</span>
+        <div class="quick-stats">
+          <div>
+            <b>Python</b>
+            <span>Main language</span>
           </div>
-          <div class="metric-card">
-            <span class="metric-value" data-count="17">0</span>
-            <span class="metric-label">Years academic experience</span>
+          <div>
+            <b>AgriTech</b>
+            <span>Primary domain</span>
           </div>
-          <div class="metric-card">
-            <span class="metric-value" data-count="6">0</span>
-            <span class="metric-label">Core product areas</span>
+          <div>
+            <b>OSS</b>
+            <span>Collaboration ready</span>
           </div>
         </div>
       </div>
 
-      <aside class="hero-panel reveal">
-        <div class="terminal">
-          <div class="terminal-top">
-            <span></span><span></span><span></span>
-            <p>profile.ts</p>
+      <aside class="hero-right reveal">
+        <div class="profile-card">
+          <img src="https://avatars.githubusercontent.com/u/158135665?v=4" alt="Galuh Adi Insani" />
+          <div>
+            <h2>Galuh Adi Insani</h2>
+            <p>Developer creating data-driven tools for livestock, statistics, and research.</p>
           </div>
-          <pre><code>const galuh = {
-  role: "AgriTech Developer",
-  location: "Indonesia",
-  stack: ["Python", "TypeScript", "Next.js", "FastAPI", "Streamlit"],
-  focus: [
-    "Livestock optimization",
-    "Statistical analysis",
-    "Research tools",
-    "Open-source products"
-  ],
-  mission: "Bridge agriculture, data science, and software."
-};</code></pre>
         </div>
 
-        <div class="avatar-shell">
-          <img id="heroAvatar" src="https://avatars.githubusercontent.com/u/158135665?v=4" alt="Galuh Adi Insani GitHub avatar" />
+        <div class="terminal-card">
+          <div class="terminal-top">
+            <i></i><i></i><i></i>
+            <span>focus.json</span>
+          </div>
+          <pre><code>{
+  "role": "AgriTech Developer",
+  "stack": ["Python", "TypeScript", "Streamlit", "FastAPI"],
+  "domains": ["Livestock", "Statistics", "Research Tools"],
+  "mission": "Make scientific workflows easier to use."
+}</code></pre>
         </div>
       </aside>
     </section>
 
-    <section class="section split" id="about">
-      <div class="section-heading reveal">
-        <p class="section-kicker">About</p>
-        <h2>From research problems to production-ready tools.</h2>
+    <section class="section compact-grid" id="about">
+      <div class="section-title reveal">
+        <p>Profile</p>
+        <h2>What I do</h2>
       </div>
 
-      <div class="content-card reveal">
+      <div class="info-panel reveal">
         <p>
-          My work sits at the intersection of agriculture, statistics, and software engineering.
-          I build tools that help users calculate feed rations, run statistical tests, estimate livestock
-          production metrics, and turn complex formulas into practical interfaces.
+          I build practical applications that help users calculate, analyze, optimize, and interpret data.
+          My projects combine domain knowledge in livestock and agriculture with software engineering,
+          statistical computation, and clean user interfaces.
         </p>
 
-        <div class="tag-list">
-          <span>AgriTech</span>
-          <span>Data Science</span>
-          <span>Scientific Computing</span>
+        <div class="pill-row">
+          <span>Livestock Tools</span>
+          <span>Statistical Apps</span>
+          <span>Research Software</span>
+          <span>Dashboard UI</span>
           <span>Optimization</span>
-          <span>Open Source</span>
         </div>
       </div>
     </section>
 
-    <section class="section" id="stack">
-      <div class="section-heading center reveal">
-        <p class="section-kicker">Tech Stack</p>
-        <h2>Tools I use to design, analyze, build, and ship.</h2>
+    <section class="section" id="expertise">
+      <div class="section-title center reveal">
+        <p>Expertise</p>
+        <h2>Compact skill map</h2>
       </div>
 
-      <div class="stack-grid">
-        <article class="stack-card reveal">
-          <h3>Languages</h3>
-          <p>Python, TypeScript, JavaScript, HTML, CSS</p>
+      <div class="expertise-grid">
+        <article class="skill-card reveal">
+          <h3>AgriTech Systems</h3>
+          <p>Feed formulation, livestock body weight prediction, carcass estimation, and nutrition-related tools.</p>
+          <ul>
+            <li>Ruminant ration calculation</li>
+            <li>Dairy cattle feed optimization</li>
+            <li>Livestock production estimation</li>
+          </ul>
         </article>
-        <article class="stack-card reveal">
-          <h3>Frontend</h3>
-          <p>React, Next.js, responsive UI, interactive dashboards</p>
+
+        <article class="skill-card reveal">
+          <h3>Statistical Computing</h3>
+          <p>Web-based statistics apps designed to make analysis easier for students, researchers, and practitioners.</p>
+          <ul>
+            <li>One-Way & Two-Way ANOVA</li>
+            <li>T-Test workflows</li>
+            <li>Effect size and visualization</li>
+          </ul>
         </article>
-        <article class="stack-card reveal">
-          <h3>Backend</h3>
-          <p>FastAPI, API design, data processing pipelines</p>
+
+        <article class="skill-card reveal">
+          <h3>Web App Development</h3>
+          <p>Building accessible interfaces and deployable applications using modern web and Python ecosystems.</p>
+          <ul>
+            <li>Streamlit dashboards</li>
+            <li>FastAPI services</li>
+            <li>Next.js / React interfaces</li>
+          </ul>
         </article>
-        <article class="stack-card reveal">
-          <h3>Data</h3>
-          <p>Pandas, NumPy, SciPy, Statsmodels, Scikit-learn</p>
-        </article>
-        <article class="stack-card reveal">
-          <h3>Visualization</h3>
-          <p>Matplotlib, Seaborn, Plotly, Streamlit apps</p>
-        </article>
-        <article class="stack-card reveal">
-          <h3>Deployment</h3>
-          <p>GitHub, GitHub Actions, Vercel, Streamlit Cloud</p>
-        </article>
+      </div>
+
+      <div class="stack-strip reveal">
+        <span>Python</span>
+        <span>TypeScript</span>
+        <span>React</span>
+        <span>Next.js</span>
+        <span>FastAPI</span>
+        <span>Streamlit</span>
+        <span>Pandas</span>
+        <span>NumPy</span>
+        <span>SciPy</span>
+        <span>Statsmodels</span>
+        <span>Plotly</span>
+        <span>GitHub Actions</span>
       </div>
     </section>
 
     <section class="section" id="projects">
-      <div class="section-heading center reveal">
-        <p class="section-kicker">Featured Projects</p>
-        <h2>Open-source projects with practical domain impact.</h2>
-      </div>
-
-      <div class="project-toolbar reveal">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="agritech">AgriTech</button>
-        <button class="filter-btn" data-filter="stats">Statistics</button>
-        <button class="filter-btn" data-filter="ml">Machine Learning</button>
+      <div class="section-title center reveal">
+        <p>Projects</p>
+        <h2>Selected open-source work</h2>
       </div>
 
       <div class="project-grid">
-        <article class="project-card reveal" data-category="agritech">
-          <div class="project-icon">🐄</div>
+        <article class="project-card feature reveal">
+          <span class="label">AgriTech / Optimization</span>
           <h3>ransumruminansia</h3>
-          <p>Ruminant ration formulation app with linear programming, nutrition checks, and cost optimization.</p>
-          <a href="https://github.com/adiorany3/ransumruminansia" target="_blank" rel="noopener">View repository →</a>
+          <p>Comprehensive ruminant feed formulation app with manual formulation, linear programming optimization, mineral analysis, and nutrition evaluation.</p>
+          <div class="meta">
+            <span>Python</span><span>Streamlit</span><span>Linear Programming</span>
+          </div>
+          <a href="https://github.com/adiorany3/ransumruminansia" target="_blank" rel="noopener">Repository →</a>
         </article>
 
-        <article class="project-card reveal" data-category="agritech">
-          <div class="project-icon">🥛</div>
-          <h3>ransumsapiperah</h3>
-          <p>Dairy cattle ration optimizer designed for nutrient requirements and least-cost formulation.</p>
-          <a href="https://github.com/adiorany3/ransumsapiperah" target="_blank" rel="noopener">View repository →</a>
-        </article>
-
-        <article class="project-card reveal" data-category="stats">
-          <div class="project-icon">📊</div>
+        <article class="project-card reveal">
+          <span class="label">Statistics</span>
           <h3>OneWay</h3>
-          <p>One-Way ANOVA tool with post-hoc tests, assumption checks, effect size, and visual interpretation.</p>
-          <a href="https://github.com/adiorany3/OneWay" target="_blank" rel="noopener">View repository →</a>
+          <p>One-Way ANOVA tool with post-hoc tests, effect size, assumption testing, and visual interpretation.</p>
+          <div class="meta">
+            <span>Python</span><span>ANOVA</span>
+          </div>
+          <a href="https://github.com/adiorany3/OneWay" target="_blank" rel="noopener">Repository →</a>
         </article>
 
-        <article class="project-card reveal" data-category="stats">
-          <div class="project-icon">🔬</div>
+        <article class="project-card reveal">
+          <span class="label">Statistics</span>
           <h3>TwoWay</h3>
-          <p>Two-Way ANOVA analysis app with interaction effects, Tukey HSD, eta-squared, and export support.</p>
-          <a href="https://github.com/adiorany3/TwoWay" target="_blank" rel="noopener">View repository →</a>
+          <p>Two-Way ANOVA app for interaction effects, Tukey HSD, eta-squared, and multi-format export.</p>
+          <div class="meta">
+            <span>Python</span><span>Research</span>
+          </div>
+          <a href="https://github.com/adiorany3/TwoWay" target="_blank" rel="noopener">Repository →</a>
         </article>
 
-        <article class="project-card reveal" data-category="stats">
-          <div class="project-icon">📈</div>
+        <article class="project-card reveal">
+          <span class="label">AgriTech</span>
+          <h3>ransumsapiperah</h3>
+          <p>Dairy cattle ration optimizer for nutrient requirements, cost minimization, and ingredient planning.</p>
+          <div class="meta">
+            <span>Python</span><span>Optimization</span>
+          </div>
+          <a href="https://github.com/adiorany3/ransumsapiperah" target="_blank" rel="noopener">Repository →</a>
+        </article>
+
+        <article class="project-card reveal">
+          <span class="label">Statistics</span>
           <h3>ttest</h3>
-          <p>T-Test analysis app for one-sample and independent tests with confidence intervals and visual outputs.</p>
-          <a href="https://github.com/adiorany3/ttest" target="_blank" rel="noopener">View repository →</a>
+          <p>T-Test analysis app with one-sample and independent test workflows, confidence intervals, and visualization.</p>
+          <div class="meta">
+            <span>Python</span><span>T-Test</span>
+          </div>
+          <a href="https://github.com/adiorany3/ttest" target="_blank" rel="noopener">Repository →</a>
         </article>
 
-        <article class="project-card reveal" data-category="ml">
-          <div class="project-icon">⚖️</div>
+        <article class="project-card reveal">
+          <span class="label">Livestock</span>
           <h3>karkas</h3>
-          <p>Livestock carcass and non-carcass estimation calculator using research-based formulas.</p>
-          <a href="https://github.com/adiorany3/karkas" target="_blank" rel="noopener">View repository →</a>
+          <p>Carcass and non-carcass estimation calculator for Indonesian livestock using research-based formulas.</p>
+          <div class="meta">
+            <span>Python</span><span>Calculator</span>
+          </div>
+          <a href="https://github.com/adiorany3/karkas" target="_blank" rel="noopener">Repository →</a>
         </article>
       </div>
     </section>
 
-    <section class="section" id="demos">
-      <div class="section-heading center reveal">
-        <p class="section-kicker">Interactive Demos</p>
-        <h2>Live apps built for analytics, livestock, and research workflows.</h2>
+    <section class="section compact-grid" id="workflow">
+      <div class="section-title reveal">
+        <p>Workflow</p>
+        <h2>How I build</h2>
       </div>
 
-      <div class="demo-grid">
-        <a class="demo-card reveal" href="https://ayamkampung.streamlit.app" target="_blank" rel="noopener">
-          <span>Business Analytics</span>
-          <h3>Native Chicken Business Analysis</h3>
-          <p>Profitability dashboard for livestock business planning.</p>
-        </a>
-
-        <a class="demo-card reveal" href="https://bbternak.streamlit.app" target="_blank" rel="noopener">
-          <span>Machine Learning</span>
-          <h3>Livestock Body Weight Prediction</h3>
-          <p>Regression-based prediction using body measurement data.</p>
-        </a>
-
-        <a class="demo-card reveal" href="https://ransumruminansia.streamlit.app" target="_blank" rel="noopener">
-          <span>Optimization</span>
-          <h3>Ruminant Feed Formulation</h3>
-          <p>Interactive ration design based on nutrition and cost.</p>
-        </a>
-
-        <a class="demo-card reveal" href="https://oneway.streamlit.app" target="_blank" rel="noopener">
-          <span>Statistics</span>
-          <h3>One-Way ANOVA</h3>
-          <p>Statistical comparison workflow with visual interpretation.</p>
-        </a>
+      <div class="timeline reveal">
+        <div>
+          <b>01</b>
+          <h3>Understand the formula</h3>
+          <p>Translate domain logic, agricultural formulas, or statistical methods into clear computation steps.</p>
+        </div>
+        <div>
+          <b>02</b>
+          <h3>Design the workflow</h3>
+          <p>Create a practical interface that matches how users calculate, analyze, and interpret results.</p>
+        </div>
+        <div>
+          <b>03</b>
+          <h3>Build and validate</h3>
+          <p>Implement the app, test calculations, improve visualization, and prepare deployment.</p>
+        </div>
       </div>
     </section>
 
     <section class="section contact" id="contact">
       <div class="contact-card reveal">
-        <p class="section-kicker">Contact</p>
-        <h2>Let’s build something useful.</h2>
-        <p>
-          Open for open-source collaboration, research tooling, AgriTech projects, and data-driven web apps.
-        </p>
+        <p>Contact</p>
+        <h2>Open for collaboration</h2>
+        <span>
+          Research tools, AgriTech products, statistical dashboards, open-source projects, and freelance work.
+        </span>
 
-        <div class="contact-actions">
-          <a class="btn primary" href="mailto:adioranye@ugm.ac.id">Email Me</a>
-          <button class="btn secondary" id="copyEmail">Copy Email</button>
+        <div class="contact-links">
+          <a href="mailto:adioranye@ugm.ac.id">Email</a>
+          <a href="https://github.com/adiorany3" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/galuh-adi-insani-1aa0a5105/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://adioranye.vercel.app" target="_blank" rel="noopener">Portfolio</a>
         </div>
-
-        <p class="copied" id="copiedText">Email copied to clipboard.</p>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>© <span id="year"></span> Galuh Adi Insani. Built with HTML, CSS, and JavaScript.</p>
-    <div>
-      <a href="https://github.com/adiorany3" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/galuh-adi-insani-1aa0a5105/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://adioranye.vercel.app" target="_blank" rel="noopener">Website</a>
-    </div>
+    <span>© <b id="year"></b> Galuh Adi Insani</span>
+    <span>Built with HTML, CSS, and JavaScript.</span>
   </footer>
 
-  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+  <button class="top-btn" id="topBtn" aria-label="Back to top">↑</button>
 
   <script src="script.js"></script>
 </body>

@@ -1,22 +1,21 @@
-# LandPage — Techie Redesign
+# LandPage — Compact Techie Version
 
-This is a more tech-focused redesign of the original `adiorany3/LandPage` project.
+Versi ini dibuat lebih **berisi, kompak, dan tetap techie**.
 
-## What's changed
+## Perubahan Utama
 
-- English landing page copy
-- Dark tech aesthetic
-- Glassmorphism UI
-- Terminal-style hero card
-- Project filter interaction
-- Animated counters
-- Scroll reveal animation
-- Light/dark toggle
-- Responsive mobile navigation
+- Copywriting lebih padat dan profesional
+- Section dibuat lebih ringkas agar tidak terlalu kosong
+- Hero lebih kuat dengan profil + terminal card
+- Project card lebih informatif dengan kategori dan tech tags
+- Skill map lebih jelas
+- Workflow section ditambahkan agar landing page terasa lebih lengkap
+- Responsive untuk mobile
+- Light/dark mode tetap tersedia
 
-## How to use
+## Cara Pakai
 
-Replace the existing files in your repository with:
+Replace file lama di repo `LandPage` dengan:
 
 ```txt
 index.html
@@ -24,4 +23,4 @@ styles.css
 script.js
 ```
 
-Then commit and push to GitHub Pages / Vercel / Netlify.
+Lalu commit dan push ke GitHub.
