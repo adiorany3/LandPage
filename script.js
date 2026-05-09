@@ -1,489 +1,130 @@
-// Smooth scroll for nav anchors
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', (e) => {
-    const href = a.getAttribute('href')
-    if(href.startsWith('#')){
-      e.preventDefault();
-      const el = document.querySelector(href);
-      if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+const menuToggle = document.getElementById("menuToggle");
+const nav = document.getElementById("nav");
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = document.getElementById("themeIcon");
+const backToTop = document.getElementById("backToTop");
+const copyEmail = document.getElementById("copyEmail");
+const copiedText = document.getElementById("copiedText");
+const year = document.getElementById("year");
+
+year.textContent = new Date().getFullYear();
+
+menuToggle.addEventListener("click", () => {
+  nav.classList.toggle("open");
+});
+
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", (event) => {
+    const target = document.querySelector(anchor.getAttribute("href"));
+
+    if (target) {
+      event.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      nav.classList.remove("open");
     }
-  })
-})
+  });
+});
 
-// Theme toggle
-const tBtn = document.getElementById('themeToggle');
-tBtn.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
-  tBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙'
-})
+const savedTheme = localStorage.getItem("theme");
 
-// Mobile menu toggle
-const menuToggle = document.getElementById('menuToggle');
-const primaryMenu = document.getElementById('primaryMenu');
-const toggleMenu = (e) => {
-  console.log('Menu toggle activated');
-  e.preventDefault();
-  const open = menuToggle.getAttribute('aria-expanded') === 'true';
-  menuToggle.setAttribute('aria-expanded', String(!open));
-  if(!open){
-    primaryMenu.style.display = 'flex';
-  } else {
-    primaryMenu.style.display = '';
-  }
-};
-menuToggle && menuToggle.addEventListener('click', toggleMenu);
-menuToggle && menuToggle.addEventListener('touchstart', toggleMenu);
+if (savedTheme === "light") {
+  document.body.classList.add("light");
+  themeIcon.textContent = "☾";
+}
 
-// Animate stat numbers when visible
-const statNumbers = document.querySelectorAll('.stat-number');
-const statObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      const target = parseInt(entry.target.getAttribute('data-target'));
-      animateNumber(entry.target, 0, target, 2000);
-      statObserver.unobserve(entry.target);
-    }
-  })
-},{threshold:0.5});
-statNumbers.forEach(s => statObserver.observe(s));
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("light");
+  const isLight = document.body.classList.contains("light");
+  themeIcon.textContent = isLight ? "☾" : "◐";
+  localStorage.setItem("theme", isLight ? "light" : "dark");
+});
 
-// Animate skill bars when visible
-const skillCards = document.querySelectorAll('.skill-card');
-const skillObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      const fill = entry.target.querySelector('.skill-fill');
-      if(fill){
-        const width = fill.style.width;
-        fill.style.width = '0';
-        setTimeout(() => fill.style.width = width, 100);
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        revealObserver.unobserve(entry.target);
       }
-      skillObserver.unobserve(entry.target);
-    }
-  })
-},{threshold:0.5});
-skillCards.forEach(card => skillObserver.observe(card));
+    });
+  },
+  { threshold: 0.14 }
+);
 
-function animateNumber(element, start, end, duration) {
-  const startTime = performance.now();
-  const update = (currentTime) => {
-    const elapsed = currentTime - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    const value = Math.floor(start + (end - start) * progress);
-    element.textContent = value;
-    if (progress < 1) requestAnimationFrame(update);
+document.querySelectorAll(".reveal").forEach((element) => {
+  revealObserver.observe(element);
+});
+
+const animateCounter = (element) => {
+  const target = Number(element.dataset.count);
+  const duration = 1300;
+  const start = performance.now();
+
+  const update = (time) => {
+    const progress = Math.min((time - start) / duration, 1);
+    const value = Math.floor(progress * target);
+    element.textContent = target >= 1000 ? `${value}+` : value;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      element.textContent = target >= 1000 ? `${target}+` : target;
+    }
   };
+
   requestAnimationFrame(update);
-}
+};
 
-// Close mobile menu when a nav link is clicked
-document.querySelectorAll('#primaryMenu a').forEach(a => {
-  a.addEventListener('click', () => {
-    if(primaryMenu){
-      primaryMenu.style.display = '';
-      if(menuToggle) menuToggle.setAttribute('aria-expanded','false');
-    }
-  });
-});
-
-// Note: contact is handled via email only; no client-side form handler is needed.
-
-// Load GitHub repositories into the Projects section
-let _cachedRepos = null;
-let _displayCount = 6;
-
-async function fetchGitHubRepos(username = 'adiorany3'){
-  try {
-    const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=pushed&direction=desc`);
-    if(!res.ok) throw new Error('Gagal mengambil repositori');
-    const repos = await res.json();
-    return repos.filter(r => !r.fork);
-  } catch (error) {
-    console.error('Error fetching GitHub repos:', error);
-    throw error;
-  }
-}
-
-function formatDate(iso){
-  const d = new Date(iso);
-  return d.toLocaleDateString('id-ID', {year:'numeric',month:'short',day:'numeric'});
-}
-
-function getLanguageIcon(lang) {
-  switch(lang) {
-    case 'Python': return '🐍';
-    case 'JavaScript': return '🟨';
-    case 'HTML': return '🌐';
-    case 'CSS': return '🎨';
-    case 'Jupyter Notebook': return '📓';
-    default: return '📁';
-  }
-}
-
-function renderProjects(repos, {onlyPython=true, limit=6} = {}){
-  const grid = document.getElementById('projectsGrid');
-  if(!grid) return;
-  let list = repos.slice();
-  if(onlyPython) list = list.filter(r => r.language === 'Python');
-  if(list.length === 0){
-    grid.innerHTML = `<p class="muted">Tidak ada repositori Python publik. Lihat <a href="https://github.com/adiorany3" target="_blank" rel="noopener">profil GitHub</a>.</p>`;
-    return;
-  }
-  const slice = list.slice(0, limit);
-  grid.innerHTML = '';
-  slice.forEach((r, index) => {
-    const card = document.createElement('article');
-    card.className = 'project-card fade-in';
-    card.style.animationDelay = `${index * 0.1}s`;
-    const desc = r.description ? r.description : 'Tidak ada deskripsi.';
-    const icon = getLanguageIcon(r.language);
-    let tags = '';
-    if(r.topics && r.topics.length) {
-      tags = r.topics.slice(0,3).map(t => `<span class="project-tag">${t}</span>`).join('');
-    }
-    card.innerHTML = `
-      <div class="project-header">
-        <div class="project-icon">${icon}</div>
-        <h3><a href="${r.html_url}" target="_blank" rel="noopener">${r.name}</a></h3>
-      </div>
-      <p>${desc}</p>
-      ${tags ? `<div class="project-tags">${tags}</div>` : ''}
-      <div class="project-meta">
-        <span>🛠 ${r.language || '—'}</span>
-        <span>⭐ ${r.stargazers_count}</span>
-        <span>● ${formatDate(r.pushed_at)}</span>
-      </div>
-      <div class="project-links">
-        <a class="btn btn-outline" href="${r.html_url}" target="_blank" rel="noopener">Lihat Repo</a>
-      </div>
-    `;
-    grid.appendChild(card);
-  });
-  // update more button visibility
-  const loadMore = document.getElementById('loadMore');
-  if(loadMore) loadMore.style.display = (list.length > limit) ? 'inline-block' : 'none';
-}
-
-async function loadGitHubProjects(username = 'adiorany3') {
-  const filterEl = document.getElementById('filterPython');
-  const grid = document.getElementById('projectsGrid');
-  if(!grid) return;
-  // Show skeleton loading
-  grid.innerHTML = '<div class="skeleton-card"></div>'.repeat(6);
-  try {
-    if(!_cachedRepos) _cachedRepos = await fetchGitHubRepos(username);
-    // Update projects stat with actual Python repos count
-    const pythonReposCount = _cachedRepos.filter(r => r.language === 'Python').length;
-    const projectsStat = document.getElementById('projectsStat');
-    if(projectsStat){
-      const statNumber = projectsStat.querySelector('.stat-number');
-      if(statNumber) statNumber.setAttribute('data-target', pythonReposCount);
-    }
-    renderProjects(_cachedRepos, {onlyPython: filterEl && filterEl.checked, limit: _displayCount});
-  } catch (err) {
-    grid.innerHTML = `<p class="muted">Terjadi kesalahan saat memuat proyek. <a href="https://github.com/${username}" target="_blank" rel="noopener">Lihat GitHub</a>.</p>`;
-    console.error(err);
-  }
-}
-
-// Events for filtering and load more
-const filterEl = document.getElementById('filterPython');
-const loadBtn = document.getElementById('loadMore');
-if(filterEl) filterEl.addEventListener('change', () => {
-  _displayCount = 6; // reset
-  loadGitHubProjects();
-});
-if(loadBtn) loadBtn.addEventListener('click', () => {
-  _displayCount += 6;
-  loadGitHubProjects();
-});
-
-// Copy email button behavior
-const copyBtn = document.getElementById('copyEmail');
-const emailBtn = document.getElementById('emailBtn');
-if(copyBtn && emailBtn){
-  emailBtn.addEventListener('click', () => {
-    window.location.href = 'mailto:adioranye@ugm.ac.id';
-  });
-  copyBtn.addEventListener('click', async () => {
-    const email = 'adioranye@ugm.ac.id';
-    try{
-      await navigator.clipboard.writeText(email);
-      const old = copyBtn.textContent;
-      copyBtn.textContent = 'Tersalin!';
-      copyBtn.disabled = true;
-      setTimeout(() => { copyBtn.textContent = old; copyBtn.disabled = false; }, 1400);
-    }catch(e){
-      // fallback
-      window.prompt('Salin alamat email:', email);
-    }
-  });
-}
-
-// Greeting banner (compact, once-per-day)
-const greetingBanner = document.getElementById('greetingBanner');
-const greetingText = document.getElementById('greetingText');
-const dismissGreeting = document.getElementById('dismissGreeting');
-
-function getBrowserName() {
-  const ua = navigator.userAgent;
-  if (ua.includes('Chrome') && !ua.includes('Edg')) return 'Chrome';
-  if (ua.includes('Firefox')) return 'Firefox';
-  if (ua.includes('Safari') && !ua.includes('Chrome')) return 'Safari';
-  if (ua.includes('Edg')) return 'Edge';
-  if (ua.includes('Opera') || ua.includes('OPR')) return 'Opera';
-  return 'Browser tidak dikenal';
-}
-
-function getDeviceType() {
-  const ua = navigator.userAgent;
-  if (/Mobi|Android/i.test(ua)) return 'Mobile';
-  if (/Tablet|iPad/i.test(ua)) return 'Tablet';
-  return 'Desktop';
-}
-
-function getFlagEmoji(countryCode) {
-  if (!countryCode || countryCode === 'Tidak dapat mendeteksi') return '';
-  return countryCode.toUpperCase().replace(/./g, char => String.fromCodePoint(char.charCodeAt(0) + 127397));
-}
-
-async function getUserInfo() {
-  try {
-    const response = await fetch('https://api.ipify.org?format=json');
-    if (!response.ok) throw new Error('Failed to fetch IP');
-    const data = await response.json();
-    const ip = data.ip;
-    const countryResponse = await fetch(`https://ipapi.co/${ip}/json/`);
-    if (!countryResponse.ok) throw new Error('Failed to fetch country');
-    const countryData = await countryResponse.json();
-    const country = countryData.country_name || 'Tidak dapat mendeteksi';
-    const countryCode = countryData.country_code || '';
-    const flag = getFlagEmoji(countryCode);
-    const browser = getBrowserName();
-    const device = getDeviceType();
-    return { ip, country, flag, browser, device };
-  } catch (error) {
-    console.error('Error fetching user info:', error);
-    const browser = getBrowserName();
-    const device = getDeviceType();
-    return { ip: 'Tidak dapat mendeteksi', country: 'Tidak dapat mendeteksi', flag: '', browser, device };
-  }
-}
-
-function getGreetingMessage(lang = 'id') {
-  const hour = new Date().getHours();
-  if (lang === 'en') {
-    if (hour >= 5 && hour < 12) return 'Good morning';
-    if (hour >= 12 && hour < 18) return 'Good afternoon';
-    return 'Good evening';
-  } else {
-    if (hour >= 5 && hour < 12) return 'Selamat pagi';
-    if (hour >= 12 && hour < 18) return 'Selamat siang';
-    return 'Selamat malam';
-  }
-}
-
-function greetingDismissedToday() {
-  const val = localStorage.getItem('greetingDismissDate');
-  return val === new Date().toISOString().slice(0,10);
-}
-
-function dismissBanner() {
-  if (greetingBanner) {
-    greetingBanner.classList.remove('show');
-    greetingBanner.setAttribute('aria-hidden', 'true');
-  }
-  localStorage.setItem('greetingDismissDate', new Date().toISOString().slice(0,10));
-}
-
-async function showGreeting() {
-  console.log('showGreeting called');
-  // Removed dismissal check to show greeting on every load
-  let country = 'Indonesia', flag = '';
-  try {
-    const info = await getUserInfo();
-    country = info.country || country;
-    flag = info.flag || '';
-  } catch (e) {}
-  const lang = (country === 'Indonesia') ? 'id' : 'en';
-  const greeting = getGreetingMessage(lang);
-  const welcomeText = (lang === 'id') ? 'Selamat datang dari' : 'Welcome from';
-  const now = new Date();
-  const dateTime = now.toLocaleString('id-ID', { 
-    year: 'numeric', 
-    month: 'long', 
-    day: 'numeric', 
-    hour: '2-digit', 
-    minute: '2-digit', 
-    second: '2-digit' 
-  });
-  if (country === 'Tidak dapat mendeteksi' || !country) {
-    console.log('Greeting text:', `${greeting}! ${welcomeText}. Akses pada: ${dateTime}.`);
-    if (greetingText) {
-      greetingText.textContent = `${greeting}! ${welcomeText}. Akses pada: ${dateTime}.`;
-    }
-  } else {
-    console.log('Greeting text:', `${greeting}! ${welcomeText} ${flag} ${country}. Akses pada: ${dateTime}.`);
-    if (greetingText) {
-      greetingText.textContent = `${greeting}! ${welcomeText} ${flag} ${country}. Akses pada: ${dateTime}.`;
-    }
-  }
-  if (greetingBanner) {
-    greetingBanner.classList.add('show');
-    greetingBanner.setAttribute('aria-hidden', 'false');
-    // Focus to dismiss button for accessibility
-    setTimeout(() => dismissGreeting && dismissGreeting.focus(), 100);
-  }
-}
-
-if (dismissGreeting) {
-  dismissGreeting.addEventListener('click', dismissBanner);
-  dismissGreeting.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      dismissBanner();
-    }
-  });
-}
-
-document.addEventListener('DOMContentLoaded', async () => {
-  // Set default theme to dark
-  document.body.classList.add('dark');
-  tBtn.textContent = '☀️';
-  await loadGitHubProjects();
-  // Defer greeting modal to improve initial load
-  setTimeout(showGreeting, 1000);
-  // Update footer year
-  const footerYearText = document.getElementById('footerYearText');
-  if (footerYearText) {
-    footerYearText.textContent = `© ${new Date().getFullYear()} Galuh Adi Insani — Semua hak dilindungi.`;
-  }
-  // Visit counter
-  let visitCount = localStorage.getItem('visitCount') || 0;
-  visitCount = parseInt(visitCount) + 1;
-  localStorage.setItem('visitCount', visitCount);
-  const counterEl = document.getElementById('visitCounter');
-  if (counterEl) {
-    counterEl.textContent = visitCount;
-  }
-  // Trigger stat animation if already visible
-  setTimeout(() => {
-    statNumbers.forEach(s => {
-      const rect = s.getBoundingClientRect();
-      if(rect.top < window.innerHeight && rect.bottom > 0){
-        const target = parseInt(s.getAttribute('data-target'));
-        animateNumber(s, 0, target, 2000);
-        statObserver.unobserve(s);
+const counterObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
       }
     });
-  }, 500);
+  },
+  { threshold: 0.5 }
+);
+
+document.querySelectorAll("[data-count]").forEach((element) => {
+  counterObserver.observe(element);
 });
 
-// Demo carousel removed, now static grid with animations
+document.querySelectorAll(".filter-btn").forEach((button) => {
+  button.addEventListener("click", () => {
+    const filter = button.dataset.filter;
 
-// Fade-in animation for sections
-const sections = document.querySelectorAll('section');
-const sectionObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-    }
-  });
-}, {threshold: 0.1});
-
-sections.forEach(section => {
-  section.style.opacity = '0';
-  section.style.transform = 'translateY(20px)';
-  section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-  sectionObserver.observe(section);
-});
-
-// Music toggle
-const musicToggle = document.getElementById('musicToggle');
-const backgroundMusic = document.getElementById('backgroundMusic');
-backgroundMusic.volume = 0.5; // Set medium volume for better audibility
-backgroundMusic.load(); // Ensure audio is loaded
-console.log('Audio loaded, readyState:', backgroundMusic.readyState);
-musicToggle.textContent = backgroundMusic.muted ? '🎵' : '🔊';
-musicToggle.addEventListener('click', () => {
-  console.log('Music toggle clicked, paused:', backgroundMusic.paused, 'muted:', backgroundMusic.muted);
-  if (backgroundMusic.paused || backgroundMusic.muted) {
-    backgroundMusic.muted = false;
-    backgroundMusic.play().then(() => {
-      console.log('Music started playing from toggle');
-      musicToggle.textContent = '🔊';
-    }).catch(e => console.log('Play failed from toggle:', e));
-  } else {
-    backgroundMusic.muted = true;
-    musicToggle.textContent = '🎵';
-  }
-});
-
-// Back to top button
-const backToTopBtn = document.getElementById('backToTop');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    backToTopBtn.classList.add('show');
-  } else {
-    backToTopBtn.classList.remove('show');
-  }
-});
-backToTopBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-document.querySelectorAll('button').forEach(button => {
-  if (button.id !== 'musicToggle') { // Exclude the music toggle button itself
-    button.addEventListener('click', () => {
-      console.log('Button clicked, music paused:', backgroundMusic.paused, 'muted:', backgroundMusic.muted);
-      if (backgroundMusic.muted) {
-        backgroundMusic.muted = false;
-        musicToggle.textContent = '🔊';
-      }
+    document.querySelectorAll(".filter-btn").forEach((item) => {
+      item.classList.remove("active");
     });
-  }
-});
 
-// Fallback: unmute music on first document click if muted
-let musicUnmuted = false;
-document.addEventListener('click', () => {
-  if (!musicUnmuted && backgroundMusic.muted) {
-    console.log('Document clicked, unmuting music');
-    backgroundMusic.muted = false;
-    musicUnmuted = true;
-    musicToggle.textContent = '🔊';
-  }
-});
+    button.classList.add("active");
 
-// Background music: ensure autoplay muted, unmute & play on any button click, fallback for any click
-document.addEventListener('DOMContentLoaded', () => {
-  // Ensure music is muted and loaded on start
-  backgroundMusic.muted = true;
-  backgroundMusic.load();
-  let musicUnmuted = false;
-
-  // Unmute and play on any button click (kecuali tombol musicToggle)
-  document.querySelectorAll('button').forEach(button => {
-    if (button.id !== 'musicToggle') {
-      button.addEventListener('click', () => {
-        if (backgroundMusic.muted || backgroundMusic.paused) {
-          backgroundMusic.muted = false;
-          backgroundMusic.play().catch(() => {});
-          musicToggle.textContent = '🔊';
-          musicUnmuted = true;
-        }
-      });
-    }
+    document.querySelectorAll(".project-card").forEach((card) => {
+      const shouldShow = filter === "all" || card.dataset.category === filter;
+      card.classList.toggle("hide", !shouldShow);
+    });
   });
+});
 
-  // Fallback: unmute & play on first document click anywhere
-  document.addEventListener('click', () => {
-    if (!musicUnmuted && (backgroundMusic.muted || backgroundMusic.paused)) {
-      backgroundMusic.muted = false;
-      backgroundMusic.play().catch(() => {});
-      musicToggle.textContent = '🔊';
-      musicUnmuted = true;
-    }
-  }, { once: true });
+window.addEventListener("scroll", () => {
+  backToTop.classList.toggle("show", window.scrollY > 650);
+});
+
+backToTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+copyEmail.addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText("adioranye@ugm.ac.id");
+    copiedText.classList.add("show");
+
+    setTimeout(() => {
+      copiedText.classList.remove("show");
+    }, 1800);
+  } catch {
+    window.location.href = "mailto:adioranye@ugm.ac.id";
+  }
 });

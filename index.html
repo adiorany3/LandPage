@@ -1,361 +1,293 @@
 <!doctype html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Profil Galuh Adi Insani, Data Analytics Expert dengan pengalaman 17+ tahun. Spesialis Python untuk analisis data, visualisasi, dan machine learning." />
-  <meta name="keywords" content="data analytics, python, machine learning, galuh adi insani, ugm, indonesia" />
-  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Galuh Adi Insani — AgriTech developer, data science builder, and open-source contributor building practical tools with Python, TypeScript, and web technologies." />
+  <meta name="keywords" content="Galuh Adi Insani, AgriTech, Python, TypeScript, Data Science, Open Source, Streamlit, FastAPI, Next.js" />
   <meta name="author" content="Galuh Adi Insani" />
-  <meta property="og:title" content="Galuh Adi Insani — Landing Page Profil" />
-  <meta property="og:description" content="Data Analytics Expert yang mengubah data mentah menjadi insight strategis. Spesialis Python untuk analisis statistik, visualisasi data interaktif, machine learning, dan pengambilan keputusan berbasis data yang akurat dan dapat ditindaklanjuti." />
+  <meta property="og:title" content="Galuh Adi Insani — Tech Landing Page" />
+  <meta property="og:description" content="Developer-focused landing page for AgriTech, data science, research tools, and open-source projects." />
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/158135665?v=4" />
   <meta property="og:url" content="https://adioranye.vercel.app" />
   <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Galuh Adi Insani — Landing Page Profil" />
-  <meta name="twitter:description" content="Data Analytics Expert yang mengubah data mentah menjadi insight strategis." />
-  <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/158135665?v=4" />
-  <link rel="canonical" href="https://adioranye.vercel.app" />
-  <title>Galuh Adi Insani — Landing Page Profil</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3e%3crect x='4' y='12' width='4' height='16' fill='%236b46c1'/%3e%3crect x='12' y='8' width='4' height='20' fill='%236b46c1'/%3e%3crect x='20' y='4' width='4' height='24' fill='%236b46c1'/%3e%3crect x='28' y='16' width='4' height='12' fill='%236b46c1'/%3e%3c/svg%3e">
+  <title>Galuh Adi Insani — AgriTech Developer</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" as="style" onload="this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"></noscript>
-  <link rel="stylesheet" href="styles.min.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Galuh Adi Insani",
-    "jobTitle": "Data Analytics Expert",
-    "description": "Data Analytics Expert dengan pengalaman 17+ tahun, spesialis Python untuk analisis data, visualisasi, dan machine learning.",
-    "url": "https://adioranye.vercel.app",
-    "image": "https://avatars.githubusercontent.com/u/158135665?v=4",
-    "sameAs": [
-      "https://github.com/adiorany3",
-      "https://www.linkedin.com/in/galuh-adi-insani-1aa0a5105/",
-      "https://scholar.google.com/citations?user=8y2L7xoAAAAJ&hl=id"
-    ],
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Universitas Gadjah Mada"
-    },
-    "email": "adioranye@ugm.ac.id"
-  }
-  </script>
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
+  <div class="noise"></div>
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+
   <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="https://adioranye.vercel.app">HOME</a>
-      <nav class="nav" aria-label="Primary">
-        <button id="menuToggle" class="menu-toggle" aria-expanded="false" aria-controls="primaryMenu" aria-label="Buka menu">☰</button>
-        <ul id="primaryMenu" class="nav-list">
-          <li><a href="#about">Tentang</a></li>
-          <li><a href="#experience">Pengalaman</a></li>
-          <li><a href="#schedule">Jadwal</a></li>
-          <li><a href="#skills">Keahlian</a></li>
-          <li><a href="#projects">Proyek</a></li>
-          <li><a href="#demos">Demo</a></li>
-          <li><a href="#news">Berita</a></li>
-          <li><a href="#contact">Kontak</a></li>
-        </ul>
-      </nav>
-      <div class="header-actions">
-        <button id="themeToggle" aria-label="Toggle theme" class="btn btn-ghost" title="Toggle theme">🌙</button>
-        <button id="musicToggle" aria-label="Toggle music" class="btn btn-ghost" title="Toggle music">🎵</button>
-      </div>
-    </div>
+    <a class="brand" href="#home" aria-label="Back to home">
+      <span class="brand-mark">G</span>
+      <span class="brand-text">adioranye.dev</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+
+    <nav class="nav" id="nav">
+      <a href="#about">About</a>
+      <a href="#stack">Stack</a>
+      <a href="#projects">Projects</a>
+      <a href="#demos">Demos</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <span id="themeIcon">◐</span>
+    </button>
   </header>
 
   <main>
-    <section class="hero" id="home">
-      <div class="container hero-inner">
-        <div class="hero-text">
-          <span class="badge badge-gradient">Data Analytics Expert</span>
-          <h1>Galuh Adi Insani</h1>
-          <p class="lead">Mengubah data mentah menjadi <span class="highlight">insight strategis</span>.
-            <br><span class="highlight-2">Spesialis Python, Machine Learning, dan Visualisasi Data Interaktif.</span>
-          </p>
-          <div class="cta">
-            <a class="btn btn-glow" href="#contact">Hubungi Saya</a>
-            <a class="btn btn-outline btn-animated" href="#about">Pelajari Lebih Lanjut</a>
+    <section class="hero section" id="home">
+      <div class="hero-content reveal">
+        <div class="eyebrow">
+          <span class="status-dot"></span>
+          Available for OSS, research, and freelance collaboration
+        </div>
+
+        <h1>
+          Building <span class="gradient-text">data-driven AgriTech</span>
+          tools for real-world impact.
+        </h1>
+
+        <p class="hero-copy">
+          I’m <strong>Galuh Adi Insani</strong>, a developer and researcher from Indonesia.
+          I transform agricultural, livestock, and statistical workflows into clean,
+          usable, and scalable web applications.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn secondary" href="https://github.com/adiorany3" target="_blank" rel="noopener">GitHub</a>
+        </div>
+
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <span class="metric-value" data-count="1000">0</span>
+            <span class="metric-label">Open-source contributions</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-value" data-count="17">0</span>
+            <span class="metric-label">Years academic experience</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-value" data-count="6">0</span>
+            <span class="metric-label">Core product areas</span>
           </div>
         </div>
-        <div class="hero-avatar avatar-animated" aria-hidden="false">
-          <a href="https://github.com/adiorany3" target="_blank" rel="noopener" aria-label="Profil GitHub Galuh Adi Insani">
-            <img id="heroAvatar" src="https://avatars.githubusercontent.com/u/158135665?v=4" alt="Foto Galuh Adi Insani (GitHub)" loading="lazy" width="280" height="280">
-            <span class="avatar-badge"></span>
-          </a>
+      </div>
+
+      <aside class="hero-panel reveal">
+        <div class="terminal">
+          <div class="terminal-top">
+            <span></span><span></span><span></span>
+            <p>profile.ts</p>
+          </div>
+          <pre><code>const galuh = {
+  role: "AgriTech Developer",
+  location: "Indonesia",
+  stack: ["Python", "TypeScript", "Next.js", "FastAPI", "Streamlit"],
+  focus: [
+    "Livestock optimization",
+    "Statistical analysis",
+    "Research tools",
+    "Open-source products"
+  ],
+  mission: "Bridge agriculture, data science, and software."
+};</code></pre>
+        </div>
+
+        <div class="avatar-shell">
+          <img id="heroAvatar" src="https://avatars.githubusercontent.com/u/158135665?v=4" alt="Galuh Adi Insani GitHub avatar" />
+        </div>
+      </aside>
+    </section>
+
+    <section class="section split" id="about">
+      <div class="section-heading reveal">
+        <p class="section-kicker">About</p>
+        <h2>From research problems to production-ready tools.</h2>
+      </div>
+
+      <div class="content-card reveal">
+        <p>
+          My work sits at the intersection of agriculture, statistics, and software engineering.
+          I build tools that help users calculate feed rations, run statistical tests, estimate livestock
+          production metrics, and turn complex formulas into practical interfaces.
+        </p>
+
+        <div class="tag-list">
+          <span>AgriTech</span>
+          <span>Data Science</span>
+          <span>Scientific Computing</span>
+          <span>Optimization</span>
+          <span>Open Source</span>
         </div>
       </div>
     </section>
 
-    <section class="about" id="about">
-      <div class="container">
-        <h2>Tentang Saya</h2>
-        <div class="about-grid">
-          <div>
-            <p>Saya Galuh Adi Insani, data analytics expert dengan 17+ tahun pengalaman. Ahli dalam ETL, data modeling, predictive analytics menggunakan Python, SQL, Tableau, dan Power BI untuk mengungkap pola tersembunyi dan mendukung strategi bisnis berbasis data.</p>
-            <ul>
-              <li>📍 Berbasis di Indonesia</li>
-              <li>💼 Konsultan Data independen</li>
-              <li>✉️ adioranye@ugm.ac.id</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Ringkasan</h3>
-            <p>Spesialis data analytics dengan fokus pada big data processing, dashboard interaktif, dan model machine learning. Berpengalaman dengan Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn untuk end-to-end data solutions.</p>
-            <a class="btn btn-small" href="https://acadstaff.ugm.ac.id/GaluhAdIInsani#" target="_blank" rel="noopener">Lihat CV</a>
-          </div>
-        </div>
+    <section class="section" id="stack">
+      <div class="section-heading center reveal">
+        <p class="section-kicker">Tech Stack</p>
+        <h2>Tools I use to design, analyze, build, and ship.</h2>
+      </div>
+
+      <div class="stack-grid">
+        <article class="stack-card reveal">
+          <h3>Languages</h3>
+          <p>Python, TypeScript, JavaScript, HTML, CSS</p>
+        </article>
+        <article class="stack-card reveal">
+          <h3>Frontend</h3>
+          <p>React, Next.js, responsive UI, interactive dashboards</p>
+        </article>
+        <article class="stack-card reveal">
+          <h3>Backend</h3>
+          <p>FastAPI, API design, data processing pipelines</p>
+        </article>
+        <article class="stack-card reveal">
+          <h3>Data</h3>
+          <p>Pandas, NumPy, SciPy, Statsmodels, Scikit-learn</p>
+        </article>
+        <article class="stack-card reveal">
+          <h3>Visualization</h3>
+          <p>Matplotlib, Seaborn, Plotly, Streamlit apps</p>
+        </article>
+        <article class="stack-card reveal">
+          <h3>Deployment</h3>
+          <p>GitHub, GitHub Actions, Vercel, Streamlit Cloud</p>
+        </article>
       </div>
     </section>
 
-    <section class="experience" id="experience">
-      <div class="container">
-        <h2>Pengalaman</h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <h3>🏛️ University Reviewer</h3>
-              <p class="timeline-date">Kementerian Pendidikan dan Kebudayaan · Part-time · Oct 2023 - Present</p>
-              <p>Menilai aplikasi program entrepreneur universitas.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <h3>⚡ Reviewer PF Muda</h3>
-              <p class="timeline-date">PT Pertamina · Contract · Jan 2024 - Present</p>
-              <p>Meninjau proposal sociopreneurs.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <h3>🎓 Lecturer & Researcher</h3>
-              <p class="timeline-date">Universitas Gadjah Mada · Full-time · 2008 - Present</p>
-              <p>Mengajar, meneliti, dan sebagai editor akademik.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <h3>📖 Journal Reviewer</h3>
-              <p class="timeline-date">PLOS · Part-time · Jan 2023 - Present</p>
-              <p>Peninjau akademik untuk jurnal internasional.</p>
-            </div>
-          </div>
-        </div>
-        <p class="muted" style="text-align:center;margin-top:1rem;">Untuk informasi lebih lengkap tentang pengalaman saya, kunjungi <a href="https://www.linkedin.com/in/galuh-adi-insani-1aa0a5105/" target="_blank" rel="noopener">profil LinkedIn</a> saya.</p>
+    <section class="section" id="projects">
+      <div class="section-heading center reveal">
+        <p class="section-kicker">Featured Projects</p>
+        <h2>Open-source projects with practical domain impact.</h2>
+      </div>
+
+      <div class="project-toolbar reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="agritech">AgriTech</button>
+        <button class="filter-btn" data-filter="stats">Statistics</button>
+        <button class="filter-btn" data-filter="ml">Machine Learning</button>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card reveal" data-category="agritech">
+          <div class="project-icon">🐄</div>
+          <h3>ransumruminansia</h3>
+          <p>Ruminant ration formulation app with linear programming, nutrition checks, and cost optimization.</p>
+          <a href="https://github.com/adiorany3/ransumruminansia" target="_blank" rel="noopener">View repository →</a>
+        </article>
+
+        <article class="project-card reveal" data-category="agritech">
+          <div class="project-icon">🥛</div>
+          <h3>ransumsapiperah</h3>
+          <p>Dairy cattle ration optimizer designed for nutrient requirements and least-cost formulation.</p>
+          <a href="https://github.com/adiorany3/ransumsapiperah" target="_blank" rel="noopener">View repository →</a>
+        </article>
+
+        <article class="project-card reveal" data-category="stats">
+          <div class="project-icon">📊</div>
+          <h3>OneWay</h3>
+          <p>One-Way ANOVA tool with post-hoc tests, assumption checks, effect size, and visual interpretation.</p>
+          <a href="https://github.com/adiorany3/OneWay" target="_blank" rel="noopener">View repository →</a>
+        </article>
+
+        <article class="project-card reveal" data-category="stats">
+          <div class="project-icon">🔬</div>
+          <h3>TwoWay</h3>
+          <p>Two-Way ANOVA analysis app with interaction effects, Tukey HSD, eta-squared, and export support.</p>
+          <a href="https://github.com/adiorany3/TwoWay" target="_blank" rel="noopener">View repository →</a>
+        </article>
+
+        <article class="project-card reveal" data-category="stats">
+          <div class="project-icon">📈</div>
+          <h3>ttest</h3>
+          <p>T-Test analysis app for one-sample and independent tests with confidence intervals and visual outputs.</p>
+          <a href="https://github.com/adiorany3/ttest" target="_blank" rel="noopener">View repository →</a>
+        </article>
+
+        <article class="project-card reveal" data-category="ml">
+          <div class="project-icon">⚖️</div>
+          <h3>karkas</h3>
+          <p>Livestock carcass and non-carcass estimation calculator using research-based formulas.</p>
+          <a href="https://github.com/adiorany3/karkas" target="_blank" rel="noopener">View repository →</a>
+        </article>
       </div>
     </section>
 
-    <section class="schedule" id="schedule">
-      <div class="container">
-        <h2>Jadwal Kegiatan</h2>
-        <iframe src="https://calendar.google.com/calendar/u/0/embed?bgcolor=%239a9cff&color=%23000000&src=adioranye@ugm.ac.id" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    <section class="section" id="demos">
+      <div class="section-heading center reveal">
+        <p class="section-kicker">Interactive Demos</p>
+        <h2>Live apps built for analytics, livestock, and research workflows.</h2>
+      </div>
+
+      <div class="demo-grid">
+        <a class="demo-card reveal" href="https://ayamkampung.streamlit.app" target="_blank" rel="noopener">
+          <span>Business Analytics</span>
+          <h3>Native Chicken Business Analysis</h3>
+          <p>Profitability dashboard for livestock business planning.</p>
+        </a>
+
+        <a class="demo-card reveal" href="https://bbternak.streamlit.app" target="_blank" rel="noopener">
+          <span>Machine Learning</span>
+          <h3>Livestock Body Weight Prediction</h3>
+          <p>Regression-based prediction using body measurement data.</p>
+        </a>
+
+        <a class="demo-card reveal" href="https://ransumruminansia.streamlit.app" target="_blank" rel="noopener">
+          <span>Optimization</span>
+          <h3>Ruminant Feed Formulation</h3>
+          <p>Interactive ration design based on nutrition and cost.</p>
+        </a>
+
+        <a class="demo-card reveal" href="https://oneway.streamlit.app" target="_blank" rel="noopener">
+          <span>Statistics</span>
+          <h3>One-Way ANOVA</h3>
+          <p>Statistical comparison workflow with visual interpretation.</p>
+        </a>
       </div>
     </section>
 
-    <section class="statistics" id="statistics">
-      <div class="container">
-        <h2>Statistik</h2>
-        <div class="stats-grid">
-          <div class="stat-card" id="projectsStat">
-            <div class="stat-icon">✅</div>
-            <div class="stat-number" data-target="30">0</div>
-            <p>Proyek Data Analytics</p>
-          </div>
-          <div class="stat-card">
-            <div class="stat-icon">⏳</div>
-            <div class="stat-number" data-target="17">0</div>
-            <p>Tahun Pengalaman</p>
-          </div>
-          <div class="stat-card">
-            <div class="stat-icon">💻</div>
-            <div class="stat-number" data-target="6">0</div>
-            <p>Tools & Bahasa</p>
-          </div>
-          <div class="stat-card">
-            <div class="stat-icon">📊</div>
-            <div class="stat-number" data-target="150">0</div>
-            <p>Dataset Diproses</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="section contact" id="contact">
+      <div class="contact-card reveal">
+        <p class="section-kicker">Contact</p>
+        <h2>Let’s build something useful.</h2>
+        <p>
+          Open for open-source collaboration, research tooling, AgriTech projects, and data-driven web apps.
+        </p>
 
-    <section class="skills" id="skills">
-      <div class="container">
-        <h2>Keahlian</h2>
-        <div class="skill-grid">
-          <div class="skill-card">
-            <div class="skill-icon">📊</div>
-            <h3>Data Analysis</h3>
-            <div class="skill-bar"><div class="skill-fill" style="width: 95%"></div></div>
-            <div class="skill-percent">95%</div>
-          </div>
-          <div class="skill-card">
-            <div class="skill-icon">🐍</div>
-            <h3>Python (Pandas, NumPy)</h3>
-            <div class="skill-bar"><div class="skill-fill" style="width: 95%"></div></div>
-            <div class="skill-percent">95%</div>
-          </div>
-          <div class="skill-card">
-            <div class="skill-icon">📈</div>
-            <h3>Data Visualization (Matplotlib, Seaborn)</h3>
-            <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div>
-            <div class="skill-percent">85%</div>
-          </div>
-          <div class="skill-card">
-            <div class="skill-icon">🤖</div>
-            <h3>Machine Learning (scikit-learn)</h3>
-            <div class="skill-bar"><div class="skill-fill" style="width: 75%"></div></div>
-            <div class="skill-percent">75%</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="projects" id="projects">
-      <div class="container">
-        <h2>Proyek</h2>
-        <div class="projects-controls">
-          <p class="muted">Proyek otomatis dimuat dari <a href="https://github.com/adiorany3" target="_blank" rel="noopener">GitHub</a> dan secara default menampilkan repositori Python. Tekan "Muat lebih banyak" untuk menampilkan lebih banyak repositori.</p>
-          <div class="projects-actions">
-            <label class="toggle"><input id="filterPython" name="filterPython" type="checkbox" checked /> Tampilkan hanya <strong>Python</strong></label>
-          </div>
+        <div class="contact-actions">
+          <a class="btn primary" href="mailto:adioranye@ugm.ac.id">Email Me</a>
+          <button class="btn secondary" id="copyEmail">Copy Email</button>
         </div>
 
-        <div id="projectsGrid" class="projects-grid">
-          <p class="muted">Memuat proyek…</p>
-        </div>
-
-        <div class="projects-more" style="margin-top:0.5rem; text-align:center;">
-          <button id="loadMore" class="btn btn-small">Muat lebih banyak</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="demos" id="demos">
-      <div class="container">
-        <h2>Demo Aplikasi Interaktif</h2>
-        <p class="muted">Eksplorasi aplikasi data analytics interaktif yang saya buat menggunakan Streamlit. Klik demo untuk mencoba langsung — jika aplikasi sedang tidur, bangunkan dengan tombol yang tersedia!</p>
-        <div class="demos-grid">
-          <div class="demo-card fade-in" style="animation-delay:0s">
-            <div class="demo-icon">🐔</div>
-            <h3>Analisa Usaha Ayam Kampung</h3>
-            <p>Dashboard bisnis untuk analisis profitabilitas usaha peternakan ayam kampung dengan visualisasi data real-time.</p>
-            <div class="demo-tags">
-              <span class="tag">Business Analytics</span>
-              <span class="tag">Dashboard</span>
-            </div>
-            <a class="btn" href="https://ayamkampung.streamlit.app/" target="_blank" rel="noopener">Coba Demo</a>
-          </div>
-          <div class="demo-card fade-in" style="animation-delay:0.1s">
-            <div class="demo-icon">⚖️</div>
-            <h3>Prediksi Berat Badan Ternak</h3>
-            <p>Model machine learning untuk memprediksi berat badan ternak berdasarkan ukuran tubuh, menggunakan regresi linear.</p>
-            <div class="demo-tags">
-              <span class="tag">Machine Learning</span>
-              <span class="tag">Regression</span>
-            </div>
-            <a class="btn" href="https://bbternak.streamlit.app/" target="_blank" rel="noopener">Coba Demo</a>
-          </div>
-          <div class="demo-card fade-in" style="animation-delay:0.2s">
-            <div class="demo-icon">🌾</div>
-            <h3>Penyusun Pakan Ternak</h3>
-            <p>Alat interaktif untuk merancang ransum pakan ruminansia yang optimal berdasarkan nutrisi dan biaya.</p>
-            <div class="demo-tags">
-              <span class="tag">Data Analysis</span>
-              <span class="tag">Optimization</span>
-            </div>
-            <a class="btn" href="https://ransumruminansia.streamlit.app/" target="_blank" rel="noopener">Coba Demo</a>
-          </div>
-          <div class="demo-card fade-in" style="animation-delay:0.3s">
-            <div class="demo-icon">📊</div>
-            <h3>Statistik One-Way ANOVA</h3>
-            <p>Analisis statistik one-way ANOVA untuk membandingkan rata-rata kelompok dengan visualisasi hasil dan interpretasi.</p>
-            <div class="demo-tags">
-              <span class="tag">Statistics</span>
-              <span class="tag">ANOVA</span>
-            </div>
-            <a class="btn" href="https://oneway.streamlit.app/" target="_blank" rel="noopener">Coba Demo</a>
-          </div>
-          <div class="demo-card fade-in" style="animation-delay:0.4s">
-            <div class="demo-icon">🧬</div>
-            <h3>Analisis DNA</h3>
-            <p>Alat untuk analisis sekuens DNA dengan visualisasi struktur dan statistik.</p>
-            <div class="demo-tags">
-              <span class="tag">Bioinformatics</span>
-              <span class="tag">Data Viz</span>
-            </div>
-            <a class="btn" href="https://github.com/adiorany3/analisadna" target="_blank" rel="noopener">Lihat Kode</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="news" id="news">
-      <div class="container">
-        <h2>Berita</h2>
-        <p class="muted">Temukan berita terkini dan artikel tentang Galuh Adi Insani di dunia data analytics dan akademik.</p>
-        <div class="news-grid">
-          <div class="news-card fade-in">
-            <div class="news-icon">📰</div>
-            <h3>Berita Terkini</h3>
-            <p>Jelajahi artikel dan berita terbaru tentang kontribusi Galuh Adi Insani di bidang data analytics, penelitian, dan pendidikan.</p>
-            <a href="https://news.google.com/search?q=Galuh%20Adi%20Insani&hl=id" target="_blank" class="btn">Baca Berita</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact" id="contact">
-      <div class="container">
-        <h2>Kontak</h2>
-        <p>Untuk kerja sama atau pertanyaan, silakan kirim email ke:</p>
-        <div style="margin-top:0.25rem; display:flex;gap:0.5rem;align-items:center;">
-          <button id="emailBtn" class="btn btn-outline" aria-label="Kirim email ke adioranye@ugm.ac.id">✉️ adioranye@ugm.ac.id</button>
-          <button id="copyEmail" class="btn btn-small btn-ghost" aria-label="Salin email">Salin</button>
-        </div>
-        <p style="margin-top:0.75rem;">Saya biasanya merespons dalam 1–2 hari kerja.</p>
-        <div style="margin-top:0.75rem; text-align:center;">
-          <p>Scan QR code untuk mengunjungi website saya:</p>
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://adioranye.vercel.app/" alt="QR Code untuk https://adioranye.vercel.app/" style="border:1px solid var(--light-border); border-radius:8px;">
-        </div>
+        <p class="copied" id="copiedText">Email copied to clipboard.</p>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p id="footerYear"><span id="footerYearText">© 2025 Galuh Adi Insani — Semua hak dilindungi.</span> | Kunjungan: <span id="visitCounter">0</span></p>
-        <a href="https://github.com/adiorany3" aria-label="GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 .5C5.6.5.5 5.6.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.4-3.9-1.4-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.9 2 .9 2.6 0 .7.6 1.2 1.3 1.2 1.6 0 3-1.3 3.4-2.5.2-.6.6-1 .9-1.3-2.5-.3-5.1-1.3-5.1-5.8 0-1.3.5-2.3 1.1-3.1-.1-.3-.5-1.5.1-3 0 0 .9-.3 3 .1.9-.3 1.9-.5 2.9-.5s2 .2 2.9.5c2.1-.4 3-.1 3-.1.6 1.5.2 2.7.1 3 .7.8 1.1 1.8 1.1 3.1 0 4.5-2.6 5.5-5.1 5.8.7.6 1.3 1.6 1.3 3.2v4.6c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.6 18.4.5 12 .5z" fill="currentColor"/></a>
-        <a href="https://www.linkedin.com/in/galuh-adi-insani-1aa0a5105/" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.98 3.5c0 1.4-1.1 2.5-2.48 2.5C1.11 6 0 4.9 0 3.5 0 2.1 1.11 1 2.5 1s2.48 1.1 2.48 2.5zM0 8h5v16H0zM8 8h4.8v2.2h.1c.7-1.4 2.4-2.8 4.9-2.8C22 7.4 24 9 24 13.2V24h-5v-9.8c0-2.3-.9-3.9-3.1-3.9-1.7 0-2.7 1.2-3.2 2.4-.2.4-.3 1-.3 1.6V24H8V8z" fill="currentColor"/></a>
-        <a href="https://scholar.google.com/citations?user=8y2L7xoAAAAJ&hl=id" aria-label="Google Scholar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/></svg></a>
-        <a href="https://radio.garden/" aria-label="Radio Garden - Hiburan" target="_blank">📻</a>
-      </div>
+  <footer class="footer">
+    <p>© <span id="year"></span> Galuh Adi Insani. Built with HTML, CSS, and JavaScript.</p>
+    <div>
+      <a href="https://github.com/adiorany3" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/galuh-adi-insani-1aa0a5105/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://adioranye.vercel.app" target="_blank" rel="noopener">Website</a>
     </div>
   </footer>
 
-  <div id="greetingBanner" class="greeting-banner" role="region" aria-live="polite" aria-label="Sambutan" aria-hidden="true">
-    <div class="greeting-inner container">
-      <span id="greetingText">Memuat...</span>
-      <button id="dismissGreeting" class="btn btn-small btn-ghost" aria-label="Tutup sambutan">✕</button>
-    </div>
-  </div>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
-  <button id="backToTop" class="back-to-top" aria-label="Kembali ke atas">↑</button>
-
-  <audio id="backgroundMusic" src="background.mp3" autoplay loop muted preload="auto" style="display:none;"></audio>
-
-  <script src="script.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
