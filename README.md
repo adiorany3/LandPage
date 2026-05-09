@@ -1,21 +1,21 @@
-# LandPage — Compact Techie Version
+# LandPage — Visual Techie Version
 
-Versi ini dibuat lebih **berisi, kompak, dan tetap techie**.
+Versi ini dibuat agar landing page lebih menarik secara visual, lebih penuh, dan lebih informatif.
 
-## Perubahan Utama
+## Fitur Visual
 
-- Copywriting lebih padat dan profesional
-- Section dibuat lebih ringkas agar tidak terlalu kosong
-- Hero lebih kuat dengan profil + terminal card
-- Project card lebih informatif dengan kategori dan tech tags
-- Skill map lebih jelas
-- Workflow section ditambahkan agar landing page terasa lebih lengkap
-- Responsive untuk mobile
-- Light/dark mode tetap tersedia
+- Hero image besar bertema AgriTech
+- Floating profile card dengan avatar GitHub
+- Terminal-style information card
+- Section gambar untuk domain keahlian
+- Project cards dengan preview image
+- GitHub stats section
+- Core stack chips
+- Contact section dengan gambar workspace
+- Dark/light mode
+- Responsive mobile layout
 
-## Cara Pakai
-
-Replace file lama di repo `LandPage` dengan:
+## File
 
 ```txt
 index.html
@@ -23,4 +23,6 @@ styles.css
 script.js
 ```
 
-Lalu commit dan push ke GitHub.
+## Cara Pakai
+
+Replace file lama di repository `LandPage` dengan tiga file di atas, lalu commit dan push.
