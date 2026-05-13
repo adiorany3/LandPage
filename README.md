@@ -1,34 +1,22 @@
-# LandPage — Glass Apple Product Version
+# Glass Apple Product Portfolio
 
-Versi ini mengubah landing page menjadi gaya **glass Apple product page**: clean, premium, banyak whitespace, glassmorphism, mockup device berbasis CSS, tombol rounded, animasi halus, dan layout responsif.
+Landing page profesional untuk profil GitHub `adiorany3` dengan gaya Apple product page dan glassmorphism.
 
-## Informasi GitHub yang diperbarui
+## Isi paket
 
-Data profil disusun ulang dari GitHub `adiorany3`:
+- `index.html` — struktur landing page.
+- `styles.css` — desain utama responsive, glass Apple product style, light/dark mode.
+- `script.js` — menu mobile, smooth scroll, reveal animation, dark mode.
+- `assets/` — ilustrasi SVG lokal yang sinkron dengan isi tiap project.
+- `styles.min.css` dan `script.min.js` — versi ringan untuk production.
 
-- Nama: Galuh Adi Insani
-- Username: `adiorany3`
-- Fokus: AgriTech, Statistical Analysis, Web Apps, Open Source
-- Stack utama: Python, TypeScript, Next.js, FastAPI, Streamlit
-- Public repositories: 46
-- Followers: 12
-- Following: 10
-- Featured projects: `ransumruminansia`, `ransumsapiperah`, `karkas`, `OneWay`, `TwoWay`, `ttest`
+## Update utama
 
-## File
-
-- `index.html`
-- `styles.css`
-- `script.js`
-- `styles.min.css`
-- `script.min.js`
+- Visual project dibuat sinkron dengan deskripsi: feed optimization, dairy planner, carcass calculator, ANOVA, Two-Way ANOVA, dan T-Test.
+- Copywriting dibuat lebih profesional, lebih jelas, dan tidak terasa template generik.
+- Layout dibuat lebih rapi: hero, GitHub profile, featured products, workflow, stack, dan contact.
+- Gambar dibuat lokal dalam SVG agar ZIP tetap ringan dan tidak bergantung pada gambar eksternal.
 
 ## Cara pakai
 
-Replace file lama di repository `LandPage` dengan file di folder ini, lalu commit dan push.
-
-```bash
-git add .
-git commit -m "Update glass Apple product landing page"
-git push
-```
+Buka `index.html` langsung di browser, atau upload semua file ke hosting statis seperti Vercel, Netlify, GitHub Pages, atau server biasa.

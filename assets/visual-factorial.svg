@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 560" role="img" aria-labelledby="title desc">
+  <title id="title">TwoWay</title>
+  <desc id="desc">Two-Way ANOVA interaction visualization.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="920" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F3F7FF"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#BF5AF2"/>
+      <stop offset="1" stop-color="#0071E3"/>
+    </linearGradient>
+    <filter id="shadow" x="-12%" y="-12%" width="124%" height="136%">
+      <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#102033" flood-opacity="0.13"/>
+    </filter>
+  </defs>
+  <rect width="920" height="560" rx="42" fill="url(#bg)"/>
+  <circle cx="774" cy="94" r="170" fill="#BF5AF2" opacity="0.14"/>
+  <circle cx="134" cy="492" r="190" fill="#30D158" opacity="0.10"/>
+  <g filter="url(#shadow)">
+    <rect x="64" y="58" width="792" height="444" rx="36" fill="#fff" fill-opacity="0.82" stroke="#DFE6F1"/>
+    <rect x="96" y="92" width="728" height="58" rx="24" fill="#F7F9FC" stroke="#E4EAF3"/>
+    <circle cx="130" cy="121" r="8" fill="#FF5F57"/><circle cx="156" cy="121" r="8" fill="#FFBD2E"/><circle cx="182" cy="121" r="8" fill="#28C840"/>
+    <text x="218" y="130" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="22" font-weight="900" fill="#1D1D1F">TwoWay</text>
+    
+    <rect x="96" y="184" width="316" height="244" rx="30" fill="#F8FAFD" stroke="#E4EAF3"/>
+    <text x="130" y="236" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="22" font-weight="900" fill="#1D1D1F">Interaction map</text>
+    <rect x="132" y="276" width="86" height="70" rx="18" fill="#EEF6FF"/><rect x="228" y="276" width="86" height="70" rx="18" fill="#D7EEFF"/><rect x="324" y="276" width="52" height="70" rx="18" fill="#BFE5FF"/>
+    <rect x="132" y="356" width="86" height="42" rx="18" fill="#F7EFFF"/><rect x="228" y="356" width="86" height="42" rx="18" fill="#E9D4FF"/><rect x="324" y="356" width="52" height="42" rx="18" fill="#D5ABFF"/>
+    <rect x="444" y="184" width="380" height="244" rx="30" fill="url(#accent)"/>
+    <text x="480" y="248" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="22" font-weight="900" fill="#fff">Two factors</text>
+    <text x="480" y="316" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="58" font-weight="900" fill="#fff">A × B</text>
+    <text x="480" y="360" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="20" font-weight="800" fill="#F7EFFF">interaction effect + Tukey HSD</text>
+
+  </g>
+</svg>
