@@ -1,208 +1,340 @@
 <!doctype html>
 <html lang="id">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#fbfbfd" />
-  <meta name="description" content="Landing page modern bergaya Apple glassmorphism: cepat, responsif, aksesibel, dan siap dipakai untuk portfolio atau personal brand." />
-  <meta name="keywords" content="landing page, portfolio, frontend, glassmorphism, HTML, CSS, JavaScript" />
-  <meta name="author" content="Adiorany" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Galuh Adi Insani — portfolio produk AgriTech, statistik, dan scientific computing dengan tampilan glass Apple product yang profesional."
+    />
+    <meta name="theme-color" content="#f5f5f7" />
+    <title>Galuh Adi Insani — AgriTech Product Portfolio</title>
+    <link rel="preload" href="assets/hero-product.svg" as="image" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+    <div class="ambient-grid" aria-hidden="true"></div>
 
-  <meta property="og:title" content="LandPage — Modern Personal Landing Page" />
-  <meta property="og:description" content="Landing page modern bergaya Apple glassmorphism, responsif, ringan, dan siap dikembangkan." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/preview.png" />
-
-  <title>LandPage — Modern Personal Landing Page</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="styles.css" />
-  <script src="script.js" defer></script>
-</head>
-<body>
-  <a class="skip-link" href="#main">Lewati ke konten utama</a>
-
-  <div class="ambient ambient-one" aria-hidden="true"></div>
-  <div class="ambient ambient-two" aria-hidden="true"></div>
-  <div class="ambient ambient-three" aria-hidden="true"></div>
-
-  <header class="site-header" data-reveal>
-    <nav class="glass-nav" aria-label="Navigasi utama">
-      <a class="nav-logo" href="#home" aria-label="LandPage Home">
-        <span class="logo-mark">L</span>
-        <span>LandPage</span>
+    <header class="site-header" id="top">
+      <a class="brand" href="#top" aria-label="Kembali ke bagian atas">
+        <img src="assets/avatar.svg" alt="Monogram Galuh Adi" />
+        <span>
+          <strong>Galuh Adi Insani</strong>
+          <small>@adiorany3</small>
+        </span>
       </a>
 
-      <button id="menuToggle" class="menu-toggle" type="button" aria-label="Buka menu navigasi" aria-controls="navLinks" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <nav class="nav" id="nav" aria-label="Navigasi utama">
+        <a href="#overview">Overview</a>
+        <a href="#github">GitHub</a>
+        <a href="#projects">Projects</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-      <ul id="navLinks" class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#projects">Project</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-
-      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Gunakan tema gelap" aria-pressed="false">
-        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Zm0 4a1 1 0 0 1-1-1v-1a1 1 0 1 1 2 0v1a1 1 0 0 1-1 1Zm0-18a1 1 0 0 1-1-1V2a1 1 0 1 1 2 0v1a1 1 0 0 1-1 1Zm10 8a1 1 0 0 1-1 1h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1ZM4 12a1 1 0 0 1-1 1H2a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1Zm15.07 7.07a1 1 0 0 1-1.41 0l-.7-.7a1 1 0 0 1 1.41-1.41l.7.7a1 1 0 0 1 0 1.41ZM7.04 7.04a1 1 0 0 1-1.41 0l-.7-.7a1 1 0 0 1 1.41-1.41l.7.7a1 1 0 0 1 0 1.41Zm12.03-2.11a1 1 0 0 1 0 1.41l-.7.7a1 1 0 1 1-1.41-1.41l.7-.7a1 1 0 0 1 1.41 0ZM7.04 16.96a1 1 0 0 1 0 1.41l-.7.7a1 1 0 1 1-1.41-1.41l.7-.7a1 1 0 0 1 1.41 0Z"/></svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.62A8.5 8.5 0 0 1 9.38 3 1 1 0 0 0 8.2 1.64 10.5 10.5 0 1 0 22.36 15.8 1 1 0 0 0 21 14.62Z"/></svg>
-      </button>
-    </nav>
-  </header>
-
-  <main id="main">
-    <section id="home" class="hero section-padding">
-      <div class="hero-card glass-card" data-reveal>
-        <p class="eyebrow">Modern Personal Landing Page</p>
-        <h1>Bangun identitas digital yang terlihat rapi, cepat, dan profesional.</h1>
-        <p class="hero-description">
-          LandPage adalah template landing page statis yang ringan, responsif, dan mudah dikustomisasi untuk portfolio, profil developer, brand personal, atau halaman promosi sederhana.
-        </p>
-        <div class="hero-buttons" aria-label="Aksi utama">
-          <a class="btn-primary" href="#projects">Lihat Project</a>
-          <a class="btn-secondary" href="#contact">Hubungi Saya</a>
-        </div>
-        <div class="hero-stats" aria-label="Ringkasan keunggulan">
-          <div>
-            <strong>100%</strong>
-            <span>Responsive</span>
-          </div>
-          <div>
-            <strong>No Framework</strong>
-            <span>HTML CSS JS</span>
-          </div>
-          <div>
-            <strong>SEO</strong>
-            <span>Ready</span>
-          </div>
-        </div>
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Ganti mode warna">◐</button>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Buka menu navigasi">☰</button>
       </div>
-    </section>
+    </header>
 
-    <section id="projects" class="projects section-padding" aria-labelledby="projects-title">
-      <div class="section-heading" data-reveal>
-        <p class="eyebrow">Selected Work</p>
-        <h2 id="projects-title">Project unggulan</h2>
-        <p>Gunakan area ini untuk menampilkan karya, aplikasi, eksperimen UI, atau project pribadi yang ingin Anda tonjolkan.</p>
-      </div>
+    <main>
+      <section class="hero" id="overview">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span></span>AgriTech • Statistics • Scientific Computing</p>
+          <h1>Portfolio produk riset yang rapi, jelas, dan terasa premium.</h1>
+          <p class="lead">
+            Saya membangun aplikasi web untuk mengubah rumus pertanian, workflow statistik,
+            dan data penelitian menjadi produk digital yang mudah dipakai oleh peneliti,
+            mahasiswa, peternak, dan praktisi lapangan.
+          </p>
 
-      <div class="projects-grid">
-        <article class="project-card glass-card" data-reveal>
-          <div class="project-image" aria-hidden="true">🚀</div>
-          <div class="project-content">
-            <h3>Portfolio Website</h3>
-            <p>Website personal dengan tampilan modern, navigasi halus, dan struktur konten yang mudah dibaca.</p>
-            <div class="project-tags" aria-label="Teknologi">
-              <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">Lihat showcase</a>
+            <a class="btn btn-ghost" href="https://github.com/adiorany3" target="_blank" rel="noreferrer">Buka GitHub</a>
+          </div>
+
+          <div class="trust-row" aria-label="Ringkasan profil GitHub">
+            <article>
+              <strong>46</strong>
+              <span>Public repositories</span>
+            </article>
+            <article>
+              <strong>6</strong>
+              <span>Featured products</span>
+            </article>
+            <article>
+              <strong>Python</strong>
+              <span>Main research stack</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" aria-label="Ilustrasi produk utama">
+          <div class="hero-device">
+            <div class="device-topbar">
+              <i></i><i></i><i></i>
+              <span>Ruminant Nutrition OS</span>
             </div>
-            <a class="inline-link" href="#contact">Diskusikan project</a>
+            <img src="assets/hero-product.svg" alt="Dashboard ransum ruminansia dengan panel nutrisi, biaya, dan rekomendasi" />
           </div>
-        </article>
+          <div class="hero-phone" aria-label="Profil ringkas">
+            <img src="assets/avatar.svg" alt="Avatar Galuh Adi Insani" />
+            <strong>Galuh Adi</strong>
+            <span>Research Tools Builder</span>
+          </div>
+          <div class="sync-note note-one">Formulation</div>
+          <div class="sync-note note-two">Analysis</div>
+          <div class="sync-note note-three">Export</div>
+        </div>
+      </section>
 
-        <article class="project-card glass-card" data-reveal>
-          <div class="project-image" aria-hidden="true">✨</div>
-          <div class="project-content">
-            <h3>Landing Page Brand</h3>
-            <p>Halaman promosi ringan untuk produk, layanan, atau personal brand dengan visual premium.</p>
-            <div class="project-tags" aria-label="Teknologi">
-              <span>Responsive</span><span>SEO</span><span>UI</span>
+      <section class="section statement-section">
+        <div class="statement-card reveal">
+          <div>
+            <p class="eyebrow"><span></span>Professional direction</p>
+            <h2>Visual dan teks dibuat sinkron: tiap gambar menjelaskan isi produknya.</h2>
+          </div>
+          <p>
+            Setiap kartu project sekarang punya ilustrasi yang nyambung dengan fungsinya:
+            ransum memakai dashboard nutrisi, karkas memakai estimasi yield, ANOVA memakai chart,
+            dan T-Test memakai perbandingan sampel. Jadi tampilannya bukan tempelan dekorasi doang.
+          </p>
+        </div>
+      </section>
+
+      <section class="section github-section" id="github">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span></span>GitHub Profile</p>
+          <h2>Profil developer dibuat seperti product brief, bukan biodata kosong.</h2>
+        </div>
+
+        <div class="github-layout">
+          <article class="profile-panel reveal">
+            <div class="profile-identity">
+              <img src="assets/avatar.svg" alt="Monogram Galuh Adi Insani" />
+              <div>
+                <h3>Galuh Adi Insani</h3>
+                <p>@adiorany3</p>
+              </div>
             </div>
-            <a class="inline-link" href="#contact">Mulai kolaborasi</a>
-          </div>
-        </article>
-
-        <article class="project-card glass-card" data-reveal>
-          <div class="project-image" aria-hidden="true">🧩</div>
-          <div class="project-content">
-            <h3>Component Showcase</h3>
-            <p>Kumpulan card, button, badge, dan section yang bisa dipakai ulang untuk halaman lain.</p>
-            <div class="project-tags" aria-label="Teknologi">
-              <span>Reusable</span><span>Clean Code</span><span>Accessible</span>
+            <p>
+              Developer dari Indonesia yang fokus pada software AgriTech, statistical analysis,
+              web apps, scientific computing, dan open-source tooling.
+            </p>
+            <div class="profile-links">
+              <a href="https://github.com/adiorany3" target="_blank" rel="noreferrer">GitHub</a>
+              <a href="https://adioranye.vercel.app" target="_blank" rel="noreferrer">Portfolio</a>
+              <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
             </div>
-            <a class="inline-link" href="#contact">Minta custom</a>
+          </article>
+
+          <div class="github-stats reveal">
+            <article>
+              <small>Repositories</small>
+              <strong>46</strong>
+              <span>Public repos</span>
+            </article>
+            <article>
+              <small>Followers</small>
+              <strong>12</strong>
+              <span>GitHub audience</span>
+            </article>
+            <article>
+              <small>Following</small>
+              <strong>10</strong>
+              <span>Open-source network</span>
+            </article>
+            <article>
+              <small>Achievements</small>
+              <strong>2</strong>
+              <span>YOLO & Pull Shark</span>
+            </article>
           </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="about" class="about section-padding" aria-labelledby="about-title">
-      <div class="about-card glass-card" data-reveal>
-        <p class="eyebrow">About</p>
-        <h2 id="about-title">Dibuat untuk tampil sederhana, tapi tetap terasa premium.</h2>
-        <p>
-          Template ini mengutamakan keterbacaan, kontras warna yang nyaman, animasi ringan, dan struktur kode yang mudah dirawat. Cocok untuk pemula yang ingin belajar maupun developer yang ingin halaman cepat siap pakai.
-        </p>
-        <div class="skills-grid" aria-label="Keahlian dan fitur">
-          <span class="skill-tag">Responsive Design</span>
-          <span class="skill-tag">Glass UI</span>
-          <span class="skill-tag">Dark Mode</span>
-          <span class="skill-tag">Smooth Scroll</span>
-          <span class="skill-tag">SEO Basic</span>
-          <span class="skill-tag">Accessible Markup</span>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="workflow section-padding" aria-labelledby="workflow-title">
-      <div class="section-heading" data-reveal>
-        <p class="eyebrow">Workflow</p>
-        <h2 id="workflow-title">Struktur lebih siap dikembangkan</h2>
-      </div>
-      <div class="workflow-grid">
-        <div class="workflow-card glass-card" data-reveal>
-          <span class="step-number">01</span>
-          <h3>Edit konten</h3>
-          <p>Ubah teks hero, project, about, dan kontak langsung di `index.html`.</p>
+      <section class="section projects-section" id="projects">
+        <div class="section-heading center reveal">
+          <p class="eyebrow"><span></span>Featured Products</p>
+          <h2>Project GitHub dirapikan sebagai katalog produk.</h2>
+          <p>
+            Visual, judul, deskripsi, dan tag dibuat satu arah supaya pengunjung langsung paham
+            fungsi tiap project tanpa harus membuka repository satu-satu.
+          </p>
         </div>
-        <div class="workflow-card glass-card" data-reveal>
-          <span class="step-number">02</span>
-          <h3>Atur warna</h3>
-          <p>Sesuaikan warna utama melalui CSS variables di bagian `:root`.</p>
+
+        <div class="project-grid">
+          <article class="project-card project-featured reveal">
+            <div class="project-media">
+              <img src="assets/visual-ruminant.svg" alt="Ilustrasi dashboard formulasi ransum ruminansia" />
+            </div>
+            <div class="project-body">
+              <p class="project-kicker">AgriTech / Feed Optimization</p>
+              <h3>ransumruminansia</h3>
+              <p>
+                Web app formulasi ransum ruminansia untuk manual formulation, optimasi linear
+                programming, evaluasi nutrisi real-time, analisis mineral, dan kalkulasi biaya.
+              </p>
+              <div class="tags"><span>Python</span><span>Streamlit</span><span>Optimization</span><span>Livestock</span></div>
+              <a href="https://github.com/adiorany3/ransumruminansia" target="_blank" rel="noreferrer">View repository →</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-media">
+              <img src="assets/visual-dairy.svg" alt="Ilustrasi dashboard optimasi ransum sapi perah" />
+            </div>
+            <div class="project-body">
+              <p class="project-kicker">Dairy Nutrition</p>
+              <h3>ransumsapiperah</h3>
+              <p>
+                Tool optimasi ransum sapi perah untuk menghitung kebutuhan nutrien,
+                menyusun formula pakan, dan mencari komposisi least-cost.
+              </p>
+              <div class="tags"><span>Linear Programming</span><span>Dairy</span><span>Feed</span></div>
+              <a href="https://github.com/adiorany3/ransumsapiperah" target="_blank" rel="noreferrer">Repository →</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-media">
+              <img src="assets/visual-carcass.svg" alt="Ilustrasi kalkulator estimasi karkas dan non-karkas ternak" />
+            </div>
+            <div class="project-body">
+              <p class="project-kicker">Livestock Calculator</p>
+              <h3>karkas</h3>
+              <p>
+                Kalkulator estimasi karkas dan non-karkas ternak Indonesia berbasis rumus ilmiah,
+                dibuat untuk workflow produksi yang lebih praktis.
+              </p>
+              <div class="tags"><span>Calculator</span><span>Livestock</span><span>Formula</span></div>
+              <a href="https://github.com/adiorany3/karkas" target="_blank" rel="noreferrer">Repository →</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-media">
+              <img src="assets/visual-anova.svg" alt="Ilustrasi One-Way ANOVA dengan boxplot dan distribusi" />
+            </div>
+            <div class="project-body">
+              <p class="project-kicker">Statistical Analysis</p>
+              <h3>OneWay</h3>
+              <p>
+                Aplikasi One-Way ANOVA dengan post-hoc testing, effect size,
+                assumption testing, boxplot, distribusi, dan interpretasi hasil.
+              </p>
+              <div class="tags"><span>ANOVA</span><span>Post-hoc</span><span>Visualization</span></div>
+              <a href="https://github.com/adiorany3/OneWay" target="_blank" rel="noreferrer">Repository →</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-media">
+              <img src="assets/visual-factorial.svg" alt="Ilustrasi Two-Way ANOVA dengan heatmap interaksi faktor" />
+            </div>
+            <div class="project-body">
+              <p class="project-kicker">Research Analysis</p>
+              <h3>TwoWay</h3>
+              <p>
+                Two-Way ANOVA untuk interaction effect, Tukey HSD, eta-squared,
+                import data, visualisasi, dan export laporan.
+              </p>
+              <div class="tags"><span>Factorial</span><span>Eta-squared</span><span>Export</span></div>
+              <a href="https://github.com/adiorany3/TwoWay" target="_blank" rel="noreferrer">Repository →</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-media">
+              <img src="assets/visual-ttest.svg" alt="Ilustrasi T-Test dengan perbandingan dua sampel dan confidence interval" />
+            </div>
+            <div class="project-body">
+              <p class="project-kicker">Statistical Testing</p>
+              <h3>ttest</h3>
+              <p>
+                App analisis One-Sample dan Independent T-Test dengan effect size,
+                confidence interval, visualisasi, dan interpretasi yang mudah dibaca.
+              </p>
+              <div class="tags"><span>T-Test</span><span>Effect Size</span><span>CI</span></div>
+              <a href="https://github.com/adiorany3/ttest" target="_blank" rel="noreferrer">Repository →</a>
+            </div>
+          </article>
         </div>
-        <div class="workflow-card glass-card" data-reveal>
-          <span class="step-number">03</span>
-          <h3>Deploy cepat</h3>
-          <p>Upload ke GitHub Pages, Netlify, atau Vercel tanpa setup framework.</p>
+      </section>
+
+      <section class="section process-section" id="process">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span></span>Workflow</p>
+          <h2>Dari rumus akademik ke produk yang bisa dipakai.</h2>
         </div>
-      </div>
-    </section>
 
-    <section id="contact" class="contact section-padding" aria-labelledby="contact-title">
-      <div class="contact-card glass-card" data-reveal>
-        <p class="eyebrow">Contact</p>
-        <h2 id="contact-title">Mari buat halaman Anda terlihat lebih profesional.</h2>
-        <p>Hubungkan form ini ke Formspree, Netlify Forms, atau backend pribadi agar pesan bisa terkirim.</p>
-
-        <form class="contact-form" data-local-status>
-          <label>
-            <span>Nama</span>
-            <input type="text" name="name" placeholder="Nama Anda" autocomplete="name" required />
-          </label>
-          <label>
-            <span>Email</span>
-            <input type="email" name="email" placeholder="email@domain.com" autocomplete="email" required />
-          </label>
-          <label>
-            <span>Pesan</span>
-            <textarea name="message" placeholder="Tulis pesan singkat..." required></textarea>
-          </label>
-          <button class="btn-primary" type="submit">Kirim Pesan</button>
-          <p class="form-status" role="status" aria-live="polite"></p>
-        </form>
-
-        <div class="social-links" aria-label="Tautan sosial">
-          <a href="https://github.com/adiorany3" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GH</a>
-          <a href="mailto:hello@example.com" aria-label="Email">@</a>
-          <a href="#home" aria-label="Kembali ke atas">↑</a>
+        <div class="process-grid">
+          <article class="process-card reveal">
+            <span>01</span>
+            <h3>Map the domain</h3>
+            <p>Pahami rumus, satuan, dataset, batasan, dan kebutuhan pengguna lapangan.</p>
+          </article>
+          <article class="process-card reveal">
+            <span>02</span>
+            <h3>Build the engine</h3>
+            <p>Ubah workflow domain menjadi kalkulasi, optimasi, dan validasi yang konsisten.</p>
+          </article>
+          <article class="process-card reveal">
+            <span>03</span>
+            <h3>Design the interface</h3>
+            <p>Buat input, output, visualisasi, dan laporan yang rapi serta tidak bikin pengguna mikir keras.</p>
+          </article>
+          <article class="process-card reveal">
+            <span>04</span>
+            <h3>Ship & iterate</h3>
+            <p>Deploy ke platform web, dokumentasikan, lalu perbaiki berdasarkan penggunaan nyata.</p>
+          </article>
         </div>
-      </div>
-    </section>
-  </main>
 
-  <footer class="site-footer">
-    <p>© <span id="year"></span> LandPage. Built with HTML, CSS, and JavaScript.</p>
-  </footer>
-</body>
+        <div class="stack-panel reveal">
+          <div>
+            <p class="eyebrow"><span></span>Main Stack</p>
+            <h3>Python, TypeScript, Next.js, FastAPI, Streamlit</h3>
+            <p>
+              Stack disusun untuk kombinasi scientific computing, prototyping cepat,
+              API development, dan product landing page modern.
+            </p>
+          </div>
+          <div class="stack-tags">
+            <span>Pandas</span><span>NumPy</span><span>SciPy</span><span>Statsmodels</span><span>Plotly</span><span>GitHub Actions</span><span>Vercel</span><span>Streamlit Cloud</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact">
+        <div class="contact-card reveal">
+          <div>
+            <p class="eyebrow"><span></span>Connect</p>
+            <h2>Bangun research tool yang terlihat serius dan memang kepakai.</h2>
+            <p>
+              Cocok untuk kolaborasi open-source, aplikasi riset, dashboard statistik,
+              AgriTech product, dan pengembangan web app berbasis data.
+            </p>
+          </div>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="https://github.com/adiorany3" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn btn-ghost" href="https://adioranye.vercel.app" target="_blank" rel="noreferrer">Portfolio</a>
+            <a class="btn btn-ghost" href="https://ngobrol.streamlit.app" target="_blank" rel="noreferrer">Chat</a>
+            <a class="btn btn-ghost" href="https://catataninsani.wordpress.com" target="_blank" rel="noreferrer">Blog</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> Galuh Adi Insani. Glass Apple product portfolio.</p>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+
+    <button class="top-button" id="topButton" type="button" aria-label="Kembali ke atas">↑</button>
+    <script src="script.js"></script>
+  </body>
 </html>
