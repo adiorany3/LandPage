@@ -147,3 +147,49 @@ const loadCatatanInsaniPosts = async () => {
 };
 
 loadCatatanInsaniPosts();
+
+
+const typingCode = document.getElementById("typingCode");
+
+const startCodeTyping = () => {
+  if (!typingCode) return;
+
+  const source = typingCode.dataset.typingCode || typingCode.textContent || "";
+  const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (prefersReducedMotion) {
+    typingCode.textContent = source;
+    return;
+  }
+
+  let index = 0;
+  let pause = false;
+  const baseSpeed = 22;
+
+  const tick = () => {
+    if (pause) {
+      pause = false;
+      index = 0;
+      typingCode.textContent = "";
+      window.setTimeout(tick, 380);
+      return;
+    }
+
+    typingCode.textContent = source.slice(0, index);
+    index += 1;
+
+    if (index <= source.length) {
+      const currentChar = source[index - 2] || "";
+      const delay = currentChar === "\n" ? 260 : currentChar === " " ? 34 : baseSpeed;
+      window.setTimeout(tick, delay);
+    } else {
+      pause = true;
+      window.setTimeout(tick, 2600);
+    }
+  };
+
+  typingCode.textContent = "";
+  window.setTimeout(tick, 520);
+};
+
+startCodeTyping();
