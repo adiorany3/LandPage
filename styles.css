@@ -928,3 +928,165 @@ h3 {
     align-items: flex-start;
   }
 }
+
+/* Programming atmosphere additions */
+.code-rain {
+  position: fixed;
+  inset: auto 0 8%;
+  z-index: -1;
+  width: 100%;
+  padding-block: 10px;
+  color: rgba(102, 228, 255, 0.12);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  white-space: nowrap;
+  pointer-events: none;
+  transform: rotate(-4deg) scale(1.05);
+  animation: codeDrift 22s linear infinite;
+}
+
+body.light .code-rain {
+  color: rgba(15, 23, 42, 0.10);
+}
+
+@keyframes codeDrift {
+  from { translate: -12% 0; }
+  to { translate: 12% 0; }
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  content: "";
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(102, 228, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 230, 157, 0.032) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(circle at 50% 14%, black, transparent 68%);
+}
+
+.terminal-card,
+.code-panel,
+.inline-code {
+  background:
+    linear-gradient(180deg, rgba(102, 228, 255, 0.055), transparent 48%),
+    rgba(5, 12, 24, 0.88);
+}
+
+body.light .terminal-card,
+body.light .code-panel,
+body.light .inline-code {
+  background:
+    linear-gradient(180deg, rgba(14, 165, 233, 0.07), transparent 48%),
+    rgba(255, 255, 255, 0.88);
+}
+
+.terminal-card code .comment,
+.code-panel code .comment {
+  color: var(--subtle);
+}
+
+.inline-code {
+  margin-top: 18px;
+  padding: 13px 14px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow-x: auto;
+}
+
+.inline-code code {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.console-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.code-panel {
+  position: relative;
+  overflow: hidden;
+  min-height: 310px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(22px) saturate(1.25);
+  -webkit-backdrop-filter: blur(22px) saturate(1.25);
+}
+
+.code-panel::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(102, 228, 255, 0.14), transparent 18rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent 40%);
+}
+
+.panel-top {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+}
+
+.panel-top span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.panel-top span:nth-child(2) {
+  background: var(--warning);
+}
+
+.panel-top span:nth-child(3) {
+  background: var(--accent);
+}
+
+.code-panel pre {
+  position: relative;
+  margin: 0;
+  overflow-x: auto;
+}
+
+.code-panel code {
+  display: block;
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  line-height: 1.78;
+}
+
+.file-tree code {
+  color: var(--primary);
+}
+
+@media (max-width: 1080px) {
+  .console-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .console-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .code-rain {
+    display: none;
+  }
+}

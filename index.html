@@ -37,6 +37,11 @@
 
     <title>Galuh Adi Insani — AgriTech & Scientific Computing Developer</title>
 
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+
     <link rel="preload" href="assets/hero-product.svg" as="image" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
 
@@ -120,6 +125,7 @@
   <body>
     <a class="skip-link" href="#main">Lewati ke konten utama</a>
     <div class="noise" aria-hidden="true"></div>
+    <div class="code-rain" aria-hidden="true">const portfolio = { stack: ['Python', 'Streamlit', 'FastAPI'], deploy: 'Vercel' }; npm run build &amp;&amp; git push origin main</div>
     <div class="orb orb-a" aria-hidden="true"></div>
     <div class="orb orb-b" aria-hidden="true"></div>
     <div class="orb orb-c" aria-hidden="true"></div>
@@ -137,6 +143,7 @@
         <a href="#expertise">Expertise</a>
         <a href="#projects">Projects</a>
         <a href="#architecture">Architecture</a>
+        <a href="#console">Console</a>
         <a href="#seo-content">Use Cases</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -182,10 +189,11 @@
         <div class="hero-visual reveal" aria-label="Ilustrasi dashboard teknologi">
           <div class="terminal-card">
             <div class="terminal-top"><span></span><span></span><span></span><strong>research-toolkit.sh</strong></div>
-            <pre><code>$ init portfolio --mode professional
-$ load domain: agritech, statistics, automation
-$ validate formulas --unit-safe
-$ deploy insight-dashboard --seo-ready</code></pre>
+            <pre><code><span class="comment">// production-minded research software</span>
+$ pnpm create portfolio --template tech
+$ python compute.py --domain agritech
+$ pytest formulas/ --unit-safe
+$ vercel deploy --prod --seo-ready</code></pre>
           </div>
 
           <div class="device-card">
@@ -196,8 +204,8 @@ $ deploy insight-dashboard --seo-ready</code></pre>
             <img src="assets/hero-product.svg" width="760" height="520" alt="Dashboard aplikasi ransum ruminansia untuk nutrisi, biaya, dan rekomendasi" />
           </div>
 
-          <div class="floating-chip chip-a">API-ready</div>
-          <div class="floating-chip chip-b">Data validated</div>
+          <div class="floating-chip chip-a">&lt;/&gt; Clean Code</div>
+          <div class="floating-chip chip-b">git commit -m</div>
           <div class="floating-chip chip-c">SEO optimized</div>
         </div>
       </section>
@@ -358,7 +366,57 @@ $ deploy insight-dashboard --seo-ready</code></pre>
             <div class="stack-tags">
               <span>Python</span><span>TypeScript</span><span>Streamlit</span><span>FastAPI</span><span>Plotly</span><span>Vercel</span><span>GitHub Actions</span><span>SEO</span>
             </div>
+            <div class="inline-code" aria-label="Contoh pipeline deployment">
+              <code>git add . &amp;&amp; git commit -m "ship: seo-ready landing page" &amp;&amp; git push</code>
+            </div>
           </div>
+        </div>
+      </section>
+
+      <section class="section console-section" id="console" aria-labelledby="console-title">
+        <div class="section-heading center reveal">
+          <p class="eyebrow"><span></span>Developer console</p>
+          <h2 id="console-title">Nuansa programming dibuat lebih terasa tanpa membuat layout terlalu ramai.</h2>
+          <p>
+            Blok ini memberi sinyal visual sebagai portfolio developer: command line, struktur file, commit workflow, testing, dan deployment pipeline.
+          </p>
+        </div>
+
+        <div class="console-grid">
+          <article class="code-panel reveal">
+            <div class="panel-top"><span></span><span></span><span></span><strong>src/project-card.ts</strong></div>
+            <pre><code>type Project = {
+  name: string;
+  stack: string[];
+  impact: "research" | "agritech";
+};
+
+const build = (project: Project) =&gt;
+  ship(project).withSEO().withDocs();</code></pre>
+          </article>
+
+          <article class="code-panel reveal">
+            <div class="panel-top"><span></span><span></span><span></span><strong>terminal</strong></div>
+            <pre><code>$ npm run lint
+✓ semantic HTML checked
+✓ meta tags detected
+✓ structured data valid
+
+$ npm run deploy
+→ production build ready</code></pre>
+          </article>
+
+          <article class="code-panel reveal file-tree">
+            <div class="panel-top"><span></span><span></span><span></span><strong>project tree</strong></div>
+            <pre><code>LandPage/
+├─ index.html
+├─ styles.css
+├─ script.js
+├─ robots.txt
+├─ sitemap.xml
+└─ assets/
+   └─ favicon.svg</code></pre>
+          </article>
         </div>
       </section>
 
