@@ -76,14 +76,54 @@ if ("IntersectionObserver" in window) {
 const blogPosts = document.getElementById("blogPosts");
 const blogStatus = document.getElementById("blogStatus");
 
+const CATATAN_INSANI_FEED = "https://catataninsani.wordpress.com/feed/";
+const CATATAN_INSANI_HOME = "https://catataninsani.wordpress.com/";
+
+const blogEndpoints = [
+  {
+    name: "WordPress.com WP v2 API",
+    url: "https://public-api.wordpress.com/wp/v2/sites/catataninsani.wordpress.com/posts?per_page=3&_fields=date,link,title,excerpt",
+    normalize: (data) => Array.isArray(data) ? data : []
+  },
+  {
+    name: "WordPress.com REST v1.1 API",
+    url: "https://public-api.wordpress.com/rest/v1.1/sites/catataninsani.wordpress.com/posts/?number=3&fields=ID,date,title,URL,excerpt",
+    normalize: (data) => Array.isArray(data?.posts)
+      ? data.posts.map((post) => ({
+          date: post.date,
+          link: post.URL,
+          title: post.title,
+          excerpt: post.excerpt
+        }))
+      : []
+  },
+  {
+    name: "Direct WordPress REST API",
+    url: "https://catataninsani.wordpress.com/wp-json/wp/v2/posts?per_page=3&_fields=date,link,title,excerpt",
+    normalize: (data) => Array.isArray(data) ? data : []
+  },
+  {
+    name: "RSS fallback via rss2json",
+    url: `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(CATATAN_INSANI_FEED)}`,
+    normalize: (data) => Array.isArray(data?.items)
+      ? data.items.slice(0, 3).map((item) => ({
+          date: item.pubDate,
+          link: item.link,
+          title: item.title,
+          excerpt: item.description || item.content
+        }))
+      : []
+  }
+];
+
 const stripHtml = (html = "") => {
   const template = document.createElement("template");
-  template.innerHTML = html;
+  template.innerHTML = String(html);
   return (template.content.textContent || "").replace(/\s+/g, " ").trim();
 };
 
 const escapeHtml = (text = "") =>
-  text.replace(/[&<>"']/g, (character) => ({
+  String(text).replace(/[&<>"']/g, (character) => ({
     "&": "&amp;",
     "<": "&lt;",
     ">": "&gt;",
@@ -98,98 +138,97 @@ const truncateText = (text, maxLength = 150) => {
 
 const formatPostDate = (value) => {
   try {
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return "Artikel terbaru";
     return new Intl.DateTimeFormat("id-ID", {
       day: "numeric",
       month: "long",
       year: "numeric"
-    }).format(new Date(value));
+    }).format(date);
   } catch {
     return "Artikel terbaru";
   }
 };
 
+const normalizeTitle = (post) => stripHtml(post?.title?.rendered || post?.title || "Artikel Catatan Insani");
+const normalizeExcerpt = (post) => truncateText(stripHtml(post?.excerpt?.rendered || post?.excerpt || "Ringkasan artikel terbaru dari Catatan Insani."));
+const normalizeLink = (post) => post?.link || post?.URL || CATATAN_INSANI_HOME;
+
+const getPostIsoDate = (value) => {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return new Date().toISOString().slice(0, 10);
+  return date.toISOString().slice(0, 10);
+};
+
 const renderBlogPosts = (posts) => {
-  if (!blogPosts || !Array.isArray(posts) || posts.length === 0) return;
+  if (!blogPosts || !Array.isArray(posts) || posts.length === 0) return false;
 
   blogPosts.innerHTML = posts
     .slice(0, 3)
     .map((post) => {
-      const title = stripHtml(post?.title?.rendered || post?.title || "Artikel Catatan Insani");
-      const excerpt = truncateText(stripHtml(post?.excerpt?.rendered || post?.excerpt || "Ringkasan artikel terbaru dari Catatan Insani."));
-      const link = post?.link || "https://catataninsani.wordpress.com/";
-      const date = post?.date || new Date().toISOString();
+      const title = normalizeTitle(post);
+      const excerpt = normalizeExcerpt(post);
+      const link = normalizeLink(post);
+      const date = post?.date || post?.pubDate || new Date().toISOString();
       return `
         <article class="blog-card">
-          <time datetime="${date.slice(0, 10)}">${formatPostDate(date)}</time>
+          <time datetime="${getPostIsoDate(date)}">${formatPostDate(date)}</time>
           <h3>${escapeHtml(title)}</h3>
           <p>${escapeHtml(excerpt)}</p>
-          <a href="${encodeURI(link)}" target="_blank" rel="noopener noreferrer">Baca ringkasan →</a>
+          <a href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">Baca ringkasan →</a>
         </article>
       `;
     })
     .join("");
+
+  return true;
+};
+
+const fetchWithTimeout = async (url, timeout = 9000) => {
+  const controller = new AbortController();
+  const timer = window.setTimeout(() => controller.abort(), timeout);
+
+  try {
+    const response = await fetch(url, {
+      method: "GET",
+      mode: "cors",
+      cache: "no-store",
+      headers: { Accept: "application/json" },
+      signal: controller.signal
+    });
+
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return await response.json();
+  } finally {
+    window.clearTimeout(timer);
+  }
+};
+
+const setBlogStatus = (message) => {
+  if (blogStatus) blogStatus.textContent = message;
 };
 
 const loadCatatanInsaniPosts = async () => {
   if (!blogPosts) return;
 
-  const endpoint = "https://catataninsani.wordpress.com/wp-json/wp/v2/posts?per_page=3&_fields=date,link,title,excerpt";
+  setBlogStatus("Mengambil artikel terbaru dari Catatan Insani…");
 
-  try {
-    const response = await fetch(endpoint, { headers: { Accept: "application/json" } });
-    if (!response.ok) throw new Error("WordPress response was not OK");
-    const posts = await response.json();
-    renderBlogPosts(posts);
-    if (blogStatus) blogStatus.textContent = "Sinkron dari WordPress REST API";
-  } catch (error) {
-    if (blogStatus) blogStatus.textContent = "Fallback SEO aktif · API belum terbaca";
+  for (const endpoint of blogEndpoints) {
+    try {
+      const separator = endpoint.url.includes("?") ? "&" : "?";
+      const data = await fetchWithTimeout(`${endpoint.url}${separator}t=${Date.now()}`);
+      const posts = endpoint.normalize(data).filter(Boolean);
+
+      if (renderBlogPosts(posts)) {
+        setBlogStatus(`Update otomatis aktif · ${endpoint.name}`);
+        return;
+      }
+    } catch (error) {
+      console.info(`Catatan Insani fetch failed from ${endpoint.name}:`, error);
+    }
   }
+
+  setBlogStatus("Fallback SEO aktif · API belum terbaca di browser ini");
 };
 
 loadCatatanInsaniPosts();
-
-
-const typingCode = document.getElementById("typingCode");
-
-const startCodeTyping = () => {
-  if (!typingCode) return;
-
-  const source = typingCode.dataset.typingCode || typingCode.textContent || "";
-  const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  if (prefersReducedMotion) {
-    typingCode.textContent = source;
-    return;
-  }
-
-  let index = 0;
-  let pause = false;
-  const baseSpeed = 22;
-
-  const tick = () => {
-    if (pause) {
-      pause = false;
-      index = 0;
-      typingCode.textContent = "";
-      window.setTimeout(tick, 380);
-      return;
-    }
-
-    typingCode.textContent = source.slice(0, index);
-    index += 1;
-
-    if (index <= source.length) {
-      const currentChar = source[index - 2] || "";
-      const delay = currentChar === "\n" ? 260 : currentChar === " " ? 34 : baseSpeed;
-      window.setTimeout(tick, delay);
-    } else {
-      pause = true;
-      window.setTimeout(tick, 2600);
-    }
-  };
-
-  typingCode.textContent = "";
-  window.setTimeout(tick, 520);
-};
-
-startCodeTyping();

@@ -501,17 +501,18 @@ $ npm run deploy
         <div class="insight-shell reveal">
           <div class="insight-terminal" aria-hidden="true">
             <div class="panel-top"><span></span><span></span><span></span>fetch-catatan-insani.js</div>
-            <pre><code>const endpoint = "catataninsani.wordpress.com/wp-json/wp/v2/posts";
-await fetch(endpoint)
-  .then(posts =&gt; renderSummary(posts))
-  .catch(() =&gt; useStaticFallback());</code></pre>
+            <pre><code>const sources = ["wp.com API", "wp-json", "rss"];
+for (const source of sources) {
+  const posts = await tryFetch(source);
+  if (posts.length) renderSummary(posts);
+}</code></pre>
           </div>
 
           <div class="insight-feed">
             <div class="feed-head">
               <div>
                 <strong>Catatan Insani</strong>
-                <small id="blogStatus">Fallback aktif · siap diperbarui otomatis</small>
+                <small id="blogStatus">Mengambil artikel terbaru dari Catatan Insani…</small>
               </div>
               <a href="https://catataninsani.wordpress.com/" target="_blank" rel="noopener noreferrer">Buka Blog →</a>
             </div>
@@ -565,6 +566,6 @@ await fetch(endpoint)
     </footer>
 
     <button class="top-button" id="topButton" type="button" aria-label="Kembali ke atas">↑</button>
-    <script src="script.js" defer></script>
+    <script src="script.js?v=20260616-auto-update" defer></script>
   </body>
 </html>
