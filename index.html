@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#08111f" />
     <meta
       name="description"
-      content="Portfolio Galuh Adi Insani, developer AgriTech dan scientific computing Indonesia yang membangun aplikasi ransum ternak, dashboard statistik, research automation, dan open-source data tools."
+      content="Portfolio Galuh Adi Insani, developer AgriTech dan scientific computing Indonesia yang membangun aplikasi ransum ternak, dashboard statistik, research automation, open-source data tools, serta ringkasan artikel terbaru Catatan Insani."
     />
     <meta
       name="keywords"
@@ -36,11 +36,6 @@
     <meta name="twitter:image" content="https://adioranye.vercel.app/assets/hero-product.svg" />
 
     <title>Galuh Adi Insani — AgriTech & Scientific Computing Developer</title>
-
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-    <link rel="manifest" href="site.webmanifest" />
 
     <link rel="preload" href="assets/hero-product.svg" as="image" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
@@ -120,12 +115,44 @@
         ]
       }
     </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Catatan Insani",
+        "url": "https://catataninsani.wordpress.com/",
+        "description": "Pengetahuan sederhana yang selalu dibagikan untuk kebermanfaatan, terutama tentang peternakan, nutrisi ruminansia, dan teknologi peternakan.",
+        "publisher": {
+          "@type": "Person",
+          "name": "Galuh Adi Insani"
+        },
+        "blogPost": [
+          {
+            "@type": "BlogPosting",
+            "headline": "Nutrisi Ruminansia: Kunci Kesehatan, Produksi, dan Efisiensi Pakan",
+            "datePublished": "2026-05-21",
+            "url": "https://catataninsani.wordpress.com/2026/05/21/nutrisi-ruminansia-kunci-kesehatan-produksi-dan-efisiensi-pakan/"
+          },
+          {
+            "@type": "BlogPosting",
+            "headline": "Inovasi Peternakan Ayam Broiler Modern",
+            "datePublished": "2026-05-03",
+            "url": "https://catataninsani.wordpress.com/2026/05/03/inovasi-peternakan-ayam-broiler-modern/"
+          },
+          {
+            "@type": "BlogPosting",
+            "headline": "Peternakan Modern di Indonesia: Inovasi, Teknologi, dan Peluang Pengembangan",
+            "datePublished": "2026-02-04",
+            "url": "https://catataninsani.wordpress.com/2026/02/04/peternakan-modern-di-indonesia-inovasi-teknologi-dan-peluang-pengembangan/"
+          }
+        ]
+      }
+    </script>
   </head>
 
   <body>
     <a class="skip-link" href="#main">Lewati ke konten utama</a>
     <div class="noise" aria-hidden="true"></div>
-    <div class="code-rain" aria-hidden="true">const portfolio = { stack: ['Python', 'Streamlit', 'FastAPI'], deploy: 'Vercel' }; npm run build &amp;&amp; git push origin main</div>
     <div class="orb orb-a" aria-hidden="true"></div>
     <div class="orb orb-b" aria-hidden="true"></div>
     <div class="orb orb-c" aria-hidden="true"></div>
@@ -143,7 +170,6 @@
         <a href="#expertise">Expertise</a>
         <a href="#projects">Projects</a>
         <a href="#architecture">Architecture</a>
-        <a href="#console">Console</a>
         <a href="#seo-content">Use Cases</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -189,11 +215,10 @@
         <div class="hero-visual reveal" aria-label="Ilustrasi dashboard teknologi">
           <div class="terminal-card">
             <div class="terminal-top"><span></span><span></span><span></span><strong>research-toolkit.sh</strong></div>
-            <pre><code><span class="comment">// production-minded research software</span>
-$ pnpm create portfolio --template tech
-$ python compute.py --domain agritech
-$ pytest formulas/ --unit-safe
-$ vercel deploy --prod --seo-ready</code></pre>
+            <pre><code>$ init portfolio --mode professional
+$ load domain: agritech, statistics, automation
+$ validate formulas --unit-safe
+$ deploy insight-dashboard --seo-ready</code></pre>
           </div>
 
           <div class="device-card">
@@ -204,8 +229,8 @@ $ vercel deploy --prod --seo-ready</code></pre>
             <img src="assets/hero-product.svg" width="760" height="520" alt="Dashboard aplikasi ransum ruminansia untuk nutrisi, biaya, dan rekomendasi" />
           </div>
 
-          <div class="floating-chip chip-a">&lt;/&gt; Clean Code</div>
-          <div class="floating-chip chip-b">git commit -m</div>
+          <div class="floating-chip chip-a">API-ready</div>
+          <div class="floating-chip chip-b">Data validated</div>
           <div class="floating-chip chip-c">SEO optimized</div>
         </div>
       </section>
@@ -366,57 +391,7 @@ $ vercel deploy --prod --seo-ready</code></pre>
             <div class="stack-tags">
               <span>Python</span><span>TypeScript</span><span>Streamlit</span><span>FastAPI</span><span>Plotly</span><span>Vercel</span><span>GitHub Actions</span><span>SEO</span>
             </div>
-            <div class="inline-code" aria-label="Contoh pipeline deployment">
-              <code>git add . &amp;&amp; git commit -m "ship: seo-ready landing page" &amp;&amp; git push</code>
-            </div>
           </div>
-        </div>
-      </section>
-
-      <section class="section console-section" id="console" aria-labelledby="console-title">
-        <div class="section-heading center reveal">
-          <p class="eyebrow"><span></span>Developer console</p>
-          <h2 id="console-title">Nuansa programming dibuat lebih terasa tanpa membuat layout terlalu ramai.</h2>
-          <p>
-            Blok ini memberi sinyal visual sebagai portfolio developer: command line, struktur file, commit workflow, testing, dan deployment pipeline.
-          </p>
-        </div>
-
-        <div class="console-grid">
-          <article class="code-panel reveal">
-            <div class="panel-top"><span></span><span></span><span></span><strong>src/project-card.ts</strong></div>
-            <pre><code>type Project = {
-  name: string;
-  stack: string[];
-  impact: "research" | "agritech";
-};
-
-const build = (project: Project) =&gt;
-  ship(project).withSEO().withDocs();</code></pre>
-          </article>
-
-          <article class="code-panel reveal">
-            <div class="panel-top"><span></span><span></span><span></span><strong>terminal</strong></div>
-            <pre><code>$ npm run lint
-✓ semantic HTML checked
-✓ meta tags detected
-✓ structured data valid
-
-$ npm run deploy
-→ production build ready</code></pre>
-          </article>
-
-          <article class="code-panel reveal file-tree">
-            <div class="panel-top"><span></span><span></span><span></span><strong>project tree</strong></div>
-            <pre><code>LandPage/
-├─ index.html
-├─ styles.css
-├─ script.js
-├─ robots.txt
-├─ sitemap.xml
-└─ assets/
-   └─ favicon.svg</code></pre>
-          </article>
         </div>
       </section>
 
@@ -448,6 +423,58 @@ $ npm run deploy
               Mengubah proses manual menjadi workflow digital: validasi input, perhitungan otomatis, grafik, export laporan, dan deployment aplikasi web.
             </p>
           </article>
+        </div>
+      </section>
+
+
+      <section class="section insights-section" id="insights" aria-labelledby="insights-title">
+        <div class="section-heading center reveal">
+          <p class="eyebrow"><span></span>Live knowledge feed</p>
+          <h2 id="insights-title">Ringkasan web terbaru dari Catatan Insani.</h2>
+          <p>
+            Section ini menampilkan artikel terbaru dari blog Catatan Insani sebagai bukti aktivitas pengetahuan, riset peternakan, dan konsistensi publikasi. Konten fallback tetap tersedia untuk SEO, lalu JavaScript akan memperbarui kartu dari WordPress REST API saat website dibuka.
+          </p>
+        </div>
+
+        <div class="insight-shell reveal">
+          <div class="insight-terminal" aria-hidden="true">
+            <div class="panel-top"><span></span><span></span><span></span>fetch-catatan-insani.js</div>
+            <pre><code>const endpoint = "catataninsani.wordpress.com/wp-json/wp/v2/posts";
+await fetch(endpoint)
+  .then(posts =&gt; renderSummary(posts))
+  .catch(() =&gt; useStaticFallback());</code></pre>
+          </div>
+
+          <div class="insight-feed">
+            <div class="feed-head">
+              <div>
+                <strong>Catatan Insani</strong>
+                <small id="blogStatus">Fallback aktif · siap diperbarui otomatis</small>
+              </div>
+              <a href="https://catataninsani.wordpress.com/" target="_blank" rel="noopener noreferrer">Buka Blog →</a>
+            </div>
+
+            <div class="blog-post-grid" id="blogPosts" aria-live="polite">
+              <article class="blog-card">
+                <time datetime="2026-05-21">21 Mei 2026</time>
+                <h3>Nutrisi Ruminansia: Kunci Kesehatan, Produksi, dan Efisiensi Pakan</h3>
+                <p>Ringkasan tentang pengelolaan pakan ruminansia, kesehatan rumen, produksi, efisiensi pakan, dan keseimbangan nutrisi ternak.</p>
+                <a href="https://catataninsani.wordpress.com/2026/05/21/nutrisi-ruminansia-kunci-kesehatan-produksi-dan-efisiensi-pakan/" target="_blank" rel="noopener noreferrer">Baca ringkasan →</a>
+              </article>
+              <article class="blog-card">
+                <time datetime="2026-05-03">3 Mei 2026</time>
+                <h3>Inovasi Peternakan Ayam Broiler Modern</h3>
+                <p>Membahas precision livestock farming, sensor, kamera, software, efisiensi pakan, welfare, dan peluang modernisasi broiler.</p>
+                <a href="https://catataninsani.wordpress.com/2026/05/03/inovasi-peternakan-ayam-broiler-modern/" target="_blank" rel="noopener noreferrer">Baca ringkasan →</a>
+              </article>
+              <article class="blog-card">
+                <time datetime="2026-02-04">4 Februari 2026</time>
+                <h3>Peternakan Modern di Indonesia: Inovasi, Teknologi, dan Peluang Pengembangan</h3>
+                <p>Ulasan transformasi peternakan Indonesia, teknologi IoT, AI, otomatisasi kandang, pakan berkelanjutan, dan peluang pengembangan.</p>
+                <a href="https://catataninsani.wordpress.com/2026/02/04/peternakan-modern-di-indonesia-inovasi-teknologi-dan-peluang-pengembangan/" target="_blank" rel="noopener noreferrer">Baca ringkasan →</a>
+              </article>
+            </div>
+          </div>
         </div>
       </section>
 
