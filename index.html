@@ -8,13 +8,18 @@
     <meta name="theme-color" content="#08111f" />
     <meta
       name="description"
-      content="Portfolio Galuh Adi Insani, developer AgriTech dan scientific computing Indonesia yang membangun aplikasi ransum ternak, dashboard statistik, research automation, open-source data tools, serta ringkasan artikel terbaru Catatan Insani."
+      content="Portfolio Galuh Adi Insani, developer AgriTech dan scientific computing Indonesia yang membangun aplikasi ransum ternak, dashboard statistik, research automation, dan open-source data tools."
     />
     <meta
       name="keywords"
       content="Galuh Adi Insani, adiorany3, AgriTech developer Indonesia, scientific computing, Streamlit developer, Python developer, statistical analysis dashboard, ransum ruminansia, ANOVA app, T-Test app, livestock feed optimization"
     />
     <link rel="canonical" href="https://adioranye.vercel.app/" />
+
+    <link rel="icon" href="./favicon.ico" sizes="any" />
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" />
+    <link rel="manifest" href="./site.webmanifest" />
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="id_ID" />
@@ -111,39 +116,6 @@
             "codeRepository": "https://github.com/adiorany3/ttest",
             "programmingLanguage": "Python",
             "applicationCategory": "Statistical Testing"
-          }
-        ]
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Blog",
-        "name": "Catatan Insani",
-        "url": "https://catataninsani.wordpress.com/",
-        "description": "Pengetahuan sederhana yang selalu dibagikan untuk kebermanfaatan, terutama tentang peternakan, nutrisi ruminansia, dan teknologi peternakan.",
-        "publisher": {
-          "@type": "Person",
-          "name": "Galuh Adi Insani"
-        },
-        "blogPost": [
-          {
-            "@type": "BlogPosting",
-            "headline": "Nutrisi Ruminansia: Kunci Kesehatan, Produksi, dan Efisiensi Pakan",
-            "datePublished": "2026-05-21",
-            "url": "https://catataninsani.wordpress.com/2026/05/21/nutrisi-ruminansia-kunci-kesehatan-produksi-dan-efisiensi-pakan/"
-          },
-          {
-            "@type": "BlogPosting",
-            "headline": "Inovasi Peternakan Ayam Broiler Modern",
-            "datePublished": "2026-05-03",
-            "url": "https://catataninsani.wordpress.com/2026/05/03/inovasi-peternakan-ayam-broiler-modern/"
-          },
-          {
-            "@type": "BlogPosting",
-            "headline": "Peternakan Modern di Indonesia: Inovasi, Teknologi, dan Peluang Pengembangan",
-            "datePublished": "2026-02-04",
-            "url": "https://catataninsani.wordpress.com/2026/02/04/peternakan-modern-di-indonesia-inovasi-teknologi-dan-peluang-pengembangan/"
           }
         ]
       }
@@ -423,58 +395,6 @@ $ deploy insight-dashboard --seo-ready</code></pre>
               Mengubah proses manual menjadi workflow digital: validasi input, perhitungan otomatis, grafik, export laporan, dan deployment aplikasi web.
             </p>
           </article>
-        </div>
-      </section>
-
-
-      <section class="section insights-section" id="insights" aria-labelledby="insights-title">
-        <div class="section-heading center reveal">
-          <p class="eyebrow"><span></span>Live knowledge feed</p>
-          <h2 id="insights-title">Ringkasan web terbaru dari Catatan Insani.</h2>
-          <p>
-            Section ini menampilkan artikel terbaru dari blog Catatan Insani sebagai bukti aktivitas pengetahuan, riset peternakan, dan konsistensi publikasi. Konten fallback tetap tersedia untuk SEO, lalu JavaScript akan memperbarui kartu dari WordPress REST API saat website dibuka.
-          </p>
-        </div>
-
-        <div class="insight-shell reveal">
-          <div class="insight-terminal" aria-hidden="true">
-            <div class="panel-top"><span></span><span></span><span></span>fetch-catatan-insani.js</div>
-            <pre><code>const endpoint = "catataninsani.wordpress.com/wp-json/wp/v2/posts";
-await fetch(endpoint)
-  .then(posts =&gt; renderSummary(posts))
-  .catch(() =&gt; useStaticFallback());</code></pre>
-          </div>
-
-          <div class="insight-feed">
-            <div class="feed-head">
-              <div>
-                <strong>Catatan Insani</strong>
-                <small id="blogStatus">Fallback aktif · siap diperbarui otomatis</small>
-              </div>
-              <a href="https://catataninsani.wordpress.com/" target="_blank" rel="noopener noreferrer">Buka Blog →</a>
-            </div>
-
-            <div class="blog-post-grid" id="blogPosts" aria-live="polite">
-              <article class="blog-card">
-                <time datetime="2026-05-21">21 Mei 2026</time>
-                <h3>Nutrisi Ruminansia: Kunci Kesehatan, Produksi, dan Efisiensi Pakan</h3>
-                <p>Ringkasan tentang pengelolaan pakan ruminansia, kesehatan rumen, produksi, efisiensi pakan, dan keseimbangan nutrisi ternak.</p>
-                <a href="https://catataninsani.wordpress.com/2026/05/21/nutrisi-ruminansia-kunci-kesehatan-produksi-dan-efisiensi-pakan/" target="_blank" rel="noopener noreferrer">Baca ringkasan →</a>
-              </article>
-              <article class="blog-card">
-                <time datetime="2026-05-03">3 Mei 2026</time>
-                <h3>Inovasi Peternakan Ayam Broiler Modern</h3>
-                <p>Membahas precision livestock farming, sensor, kamera, software, efisiensi pakan, welfare, dan peluang modernisasi broiler.</p>
-                <a href="https://catataninsani.wordpress.com/2026/05/03/inovasi-peternakan-ayam-broiler-modern/" target="_blank" rel="noopener noreferrer">Baca ringkasan →</a>
-              </article>
-              <article class="blog-card">
-                <time datetime="2026-02-04">4 Februari 2026</time>
-                <h3>Peternakan Modern di Indonesia: Inovasi, Teknologi, dan Peluang Pengembangan</h3>
-                <p>Ulasan transformasi peternakan Indonesia, teknologi IoT, AI, otomatisasi kandang, pakan berkelanjutan, dan peluang pengembangan.</p>
-                <a href="https://catataninsani.wordpress.com/2026/02/04/peternakan-modern-di-indonesia-inovasi-teknologi-dan-peluang-pengembangan/" target="_blank" rel="noopener noreferrer">Baca ringkasan →</a>
-              </article>
-            </div>
-          </div>
         </div>
       </section>
 
