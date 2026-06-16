@@ -1,57 +1,26 @@
-# Patch Apple Glass untuk LandPage
+# LandPage Tech + SEO Patch
 
-File ini dibuat agar CSS Apple-style glass yang ditempel dapat dipakai langsung pada repo `adiorany3/LandPage` tanpa framework tambahan.
+Paket ini berisi pengganti file utama untuk membuat landing page lebih techie, profesional, dan SEO-ready.
 
-## Cara pakai
+## File yang diganti / ditambahkan
 
-1. Clone repo Anda:
+- `index.html` — struktur baru, semantic heading, meta SEO, Open Graph, Twitter Card, JSON-LD Person + project list.
+- `styles.css` — visual tech/professional, dark-first, responsive, glass terminal, project cards, dan layout ringan tanpa external font.
+- `script.js` — mobile nav, theme toggle, reveal animation, back-to-top.
+- `robots.txt` — izin crawling.
+- `sitemap.xml` — sitemap halaman utama.
 
-```bash
-git clone https://github.com/adiorany3/LandPage.git
-cd LandPage
-git checkout -b style/apple-glass
-```
+## Cara pasang
 
-2. Backup file lama:
+1. Extract ZIP ini.
+2. Copy semua file ke root repository `LandPage`.
+3. Pastikan folder `assets/` lama tetap ada karena halaman memakai SVG lokal dari repository.
+4. Jika domain bukan `https://adioranye.vercel.app/`, ganti URL di:
+   - `index.html` bagian canonical, og:url, og:image, twitter:image, JSON-LD url.
+   - `robots.txt`
+   - `sitemap.xml`
+5. Commit dan push ke GitHub.
 
-```bash
-cp styles.css styles.backup.css
-cp script.js script.backup.js
-```
+## Catatan SEO
 
-3. Salin file dari paket ini ke root repo:
-
-```bash
-cp path/to/styles.css ./styles.css
-cp path/to/script.js ./script.js
-cp path/to/styles.min.css ./styles.min.css
-cp path/to/script.min.js ./script.min.js
-```
-
-4. Pastikan `index.html` masih memanggil file berikut:
-
-```html
-<link rel="stylesheet" href="styles.css">
-<script src="script.js" defer></script>
-```
-
-5. Untuk dark-mode dan menu mobile, pastikan tombol di HTML memiliki salah satu class/id berikut:
-
-```html
-<button id="themeToggle" class="theme-toggle" type="button" aria-label="Gunakan tema gelap">◐</button>
-<button id="menuToggle" class="menu-toggle" type="button" aria-label="Buka menu navigasi">☰</button>
-```
-
-6. Commit perubahan:
-
-```bash
-git add styles.css script.js styles.min.css script.min.js
-git commit -m "Apply Apple glass landing page theme"
-git push origin style/apple-glass
-```
-
-## Catatan penyesuaian
-
-- CSS ini mendukung class umum dari landing page seperti `.hero`, `.hero-card`, `.project-card`, `.about-card`, `.contact-card`, `.nav-links`, `.theme-toggle`, dan beberapa alias agar lebih aman terhadap struktur repo.
-- Jika kartu di halaman Anda memakai class berbeda, tambahkan class tersebut ke blok selector glass base di `styles.css`.
-- Form kontak belum otomatis terhubung ke backend. Isi atribut `action` bila memakai Formspree, Netlify Forms, atau endpoint sendiri.
+SEO tidak bisa dijamin langsung ranking tinggi, tetapi patch ini sudah menambahkan fondasi penting: satu H1, heading H2/H3 rapi, meta description, canonical, OG/Twitter card, schema JSON-LD, alt text, lazy loading, robots, sitemap, dan konten use case dengan keyword natural.

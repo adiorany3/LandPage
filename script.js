@@ -8,12 +8,13 @@ if (year) {
   year.textContent = new Date().getFullYear();
 }
 
-const savedTheme = localStorage.getItem("glass-apple-product-theme");
-const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+const themeKey = "adioranye-tech-portfolio-theme";
+const savedTheme = localStorage.getItem(themeKey);
+const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
 
-if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
-  document.body.classList.add("dark");
-  if (themeToggle) themeToggle.textContent = "☀";
+if (savedTheme === "light" || (!savedTheme && prefersLight)) {
+  document.body.classList.add("light");
+  if (themeToggle) themeToggle.textContent = "☾";
 }
 
 if (menuToggle && nav) {
@@ -21,58 +22,53 @@ if (menuToggle && nav) {
     const isOpen = nav.classList.toggle("open");
     menuToggle.setAttribute("aria-expanded", String(isOpen));
   });
+
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+    });
+  });
 }
 
 if (themeToggle) {
   themeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-    const isDark = document.body.classList.contains("dark");
-    themeToggle.textContent = isDark ? "☀" : "◐";
-    localStorage.setItem("glass-apple-product-theme", isDark ? "dark" : "light");
+    const isLight = document.body.classList.toggle("light");
+    themeToggle.textContent = isLight ? "☾" : "◐";
+    localStorage.setItem(themeKey, isLight ? "light" : "dark");
   });
 }
 
-document.querySelectorAll('a[href^="#"]').forEach((link) => {
-  link.addEventListener("click", (event) => {
-    const selector = link.getAttribute("href");
-    const target = selector && document.querySelector(selector);
-    if (!target) return;
+if (topButton) {
+  window.addEventListener(
+    "scroll",
+    () => {
+      topButton.classList.toggle("show", window.scrollY > 620);
+    },
+    { passive: true }
+  );
 
-    event.preventDefault();
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
-    if (nav) nav.classList.remove("open");
-    if (menuToggle) menuToggle.setAttribute("aria-expanded", "false");
+  topButton.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
-});
+}
+
+const revealItems = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window) {
-  const revealObserver = new IntersectionObserver(
+  const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
-          revealObserver.unobserve(entry.target);
+          observer.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.14 }
+    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
   );
 
-  document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+  revealItems.forEach((item) => observer.observe(item));
 } else {
-  document.querySelectorAll(".reveal").forEach((element) => element.classList.add("visible"));
-}
-
-const toggleTopButton = () => {
-  if (!topButton) return;
-  topButton.classList.toggle("show", window.scrollY > 520);
-};
-
-window.addEventListener("scroll", toggleTopButton, { passive: true });
-toggleTopButton();
-
-if (topButton) {
-  topButton.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+  revealItems.forEach((item) => item.classList.add("visible"));
 }
