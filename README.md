@@ -40,3 +40,8 @@ npm start
 ## Catatan
 
 Aset PNG/MP3 dari repo lama tidak disalin byte-per-byte karena environment pembuatan ZIP tidak dapat mengunduh file biner GitHub secara langsung. Semua ilustrasi penting dibuat ulang sebagai SVG lokal di `public/assets/`, sehingga tetap ringan dan siap build di Vercel.
+
+
+## Readability update
+
+Versi ini sudah disesuaikan agar lebih nyaman dibaca: heading tidak terlalu besar, line-height lebih lega, paragraf lebih pendek, kartu lebih seimbang, dan ukuran font mobile lebih terkendali. Aset dari ZIP asli juga sudah dimasukkan ke folder `public/`.

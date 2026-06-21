@@ -36,7 +36,10 @@ export const metadata: Metadata = {
     images: ["/assets/hero-product.svg"]
   },
   icons: {
-    icon: "/assets/favicon.svg",
+    icon: [
+      { url: "/assets/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico" }
+    ],
     apple: "/assets/apple-touch-icon.png"
   },
   manifest: "/site.webmanifest",
