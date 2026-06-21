@@ -1,22 +1,42 @@
-# Glass Apple Product Portfolio
+# LandPage Next.js — siap deploy ke Vercel
 
-Landing page profesional untuk profil GitHub `adiorany3` dengan gaya Apple product page dan glassmorphism.
+Versi ini adalah konversi landing page `adiorany3/LandPage` ke **Next.js App Router** dengan struktur siap deploy.
 
-## Isi paket
+## Isi utama
 
-- `index.html` — struktur landing page.
-- `styles.css` — desain utama responsive, glass Apple product style, light/dark mode.
-- `script.js` — menu mobile, smooth scroll, reveal animation, dark mode.
-- `assets/` — ilustrasi SVG lokal yang sinkron dengan isi tiap project.
-- `styles.min.css` dan `script.min.js` — versi ringan untuk production.
+- `app/page.tsx` — halaman utama portfolio.
+- `app/layout.tsx` — metadata SEO, Open Graph, Twitter card, manifest, favicon.
+- `app/globals.css` — styling glass Apple product, responsive, light/dark mode.
+- `components/ThemeAndNav.tsx` — theme toggle, mobile nav, tombol back-to-top.
+- `components/RevealOnScroll.tsx` — animasi reveal berbasis IntersectionObserver.
+- `components/BlogFeed.tsx` — fallback artikel + update WordPress API di browser.
+- `data/content.ts` — data project, workflow, link, stack.
+- `public/assets/` — aset SVG lokal agar ringan dan tidak tergantung gambar eksternal.
+- `vercel.json` — Vercel otomatis memakai Next.js dan `npm run build`.
 
-## Update utama
+## Cara deploy paling mudah
 
-- Visual project dibuat sinkron dengan deskripsi: feed optimization, dairy planner, carcass calculator, ANOVA, Two-Way ANOVA, dan T-Test.
-- Copywriting dibuat lebih profesional, lebih jelas, dan tidak terasa template generik.
-- Layout dibuat lebih rapi: hero, GitHub profile, featured products, workflow, stack, dan contact.
-- Gambar dibuat lokal dalam SVG agar ZIP tetap ringan dan tidak bergantung pada gambar eksternal.
+1. Upload isi folder ini ke repository GitHub baru.
+2. Buka Vercel → Add New Project → pilih repository.
+3. Vercel akan mendeteksi Next.js otomatis. Tidak perlu mengubah Build Command, Output Directory, atau Install Command.
+4. Klik Deploy.
 
-## Cara pakai
+## Jalankan lokal
 
-Buka `index.html` langsung di browser, atau upload semua file ke hosting statis seperti Vercel, Netlify, GitHub Pages, atau server biasa.
+```bash
+npm install
+npm run dev
+```
+
+Buka `http://localhost:3000`.
+
+## Build production
+
+```bash
+npm run build
+npm start
+```
+
+## Catatan
+
+Aset PNG/MP3 dari repo lama tidak disalin byte-per-byte karena environment pembuatan ZIP tidak dapat mengunduh file biner GitHub secara langsung. Semua ilustrasi penting dibuat ulang sebagai SVG lokal di `public/assets/`, sehingga tetap ringan dan siap build di Vercel.
