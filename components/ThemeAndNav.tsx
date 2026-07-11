@@ -11,13 +11,19 @@ export default function ThemeAndNav() {
   useEffect(() => {
     const saved = window.localStorage.getItem("theme");
     const shouldUseLight = saved === "light";
-    setLight(shouldUseLight);
     document.body.classList.toggle("light", shouldUseLight);
 
+    const frame = window.requestAnimationFrame(() => {
+      setLight(shouldUseLight);
+      setShowTop(window.scrollY > 500);
+    });
     const onScroll = () => setShowTop(window.scrollY > 500);
-    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   function toggleTheme() {

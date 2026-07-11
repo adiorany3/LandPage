@@ -1,3 +1,4 @@
+import Image from "next/image";
 import BlogFeed from "@/components/BlogFeed";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import ThemeAndNav from "@/components/ThemeAndNav";
@@ -42,7 +43,7 @@ export default function HomePage() {
 
       <header className="site-header" id="top">
         <a className="brand" href="#top" aria-label="Kembali ke bagian atas">
-          <img src="/assets/avatar.svg" alt="Monogram Galuh Adi Insani" />
+          <Image src="/assets/avatar.svg" alt="Monogram Galuh Adi Insani" width={120} height={120} />
           <span>
             <strong>Galuh Adi Insani</strong>
             <small>@adiorany3</small>
@@ -82,9 +83,15 @@ export default function HomePage() {
 
           <div className="hero-visual" aria-label="Pratinjau dashboard nutrisi">
             <span className="product-pill">Ruminant Nutrition OS</span>
-            <img src="/assets/hero-product.svg" alt="Dashboard nutrisi, biaya, dan rekomendasi ransum" />
+            <Image
+              src="/assets/hero-product.svg"
+              alt="Dashboard nutrisi, biaya, dan rekomendasi ransum"
+              width={760}
+              height={620}
+              priority
+            />
             <div className="glass-card avatar-card">
-              <img src="/assets/avatar.svg" alt="Avatar Galuh Adi Insani" />
+              <Image src="/assets/avatar.svg" alt="Avatar Galuh Adi Insani" width={120} height={120} />
               <div><strong>Galuh Adi</strong><span>Research Tools Builder</span></div>
             </div>
             <div className="floating-tags" aria-hidden="true">
@@ -107,7 +114,7 @@ export default function HomePage() {
         <section className="section github-section" id="github" aria-labelledby="github-title">
           <RevealOnScroll className="profile-card">
             <div className="profile-main">
-              <img src="/assets/avatar.svg" alt="Monogram Galuh Adi Insani" />
+              <Image src="/assets/avatar.svg" alt="Monogram Galuh Adi Insani" width={120} height={120} />
               <div>
                 <p className="eyebrow">GitHub Profile</p>
                 <h2 id="github-title">Profil developer disusun seperti product brief.</h2>
@@ -176,7 +183,7 @@ export default function HomePage() {
           <div className="project-grid">
             {products.map((product) => (
               <RevealOnScroll className="project-card" key={product.name}>
-                <img src={product.image} alt={product.alt} />
+                <Image src={product.image} alt={product.alt} width={680} height={510} />
                 <div className="project-body">
                   <p className="eyebrow">{product.eyebrow}</p>
                   <h3>{product.name}</h3>
