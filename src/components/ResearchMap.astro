@@ -1,0 +1,70 @@
+---
+const variables = [
+  { name: 'Nutrition', value: 92, x: 50, y: 26, size: 86, tone: 'violet' },
+  { name: 'Cost', value: 78, x: 23, y: 47, size: 70, tone: 'blue' },
+  { name: 'Animal', value: 84, x: 76, y: 48, size: 76, tone: 'green' },
+  { name: 'Climate', value: 58, x: 31, y: 76, size: 58, tone: 'orange' },
+  { name: 'Yield', value: 71, x: 67, y: 77, size: 64, tone: 'pink' }
+];
+---
+<section class="section research-section" id="research-map" aria-labelledby="research-title">
+  <div class="research-copy reveal">
+    <p class="eyebrow">Interactive research map</p>
+    <h2 id="research-title">Variabel riset tampil sebagai hubungan, bukan daftar panjang.</h2>
+    <p>Bagian ini memakai sticky layout, SVG, dan Intersection Observer. Elemen visual aktif saat narasi masuk ke viewport.</p>
+    <div class="research-steps">
+      <article class="research-step is-active" data-map-step="0"><span>01</span><h3>Definisikan masalah</h3><p>Pilih variabel utama dan hasil yang ingin diukur.</p></article>
+      <article class="research-step" data-map-step="1"><span>02</span><h3>Hubungkan faktor</h3><p>Lihat faktor yang saling memengaruhi dalam satu model.</p></article>
+      <article class="research-step" data-map-step="2"><span>03</span><h3>Prioritaskan keputusan</h3><p>Fokus pada faktor dengan kontribusi terbesar.</p></article>
+    </div>
+  </div>
+
+  <div class="research-stage" aria-label="Visualisasi hubungan variabel penelitian">
+    <div class="map-card">
+      <div class="map-meta"><span>Research Variable Map</span><strong id="map-status">Problem framing</strong></div>
+      <svg class="variable-map" viewBox="0 0 100 100" role="img" aria-labelledby="map-title map-desc">
+        <title id="map-title">Peta variabel penelitian</title>
+        <desc id="map-desc">Lima variabel mengelilingi pusat keputusan.</desc>
+        <g class="map-lines">
+          {variables.map((item) => <line x1="50" y1="52" x2={item.x} y2={item.y} />)}
+        </g>
+        <circle class="map-core-ring" cx="50" cy="52" r="13" />
+        <circle class="map-core" cx="50" cy="52" r="9" />
+        <text class="map-core-label" x="50" y="50.5">Decision</text>
+        <text class="map-core-value" x="50" y="55.5">MODEL</text>
+        {variables.map((item, index) => (
+          <g class={`map-node tone-${item.tone}`} data-node-index={index} style={`--x:${item.x};--y:${item.y}`}>
+            <circle cx={item.x} cy={item.y} r={item.size / 18} />
+            <text class="node-name" x={item.x} y={item.y - 1}>{item.name}</text>
+            <text class="node-value" x={item.x} y={item.y + 3}>{item.value}%</text>
+          </g>
+        ))}
+      </svg>
+      <div class="map-legend"><span><i></i> Primary drivers</span><span><i></i> Supporting factors</span></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const steps = Array.from(document.querySelectorAll<HTMLElement>('[data-map-step]'));
+  const nodes = Array.from(document.querySelectorAll<SVGGElement>('[data-node-index]'));
+  const status = document.querySelector<HTMLElement>('#map-status');
+  const labels = ['Problem framing', 'Variable relationships', 'Decision priority'];
+
+  const activate = (index: number) => {
+    steps.forEach((step, i) => step.classList.toggle('is-active', i === index));
+    nodes.forEach((node, i) => {
+      const highlighted = index === 0 ? i === 0 : index === 1 ? i < 3 : i === 1 || i === 2;
+      node.classList.toggle('is-highlighted', highlighted);
+    });
+    if (status) status.textContent = labels[index] ?? labels[0];
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) activate(Number((entry.target as HTMLElement).dataset.mapStep ?? 0));
+    });
+  }, { rootMargin: '-35% 0px -45% 0px', threshold: 0.1 });
+
+  steps.forEach((step) => observer.observe(step));
+</script>

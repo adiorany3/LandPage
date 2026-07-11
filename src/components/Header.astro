@@ -1,0 +1,53 @@
+---
+import { navItems } from '@/data/site';
+---
+<header class="site-header" id="top">
+  <a class="brand" href="#top" aria-label="Kembali ke bagian atas">
+    <img src="/assets/avatar.svg" width="46" height="46" alt="Monogram Galuh Adi Insani" />
+    <span><strong>Galuh Adi Insani</strong><small>@adiorany3</small></span>
+  </a>
+
+  <nav class="desktop-nav" aria-label="Navigasi utama">
+    {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+  </nav>
+
+  <div class="header-actions">
+    <button class="icon-button" id="theme-toggle" type="button" aria-label="Ganti tema" title="Ganti tema">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.64 5.64l1.42 1.42m9.88 9.88 1.42 1.42m0-12.72-1.42 1.42M7.06 16.94l-1.42 1.42"/><circle cx="12" cy="12" r="4"/></svg>
+    </button>
+    <button class="icon-button menu-button" id="menu-toggle" type="button" aria-label="Buka navigasi" aria-expanded="false" aria-controls="mobile-nav">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Navigasi mobile" hidden>
+    {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+  </nav>
+</header>
+
+<script>
+  const root = document.documentElement;
+  const themeToggle = document.querySelector<HTMLButtonElement>('#theme-toggle');
+  const menuToggle = document.querySelector<HTMLButtonElement>('#menu-toggle');
+  const mobileNav = document.querySelector<HTMLElement>('#mobile-nav');
+
+  themeToggle?.addEventListener('click', () => {
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    localStorage.setItem('theme', next);
+  });
+
+  menuToggle?.addEventListener('click', () => {
+    if (!mobileNav) return;
+    const isOpen = !mobileNav.hidden;
+    mobileNav.hidden = isOpen;
+    menuToggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  mobileNav?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileNav.hidden = true;
+      menuToggle?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>

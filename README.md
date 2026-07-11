@@ -1,47 +1,46 @@
-# LandPage Next.js — siap deploy ke Vercel
+# LandPage Astro
 
-Versi ini adalah konversi landing page `adiorany3/LandPage` ke **Next.js App Router** dengan struktur siap deploy.
+Konversi mandiri dari portfolio `adiorany3/LandPage` ke Astro static site. Project ini siap dijalankan lokal dan di-deploy ke Vercel.
 
-## Isi utama
-
-- `app/page.tsx` — halaman utama portfolio.
-- `app/layout.tsx` — metadata SEO, Open Graph, Twitter card, manifest, favicon.
-- `app/globals.css` — styling glass Apple product, responsive, light/dark mode.
-- `components/ThemeAndNav.tsx` — theme toggle, mobile nav, tombol back-to-top.
-- `components/RevealOnScroll.tsx` — animasi reveal berbasis IntersectionObserver.
-- `components/BlogFeed.tsx` — fallback artikel + update WordPress API di browser.
-- `data/content.ts` — data project, workflow, link, stack.
-- `public/assets/` — aset SVG lokal agar ringan dan tidak tergantung gambar eksternal.
-- `vercel.json` — Vercel otomatis memakai Next.js dan `npm run build`.
-
-## Cara deploy paling mudah
-
-1. Upload isi folder ini ke repository GitHub baru.
-2. Buka Vercel → Add New Project → pilih repository.
-3. Vercel akan mendeteksi Next.js otomatis. Tidak perlu mengubah Build Command, Output Directory, atau Install Command.
-4. Klik Deploy.
-
-## Jalankan lokal
+## Menjalankan project
 
 ```bash
 npm install
 npm run dev
 ```
 
-Buka `http://localhost:3000`.
+Buka `http://localhost:4321`.
 
-## Build production
+## Build produksi
 
 ```bash
 npm run build
-npm start
+npm run preview
 ```
 
-## Catatan
+Output produksi berada di folder `dist/`.
 
-Aset PNG/MP3 dari repo lama tidak disalin byte-per-byte karena environment pembuatan ZIP tidak dapat mengunduh file biner GitHub secara langsung. Semua ilustrasi penting dibuat ulang sebagai SVG lokal di `public/assets/`, sehingga tetap ringan dan siap build di Vercel.
+## Deploy ke Vercel
 
+1. Push folder ini ke GitHub.
+2. Import repository di Vercel.
+3. Framework preset: Astro.
+4. Build command: `npm run build`.
+5. Output directory: `dist`.
 
-## Readability update
+`vercel.json` sudah disertakan. Project memakai static output, jadi tidak membutuhkan server adapter.
 
-Versi ini sudah disesuaikan agar lebih nyaman dibaca: heading tidak terlalu besar, line-height lebih lega, paragraf lebih pendek, kartu lebih seimbang, dan ukuran font mobile lebih terkendali. Aset dari ZIP asli juga sudah dimasukkan ke folder `public/`.
+## Struktur penting
+
+- `src/pages/index.astro`: halaman utama.
+- `src/layouts/BaseLayout.astro`: metadata dan layout HTML.
+- `src/components/ResearchMap.astro`: scrollytelling SVG.
+- `src/components/ProjectCard.astro`: kartu project.
+- `src/components/BlogFeed.astro`: WordPress API dengan fallback.
+- `src/data/site.ts`: seluruh data konten.
+- `src/styles/global.css`: sistem visual, responsive, dan dark mode.
+- `public/assets/`: ilustrasi SVG lokal.
+
+## Mengubah domain
+
+Ganti nilai `site` di `astro.config.mjs`. Perbarui juga URL profil di `src/pages/index.astro` bila perlu.
