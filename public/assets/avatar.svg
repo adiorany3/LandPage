@@ -1,6 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
-  <defs><linearGradient id="g" x1="18" y1="12" x2="142" y2="148" gradientUnits="userSpaceOnUse"><stop stop-color="#8b5cf6"/><stop offset=".52" stop-color="#5d6cff"/><stop offset="1" stop-color="#25c7dd"/></linearGradient><filter id="s"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity=".18"/></filter></defs>
-  <rect x="8" y="8" width="144" height="144" rx="42" fill="#081324" filter="url(#s)"/>
-  <path d="M44 114V46h29c26 0 43 13 43 34s-17 34-43 34H44Zm22-18h8c12 0 20-6 20-16S86 64 74 64h-8v32Z" fill="url(#g)"/>
-  <circle cx="122" cy="40" r="10" fill="#fff" opacity=".88"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title id="title">Monogram Galuh Adi Insani</title>
+  <desc id="desc">Huruf GAI dengan warna hijau dan biru</desc>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#89f7c6"/>
+      <stop offset="1" stop-color="#70a5ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="34" fill="#0d1b2c"/>
+  <circle cx="60" cy="60" r="43" fill="none" stroke="url(#g)" stroke-width="5"/>
+  <text x="60" y="68" text-anchor="middle" font-family="Arial, sans-serif" font-size="31" font-weight="800" fill="#f7fbff">GAI</text>
 </svg>

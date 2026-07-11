@@ -1,46 +1,30 @@
-# LandPage Astro
+# LandPage Readability Update
 
-Konversi mandiri dari portfolio `adiorany3/LandPage` ke Astro static site. Project ini siap dijalankan lokal dan di-deploy ke Vercel.
+Versi revisi landing page Galuh Adi Insani dengan fokus pada kenyamanan membaca dan infografis yang lebih informatif.
 
-## Menjalankan project
+## Perubahan utama
+
+- Ukuran `h1` dan `h2` diperkecil agar proporsional pada desktop dan mobile.
+- Paragraf memakai line-height lebih lega dan lebar teks dibatasi sekitar 60 sampai 68 karakter.
+- Navigasi dan tombol memakai ukuran yang lebih ringkas.
+- Ditambahkan bagian **Research Product Pipeline** sebagai infografis alur pengembangan produk riset.
+- Kartu proyek memakai tipografi, jarak, dan visual yang konsisten.
+- Mendukung dark mode, light mode, reduced motion, dan navigasi mobile.
+
+## Jalankan lokal
 
 ```bash
 npm install
 npm run dev
 ```
 
-Buka `http://localhost:4321`.
+Buka `http://localhost:3000`.
 
-## Build produksi
+## Build production
 
 ```bash
 npm run build
-npm run preview
+npm start
 ```
 
-Output produksi berada di folder `dist/`.
-
-## Deploy ke Vercel
-
-1. Push folder ini ke GitHub.
-2. Import repository di Vercel.
-3. Framework preset: Astro.
-4. Build command: `npm run build`.
-5. Output directory: `dist`.
-
-`vercel.json` sudah disertakan. Project memakai static output, jadi tidak membutuhkan server adapter.
-
-## Struktur penting
-
-- `src/pages/index.astro`: halaman utama.
-- `src/layouts/BaseLayout.astro`: metadata dan layout HTML.
-- `src/components/ResearchMap.astro`: scrollytelling SVG.
-- `src/components/ProjectCard.astro`: kartu project.
-- `src/components/BlogFeed.astro`: WordPress API dengan fallback.
-- `src/data/site.ts`: seluruh data konten.
-- `src/styles/global.css`: sistem visual, responsive, dan dark mode.
-- `public/assets/`: ilustrasi SVG lokal.
-
-## Mengubah domain
-
-Ganti nilai `site` di `astro.config.mjs`. Perbarui juga URL profil di `src/pages/index.astro` bila perlu.
+Project siap dihubungkan ke Vercel.

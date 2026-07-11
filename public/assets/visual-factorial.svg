@@ -1,14 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 510" role="img" aria-label="T-Test analysis">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 510" role="img" aria-label="Two-Way ANOVA">
   <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#142941"/><stop offset="1" stop-color="#08131f"/></linearGradient></defs>
   <rect width="680" height="510" rx="34" fill="url(#g)"/>
   <rect x="32" y="30" width="616" height="52" rx="16" fill="#fff" fill-opacity=".07"/>
-  <circle cx="58" cy="56" r="7" fill="#89f7c6"/><text x="78" y="63" font-family="Arial" font-size="19" font-weight="700" fill="#f7fbff">T-Test analysis</text>
+  <circle cx="58" cy="56" r="7" fill="#70a5ff"/><text x="78" y="63" font-family="Arial" font-size="19" font-weight="700" fill="#f7fbff">Two-Way ANOVA</text>
   <rect x="32" y="106" width="294" height="124" rx="22" fill="#fff" fill-opacity=".06" stroke="#fff" stroke-opacity=".1"/>
-  <text x="56" y="138" font-family="Arial" font-size="12" fill="#9fb0c1">MEAN DIFF</text><text x="56" y="194" font-family="Arial" font-size="36" font-weight="800" fill="#f7fbff">4.28</text>
+  <text x="56" y="138" font-family="Arial" font-size="12" fill="#9fb0c1">FACTOR A</text><text x="56" y="194" font-family="Arial" font-size="36" font-weight="800" fill="#f7fbff">0.82</text>
   <rect x="354" y="106" width="294" height="124" rx="22" fill="#fff" fill-opacity=".06" stroke="#fff" stroke-opacity=".1"/>
-  <text x="378" y="138" font-family="Arial" font-size="12" fill="#9fb0c1">CI 95%</text><text x="378" y="194" font-family="Arial" font-size="36" font-weight="800" fill="#f7fbff">2.1–6.4</text>
+  <text x="378" y="138" font-family="Arial" font-size="12" fill="#9fb0c1">INTERACTION</text><text x="378" y="194" font-family="Arial" font-size="36" font-weight="800" fill="#f7fbff">0.61</text>
   <rect x="32" y="254" width="616" height="224" rx="22" fill="#fff" fill-opacity=".05" stroke="#fff" stroke-opacity=".1"/>
-  <path d="M68 430 C120 390,150 412,205 350 S310 372,360 314 S468 340,610 286" fill="none" stroke="#89f7c6" stroke-width="7" stroke-linecap="round"/>
+  <path d="M68 430 C120 390,150 412,205 350 S310 372,360 314 S468 340,610 286" fill="none" stroke="#70a5ff" stroke-width="7" stroke-linecap="round"/>
   <path d="M68 404 C144 420,194 350,250 384 S370 300,430 338 S535 320,610 344" fill="none" stroke="#f2c36b" stroke-width="5" stroke-linecap="round" opacity=".9"/>
   <g fill="#fff" fill-opacity=".12"><rect x="68" y="278" width="110" height="12" rx="6"/><rect x="68" y="300" width="72" height="9" rx="4.5"/></g>
 </svg>
