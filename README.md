@@ -1,30 +1,71 @@
-# LandPage Readability Update
+# Adioranye LandPage
 
-Versi revisi landing page Galuh Adi Insani dengan fokus pada kenyamanan membaca dan infografis yang lebih informatif.
+Landing page portfolio Galuh Adi Insani yang diperbarui agar tipografinya lebih nyaman dibaca dan kontennya lebih mudah dipindai.
 
-## Perubahan utama
+## Fitur
 
-- Ukuran `h1` dan `h2` diperkecil agar proporsional pada desktop dan mobile.
-- Paragraf memakai line-height lebih lega dan lebar teks dibatasi sekitar 60 sampai 68 karakter.
-- Navigasi dan tombol memakai ukuran yang lebih ringkas.
-- Ditambahkan bagian **Research Product Pipeline** sebagai infografis alur pengembangan produk riset.
-- Kartu proyek memakai tipografi, jarak, dan visual yang konsisten.
-- Mendukung dark mode, light mode, reduced motion, dan navigasi mobile.
+- Tipografi responsif dengan ukuran judul yang lebih terkontrol.
+- Paragraf memakai line-height lega dan panjang baris yang nyaman dibaca.
+- Infografis **Research Product Pipeline**.
+- Katalog project berbasis data.
+- Navigasi desktop dan mobile.
+- Light mode dan dark mode.
+- Animasi masuk yang menghormati `prefers-reduced-motion`.
+- Metadata SEO, structured data, robots.txt, dan sitemap.
+- Siap build dan deploy ke Vercel.
 
-## Jalankan lokal
+## Teknologi
+
+- Next.js 14
+- React 18
+- TypeScript
+- CSS tanpa UI framework
+- SVG lokal untuk seluruh ilustrasi
+
+## Menjalankan project
+
+Pastikan Node.js 20 tersedia.
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
 Buka `http://localhost:3000`.
 
-## Build production
+## Pemeriksaan kualitas
 
 ```bash
+npm run lint
+npm run typecheck
 npm run build
-npm start
 ```
 
-Project siap dihubungkan ke Vercel.
+## Struktur utama
+
+```text
+app/
+  globals.css
+  layout.tsx
+  page.tsx
+components/
+  BlogFeed.tsx
+  RevealOnScroll.tsx
+  ThemeAndNav.tsx
+data/
+  content.ts
+public/
+  assets/
+    research-product-pipeline.svg
+```
+
+## Mengubah konten
+
+- Ubah daftar project, tautan, statistik, workflow, dan stack di `data/content.ts`.
+- Ubah konten halaman utama di `app/page.tsx`.
+- Ubah ukuran font, warna, spacing, dan responsivitas di `app/globals.css`.
+- Ganti aset SVG di `public/assets/` tanpa mengubah path pada komponen.
+
+## Deployment
+
+Lihat panduan lengkap di `DEPLOYMENT.md`.
