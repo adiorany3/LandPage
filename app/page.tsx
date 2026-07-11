@@ -1,8 +1,10 @@
 import Image from "next/image";
 import BlogFeed from "@/components/BlogFeed";
+import ProjectShowcase from "@/components/ProjectShowcase";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import ThemeAndNav from "@/components/ThemeAndNav";
-import { links, navItems, products, stack, stats, workflow } from "@/data/content";
+import { links, navItems, stack, stats, workflow } from "@/data/content";
+import { getGitHubPortfolio } from "@/lib/github";
 
 const personSchema = {
   "@context": "https://schema.org",
@@ -27,8 +29,14 @@ const infographicSteps = [
   { number: "05", label: "Keputusan", detail: "Insight yang dapat langsung dipakai", icon: "✓" }
 ];
 
-export default function HomePage() {
+export const revalidate = 3600;
+
+export default async function HomePage() {
   const year = new Date().getFullYear();
+  const portfolio = await getGitHubPortfolio();
+  const portfolioStats = stats.map((item, index) =>
+    index === 0 ? { ...item, value: String(portfolio.totalRepositories) } : item
+  );
 
   return (
     <>
@@ -72,7 +80,7 @@ export default function HomePage() {
               </a>
             </div>
             <div className="stats" aria-label="Ringkasan portfolio">
-              {stats.map((item) => (
+              {portfolioStats.map((item) => (
                 <div key={item.label}>
                   <strong>{item.value}</strong>
                   <span>{item.label}</span>
@@ -132,7 +140,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="profile-metrics">
-              <div><strong>46</strong><span>Public repos</span></div>
+              <div><strong>{portfolio.totalRepositories}</strong><span>Public repos</span></div>
               <div><strong>6</strong><span>Featured products</span></div>
               <div><strong>9</strong><span>Main technologies</span></div>
               <div><strong>1</strong><span>Clear product focus</span></div>
@@ -174,29 +182,11 @@ export default function HomePage() {
           </RevealOnScroll>
         </section>
 
-        <section className="section" id="projects" aria-labelledby="projects-title">
-          <RevealOnScroll className="section-heading">
-            <p className="eyebrow">Featured Products</p>
-            <h2 id="projects-title">Project GitHub dirapikan sebagai katalog produk.</h2>
-            <p>Judul, visual, deskripsi, dan tag menjelaskan fungsi setiap project secara konsisten.</p>
-          </RevealOnScroll>
-          <div className="project-grid">
-            {products.map((product) => (
-              <RevealOnScroll className="project-card" key={product.name}>
-                <Image src={product.image} alt={product.alt} width={680} height={510} />
-                <div className="project-body">
-                  <p className="eyebrow">{product.eyebrow}</p>
-                  <h3>{product.name}</h3>
-                  <p>{product.description}</p>
-                  <div className="tag-list">
-                    {product.tags.map((tag) => <span key={tag}>{tag}</span>)}
-                  </div>
-                  <a href={product.repo} target="_blank" rel="noreferrer">Repository ↗</a>
-                </div>
-              </RevealOnScroll>
-            ))}
-          </div>
-        </section>
+        <ProjectShowcase
+          projects={portfolio.projects}
+          totalRepositories={portfolio.totalRepositories}
+          source={portfolio.source}
+        />
 
         <section className="section workflow-section" id="process" aria-labelledby="process-title">
           <RevealOnScroll className="section-heading">

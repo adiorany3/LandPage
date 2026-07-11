@@ -1,20 +1,14 @@
-Adioranye LandPage v1.1.0
+Adioranye LandPage 1.2.0
+
 Verification date: 2026-07-11
+Target runtime: Node.js 24.x
+Local verification runtime: Node.js 22.16.0 with engine-strict temporarily disabled for testing only
 
-Test environment:
-- Node.js 24.18.0
-- npm 10.9.2
+PASS npm ci --no-audit --no-fund
+PASS npm run lint
+PASS npm run typecheck
+PASS npm run build
+PASS Next.js static generation with 1-hour revalidation
+PASS GitHub API failure fallback
 
-Passed checks:
-- npm ci --no-audit --no-fund
-- npm run lint
-- npm run typecheck
-- npm run build
-- npm audit --omit=dev: 0 vulnerabilities
-- glob dependency tree: empty
-- package-lock resolved host: registry.npmjs.org only
-
-Deployment target:
-- Vercel
-- Node.js 24.x
-- Next.js 16.2.10
+Vercel must use Node.js 24.x as defined in package.json and .nvmrc.

@@ -8,72 +8,9 @@ export const navItems = [
 ];
 
 export const stats = [
-  { value: "46", label: "Public repositories" },
+  { value: "69", label: "Public repositories" },
   { value: "6", label: "Featured products" },
   { value: "Python", label: "Main research stack" }
-];
-
-export const products = [
-  {
-    name: "ransumruminansia",
-    eyebrow: "AgriTech / Feed Optimization",
-    description:
-      "Web app formulasi ransum ruminansia untuk optimasi linear, evaluasi nutrisi, analisis mineral, dan kalkulasi biaya.",
-    tags: ["Python", "Streamlit", "Optimization", "Livestock"],
-    repo: "https://github.com/adiorany3/ransumruminansia",
-    image: "/assets/visual-ruminant.svg",
-    alt: "Dashboard formulasi ransum ruminansia"
-  },
-  {
-    name: "ransumsapiperah",
-    eyebrow: "Dairy Nutrition",
-    description:
-      "Tool optimasi ransum sapi perah untuk menghitung kebutuhan nutrien, menyusun formula pakan, dan mencari komposisi least-cost.",
-    tags: ["Linear Programming", "Dairy", "Feed"],
-    repo: "https://github.com/adiorany3/ransumsapiperah",
-    image: "/assets/visual-dairy.svg",
-    alt: "Dashboard optimasi ransum sapi perah"
-  },
-  {
-    name: "karkas",
-    eyebrow: "Livestock Calculator",
-    description:
-      "Kalkulator estimasi karkas dan non-karkas berbasis rumus ilmiah untuk mendukung workflow produksi yang praktis.",
-    tags: ["Calculator", "Livestock", "Formula"],
-    repo: "https://github.com/adiorany3/karkas",
-    image: "/assets/visual-carcass.svg",
-    alt: "Kalkulator estimasi karkas ternak"
-  },
-  {
-    name: "OneWay",
-    eyebrow: "Statistical Analysis",
-    description:
-      "Aplikasi One-Way ANOVA dengan post-hoc, effect size, assumption testing, visualisasi, dan interpretasi hasil.",
-    tags: ["ANOVA", "Post-hoc", "Visualization"],
-    repo: "https://github.com/adiorany3/OneWay",
-    image: "/assets/visual-anova.svg",
-    alt: "Visualisasi One-Way ANOVA"
-  },
-  {
-    name: "TwoWay",
-    eyebrow: "Research Analysis",
-    description:
-      "Two-Way ANOVA untuk interaction effect, Tukey HSD, eta-squared, impor data, visualisasi, dan ekspor laporan.",
-    tags: ["Factorial", "Eta-squared", "Export"],
-    repo: "https://github.com/adiorany3/TwoWay",
-    image: "/assets/visual-factorial.svg",
-    alt: "Visualisasi Two-Way ANOVA"
-  },
-  {
-    name: "ttest",
-    eyebrow: "Statistical Testing",
-    description:
-      "Analisis One-Sample dan Independent T-Test dengan effect size, confidence interval, dan interpretasi yang mudah dibaca.",
-    tags: ["T-Test", "Effect Size", "CI"],
-    repo: "https://github.com/adiorany3/ttest",
-    image: "/assets/visual-ttest.svg",
-    alt: "Visualisasi perbandingan dua sampel"
-  }
 ];
 
 export const workflow = [
