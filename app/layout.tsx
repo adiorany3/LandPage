@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -39,7 +40,23 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="id" suppressHydrationWarning>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Script id="dify-chatbot-config" strategy="afterInteractive">
+          {`window.difyChatbotConfig = {
+            token: "s8pa4tyZ2EdkN1Bf",
+            baseUrl: "https://udify.app",
+            inputs: {},
+            systemVariables: {},
+            userVariables: {}
+          };`}
+        </Script>
+        <Script
+          id="s8pa4tyZ2EdkN1Bf"
+          src="https://udify.app/embed.min.js"
+          strategy="afterInteractive"
+        />
+      </body>
     </html>
   );
 }
