@@ -3,6 +3,19 @@
     <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" stroke="#173b49" stroke-width="1"/></pattern>
     <linearGradient id="panel" x2="1" y2="1"><stop stop-color="#102d3b"/><stop offset="1" stop-color="#07151f"/></linearGradient>
   </defs>
+  <style>
+    /* ponytail: one 4.8-second illustration; add playback controls before looping. */
+    .packet { fill: #fcd778; stroke: #fff4ce; stroke-width: 2; opacity: 0; offset-distance: 0%; animation: transmit 4s linear forwards; }
+    .packet-one { offset-path: path('M210 191H264V310H460H516V191H554V237V383'); }
+    .packet-two { offset-path: path('M210 310H460H516V191H554V237V383'); animation-delay: .4s; }
+    .packet-three { offset-path: path('M210 429H264V310H460H516V191H554V237V383'); animation-delay: .8s; }
+    @keyframes transmit {
+      0% { opacity: 0; offset-distance: 0%; }
+      5%, 95% { opacity: 1; }
+      100% { opacity: 0; offset-distance: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) { .packet { animation: none; } }
+  </style>
   <rect x="2" y="2" width="756" height="616" rx="24" fill="#07151f" stroke="#287084" stroke-width="2"/>
   <rect x="3" y="3" width="754" height="614" rx="24" fill="url(#grid)"/>
   <g font-family="monospace" fill="#e5faff">
@@ -28,5 +41,11 @@
     <rect x="32" y="520" width="696" height="66" rx="12" fill="#102d3b" stroke="#36778b"/>
     <text x="52" y="546" font-size="13" fill="#83ebff">PERTANIAN TERHUBUNG</text>
     <text x="52" y="568" font-size="12" fill="#b6d1dc">Konsep visual · Tidak terhubung ke sensor nyata</text>
+  </g>
+  <g aria-hidden="true">
+    <path d="M554 237V383" stroke="#45dcec" stroke-width="3" stroke-dasharray="5 7"/>
+    <circle class="packet packet-one" r="5"/>
+    <circle class="packet packet-two" r="5"/>
+    <circle class="packet packet-three" r="5"/>
   </g>
 </svg>

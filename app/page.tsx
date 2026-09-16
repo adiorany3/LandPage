@@ -248,11 +248,6 @@ export default async function HomePage() {
             allow="microphone;clipboard-write"
             loading="lazy"
           />
-          <p>
-            <a href="https://udify.app/chatbot/s8pa4tyZ2EdkN1Bf" target="_blank" rel="noreferrer">
-              Buka obrolan di tab baru
-            </a>
-          </p>
         </section>
 
         <section className="section contact-section" id="contact" aria-labelledby="contact-title">
