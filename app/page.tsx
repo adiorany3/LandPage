@@ -66,17 +66,17 @@ export default async function HomePage() {
       <main id="main">
         <section className="hero" id="overview" aria-labelledby="hero-title">
           <div className="hero-copy">
-            <p className="eyebrow">AgriTech • Statistics • Scientific Computing</p>
-            <h1 id="hero-title">Produk riset yang jelas, terukur, dan nyaman digunakan.</h1>
+            <p className="eyebrow">AgriTech • Statistika • Komputasi Ilmiah</p>
+            <h1 id="hero-title">Aplikasi riset untuk memahami data dan mendukung keputusan.</h1>
             <p className="lead">
-              Saya membangun aplikasi web yang mengubah rumus peternakan, workflow statistik,
-              dan data penelitian menjadi produk digital untuk peneliti, mahasiswa, peternak,
+              Saya membangun aplikasi web untuk perhitungan peternakan, analisis statistik,
+              dan pengolahan data penelitian. Dirancang untuk peneliti, mahasiswa, peternak,
               dan praktisi lapangan.
             </p>
             <div className="hero-actions">
-              <a className="btn primary" href="#projects">Lihat showcase</a>
-              <a className="btn ghost" href="https://github.com/adiorany3" target="_blank" rel="noreferrer">
-                Buka GitHub
+              <a className="btn primary" href="#studi-kasus">Baca studi kasus</a>
+              <a className="btn ghost" href="#projects">
+                Lihat proyek
               </a>
             </div>
             <div className="stats" aria-label="Ringkasan portfolio">
@@ -108,29 +108,51 @@ export default async function HomePage() {
           </div>
         </section>
 
-        <RevealOnScroll className="section intro-section">
-          <div className="section-heading">
-            <p className="eyebrow">Professional direction</p>
-            <h2>Visual dan teks bergerak ke tujuan yang sama.</h2>
+        <section className="section intro-section" id="studi-kasus" aria-labelledby="case-study-title">
+          <RevealOnScroll className="section-heading">
+            <p className="eyebrow">Studi kasus • AgriTech</p>
+            <h2 id="case-study-title">Menyusun ransum dengan kebutuhan nutrisi dan biaya yang jelas.</h2>
             <p>
-              Setiap bagian menjelaskan fungsi produk. Pengunjung dapat memahami konteks,
-              metode, dan hasil tanpa membuka setiap repository.
+              Ransum Ruminansia membantu pengguna menyusun pakan sapi, kambing, dan domba.
+              Ringkasan ini mengacu pada fitur yang dijelaskan dalam dokumentasi proyek.
             </p>
+          </RevealOnScroll>
+          <div className="workflow-grid">
+            <RevealOnScroll className="workflow-card">
+              <span>01</span><h3>Masalah</h3>
+              <p>Komposisi pakan perlu mempertimbangkan kebutuhan nutrisi ternak, ketersediaan bahan, dan biaya. Perubahan satu bahan dapat memengaruhi keseimbangan ransum.</p>
+            </RevealOnScroll>
+            <RevealOnScroll className="workflow-card">
+              <span>02</span><h3>Pendekatan</h3>
+              <p>Pengguna memilih bahan dan menyusun ransum secara manual, atau memakai optimasi pemrograman linear untuk mencari biaya minimum sesuai batasan nutrisi.</p>
+            </RevealOnScroll>
+            <RevealOnScroll className="workflow-card">
+              <span>03</span><h3>Teknologi</h3>
+              <p>Python dan Streamlit menyediakan antarmuka aplikasi. Pandas, NumPy, dan SciPy mendukung pengolahan data serta perhitungan.</p>
+            </RevealOnScroll>
+            <RevealOnScroll className="workflow-card">
+              <span>04</span><h3>Keluaran</h3>
+              <p>Komposisi ransum, analisis nutrisi, perhitungan biaya, dan evaluasi kebutuhan mineral membantu pengguna meninjau formulasi. Dampak di lapangan belum disajikan sebagai hasil terukur.</p>
+            </RevealOnScroll>
           </div>
-        </RevealOnScroll>
+          <div className="hero-actions">
+            <a className="btn primary" href="https://github.com/adiorany3/ransumruminansia" target="_blank" rel="noreferrer">Lihat kode dan dokumentasi</a>
+            <a className="btn ghost" href="#projects">Jelajahi proyek lainnya</a>
+          </div>
+        </section>
 
         <section className="section github-section" id="github" aria-labelledby="github-title">
           <RevealOnScroll className="profile-card">
             <div className="profile-main">
               <Image src="/assets/avatar.svg" alt="Monogram Galuh Adi Insani" width={120} height={120} />
               <div>
-                <p className="eyebrow">GitHub Profile</p>
-                <h2 id="github-title">Profil developer disusun seperti product brief.</h2>
+                <p className="eyebrow">Profil GitHub</p>
+                <h2 id="github-title">Perangkat lunak untuk pertanian dan penelitian.</h2>
                 <h3>Galuh Adi Insani</h3>
                 <span>@adiorany3</span>
                 <p>
-                  Developer dari Indonesia yang fokus pada software AgriTech, statistical analysis,
-                  web apps, scientific computing, dan open-source tooling.
+                  Pengembang dari Indonesia dengan fokus pada AgriTech, analisis statistik,
+                  aplikasi web, komputasi ilmiah, dan perangkat lunak sumber terbuka.
                 </p>
                 <div className="profile-links">
                   {links.slice(0, 3).map((link) => (

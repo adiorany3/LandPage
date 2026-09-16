@@ -1,23 +1,23 @@
 export const navItems = [
-  { label: "Overview", href: "#overview" },
+  { label: "Ringkasan", href: "#overview" },
+  { label: "Studi kasus", href: "#studi-kasus" },
   { label: "Profil", href: "#github" },
-  { label: "Infografis", href: "#infografis" },
-  { label: "Projects", href: "#projects" },
-  { label: "Process", href: "#process" },
-  { label: "Contact", href: "#contact" }
+  { label: "Proyek", href: "#projects" },
+  { label: "Proses", href: "#process" },
+  { label: "Kontak", href: "#contact" }
 ];
 
 export const stats = [
-  { value: "69", label: "Public repositories" },
-  { value: "6", label: "Featured products" },
-  { value: "Python", label: "Main research stack" }
+  { value: "69", label: "Repositori publik" },
+  { value: "6", label: "Proyek unggulan" },
+  { value: "Python", label: "Bahasa utama" }
 ];
 
 export const workflow = [
   {
     step: "01",
     title: "Pahami domain",
-    description: "Petakan rumus, satuan, dataset, batasan, dan kebutuhan pengguna."
+    description: "Petakan rumus, satuan, data, batasan, dan kebutuhan pengguna."
   },
   {
     step: "02",
@@ -27,12 +27,12 @@ export const workflow = [
   {
     step: "03",
     title: "Rancang antarmuka",
-    description: "Susun input, hasil, visualisasi, dan laporan agar cepat dipahami."
+    description: "Susun masukan, hasil, visualisasi, dan laporan agar cepat dipahami."
   },
   {
     step: "04",
     title: "Rilis dan evaluasi",
-    description: "Deploy, dokumentasikan, lalu perbaiki berdasarkan penggunaan nyata."
+    description: "Rilis aplikasi, lengkapi dokumentasi, lalu perbaiki berdasarkan penggunaan nyata."
   }
 ];
 
