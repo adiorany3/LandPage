@@ -1,16 +1,14 @@
 :root {
-  --bg: #04120f;
-  --surface: rgba(15, 35, 25, .78);
-  --surface-strong: rgba(25, 58, 38, .94);
-  --surface-soft: rgba(88, 180, 95, .12);
-  --text: #f5fff7;
-  --muted: #a8c4ae;
-  --border: rgba(120, 220, 130, .24);
-  --accent: #7CFF6B;
-  --accent-2: #00D4A8;
-  --agro: #d9f99d;
-  --tech: #22D3EE;
-  --shadow: 0 24px 80px rgba(0, 20, 8, .45);
+  --bg: #050816;
+  --surface: rgba(12, 20, 43, .78);
+  --surface-strong: rgba(25, 37, 72, .94);
+  --surface-soft: rgba(90, 115, 190, .09);
+  --text: #f4f7ff;
+  --muted: #9aa8c7;
+  --border: rgba(132, 158, 224, .24);
+  --accent: #55f6c2;
+  --accent-2: #7c8cff;
+  --shadow: 0 24px 80px rgba(0, 0, 0, .42);
 }
 
 body {
@@ -19,8 +17,8 @@ body {
   overflow-x: hidden;
   color: var(--text);
   background:
-    radial-gradient(circle at 10% 0, rgba(126, 231, 135, .22), transparent 32rem),
-    radial-gradient(circle at 92% 12%, rgba(103, 232, 249, .14), transparent 27rem),
+    radial-gradient(circle at 10% 0, rgba(124, 140, 255, .25), transparent 32rem),
+    radial-gradient(circle at 92% 12%, rgba(85, 246, 194, .12), transparent 27rem),
     var(--bg);
   font: 400 1rem/1.65 Inter, system-ui, -apple-system, sans-serif;
   font-size: 1rem;
@@ -562,57 +560,3 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;op
 .site-header,.stats div,.glass-card,.project-card,.profile-card,.workflow-card,.stack-card,.contact-card,.blog-card,.pipeline-card,.repo-card,.github-sync-card{border-color:var(--border);background:var(--surface);box-shadow:var(--shadow)}
 .site-header{border-radius:16px}.eyebrow{letter-spacing:.16em}.hero h1,.section-heading h2{letter-spacing:-.055em}.btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 10px 28px rgba(85,246,194,.16)}.repo-card:hover,.project-card:hover{border-color:rgba(85,246,194,.5);box-shadow:0 28px 80px rgba(0,0,0,.48)}
 @media(prefers-reduced-motion:reduce){body::before{display:none}}
-
-
-/* AgroTech visual upgrade */
-.hero-visual {
-  position: relative;
-}
-.hero-visual::before {
-  content: "";
-  position: absolute;
-  width: 430px;
-  height: 430px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(34,211,238,.25), rgba(124,255,107,.08), transparent 70%);
-  filter: blur(10px);
-  animation: pulseAgro 5s infinite alternate;
-}
-.hero-visual::after {
-  content: "🌱  AI  •  IoT  •  DATA";
-  position: absolute;
-  bottom: 20px;
-  right: 0;
-  padding: 12px 18px;
-  border-radius: 999px;
-  background: rgba(10,35,30,.75);
-  border: 1px solid rgba(124,255,107,.3);
-  color: var(--accent);
-  font-size: .75rem;
-  letter-spacing: .08em;
-  backdrop-filter: blur(12px);
-}
-.product-pill {
-  background: linear-gradient(90deg,#7CFF6B,#22D3EE);
-  color:#04120f;
-  font-weight:900;
-  letter-spacing:.08em;
-}
-@keyframes pulseAgro {
- from {transform:scale(.9);opacity:.5}
- to {transform:scale(1.1);opacity:1}
-}
-.section-heading h2 {
-  background: linear-gradient(90deg,#fff,#7CFF6B,#22D3EE);
-  -webkit-background-clip:text;
-  color:transparent;
-}
-
-/* Future AgriTech experience */
-.hero-visual img { animation: floatAgro 7s ease-in-out infinite; filter: drop-shadow(0 30px 70px rgba(34,211,238,.25)); }
-.floating-tags span { animation: sensorPulse 3s infinite; }
-.floating-tags span:nth-child(2){animation-delay:.8s}.floating-tags span:nth-child(3){animation-delay:1.6s}
-.hero::before { content:""; position:absolute; inset:20% 45% auto auto; width:260px; height:260px; background:radial-gradient(circle, rgba(124,255,107,.18), transparent 70%); animation:dataFlow 5s infinite; pointer-events:none;}
-@keyframes floatAgro {50%{transform:translateY(-14px)}}
-@keyframes sensorPulse {50%{box-shadow:0 0 25px rgba(34,211,238,.45); transform:translateY(-4px)}}
-@keyframes dataFlow {50%{transform:scale(1.2);opacity:.5}}

@@ -66,12 +66,12 @@ export default async function HomePage() {
       <main id="main">
         <section className="hero" id="overview" aria-labelledby="hero-title">
           <div className="hero-copy">
-            <p className="eyebrow">Agro Technology • Data Science • Smart Farming</p>
-            <h1 id="hero-title">Membangun ekosistem AgriTech melalui data, otomasi, dan teknologi pertanian masa depan.</h1>
+            <p className="eyebrow">AgriTech • Statistics • Scientific Computing</p>
+            <h1 id="hero-title">Produk riset yang jelas, terukur, dan nyaman digunakan.</h1>
             <p className="lead">
-              Saya membangun aplikasi digital berbasis data untuk sektor agro, menggabungkan analisis ilmiah,
-              visualisasi teknologi, dan workflow penelitian agar mudah digunakan oleh peneliti,
-              akademisi, dan praktisi pertanian.
+              Saya membangun aplikasi web yang mengubah rumus peternakan, workflow statistik,
+              dan data penelitian menjadi produk digital untuk peneliti, mahasiswa, peternak,
+              dan praktisi lapangan.
             </p>
             <div className="hero-actions">
               <a className="btn primary" href="#projects">Lihat showcase</a>
@@ -90,10 +90,10 @@ export default async function HomePage() {
           </div>
 
           <div className="hero-visual" aria-label="Pratinjau dashboard nutrisi">
-            <span className="product-pill">AUTONOMOUS AGRICULTURE INTELLIGENCE</span>
+            <span className="product-pill">Ruminant Nutrition OS</span>
             <Image
-              src="/assets/agritech-future.svg"
-              alt="Greenhouse pintar dengan sensor IoT, AI analytics, dan dashboard pertanian"
+              src="/assets/hero-product.svg"
+              alt="Dashboard nutrisi, biaya, dan rekomendasi ransum"
               width={760}
               height={620}
               priority
@@ -103,7 +103,7 @@ export default async function HomePage() {
               <div><strong>Galuh Adi</strong><span>Research Tools Builder</span></div>
             </div>
             <div className="floating-tags" aria-hidden="true">
-              <span>IoT Monitoring</span><span>AI Prediction</span><span>Growth Simulation</span>
+              <span>Formulation</span><span>Analysis</span><span>Export</span>
             </div>
           </div>
         </section>
@@ -111,7 +111,7 @@ export default async function HomePage() {
         <RevealOnScroll className="section intro-section">
           <div className="section-heading">
             <p className="eyebrow">Professional direction</p>
-            <h2>Teknologi pertanian yang mengubah data menjadi keputusan.</h2>
+            <h2>Visual dan teks bergerak ke tujuan yang sama.</h2>
             <p>
               Setiap bagian menjelaskan fungsi produk. Pengunjung dapat memahami konteks,
               metode, dan hasil tanpa membuka setiap repository.
