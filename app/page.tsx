@@ -6,6 +6,7 @@ import ThemeAndNav from "@/components/ThemeAndNav";
 import { links, navItems, stack, stats, workflow } from "@/data/content";
 import { getGitHubPortfolio } from "@/lib/github";
 import { academicUrl, getAcademicProfile } from "@/lib/academic";
+import { getNews } from "@/lib/news";
 
 const personSchema = {
   "@context": "https://schema.org",
@@ -34,7 +35,7 @@ export const revalidate = 3600;
 
 export default async function HomePage() {
   const year = new Date().getFullYear();
-  const [portfolio, academic] = await Promise.all([getGitHubPortfolio(), getAcademicProfile()]);
+  const [portfolio, academic, news] = await Promise.all([getGitHubPortfolio(), getAcademicProfile(), getNews()]);
   const portfolioStats = stats.map((item, index) =>
     index === 0 ? { ...item, value: String(portfolio.totalRepositories) } : item
   );
@@ -249,7 +250,7 @@ export default async function HomePage() {
           </RevealOnScroll>
         </section>
 
-        <BlogFeed />
+        <BlogFeed news={news} />
 
         <section className="section" id="chat" aria-labelledby="chat-title">
           <div className="section-heading">

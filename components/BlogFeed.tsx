@@ -1,4 +1,5 @@
 import RevealOnScroll from "./RevealOnScroll";
+import type { NewsItem } from "@/lib/news";
 
 const posts = [
   {
@@ -15,21 +16,22 @@ const posts = [
   }
 ];
 
-export default function BlogFeed() {
+export default function BlogFeed({ news }: { news: NewsItem[] }) {
+  const items = news.length ? news : posts.map((post) => ({ ...post, link: "https://catataninsani.wordpress.com", published: "", source: "Catatan Insani" }));
   return (
     <section className="section" aria-labelledby="journal-title">
       <RevealOnScroll className="section-heading">
-        <p className="eyebrow">Catatan Insani</p>
+        <p className="eyebrow">{news.length ? "Berita terkait" : "Catatan Insani"}</p>
         <h2 id="journal-title">Catatan tentang riset, data, dan proses membangun produk.</h2>
       </RevealOnScroll>
       <div className="blog-grid">
-        {posts.map((post) => (
+        {items.map((post) => (
           <RevealOnScroll className="blog-card" key={post.title}>
-            <span className="journal-label">Journal</span>
+            <span className="journal-label">{post.source}{post.published ? ` · ${new Date(post.published).toLocaleDateString("id-ID")}` : ""}</span>
             <h3>{post.title}</h3>
-            <p>{post.excerpt}</p>
-            <a href="https://catataninsani.wordpress.com" target="_blank" rel="noreferrer">
-              Baca catatan ↗
+            <p>{post.excerpt ?? `Berita terbaru terkait Galuh Adi Insani dari ${post.source}.`}</p>
+            <a href={post.link} target="_blank" rel="noreferrer">
+              {news.length ? "Baca berita ↗" : "Baca catatan ↗"}
             </a>
           </RevealOnScroll>
         ))}
