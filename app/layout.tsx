@@ -10,11 +10,6 @@ export const metadata: Metadata = {
   },
   description:
     "Portfolio Galuh Adi Insani yang menampilkan aplikasi AgriTech, nutrisi ternak, analisis statistik, computer vision, dan scientific computing dari GitHub.",
-  icons: {
-    icon: "/assets/avatar.svg",
-    shortcut: "/assets/avatar.svg",
-    apple: "/assets/avatar.svg"
-  },
   keywords: [
     "Galuh Adi Insani",
     "Adioranye",
