@@ -269,7 +269,7 @@ export default async function HomePage() {
         <section className="section contact-section" id="contact" aria-labelledby="contact-title">
           <RevealOnScroll className="contact-card">
             <p className="eyebrow">Connect</p>
-            <h2 id="contact-title">Bangun research tool yang terlihat serius dan memang dipakai.</h2>
+            <h2 id="contact-title">Bangun research tool yang serius dan memang dipakai.</h2>
             <p>Cocok untuk kolaborasi open-source, aplikasi riset, dashboard statistik, produk AgriTech, dan web app berbasis data.</p>
             <div className="profile-links">
               {links.map((link) => <a href={link.href} key={link.href} target="_blank" rel="noreferrer">{link.label}</a>)}
