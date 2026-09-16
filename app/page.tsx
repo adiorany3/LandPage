@@ -238,7 +238,7 @@ export default async function HomePage() {
         <section className="section" id="chat" aria-labelledby="chat-title">
           <div className="section-heading">
             <p className="eyebrow">Asisten AI</p>
-            <h2 id="chat-title">Mulai percakapan.</h2>
+            <h2 id="chat-title">Adioranye AI</h2>
             <p>Obrolan diproses oleh layanan eksternal Udify. Hindari membagikan data sensitif.</p>
           </div>
           <iframe
