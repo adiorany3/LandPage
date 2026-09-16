@@ -5,6 +5,7 @@ import RevealOnScroll from "@/components/RevealOnScroll";
 import ThemeAndNav from "@/components/ThemeAndNav";
 import { links, navItems, stack, stats, workflow } from "@/data/content";
 import { getGitHubPortfolio } from "@/lib/github";
+import { academicUrl, getAcademicProfile } from "@/lib/academic";
 
 const personSchema = {
   "@context": "https://schema.org",
@@ -33,7 +34,7 @@ export const revalidate = 3600;
 
 export default async function HomePage() {
   const year = new Date().getFullYear();
-  const portfolio = await getGitHubPortfolio();
+  const [portfolio, academic] = await Promise.all([getGitHubPortfolio(), getAcademicProfile()]);
   const portfolioStats = stats.map((item, index) =>
     index === 0 ? { ...item, value: String(portfolio.totalRepositories) } : item
   );
@@ -146,19 +147,22 @@ export default async function HomePage() {
             <div className="profile-main">
               <Image src="/assets/avatar.svg" alt="Monogram Galuh Adi Insani" width={120} height={120} />
               <div>
-                <p className="eyebrow">Profil GitHub</p>
+                <p className="eyebrow">Profil akademik • Pengembang</p>
                 <h2 id="github-title">Perangkat lunak untuk pertanian dan penelitian.</h2>
-                <h3>Galuh Adi Insani</h3>
-                <span>@adiorany3</span>
+                <h3>{academic.name}</h3>
+                <span>@adiorany3 · {academic.faculty} · Universitas Gadjah Mada</span>
                 <p>
                   Pengembang dari Indonesia dengan fokus pada AgriTech, analisis statistik,
                   aplikasi web, komputasi ilmiah, dan perangkat lunak sumber terbuka.
                 </p>
                 <div className="profile-links">
+                  <a href={academicUrl} target="_blank" rel="noreferrer">Profil resmi UGM</a>
+                  <a href="mailto:adioranye@ugm.ac.id">adioranye@ugm.ac.id</a>
                   {links.slice(0, 3).map((link) => (
                     <a href={link.href} key={link.href} target="_blank" rel="noreferrer">{link.label}</a>
                   ))}
                 </div>
+                <p>{academic.address}</p>
               </div>
             </div>
             <div className="profile-metrics">
@@ -168,6 +172,18 @@ export default async function HomePage() {
               <div><strong>1</strong><span>Clear product focus</span></div>
             </div>
           </RevealOnScroll>
+          <div className="workflow-grid">
+            {academic.sections.map(section => (
+              <RevealOnScroll className="workflow-card" key={section.title}>
+                <h3>{section.title}</h3>
+                <ul>{section.items.map((item, index) => <li key={index}>{item}</li>)}</ul>
+              </RevealOnScroll>
+            ))}
+          </div>
+          <p>
+            Sumber: <a href={academicUrl} target="_blank" rel="noreferrer">Acadstaff UGM</a>.
+            {academic.live ? " Data diperiksa otomatis setiap 24 jam saat halaman diakses." : " Pembaruan tidak tersedia; menampilkan data cadangan terverifikasi."}
+          </p>
         </section>
 
         <section className="section infographic-section" id="infografis" aria-labelledby="infographic-title">
