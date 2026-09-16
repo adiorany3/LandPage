@@ -46,7 +46,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           {`window.difyChatbotConfig = {
             token: "s8pa4tyZ2EdkN1Bf",
             baseUrl: "https://udify.app",
-            dynamicScript: true,
             inputs: {},
             systemVariables: {},
             userVariables: {}
