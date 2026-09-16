@@ -239,7 +239,7 @@ export default async function HomePage() {
           <div className="section-heading">
             <p className="eyebrow">Asisten AI</p>
             <h2 id="chat-title">Adioranye AI</h2>
-            <p>Obrolan diproses oleh layanan eksternal Udify. Hindari membagikan data sensitif.</p>
+            <p>Tanyakan apa saja yang ingin kamu ketahui, biarkan Adioranye AI yang akan mencari jawabannya.</p>
           </div>
           <iframe
             src="https://udify.app/chatbot/s8pa4tyZ2EdkN1Bf"
