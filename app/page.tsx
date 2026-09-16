@@ -213,6 +213,26 @@ export default async function HomePage() {
 
         <BlogFeed />
 
+        <section className="section" id="chat" aria-labelledby="chat-title">
+          <div className="section-heading">
+            <p className="eyebrow">Asisten AI</p>
+            <h2 id="chat-title">Mulai percakapan.</h2>
+            <p>Obrolan diproses oleh layanan eksternal Udify. Hindari membagikan data sensitif.</p>
+          </div>
+          <iframe
+            src="https://udify.app/chatbot/s8pa4tyZ2EdkN1Bf"
+            title="Aplikasi obrolan AI"
+            style={{ width: "100%", height: "100%", minHeight: 700, border: 0 }}
+            allow="microphone;clipboard-write"
+            loading="lazy"
+          />
+          <p>
+            <a href="https://udify.app/chatbot/s8pa4tyZ2EdkN1Bf" target="_blank" rel="noreferrer">
+              Buka obrolan di tab baru
+            </a>
+          </p>
+        </section>
+
         <section className="section contact-section" id="contact" aria-labelledby="contact-title">
           <RevealOnScroll className="contact-card">
             <p className="eyebrow">Connect</p>
