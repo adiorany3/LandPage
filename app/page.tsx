@@ -66,12 +66,12 @@ export default async function HomePage() {
       <main id="main">
         <section className="hero" id="overview" aria-labelledby="hero-title">
           <div className="hero-copy">
-            <p className="eyebrow">AgriTech • Statistics • Scientific Computing</p>
-            <h1 id="hero-title">Produk riset yang jelas, terukur, dan nyaman digunakan.</h1>
+            <p className="eyebrow">Agro Technology • Data Science • Smart Farming</p>
+            <h1 id="hero-title">Menghubungkan pertanian modern, data, dan teknologi menjadi solusi digital.</h1>
             <p className="lead">
-              Saya membangun aplikasi web yang mengubah rumus peternakan, workflow statistik,
-              dan data penelitian menjadi produk digital untuk peneliti, mahasiswa, peternak,
-              dan praktisi lapangan.
+              Saya membangun aplikasi digital berbasis data untuk sektor agro, menggabungkan analisis ilmiah,
+              visualisasi teknologi, dan workflow penelitian agar mudah digunakan oleh peneliti,
+              akademisi, dan praktisi pertanian.
             </p>
             <div className="hero-actions">
               <a className="btn primary" href="#projects">Lihat showcase</a>

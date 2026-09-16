@@ -1,14 +1,16 @@
 :root {
-  --bg: #050816;
-  --surface: rgba(12, 20, 43, .78);
-  --surface-strong: rgba(25, 37, 72, .94);
-  --surface-soft: rgba(90, 115, 190, .09);
-  --text: #f4f7ff;
-  --muted: #9aa8c7;
-  --border: rgba(132, 158, 224, .24);
-  --accent: #55f6c2;
-  --accent-2: #7c8cff;
-  --shadow: 0 24px 80px rgba(0, 0, 0, .42);
+  --bg: #07150d;
+  --surface: rgba(15, 35, 25, .78);
+  --surface-strong: rgba(25, 58, 38, .94);
+  --surface-soft: rgba(88, 180, 95, .12);
+  --text: #f5fff7;
+  --muted: #a8c4ae;
+  --border: rgba(120, 220, 130, .24);
+  --accent: #7ee787;
+  --accent-2: #43b581;
+  --agro: #d9f99d;
+  --tech: #67e8f9;
+  --shadow: 0 24px 80px rgba(0, 20, 8, .45);
 }
 
 body {
@@ -17,8 +19,8 @@ body {
   overflow-x: hidden;
   color: var(--text);
   background:
-    radial-gradient(circle at 10% 0, rgba(124, 140, 255, .25), transparent 32rem),
-    radial-gradient(circle at 92% 12%, rgba(85, 246, 194, .12), transparent 27rem),
+    radial-gradient(circle at 10% 0, rgba(126, 231, 135, .22), transparent 32rem),
+    radial-gradient(circle at 92% 12%, rgba(103, 232, 249, .14), transparent 27rem),
     var(--bg);
   font: 400 1rem/1.65 Inter, system-ui, -apple-system, sans-serif;
   font-size: 1rem;
