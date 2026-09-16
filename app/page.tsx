@@ -89,11 +89,11 @@ export default async function HomePage() {
             </div>
           </div>
 
-          <div className="hero-visual" aria-label="Pratinjau dashboard nutrisi">
-            <span className="product-pill">Ruminant Nutrition OS</span>
+          <div className="hero-visual" aria-label="Ilustrasi jaringan IoT pertanian">
+            <span className="product-pill">AgriTech / IoT</span>
             <Image
-              src="/assets/hero-product.svg"
-              alt="Dashboard nutrisi, biaya, dan rekomendasi ransum"
+              src="/assets/iot-network.svg"
+              alt="Ilustrasi IoT: sensor suhu, kelembapan, dan kondisi tanah terhubung melalui gateway ke analisis data dan dasbor. Bukan data sensor nyata."
               width={760}
               height={620}
               priority

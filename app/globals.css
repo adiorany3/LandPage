@@ -606,6 +606,27 @@ p { max-width: 70ch; }
 .avatar-card { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 12px; }
 .avatar-card > div { display: flex; flex-direction: column; gap: 4px; }
 .avatar-card img, .profile-main > img { border-radius: 16px; }
+body:not(.light) {
+  --bg: #06121c;
+  --surface: #0d2230;
+  --surface-strong: #173b49;
+  --surface-soft: #0b1c29;
+  --text: #e5faff;
+  --muted: #a9c5d2;
+  --border: #315868;
+  --accent: #83ebff;
+  --accent-2: #45dcec;
+}
+body {
+  background-image: linear-gradient(var(--surface-soft) 1px, transparent 1px), linear-gradient(90deg, var(--surface-soft) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.hero .hero-visual { border-color: var(--accent-2); box-shadow: inset 0 0 28px var(--surface-strong); }
+.hero .hero-visual::before, .hero .hero-visual::after { content: none; }
+.hero .hero-visual > img { animation: none; filter: none; }
+.hero .product-pill { background: var(--surface); color: var(--accent); font-family: ui-monospace, monospace; }
+main .section-heading h2 { background: none; color: var(--text); -webkit-text-fill-color: currentColor; }
+.eyebrow, .pipeline-number, .repo-language { font-family: ui-monospace, monospace; letter-spacing: .06em; }
 .floating-tags, .tag-list, .profile-links { display: flex; flex-wrap: wrap; gap: 8px; }
 .profile-links { margin-top: 20px; }
 .profile-card, .stack-card, .contact-card, .pipeline-card { padding: clamp(20px, 4vw, 36px); border-radius: var(--radius); }

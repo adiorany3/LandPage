@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="620" viewBox="0 0 760 620" fill="none">
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" stroke="#173b49" stroke-width="1"/></pattern>
+    <linearGradient id="panel" x2="1" y2="1"><stop stop-color="#102d3b"/><stop offset="1" stop-color="#07151f"/></linearGradient>
+  </defs>
+  <rect x="2" y="2" width="756" height="616" rx="24" fill="#07151f" stroke="#287084" stroke-width="2"/>
+  <rect x="3" y="3" width="754" height="614" rx="24" fill="url(#grid)"/>
+  <g font-family="monospace" fill="#e5faff">
+    <text x="32" y="48" font-size="19" font-weight="700">ADIORANYE / IoT</text>
+    <rect x="526" y="25" width="202" height="32" rx="16" fill="#133c47"/>
+    <text x="627" y="46" text-anchor="middle" font-size="12" fill="#83ebff">ILUSTRASI SISTEM</text>
+    <text x="32" y="85" font-size="14" fill="#9bbac7">SENSOR / GATEWAY / CLOUD</text>
+    <g stroke="#45dcec" stroke-width="3" stroke-linejoin="round">
+      <path d="M210 191H264V310H300M210 310H300M210 429H264V310M460 310H516V191H554M516 310V429H554"/>
+      <circle cx="264" cy="310" r="6" fill="#07151f"/><circle cx="516" cy="310" r="6" fill="#07151f"/>
+    </g>
+    <g fill="url(#panel)" stroke="#36778b">
+      <rect x="32" y="145" width="178" height="92" rx="12"/>
+      <rect x="32" y="264" width="178" height="92" rx="12"/>
+      <rect x="32" y="383" width="178" height="92" rx="12"/>
+      <rect x="300" y="249" width="160" height="122" rx="16" stroke="#45dcec" stroke-width="2"/>
+      <rect x="554" y="145" width="174" height="92" rx="12"/>
+      <rect x="554" y="383" width="174" height="92" rx="12"/>
+    </g>
+    <g font-size="12" fill="#9bbac7"><text x="48" y="172">NODE / 01</text><text x="48" y="291">NODE / 02</text><text x="48" y="410">NODE / 03</text><text x="380" y="279" text-anchor="middle">EDGE DEVICE</text><text x="570" y="172">CLOUD</text><text x="570" y="410">OUTPUT</text></g>
+    <g font-size="18" font-weight="700"><text x="48" y="207">Suhu udara</text><text x="48" y="326">Kelembapan</text><text x="48" y="445">Kondisi tanah</text><text x="380" y="316" text-anchor="middle">GATEWAY</text><text x="570" y="207">Analisis data</text><text x="570" y="445">Dasbor</text></g>
+    <text x="380" y="345" text-anchor="middle" font-size="12" fill="#83ebff">MQTT / HTTPS</text>
+    <rect x="32" y="520" width="696" height="66" rx="12" fill="#102d3b" stroke="#36778b"/>
+    <text x="52" y="546" font-size="13" fill="#83ebff">PERTANIAN TERHUBUNG</text>
+    <text x="52" y="568" font-size="12" fill="#b6d1dc">Konsep visual · Tidak terhubung ke sensor nyata</text>
+  </g>
+</svg>
