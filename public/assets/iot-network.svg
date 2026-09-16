@@ -16,6 +16,16 @@
     }
     @media (prefers-reduced-motion: reduce) { .packet { animation: none; } }
   </style>
+  <style>
+    .received { opacity: 0; animation: receive .15s linear var(--arrival) forwards; }
+    .chart-bar { transform-box: fill-box; transform-origin: bottom; transform: scaleY(.15); animation: grow .15s linear var(--arrival) forwards; }
+    @keyframes receive { to { opacity: 1; } }
+    @keyframes grow { to { transform: scaleY(1); } }
+    @media (prefers-reduced-motion: reduce) {
+      .received { animation: none; opacity: 1; }
+      .chart-bar { animation: none; transform: none; }
+    }
+  </style>
   <rect x="2" y="2" width="756" height="616" rx="24" fill="#07151f" stroke="#287084" stroke-width="2"/>
   <rect x="3" y="3" width="754" height="614" rx="24" fill="url(#grid)"/>
   <g font-family="monospace" fill="#e5faff">
@@ -47,5 +57,23 @@
     <circle class="packet packet-one" r="5"/>
     <circle class="packet packet-two" r="5"/>
     <circle class="packet packet-three" r="5"/>
+  </g>
+  <g font-family="monospace" font-size="12" fill="#fcd778" aria-hidden="true">
+    <text class="received" style="--arrival: 0s" x="48" y="226">27.4 °C</text>
+    <text class="received" style="--arrival: .4s" x="48" y="345">68 % RH</text>
+    <text class="received" style="--arrival: .8s" x="48" y="464">42 % VWC</text>
+    <text x="570" y="226" fill="#83ebff">Validasi / agregasi</text>
+    <g style="--arrival: 4s">
+      <text class="received" x="570" y="463">27.4°</text>
+      <rect class="chart-bar" x="688" y="425" width="7" height="16" rx="2"/>
+    </g>
+    <g style="--arrival: 4.4s">
+      <text class="received" x="620" y="463">68%</text>
+      <rect class="chart-bar" x="699" y="417" width="7" height="24" rx="2" fill="#45dcec"/>
+    </g>
+    <g style="--arrival: 4.8s">
+      <text class="received" x="668" y="463">42%</text>
+      <rect class="chart-bar" x="710" y="421" width="7" height="20" rx="2" fill="#83ebff"/>
+    </g>
   </g>
 </svg>
