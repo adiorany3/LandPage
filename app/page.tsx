@@ -67,7 +67,7 @@ export default async function HomePage() {
         <section className="hero" id="overview" aria-labelledby="hero-title">
           <div className="hero-copy">
             <p className="eyebrow">Agro Technology • Data Science • Smart Farming</p>
-            <h1 id="hero-title">Menghubungkan pertanian modern, data, dan teknologi menjadi solusi digital.</h1>
+            <h1 id="hero-title">Membangun ekosistem AgriTech melalui data, otomasi, dan teknologi pertanian masa depan.</h1>
             <p className="lead">
               Saya membangun aplikasi digital berbasis data untuk sektor agro, menggabungkan analisis ilmiah,
               visualisasi teknologi, dan workflow penelitian agar mudah digunakan oleh peneliti,
@@ -90,7 +90,7 @@ export default async function HomePage() {
           </div>
 
           <div className="hero-visual" aria-label="Pratinjau dashboard nutrisi">
-            <span className="product-pill">Ruminant Nutrition OS</span>
+            <span className="product-pill">SMART AGRICULTURE PLATFORM</span>
             <Image
               src="/assets/hero-product.svg"
               alt="Dashboard nutrisi, biaya, dan rekomendasi ransum"
@@ -103,7 +103,7 @@ export default async function HomePage() {
               <div><strong>Galuh Adi</strong><span>Research Tools Builder</span></div>
             </div>
             <div className="floating-tags" aria-hidden="true">
-              <span>Formulation</span><span>Analysis</span><span>Export</span>
+              <span>IoT Sensor</span><span>AI Analytics</span><span>Crop Intelligence</span>
             </div>
           </div>
         </section>
@@ -111,7 +111,7 @@ export default async function HomePage() {
         <RevealOnScroll className="section intro-section">
           <div className="section-heading">
             <p className="eyebrow">Professional direction</p>
-            <h2>Visual dan teks bergerak ke tujuan yang sama.</h2>
+            <h2>Teknologi pertanian yang mengubah data menjadi keputusan.</h2>
             <p>
               Setiap bagian menjelaskan fungsi produk. Pengunjung dapat memahami konteks,
               metode, dan hasil tanpa membuka setiap repository.
