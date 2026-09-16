@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Research Product Pipeline</title>
+  <desc id="desc">Infografis alur dari masalah ilmiah menuju keputusan yang dapat digunakan</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#07111f"/>
+      <stop offset="1" stop-color="#0d2035"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#89f7c6"/>
+      <stop offset="1" stop-color="#70a5ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#000" flood-opacity=".3"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="160" cy="80" r="280" fill="#70a5ff" opacity=".12"/>
+  <circle cx="1450" cy="210" r="330" fill="#89f7c6" opacity=".09"/>
+  <g opacity=".05" stroke="#fff">
+    <path d="M0 80H1600M0 160H1600M0 240H1600M0 320H1600M0 400H1600M0 480H1600M0 560H1600M0 640H1600M0 720H1600M0 800H1600"/>
+    <path d="M80 0V900M160 0V900M240 0V900M320 0V900M400 0V900M480 0V900M560 0V900M640 0V900M720 0V900M800 0V900M880 0V900M960 0V900M1040 0V900M1120 0V900M1200 0V900M1280 0V900M1360 0V900M1440 0V900M1520 0V900"/>
+  </g>
+  <text x="110" y="115" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="4" fill="#89f7c6">RESEARCH PRODUCT PIPELINE</text>
+  <text x="110" y="184" font-family="Arial, sans-serif" font-size="54" font-weight="800" fill="#f7fbff">Dari persoalan ilmiah menuju keputusan</text>
+  <text x="110" y="244" font-family="Arial, sans-serif" font-size="54" font-weight="800" fill="#f7fbff">yang bisa langsung dipakai.</text>
+  <text x="110" y="292" font-family="Arial, sans-serif" font-size="23" fill="#b3c0cf">Metode ilmiah, mesin hitung, antarmuka, dan output disusun dalam satu alur yang transparan.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="90" y="360" width="1420" height="340" rx="42" fill="#fff" fill-opacity=".07" stroke="#fff" stroke-opacity=".14"/>
+  </g>
+
+  <g font-family="Arial, sans-serif">
+    <g transform="translate(125 402)">
+      <rect width="246" height="254" rx="28" fill="#fff" fill-opacity=".055" stroke="#fff" stroke-opacity=".13"/>
+      <text x="24" y="34" font-size="15" font-weight="800" letter-spacing="2" fill="#89f7c6">01</text>
+      <rect x="24" y="58" width="62" height="62" rx="18" fill="#89f7c6" fill-opacity=".12" stroke="#89f7c6" stroke-opacity=".4"/>
+      <text x="55" y="100" text-anchor="middle" font-size="34" font-weight="800" fill="#89f7c6">?</text>
+      <text x="24" y="158" font-size="25" font-weight="800" fill="#f7fbff">Masalah</text>
+      <text x="24" y="191" font-size="17" fill="#b3c0cf">Rumus, data, dan</text>
+      <text x="24" y="218" font-size="17" fill="#b3c0cf">kebutuhan lapangan</text>
+    </g>
+    <g transform="translate(401 402)">
+      <rect width="246" height="254" rx="28" fill="#fff" fill-opacity=".055" stroke="#fff" stroke-opacity=".13"/>
+      <text x="24" y="34" font-size="15" font-weight="800" letter-spacing="2" fill="#89f7c6">02</text>
+      <rect x="24" y="58" width="62" height="62" rx="18" fill="#89f7c6" fill-opacity=".12" stroke="#89f7c6" stroke-opacity=".4"/>
+      <text x="55" y="100" text-anchor="middle" font-size="30" font-weight="800" fill="#89f7c6">Σ</text>
+      <text x="24" y="158" font-size="25" font-weight="800" fill="#f7fbff">Metode</text>
+      <text x="24" y="191" font-size="17" fill="#b3c0cf">Asumsi, satuan, dan</text>
+      <text x="24" y="218" font-size="17" fill="#b3c0cf">aturan validasi</text>
+    </g>
+    <g transform="translate(677 402)">
+      <rect width="246" height="254" rx="28" fill="#fff" fill-opacity=".055" stroke="#fff" stroke-opacity=".13"/>
+      <text x="24" y="34" font-size="15" font-weight="800" letter-spacing="2" fill="#89f7c6">03</text>
+      <rect x="24" y="58" width="62" height="62" rx="18" fill="#70a5ff" fill-opacity=".12" stroke="#70a5ff" stroke-opacity=".4"/>
+      <text x="55" y="98" text-anchor="middle" font-size="24" font-weight="800" fill="#70a5ff">{ }</text>
+      <text x="24" y="158" font-size="25" font-weight="800" fill="#f7fbff">Engine</text>
+      <text x="24" y="191" font-size="17" fill="#b3c0cf">Kalkulasi, optimasi,</text>
+      <text x="24" y="218" font-size="17" fill="#b3c0cf">dan pengujian</text>
+    </g>
+    <g transform="translate(953 402)">
+      <rect width="246" height="254" rx="28" fill="#fff" fill-opacity=".055" stroke="#fff" stroke-opacity=".13"/>
+      <text x="24" y="34" font-size="15" font-weight="800" letter-spacing="2" fill="#70a5ff">04</text>
+      <rect x="24" y="58" width="62" height="62" rx="18" fill="#70a5ff" fill-opacity=".12" stroke="#70a5ff" stroke-opacity=".4"/>
+      <text x="55" y="99" text-anchor="middle" font-size="30" font-weight="800" fill="#70a5ff">▦</text>
+      <text x="24" y="158" font-size="25" font-weight="800" fill="#f7fbff">Interface</text>
+      <text x="24" y="191" font-size="17" fill="#b3c0cf">Input, visualisasi,</text>
+      <text x="24" y="218" font-size="17" fill="#b3c0cf">dan laporan</text>
+    </g>
+    <g transform="translate(1229 402)">
+      <rect width="246" height="254" rx="28" fill="#fff" fill-opacity=".055" stroke="#fff" stroke-opacity=".13"/>
+      <text x="24" y="34" font-size="15" font-weight="800" letter-spacing="2" fill="#f2c36b">05</text>
+      <rect x="24" y="58" width="62" height="62" rx="18" fill="#f2c36b" fill-opacity=".12" stroke="#f2c36b" stroke-opacity=".4"/>
+      <text x="55" y="100" text-anchor="middle" font-size="31" font-weight="800" fill="#f2c36b">✓</text>
+      <text x="24" y="158" font-size="25" font-weight="800" fill="#f7fbff">Keputusan</text>
+      <text x="24" y="191" font-size="17" fill="#b3c0cf">Insight yang dapat</text>
+      <text x="24" y="218" font-size="17" fill="#b3c0cf">langsung digunakan</text>
+    </g>
+  </g>
+
+  <g stroke="url(#accent)" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M372 529H398"/><path d="M648 529H674"/><path d="M924 529H950"/><path d="M1200 529H1226"/>
+  </g>
+  <g fill="#70a5ff"><path d="M390 521l10 8-10 8z"/><path d="M666 521l10 8-10 8z"/><path d="M942 521l10 8-10 8z"/><path d="M1218 521l10 8-10 8z"/></g>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="90" y="742" width="450" height="92" rx="24" fill="#fff" fill-opacity=".055" stroke="#fff" stroke-opacity=".12"/>
+    <text x="118" y="778" font-size="19" font-weight="800" fill="#f7fbff">Input terstruktur</text>
+    <text x="118" y="808" font-size="16" fill="#b3c0cf">Data dan satuan tervalidasi</text>
+    <rect x="575" y="742" width="450" height="92" rx="24" fill="#fff" fill-opacity=".055" stroke="#fff" stroke-opacity=".12"/>
+    <text x="603" y="778" font-size="19" font-weight="800" fill="#f7fbff">Proses transparan</text>
+    <text x="603" y="808" font-size="16" fill="#b3c0cf">Metode dan hasil dapat ditelusuri</text>
+    <rect x="1060" y="742" width="450" height="92" rx="24" fill="#fff" fill-opacity=".055" stroke="#fff" stroke-opacity=".12"/>
+    <text x="1088" y="778" font-size="19" font-weight="800" fill="#f7fbff">Output operasional</text>
+    <text x="1088" y="808" font-size="16" fill="#b3c0cf">Hasil mudah dibaca dan diekspor</text>
+  </g>
+</svg>
