@@ -4,6 +4,22 @@ const newsUrl = "https://news.google.com/rss/search?q=%22Galuh+Adi+Insani%22&hl=
 const blogUrl = "https://catataninsani.wordpress.com/feed/";
 const fallback: NewsItem[] = [];
 
+export async function getLivestockNews(): Promise<NewsItem[]> {
+  const url = "https://news.google.com/rss/search?q=" + encodeURIComponent("(peternakan OR ternak OR pakan OR kesehatan hewan) when:7d") + "&hl=id&gl=ID&ceid=ID:id";
+  try {
+    const response = await fetch(url, { next: { revalidate: 1800 }, signal: AbortSignal.timeout(8000) });
+    if (!response.ok) throw new Error("Livestock feed unavailable");
+    const cutoff = Date.now() - 7 * 24 * 60 * 60 * 1000;
+    return parseFeed(await response.text(), "Google News")
+      .filter(item => Date.parse(item.published) >= cutoff && Date.parse(item.published) <= Date.now())
+      .sort((a, b) => Date.parse(b.published) - Date.parse(a.published))
+      .slice(0, 6);
+  } catch (error) {
+    console.warn("Berita peternakan gagal dimuat.", error instanceof Error ? error.message : "Kesalahan jaringan");
+    return [];
+  }
+}
+
 function decode(value: string) {
   return value.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#39;/g, "'").trim();
 }
