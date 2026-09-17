@@ -27,7 +27,7 @@ export default function BlogFeed({ news }: { news: NewsItem[] }) {
       <div className="blog-grid">
         {items.map((post) => (
           <RevealOnScroll className="blog-card" key={post.title}>
-            <span className="journal-label">{post.source}{post.published ? ` · ${new Date(post.published).toLocaleDateString("id-ID")}` : ""}</span>
+            <span className="journal-label">Sumber: {post.source}{post.published ? ` · ${new Date(post.published).toLocaleDateString("id-ID")}` : ""}</span>
             <h3>{post.title}</h3>
             <p>{post.excerpt ?? `Berita terbaru terkait Galuh Adi Insani dari ${post.source}.`}</p>
             <a href={post.link} target="_blank" rel="noreferrer">
