@@ -5,11 +5,13 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://adioranye.vercel.app"),
   title: {
-    default: "Galuh Adi Insani | AgriTech & Scientific Computing",
+    default: "Galuh Adi Insani | Inovasi Peternakan & AgriTech",
     template: "%s | Galuh Adi Insani"
   },
   description:
-    "Portfolio Galuh Adi Insani yang menampilkan aplikasi AgriTech, nutrisi ternak, analisis statistik, computer vision, dan scientific computing dari GitHub.",
+    "Galuh Adi Insani mengembangkan Ransum Ruminansia, aplikasi formulasi pakan, analisis statistik, dan komputasi ilmiah untuk inovasi peternakan dan AgriTech.",
+  authors: [{ name: "Galuh Adi Insani", url: "https://adioranye.vercel.app/" }],
+  creator: "Galuh Adi Insani",
   keywords: [
     "Galuh Adi Insani",
     "Adioranye",
@@ -22,9 +24,9 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
   openGraph: {
-    title: "Galuh Adi Insani | Research Tools Builder",
+    title: "Galuh Adi Insani | Inovasi Peternakan & AgriTech",
     description:
-      "Katalog project open-source untuk AgriTech, statistik, AI, dan scientific computing.",
+      "Ransum Ruminansia, formulasi pakan ternak, analisis statistik, dan aplikasi riset karya Galuh Adi Insani.",
     url: "https://adioranye.vercel.app",
     siteName: "Adioranye",
     locale: "id_ID",
@@ -32,8 +34,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Galuh Adi Insani | Research Tools Builder",
-    description: "Project open-source untuk AgriTech, statistik, AI, dan scientific computing."
+    title: "Galuh Adi Insani | Inovasi Peternakan & AgriTech",
+    description: "Ransum Ruminansia, formulasi pakan ternak, analisis statistik, dan aplikasi riset karya Galuh Adi Insani."
   }
 };
 

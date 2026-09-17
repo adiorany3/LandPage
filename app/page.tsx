@@ -13,11 +13,17 @@ import { getNews, getLivestockNews } from "@/lib/news";
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": "https://adioranye.vercel.app/#person",
   name: "Galuh Adi Insani",
-  alternateName: "adiorany3",
+  alternateName: ["adiorany3", "adioranye"],
+  description: "Pengembang aplikasi AgriTech, formulasi pakan ternak, analisis statistik, dan komputasi ilmiah.",
   url: "https://adioranye.vercel.app/",
   sameAs: [
     "https://github.com/adiorany3",
+    "https://acadstaff.ugm.ac.id/galuhadiinsani",
+    "https://scholar.google.com/citations?user=8y2L7xoAAAAJ&hl=id",
+    "https://sinta.kemdiktisaintek.go.id/authors/profile/5972626/?view=researches",
+    "https://www.linkedin.com/in/galuh-adi-insani-1aa0a5105/",
     "https://catataninsani.wordpress.com",
     "https://adioranye.streamlit.app/"
   ],
@@ -71,7 +77,7 @@ export default async function HomePage() {
         <section className="hero" id="overview" aria-labelledby="hero-title">
           <div className="hero-copy">
             <p className="eyebrow">AgriTech • Statistika • Komputasi Ilmiah</p>
-            <h1 id="hero-title">Aplikasi riset untuk memahami data dan mendukung keputusan.</h1>
+            <h1 id="hero-title">Galuh Adi Insani — Inovasi Peternakan dan AgriTech.</h1>
             <p className="lead">
               Saya membangun aplikasi web untuk perhitungan peternakan, analisis statistik,
               dan pengolahan data penelitian. Dirancang untuk peneliti, mahasiswa, peternak,
@@ -115,7 +121,7 @@ export default async function HomePage() {
         <section className="section intro-section" id="studi-kasus" aria-labelledby="case-study-title">
           <RevealOnScroll className="section-heading">
             <p className="eyebrow">Studi kasus • AgriTech</p>
-            <h2 id="case-study-title">Menyusun ransum dengan kebutuhan nutrisi dan biaya yang jelas.</h2>
+            <h2 id="case-study-title">Ransum Ruminansia: aplikasi formulasi pakan ternak karya Galuh Adi Insani.</h2>
             <p>
               Ransum Ruminansia membantu pengguna menyusun pakan sapi, kambing, dan domba.
               Ringkasan ini mengacu pada fitur yang dijelaskan dalam dokumentasi proyek.
