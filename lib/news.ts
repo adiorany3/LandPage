@@ -5,7 +5,7 @@ const blogUrl = "https://catataninsani.wordpress.com/feed/";
 const fallback: NewsItem[] = [];
 
 function decode(value: string) {
-  return value.replace(/<!\[CDATA\[([\s\S]*?)\]\]>|<[^>]+>/g, "$1").replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#39;/g, "'").trim();
+  return value.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#39;/g, "'").trim();
 }
 
 function parseFeed(xml: string, defaultSource: string) {
