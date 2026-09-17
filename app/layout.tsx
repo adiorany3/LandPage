@@ -33,7 +33,8 @@ export const metadata: Metadata = {
     type: "website"
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
+    images: ["/opengraph-image"],
     title: "Galuh Adi Insani | Inovasi Peternakan & AgriTech",
     description: "Ransum Ruminansia, formulasi pakan ternak, analisis statistik, dan aplikasi riset karya Galuh Adi Insani."
   }

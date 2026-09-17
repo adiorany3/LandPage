@@ -146,7 +146,8 @@ export default async function HomePage() {
             </RevealOnScroll>
           </div>
           <div className="hero-actions">
-            <a className="btn primary" href="https://github.com/adiorany3/ransumruminansia" target="_blank" rel="noreferrer">Lihat kode dan dokumentasi</a>
+            <a className="btn primary" href="/inovasi/ransum-ruminansia">Pelajari Ransum Ruminansia</a>
+            <a className="btn ghost" href="https://github.com/adiorany3/ransumruminansia" target="_blank" rel="noreferrer">Lihat kode dan dokumentasi</a>
             <a className="btn ghost" href="#projects">Jelajahi proyek lainnya</a>
           </div>
         </section>
