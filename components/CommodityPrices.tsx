@@ -11,6 +11,7 @@ export default async function CommodityPrices() {
         <p>Ringkasan nasional. Tanggal dan jenis harga mengikuti data terakhir tiap komoditas, bukan selalu harga hari ini. Harga lokal dapat berbeda.</p>
         <p>Pembaruan otomatis setiap 30 menit saat halaman diakses.</p>
       </RevealOnScroll>
+      {prices.some(item => item.fallback) && <p role="status">Sumber tidak dapat dimuat. Menampilkan data cadangan tanggal 17 September 2026, bukan harga terkini. Periksa tautan sumber sebelum mengambil keputusan.</p>}
       {prices.length ? (
         <div className="blog-grid">
           {prices.map(item => (

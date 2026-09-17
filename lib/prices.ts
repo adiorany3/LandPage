@@ -1,5 +1,14 @@
 export const pricesUrl = "https://sunegg.id/harga-komoditas";
-export type CommodityPrice = { name: string; level: string; date: string; unit: string; price: string; link: string };
+export type CommodityPrice = { name: string; level: string; date: string; unit: string; price: string; link: string; fallback?: boolean };
+
+// ponytail: snapshot terverifikasi, bukan cache persisten; gunakan DB jika perlu menyimpan setiap pembaruan berhasil.
+const fallbackPrices: CommodityPrice[] = [
+  { name: "Telur Ayam Ras", level: "Eceran", date: "17 Sep 2026", unit: "kg", price: "27.834", link: `${pricesUrl}/telur-ayam-ras`, fallback: true },
+  { name: "Daging Sapi Murni", level: "Eceran", date: "17 Sep 2026", unit: "kg", price: "155.000", link: `${pricesUrl}/daging-sapi-murni`, fallback: true },
+  { name: "Karkas Ayam Broiler", level: "Grosir", date: "17 Sep 2026", unit: "kg", price: "37.334", link: `${pricesUrl}/karkas-ayam-broiler`, fallback: true },
+  { name: "Pakan Ternak Broiler", level: "Grosir", date: "17 Sep 2026", unit: "kg", price: "10.475", link: `${pricesUrl}/pakan-ternak-broiler`, fallback: true },
+  { name: "Pakan Konsentrat Layer", level: "Grosir", date: "17 Sep 2026", unit: "kg", price: "11.000", link: `${pricesUrl}/pakan-konsentrat-layer`, fallback: true }
+];
 
 export function parsePrices(html: string): CommodityPrice[] {
   const items = new Map<string, CommodityPrice>();
@@ -23,6 +32,6 @@ export async function getCommodityPrices(): Promise<CommodityPrice[]> {
     return prices;
   } catch (error) {
     console.warn("Harga komoditas tidak tersedia.", error instanceof Error ? error.message : "Kesalahan jaringan");
-    return [];
+    return fallbackPrices;
   }
 }
