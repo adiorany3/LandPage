@@ -1,8 +1,12 @@
 import { getCommodityPrices, pricesUrl } from "@/lib/prices";
+import { eggPriceUrl, eggArchiveUrl, getEggPrice, getEggArchive } from "@/lib/egg-price";
 import RevealOnScroll from "./RevealOnScroll";
 
 export default async function CommodityPrices() {
-  const prices = await getCommodityPrices();
+  const [prices, currentEgg, archive] = await Promise.all([getCommodityPrices(), getEggPrice(), getEggArchive()]);
+  const useArchive = archive.length > 0 && archive[0].date >= currentEgg.date && (currentEgg.fallback || archive[0].date > currentEgg.date);
+  const egg = useArchive ? { ...archive[0], fallback: false } : currentEgg;
+  const eggSource = useArchive ? `${eggArchiveUrl}/${egg.date}` : eggPriceUrl;
   return (
     <section className="section" id="harga-peternakan" aria-labelledby="prices-title">
       <RevealOnScroll className="section-heading">
@@ -11,7 +15,23 @@ export default async function CommodityPrices() {
         <p>Ringkasan nasional. Tanggal dan jenis harga mengikuti data terakhir tiap komoditas, bukan selalu harga hari ini. Harga lokal dapat berbeda.</p>
         <p>Pembaruan otomatis setiap 30 menit saat halaman diakses.</p>
       </RevealOnScroll>
-      {prices.some(item => item.fallback) && <p role="status">Sumber tidak dapat dimuat. Menampilkan data cadangan tanggal 17 September 2026, bukan harga terkini. Periksa tautan sumber sebelum mengambil keputusan.</p>}
+      <RevealOnScroll className="blog-card">
+        <span className="journal-label">Rata-rata nasional · Data: <time dateTime={egg.date}>{egg.date}</time></span>
+        <h3>Harga telur ayam ras — referensi pasar</h3>
+        <p><strong>Rp {egg.price}</strong> /kg</p>
+        <p>Ringkasan dari halaman harga telur harian; berbeda dari seri harga eceran komoditas di bawah.</p>
+        {egg.fallback && <p>Arsip harga sesuai tanggal data.</p>}
+        <a href={eggSource} target="_blank" rel="noreferrer">Sumber: Sun Egg — harga telur harian ↗</a>
+      </RevealOnScroll>
+      <details>
+        <summary>Arsip harga telur — rata-rata nasional</summary>
+        <p>Daftar tanggal yang tersedia dari sumber; diperbarui setiap 30 menit saat halaman diakses.</p>
+        {archive.length > 0 ? <ul>{archive.map(item => (
+          <li key={item.date}><a href={`${eggArchiveUrl}/${item.date}`} target="_blank" rel="noreferrer"><time dateTime={item.date}>{item.date}</time> — Rp {item.price}/kg</a></li>
+        ))}</ul> : <p>Daftar arsip belum tersedia. Buka sumber untuk melihat riwayat.</p>}
+        <a href={eggArchiveUrl} target="_blank" rel="noreferrer">Lihat seluruh arsip di Sun Egg ↗</a>
+      </details>
+      {prices.some(item => item.fallback) && <p>Arsip harga sesuai tanggal data.</p>}
       {prices.length ? (
         <div className="blog-grid">
           {prices.map(item => (
