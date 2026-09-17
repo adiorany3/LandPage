@@ -636,6 +636,7 @@ main .section-heading h2 { background: none; color: var(--text); -webkit-text-fi
 .pipeline { grid-template-columns: repeat(5, 1fr); }
 .workflow-grid, .blog-grid { grid-template-columns: repeat(3, 1fr); }
 .pipeline-item, .workflow-card, .blog-card { padding: 20px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface-soft); }
+.blog-card { min-width: 0; overflow-wrap: anywhere; }
 .pipeline-number, .pipeline-icon { color: var(--accent-2); font-family: ui-monospace, monospace; }
 .pipeline-arrow, .project-marquee { display: none; }
 .project-toolbar { margin-top: 28px; }
