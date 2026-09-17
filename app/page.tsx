@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ContactCard from "@/components/ContactCard";
 import BlogFeed from "@/components/BlogFeed";
 import ProjectShowcase from "@/components/ProjectShowcase";
 import RevealOnScroll from "@/components/RevealOnScroll";
@@ -275,6 +276,7 @@ export default async function HomePage() {
             <div className="profile-links">
               {links.map((link) => <a href={link.href} key={link.href} target="_blank" rel="noreferrer">{link.label}</a>)}
             </div>
+            <ContactCard />
           </RevealOnScroll>
         </section>
       </main>

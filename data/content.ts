@@ -53,5 +53,11 @@ export const links = [
   { label: "GitHub", href: "https://github.com/adiorany3" },
   { label: "Portfolio", href: "https://adioranye.vercel.app" },
   { label: "Streamlit", href: "https://adioranye.streamlit.app" },
-  { label: "Catatan Insani", href: "https://catataninsani.wordpress.com" }
+  { label: "Blog: Catatan Insani", href: "https://catataninsani.wordpress.com/" },
+  { label: "UGM Academic Profile: Research, education, and community service", href: "https://acadstaff.ugm.ac.id/galuhadiinsani" },
+  { label: "Google Scholar: Publications and citations", href: "https://scholar.google.com/citations?user=8y2L7xoAAAAJ&hl=id" },
+  { label: "SINTA: Research profile", href: "https://sinta.kemdiktisaintek.go.id/authors/profile/5972626/?view=researches" },
+  { label: "Kaggle: @adioranye", href: "https://www.kaggle.com/adioranye" },
+  { label: "LinkedIn: Galuh Adi Insani", href: "https://www.linkedin.com/in/galuh-adi-insani-1aa0a5105/" },
+  { label: "Telegram: @adioranye", href: "https://t.me/adioranye" }
 ];
