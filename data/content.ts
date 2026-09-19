@@ -4,7 +4,7 @@ export const navItems = [
   { label: "Profil", href: "#github" },
   { label: "Proyek", href: "#projects" },
   { label: "Proses", href: "#process" },
-  { label: "Adioranye AI", href: "/ai", external: true },
+  { label: "Adioranye AI", href: "/ai", external: false },
   { label: "Kontak", href: "#contact" }
 ];
 
