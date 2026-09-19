@@ -1,6 +1,6 @@
 export default function AiPage() {
   return (
-    <main style={{ height: "100dvh", display: "flex", flexDirection: "column" }}>
+    <main style={{ width: "100%", height: "100dvh", display: "flex", flexDirection: "column" }}>
       <nav aria-label="Navigasi utama" style={{ padding: "12px 20px" }}>
         <a href="/">Home</a>
       </nav>
