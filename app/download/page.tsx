@@ -14,7 +14,7 @@ export default function DownloadPage() {
         <Link href="/">← Beranda</Link>
       </nav>
       <h1>Download Aplikasi Android</h1>
-      <p>Unduh aplikasi Android melalui tautan SIMPAN UGM berikut.</p>
+      <p>Unduh aplikasi Android melalui tautan berikut, dan install di HP Android Anda, untuk mendapatkan akses yang lebih mudah.</p>
       <a
         href="https://simpan.ugm.ac.id/s/RJ7fSgwdX2GHlO3/download"
         style={{
@@ -28,6 +28,13 @@ export default function DownloadPage() {
       >
         Download untuk Android
       </a>
+      <img
+        src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https%3A%2F%2Fsimpan.ugm.ac.id%2Fs%2FRJ7fSgwdX2GHlO3%2Fdownload"
+        alt="QR code untuk mengunduh aplikasi Android"
+        width={240}
+        height={240}
+        style={{ display: "block", marginTop: 24 }}
+      />
     </main>
   );
 }
