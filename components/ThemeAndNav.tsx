@@ -48,7 +48,7 @@ export default function ThemeAndNav() {
       </button>
       <nav className={`mobile-nav ${open ? "open" : ""}`} aria-label="Navigasi mobile">
         {navItems.map((item) => (
-          <a key={item.href} href={item.href} onClick={() => setOpen(false)}>
+          <a key={item.href} href={item.href} target={item.external ? "_blank" : undefined} rel={item.external ? "noreferrer" : undefined} onClick={() => setOpen(false)}>
             {item.label}
           </a>
         ))}

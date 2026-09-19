@@ -68,7 +68,7 @@ export default async function HomePage() {
           </span>
         </a>
         <nav className="nav" aria-label="Navigasi utama">
-          {navItems.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}
+          {navItems.map((item) => <a key={item.href} href={item.href} target={item.external ? "_blank" : undefined} rel={item.external ? "noreferrer" : undefined}>{item.label}</a>)}
         </nav>
         <ThemeAndNav />
       </header>
@@ -262,21 +262,6 @@ export default async function HomePage() {
         <BlogFeed news={news} />
         <BlogFeed news={livestockNews} livestock />
         <CommodityPrices />
-
-        <section className="section" id="chat" aria-labelledby="chat-title">
-          <div className="section-heading">
-            <p className="eyebrow">Asisten AI</p>
-            <h2 id="chat-title">Adioranye AI</h2>
-            <p>Tanyakan apa saja yang ingin kamu ketahui, biarkan Adioranye AI yang akan mencari jawabannya.</p>
-          </div>
-          <iframe
-            src="https://udify.app/chatbot/s8pa4tyZ2EdkN1Bf"
-            title="Aplikasi obrolan AI"
-            style={{ width: "100%", height: "100%", minHeight: 700, border: 0 }}
-            allow="microphone;clipboard-write"
-            loading="lazy"
-          />
-        </section>
 
         <section className="section contact-section" id="contact" aria-labelledby="contact-title">
           <RevealOnScroll className="contact-card">
