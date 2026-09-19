@@ -4,7 +4,7 @@ export const navItems = [
   { label: "Profil", href: "#github" },
   { label: "Proyek", href: "#projects" },
   { label: "Proses", href: "#process" },
-  { label: "Adioranye AI", href: "https://udify.app/chatbot/s8pa4tyZ2EdkN1Bf", external: true },
+  { label: "Adioranye AI", href: "/ai", external: true },
   { label: "Kontak", href: "#contact" }
 ];
 
