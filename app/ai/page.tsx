@@ -1,8 +1,9 @@
 export default function AiPage() {
   return (
     <main style={{ width: "100%", height: "100dvh", display: "flex", flexDirection: "column" }}>
-      <nav aria-label="Navigasi utama" style={{ padding: "12px 20px" }}>
+      <nav aria-label="Navigasi utama" style={{ padding: "12px 20px", display: "flex", flexWrap: "wrap", gap: "8px 20px" }}>
         <a href="/">Home</a>
+        <a href="/download">Download Aplikasi Android</a>
       </nav>
       <iframe
         src="https://udify.app/chatbot/s8pa4tyZ2EdkN1Bf"
