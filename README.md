@@ -22,7 +22,7 @@ Portfolio Galuh Adi Insani dengan katalog repository GitHub otomatis, animasi in
 
 - Node.js 24.x
 - npm 10.9.2
-- Next.js 16.2.10
+- Next.js 16.3.5
 - React 19.2.7
 - TypeScript 5.9.3
 - ESLint 9.39.5

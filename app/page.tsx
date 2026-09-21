@@ -55,9 +55,6 @@ export default async function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
       <a className="skip-link" href="#main">Lewati ke konten utama</a>
-      <div className="ambient ambient-one" aria-hidden="true" />
-      <div className="ambient ambient-two" aria-hidden="true" />
-      <div className="ambient-grid" aria-hidden="true" />
 
       <header className="site-header" id="top">
         <a className="brand" href="#top" aria-label="Kembali ke bagian atas">

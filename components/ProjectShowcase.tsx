@@ -1,6 +1,6 @@
 "use client";
 
-import { CSSProperties, PointerEvent, useMemo, useState } from "react";
+import { CSSProperties, useMemo, useState } from "react";
 import type { GitHubProject, ProjectCategory } from "@/lib/github";
 
 const categories: Array<"Semua" | ProjectCategory> = [
@@ -50,46 +50,20 @@ function ProjectCard({ project, index }: { project: GitHubProject; index: number
     ? project.topics.slice(0, 3)
     : [project.language, project.category];
 
-  function handlePointerMove(event: PointerEvent<HTMLElement>) {
-    if (event.pointerType === "touch") return;
-    const card = event.currentTarget;
-    const rect = card.getBoundingClientRect();
-    const x = (event.clientX - rect.left) / rect.width;
-    const y = (event.clientY - rect.top) / rect.height;
-    card.style.setProperty("--rotate-x", `${(0.5 - y) * 7}deg`);
-    card.style.setProperty("--rotate-y", `${(x - 0.5) * 8}deg`);
-    card.style.setProperty("--pointer-x", `${x * 100}%`);
-    card.style.setProperty("--pointer-y", `${y * 100}%`);
-  }
-
-  function resetCard(event: PointerEvent<HTMLElement>) {
-    const card = event.currentTarget;
-    card.style.setProperty("--rotate-x", "0deg");
-    card.style.setProperty("--rotate-y", "0deg");
-  }
-
   const animationStyle = { "--card-delay": `${Math.min(index, 11) * 55}ms` } as CSSProperties;
 
   return (
     <article
-      className={`repo-card repo-card-enter repo-${categoryClass[project.category]}`}
+      className={`repo-card repo-${categoryClass[project.category]}`}
       style={animationStyle}
-      onPointerMove={handlePointerMove}
-      onPointerLeave={resetCard}
     >
-      <div className="repo-card-glow" aria-hidden="true" />
       <div className="repo-visual" aria-hidden="true">
         <div className="repo-visual-topline">
           <span className="repo-window-dots"><i /><i /><i /></span>
           <span className="repo-live"><i /> open source</span>
         </div>
         <div className="repo-symbol">{categoryIcon[project.category]}</div>
-        <div className="repo-code-lines">
-          <span /><span /><span /><span />
-        </div>
         <span className="repo-language">{project.language}</span>
-        <span className="repo-orbit orbit-one" />
-        <span className="repo-orbit orbit-two" />
       </div>
 
       <div className="repo-content">
@@ -249,7 +223,7 @@ export default function ProjectShowcase({ projects, totalRepositories, source }:
             <ProjectCard
               project={project}
               index={index}
-              key={`${project.name}-${activeCategory}-${query}`}
+              key={project.name}
             />
           ))}
         </div>

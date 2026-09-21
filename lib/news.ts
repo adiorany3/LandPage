@@ -2,7 +2,6 @@ export type NewsItem = { title: string; link: string; published: string; source:
 
 const newsUrl = "https://news.google.com/rss/search?q=%22Galuh+Adi+Insani%22&hl=id&gl=ID&ceid=ID:id";
 const blogUrl = "https://catataninsani.wordpress.com/feed/";
-const fallback: NewsItem[] = [];
 
 export async function getLivestockNews(): Promise<NewsItem[]> {
   const url = "https://news.google.com/rss/search?q=" + encodeURIComponent("(peternakan OR ternak OR pakan OR kesehatan hewan) when:7d") + "&hl=id&gl=ID&ceid=ID:id";
@@ -42,6 +41,6 @@ export async function getNews(): Promise<NewsItem[]> {
     return [...parseFeed(google, "Google News"), ...parseFeed(blog, "Catatan Insani")].sort((a, b) => Date.parse(b.published) - Date.parse(a.published)).slice(0, 12);
   } catch (error) {
     console.warn("Pencarian berita gagal.", error instanceof Error ? error.message : "Kesalahan jaringan");
-    return fallback;
+    return [];
   }
 }

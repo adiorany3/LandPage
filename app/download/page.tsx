@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import QRCode from "qrcode";
+
+const apkUrl = "https://simpan.ugm.ac.id/s/RJ7fSgwdX2GHlO3/download";
 
 export const metadata: Metadata = {
   title: "Download Aplikasi Android",
@@ -8,7 +11,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/download" },
 };
 
-export default function DownloadPage() {
+export default async function DownloadPage() {
+  const qr = await QRCode.toDataURL(apkUrl, { width: 240, margin: 2 });
   return (
     <main style={{ maxWidth: 640, paddingBlock: "64px" }}>
       <nav aria-label="Navigasi utama">
@@ -17,7 +21,7 @@ export default function DownloadPage() {
       <h1>Download Aplikasi Android</h1>
       <p>Unduh aplikasi Android melalui tautan berikut, dan install di HP Android Anda, untuk mendapatkan akses yang lebih mudah.</p>
       <a
-        href="https://simpan.ugm.ac.id/s/RJ7fSgwdX2GHlO3/download"
+        href={apkUrl}
         style={{
           display: "inline-block",
           padding: "12px 24px",
@@ -30,10 +34,11 @@ export default function DownloadPage() {
         Download untuk Android
       </a>
       <Image
-        src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https%3A%2F%2Fsimpan.ugm.ac.id%2Fs%2FRJ7fSgwdX2GHlO3%2Fdownload"
+        src={qr}
         alt="QR code untuk mengunduh aplikasi Android"
         width={240}
         height={240}
+        unoptimized
         style={{ display: "block", marginTop: 24 }}
       />
     </main>

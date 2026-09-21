@@ -44,6 +44,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="id" suppressHydrationWarning>
       <body>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(localStorage.theme==="light")document.body.classList.add("light")}catch(e){}document.documentElement.classList.add("js");`
+          }}
+        />
         {children}
         <Script id="dify-chatbot-config" strategy="afterInteractive">
           {`window.difyChatbotConfig = {
