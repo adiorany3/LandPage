@@ -2,6 +2,9 @@ export type NewsItem = { title: string; link: string; published: string; source:
 
 const newsUrl = "https://news.google.com/rss/search?q=%22Galuh+Adi+Insani%22&hl=id&gl=ID&ceid=ID:id";
 const blogUrl = "https://catataninsani.wordpress.com/feed/";
+// ponytail: 12 = judul di atas laman; naikkan jika menambah slot di BlogFeed.
+const MAX_NEWS = 12;
+const MAX_LIVESTOCK = 6;
 
 export async function getLivestockNews(): Promise<NewsItem[]> {
   const url = "https://news.google.com/rss/search?q=" + encodeURIComponent("(peternakan OR ternak OR pakan OR kesehatan hewan) when:7d") + "&hl=id&gl=ID&ceid=ID:id";
@@ -12,7 +15,7 @@ export async function getLivestockNews(): Promise<NewsItem[]> {
     return parseFeed(await response.text(), "Google News")
       .filter(item => Date.parse(item.published) >= cutoff && Date.parse(item.published) <= Date.now())
       .sort((a, b) => Date.parse(b.published) - Date.parse(a.published))
-      .slice(0, 6);
+      .slice(0, MAX_LIVESTOCK);
   } catch (error) {
     console.warn("Berita peternakan gagal dimuat.", error instanceof Error ? error.message : "Kesalahan jaringan");
     return [];
@@ -38,7 +41,7 @@ export async function getNews(): Promise<NewsItem[]> {
     const responses = await Promise.all([newsUrl, blogUrl].map(url => fetch(url, { next: { revalidate: 1800 }, signal: AbortSignal.timeout(8000) })));
     if (responses.some(response => !response.ok)) throw new Error("News feed unavailable");
     const [google, blog] = await Promise.all(responses.map(response => response.text()));
-    return [...parseFeed(google, "Google News"), ...parseFeed(blog, "Catatan Insani")].sort((a, b) => Date.parse(b.published) - Date.parse(a.published)).slice(0, 12);
+    return [...parseFeed(google, "Google News"), ...parseFeed(blog, "Catatan Insani")].sort((a, b) => Date.parse(b.published) - Date.parse(a.published)).slice(0, MAX_NEWS);
   } catch (error) {
     console.warn("Pencarian berita gagal.", error instanceof Error ? error.message : "Kesalahan jaringan");
     return [];

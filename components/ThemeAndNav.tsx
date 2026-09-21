@@ -12,16 +12,13 @@ export default function ThemeAndNav() {
     const saved = window.localStorage.getItem("theme");
     const shouldUseLight = saved === "light";
     document.body.classList.toggle("light", shouldUseLight);
+    setLight(shouldUseLight);
+    setShowTop(window.scrollY > 500);
 
-    const frame = window.requestAnimationFrame(() => {
-      setLight(shouldUseLight);
-      setShowTop(window.scrollY > 500);
-    });
     const onScroll = () => setShowTop(window.scrollY > 500);
     window.addEventListener("scroll", onScroll, { passive: true });
 
     return () => {
-      window.cancelAnimationFrame(frame);
       window.removeEventListener("scroll", onScroll);
     };
   }, []);
