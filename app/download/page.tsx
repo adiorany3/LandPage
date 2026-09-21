@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -28,7 +29,7 @@ export default function DownloadPage() {
       >
         Download untuk Android
       </a>
-      <img
+      <Image
         src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https%3A%2F%2Fsimpan.ugm.ac.id%2Fs%2FRJ7fSgwdX2GHlO3%2Fdownload"
         alt="QR code untuk mengunduh aplikasi Android"
         width={240}
