@@ -1,3 +1,5 @@
+export const dynamic = "force-static";
+
 export default function DeepPage() {
   return (
     <main style={{ width: "100%", height: "100dvh" }}>
