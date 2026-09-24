@@ -9,7 +9,7 @@ export default function DeepPage() {
         <Link href="/">Home</Link>
       </nav>
       <iframe
-        src="https://udify.app/chat/HY3N4Kgo2sMCFDkg"
+        src="https://udify.app/chat/K12CskGI7xphyRGA"
         title="Adioranye Deep Search"
         style={{ width: "100%", flex: 1, minHeight: 0, border: 0, display: "block" }}
         allow="microphone;clipboard-write"
