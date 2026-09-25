@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://adioranye.vercel.app/</loc>
+    <loc>https://www.adioranye.my.id/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://adioranye.vercel.app/inovasi/ransum-ruminansia</loc>
+    <loc>https://www.adioranye.my.id/inovasi/ransum-ruminansia</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://adioranye.vercel.app/ai</loc>
+    <loc>https://www.adioranye.my.id/ai</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://adioranye.vercel.app/deep</loc>
+    <loc>https://www.adioranye.my.id/deep</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://adioranye.vercel.app/download</loc>
+    <loc>https://www.adioranye.my.id/download</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

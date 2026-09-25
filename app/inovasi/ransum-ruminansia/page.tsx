@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const title = "Ransum Ruminansia: Aplikasi Formulasi Pakan Ternak";
 const description = "Ransum Ruminansia karya Galuh Adi Insani membantu formulasi pakan sapi, kambing, dan domba melalui analisis nutrisi, biaya, dan optimasi pemrograman linear.";
-const url = "https://adioranye.vercel.app/inovasi/ransum-ruminansia";
+const url = "https://www.adioranye.my.id/inovasi/ransum-ruminansia";
 const repository = "https://github.com/adiorany3/ransumruminansia";
 
 export const metadata: Metadata = {
@@ -28,9 +28,9 @@ const schema = {
   operatingSystem: "Web browser",
   author: {
     "@type": "Person",
-    "@id": "https://adioranye.vercel.app/#person",
+    "@id": "https://www.adioranye.my.id/#person",
     name: "Galuh Adi Insani",
-    url: "https://adioranye.vercel.app/"
+    url: "https://www.adioranye.my.id/"
   },
   sameAs: repository,
   featureList: ["Formulasi ransum manual", "Optimasi biaya dengan pemrograman linear", "Analisis nutrisi dan kebutuhan mineral", "Perhitungan biaya ransum"]

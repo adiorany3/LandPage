@@ -13,11 +13,11 @@ import { getNews, getLivestockNews } from "@/lib/news";
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
-  "@id": "https://adioranye.vercel.app/#person",
+  "@id": "https://www.adioranye.my.id/#person",
   name: "Galuh Adi Insani",
   alternateName: ["adiorany3", "adioranye"],
   description: "Pengembang aplikasi AgriTech, formulasi pakan ternak, analisis statistik, dan komputasi ilmiah.",
-  url: "https://adioranye.vercel.app/",
+  url: "https://www.adioranye.my.id/",
   sameAs: [
     "https://github.com/adiorany3",
     "https://acadstaff.ugm.ac.id/galuhadiinsani",

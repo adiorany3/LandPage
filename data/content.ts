@@ -52,7 +52,7 @@ export const stack = [
 
 export const links = [
   { label: "GitHub", href: "https://github.com/adiorany3" },
-  { label: "Portfolio", href: "https://adioranye.vercel.app" },
+  { label: "Portfolio", href: "https://www.adioranye.my.id" },
   { label: "Katalog aplikasi Streamlit", href: "https://share.streamlit.io/user/adiorany3" },
   { label: "Adioranye AI", href: "https://adioranye.streamlit.app/" },
   { label: "Blog: Catatan Insani", href: "https://catataninsani.wordpress.com/" },

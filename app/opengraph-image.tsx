@@ -11,7 +11,7 @@ export default function OpenGraphImage() {
       <div style={{ fontSize: 72, fontWeight: 700 }}>Galuh Adi Insani</div>
       <div style={{ fontSize: 38, marginTop: 28 }}>Inovasi Peternakan & Komputasi Ilmiah</div>
       <div style={{ fontSize: 25, marginTop: 40, color: "#bbd5ca" }}>Ransum Ruminansia · Formulasi Pakan · Analisis Statistik</div>
-      <div style={{ fontSize: 23, marginTop: 40, color: "#86efac" }}>adioranye.vercel.app</div>
+      <div style={{ fontSize: 23, marginTop: 40, color: "#86efac" }}>www.adioranye.my.id</div>
     </div>,
     size
   );

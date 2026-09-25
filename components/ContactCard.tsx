@@ -10,7 +10,7 @@ const vcard = [
   "ORG:Universitas Gadjah Mada",
   "EMAIL;TYPE=INTERNET:adioranye@ugm.ac.id",
   "TEL;TYPE=CELL:+6285155050769",
-  "URL:https://adioranye.vercel.app/",
+  "URL:https://www.adioranye.my.id/",
   "END:VCARD",
   ""
 ].join("\r\n");
@@ -25,7 +25,7 @@ export default async function ContactCard() {
         <p>AgriTech &amp; Scientific Computing</p>
         <p>Universitas Gadjah Mada</p>
         <a href="mailto:adioranye@ugm.ac.id">adioranye@ugm.ac.id</a>
-        <a href="https://adioranye.vercel.app/">adioranye.vercel.app</a>
+        <a href="https://www.adioranye.my.id/">www.adioranye.my.id</a>
         <a className="btn primary" href={`data:text/vcard;charset=utf-8,${encodeURIComponent(vcard)}`} download="galuh-adi-insani.vcf">Simpan kontak</a>
       </div>
       <figure className={styles.qr}>

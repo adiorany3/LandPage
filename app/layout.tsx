@@ -11,14 +11,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://adioranye.vercel.app"),
+  metadataBase: new URL("https://www.adioranye.my.id"),
   title: {
     default: "Galuh Adi Insani | Inovasi Peternakan & AgriTech",
     template: "%s | Galuh Adi Insani",
   },
   description:
     "Galuh Adi Insani mengembangkan Ransum Ruminansia, aplikasi formulasi pakan, analisis statistik, dan komputasi ilmiah untuk inovasi peternakan dan AgriTech.",
-  authors: [{ name: "Galuh Adi Insani", url: "https://adioranye.vercel.app/" }],
+  authors: [{ name: "Galuh Adi Insani", url: "https://www.adioranye.my.id/" }],
   creator: "Galuh Adi Insani",
   keywords: [
     "Galuh Adi Insani",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: "Galuh Adi Insani | Inovasi Peternakan & AgriTech",
     description:
       "Ransum Ruminansia, formulasi pakan ternak, analisis statistik, dan aplikasi riset karya Galuh Adi Insani.",
-    url: "https://adioranye.vercel.app",
+    url: "https://www.adioranye.my.id",
     siteName: "Adioranye",
     locale: "id_ID",
     type: "website",
