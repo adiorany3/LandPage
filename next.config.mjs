@@ -8,7 +8,7 @@ const csp = [
   "img-src 'self' data: blob:",
   "font-src 'self' data:",
   "connect-src 'self'",
-  "frame-src 'self' https://udify.app",
+  "frame-src 'self' https://udify.app https://cal.com",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
