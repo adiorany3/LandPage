@@ -8,7 +8,7 @@ export default function AiPage() {
         <Link href="/download">Download Aplikasi Android</Link>
       </nav>
       <iframe
-        src="https://udify.app/chatbot/s8pa4tyZ2EdkN1Bf"
+        src="https://udify.app/chat/s8pa4tyZ2EdkN1Bf"
         title="Adioranye AI"
         style={{ width: "100%", flex: 1, minHeight: 0, border: 0, display: "block" }}
         allow="microphone;clipboard-write"
