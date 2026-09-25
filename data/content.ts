@@ -54,7 +54,7 @@ export const links = [
   { label: "GitHub", href: "https://github.com/adiorany3" },
   { label: "Portfolio", href: "https://www.adioranye.my.id" },
   { label: "Katalog aplikasi Streamlit", href: "https://share.streamlit.io/user/adiorany3" },
-  { label: "Adioranye AI", href: "https://adioranye.streamlit.app/" },
+  { label: "Adioranye AI", href: "https://www.adioranye.my.id/ai" },
   { label: "Blog: Catatan Insani", href: "https://catataninsani.wordpress.com/" },
   { label: "UGM Academic Profile: Research, education, and community service", href: "https://acadstaff.ugm.ac.id/galuhadiinsani" },
   { label: "Google Scholar: Publications and citations", href: "https://scholar.google.com/citations?user=8y2L7xoAAAAJ&hl=id" },

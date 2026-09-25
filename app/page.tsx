@@ -25,7 +25,7 @@ const personSchema = {
     "https://sinta.kemdiktisaintek.go.id/authors/profile/5972626/?view=researches",
     "https://www.linkedin.com/in/galuh-adi-insani-1aa0a5105/",
     "https://catataninsani.wordpress.com",
-    "https://adioranye.streamlit.app/"
+    "https://www.adioranye.my.id/ai"
   ],
   jobTitle: "AgriTech & Scientific Computing Developer",
   knowsAbout: ["AgriTech", "Scientific Computing", "Statistical Analysis", "Streamlit", "Next.js"]
