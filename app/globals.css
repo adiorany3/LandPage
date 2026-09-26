@@ -1,16 +1,18 @@
 :root {
-  --bg: #04120f;
-  --surface: rgba(15, 35, 25, .78);
-  --surface-strong: rgba(25, 58, 38, .94);
-  --surface-soft: rgba(88, 180, 95, .12);
-  --text: #f5fff7;
-  --muted: #a8c4ae;
-  --border: rgba(120, 220, 130, .24);
-  --accent: #7CFF6B;
-  --accent-2: #00D4A8;
-  --agro: #d9f99d;
-  --tech: #22D3EE;
-  --shadow: 0 24px 80px rgba(0, 20, 8, .45);
+  --content: 1120px;
+  --radius: 20px;
+  --bg: #071612;
+  --surface: rgba(18, 40, 32, .72);
+  --surface-strong: rgba(28, 60, 46, .88);
+  --surface-soft: rgba(56, 130, 96, .12);
+  --text: #f2f8f2;
+  --muted: #a3bcae;
+  --border: rgba(120, 200, 150, .18);
+  --accent: #6fd88a;
+  --accent-2: #3fb8b0;
+  --agro: #cfe6a8;
+  --tech: #59c6d6;
+  --shadow: 0 20px 60px rgba(3, 15, 10, .38);
 }
 
 body {
@@ -555,29 +557,53 @@ h1 span {
   }
 }
 
-/* Modern tech layer: preserve existing layout, upgrade visual hierarchy. */
-:root{--bg:#050816;--surface:rgba(12,20,43,.78);--surface-strong:rgba(25,37,72,.94);--surface-soft:rgba(90,115,190,.09);--text:#f4f7ff;--muted:#9aa8c7;--border:rgba(132,158,224,.24);--accent:#55f6c2;--accent-2:#7c8cff;--shadow:0 24px 80px rgba(0,0,0,.42)}
-body{background:radial-gradient(circle at 10% 0,rgba(124,140,255,.25),transparent 32rem),radial-gradient(circle at 92% 12%,rgba(85,246,194,.12),transparent 27rem),var(--bg)}
-body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.3;background-image:linear-gradient(rgba(124,140,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(124,140,255,.08) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,#000,transparent 75%)}
-.site-header,.stats div,.glass-card,.project-card,.profile-card,.workflow-card,.stack-card,.contact-card,.blog-card,.pipeline-card,.repo-card,.github-sync-card{border-color:var(--border);background:var(--surface);box-shadow:var(--shadow)}
-.site-header{border-radius:16px}.eyebrow{letter-spacing:.16em}.hero h1,.section-heading h2{letter-spacing:-.055em}.btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 10px 28px rgba(85,246,194,.16)}.repo-card:hover,.project-card:hover{border-color:rgba(85,246,194,.5);box-shadow:0 28px 80px rgba(0,0,0,.48)}
-@media(prefers-reduced-motion:reduce){body::before{display:none}}
+/* Refined layer: subtle backdrop + consistent card depth, aligned to agro palette. */
+body {
+  background:
+    radial-gradient(circle at 10% 0, rgba(111, 216, 138, .16), transparent 32rem),
+    radial-gradient(circle at 92% 12%, rgba(63, 184, 176, .12), transparent 27rem),
+    var(--bg);
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .25;
+  background-image:
+    linear-gradient(rgba(111, 216, 138, .07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(111, 216, 138, .07) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, #000, transparent 75%);
+}
+.site-header, .stats div, .glass-card, .project-card, .profile-card, .workflow-card,
+.stack-card, .contact-card, .blog-card, .pipeline-card, .repo-card, .github-sync-card {
+  border-color: var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.workflow-card:hover, .blog-card:hover, .stack-card:hover, .contact-card:hover, .pipeline-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(111, 216, 138, .4);
+}
+.site-header { border-radius: 16px; }
+.eyebrow { letter-spacing: .16em; }
+.hero h1 { letter-spacing: -.03em; }
+.btn.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 10px 28px rgba(111, 216, 138, .22);
+}
+.repo-card:hover, .project-card:hover {
+  border-color: rgba(111, 216, 138, .5);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, .38);
+}
+@media (prefers-reduced-motion: reduce) {
+  body::before { display: none; }
+}
 
 /* Agronomy palette, technical grid, consistent content hierarchy. */
-:root {
-  --content: 1120px;
-  --radius: 20px;
-  --bg: #0c1915;
-  --surface: #14271f;
-  --surface-strong: #20392e;
-  --surface-soft: #11221b;
-  --text: #f4f3e8;
-  --muted: #b4c6ba;
-  --border: #365144;
-  --accent: #bcdf8e;
-  --accent-2: #79d5de;
-  --shadow: 0 12px 32px rgba(0, 0, 0, .14);
-}
 body.light {
   --bg: #f6f5ec;
   --surface: #fffef8;
@@ -606,17 +632,6 @@ p { max-width: 70ch; }
 .avatar-card { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 12px; }
 .avatar-card > div { display: flex; flex-direction: column; gap: 4px; }
 .avatar-card img, .profile-main > img { border-radius: 16px; }
-body:not(.light) {
-  --bg: #06121c;
-  --surface: #0d2230;
-  --surface-strong: #173b49;
-  --surface-soft: #0b1c29;
-  --text: #e5faff;
-  --muted: #a9c5d2;
-  --border: #315868;
-  --accent: #83ebff;
-  --accent-2: #45dcec;
-}
 body {
   background-image: linear-gradient(var(--surface-soft) 1px, transparent 1px), linear-gradient(90deg, var(--surface-soft) 1px, transparent 1px);
   background-size: 48px 48px;
@@ -675,12 +690,12 @@ button { cursor: pointer; }
 .hero-visual::before {
   content: "";
   position: absolute;
-  width: 430px;
-  height: 430px;
+  width: 380px;
+  height: 380px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(34,211,238,.25), rgba(124,255,107,.08), transparent 70%);
+  background: radial-gradient(circle, rgba(63,184,176,.18), rgba(111,216,138,.08), transparent 70%);
   filter: blur(10px);
-  animation: pulseAgro 5s infinite alternate;
+  animation: pulseAgro 6s infinite alternate;
 }
 .hero-visual::after {
   content: "🌱  AI  •  IoT  •  DATA";
@@ -689,37 +704,37 @@ button { cursor: pointer; }
   right: 0;
   padding: 12px 18px;
   border-radius: 999px;
-  background: rgba(10,35,30,.75);
-  border: 1px solid rgba(124,255,107,.3);
+  background: rgba(7,22,18,.75);
+  border: 1px solid var(--border);
   color: var(--accent);
   font-size: .75rem;
   letter-spacing: .08em;
   backdrop-filter: blur(12px);
 }
 .product-pill {
-  background: linear-gradient(90deg,#7CFF6B,#22D3EE);
-  color:#04120f;
-  font-weight:900;
-  letter-spacing:.08em;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #04120f;
+  font-weight: 700;
+  letter-spacing: .06em;
 }
 @keyframes pulseAgro {
- from {transform:scale(.9);opacity:.5}
- to {transform:scale(1.1);opacity:1}
+ from {transform:scale(.92);opacity:.45}
+ to {transform:scale(1.08);opacity:.9}
 }
-.section-heading h2 {
-  background: linear-gradient(90deg,#fff,#7CFF6B,#22D3EE);
-  -webkit-background-clip:text;
-  color:transparent;
+.hero h1 {
+  background: linear-gradient(90deg, #fff, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 /* Future AgriTech experience */
-.hero-visual img { animation: floatAgro 7s ease-in-out infinite; filter: drop-shadow(0 30px 70px rgba(34,211,238,.25)); }
+.hero-visual img { animation: floatAgro 7s ease-in-out infinite; filter: drop-shadow(0 24px 56px rgba(63,184,176,.2)); }
 .floating-tags span { animation: sensorPulse 3s infinite; }
 .floating-tags span:nth-child(2){animation-delay:.8s}.floating-tags span:nth-child(3){animation-delay:1.6s}
-.hero::before { content:""; position:absolute; inset:20% 45% auto auto; width:260px; height:260px; background:radial-gradient(circle, rgba(124,255,107,.18), transparent 70%); animation:dataFlow 5s infinite; pointer-events:none;}
-@keyframes floatAgro {50%{transform:translateY(-14px)}}
-@keyframes sensorPulse {50%{box-shadow:0 0 25px rgba(34,211,238,.45); transform:translateY(-4px)}}
-@keyframes dataFlow {50%{transform:scale(1.2);opacity:.5}}
+.hero::before { content:""; position:absolute; inset:20% 45% auto auto; width:260px; height:260px; background:radial-gradient(circle, rgba(111,216,138,.14), transparent 70%); animation:dataFlow 6s infinite; pointer-events:none;}
+@keyframes floatAgro {50%{transform:translateY(-10px)}}
+@keyframes sensorPulse {50%{box-shadow:0 0 20px rgba(63,184,176,.35); transform:translateY(-3px)}}
+@keyframes dataFlow {50%{transform:scale(1.15);opacity:.4}}
 
 /* Reveal + kartu masuk hanya saat JS aktif dan gerak diizinkan, agar tanpa JS konten tetap terlihat. */
 @keyframes repoIn {from{opacity:0; transform:translateY(14px)}}
