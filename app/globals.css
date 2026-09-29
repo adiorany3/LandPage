@@ -740,6 +740,7 @@ button { cursor: pointer; }
 .hero h1 {
   background: linear-gradient(90deg, #fff, var(--accent), var(--accent-2));
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
 }
 
@@ -776,3 +777,40 @@ button { cursor: pointer; }
   .pipeline-item, .hero-visual img, .floating-tags span, .hero::before {animation:none !important; transition:none !important}
   .pipeline-item:hover, .pipeline-item:focus-within, .floating-tags span:hover, .tag-list span:hover, .profile-links a:hover, .project-filters button:hover {transform:none}
 }
+
+
+/* CNN feature-map background for GitHub activity. */
+.activity-section::before,
+.activity-section::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+}
+.activity-section::before {
+  inset: 0;
+  opacity: .65;
+  background:
+    linear-gradient(90deg, transparent 0 9%, rgba(111,216,138,.45) 9.2% 9.5%, transparent 9.7% 29%, rgba(63,184,176,.4) 29.2% 29.5%, transparent 29.7% 49%, rgba(111,216,138,.4) 49.2% 49.5%, transparent 49.7% 69%, rgba(63,184,176,.4) 69.2% 69.5%, transparent 69.7%),
+    linear-gradient(transparent 0 26%, rgba(111,216,138,.16) 26.5% 27%, transparent 27.5% 52%, rgba(63,184,176,.16) 52.5% 53%, transparent 53.5% 78%, rgba(111,216,138,.16) 78.5% 79%, transparent 79.5%),
+    radial-gradient(circle at 10% 28%, #8aff9b 0 3px, transparent 4px),
+    radial-gradient(circle at 30% 53%, #5ce5d7 0 4px, transparent 5px),
+    radial-gradient(circle at 50% 79%, #8aff9b 0 4px, transparent 5px),
+    radial-gradient(circle at 70% 27%, #5ce5d7 0 4px, transparent 5px),
+    radial-gradient(circle at 90% 53%, #8aff9b 0 4px, transparent 5px);
+  filter: drop-shadow(0 0 8px rgba(111,216,138,.45));
+  animation: neuralSignal 7s ease-in-out infinite;
+}
+.activity-section::after {
+  inset: 14% 4% 12%;
+  border: 1px solid rgba(111,216,138,.16);
+  border-radius: 24px;
+  background: repeating-linear-gradient(90deg, transparent 0 19%, rgba(111,216,138,.09) 19.2% 19.5%, transparent 19.7% 20%), repeating-linear-gradient(0deg, transparent 0 24%, rgba(63,184,176,.08) 24.2% 24.5%, transparent 24.7% 25%);
+  box-shadow: inset 0 0 42px rgba(63,184,176,.08), 0 0 24px rgba(111,216,138,.08);
+  animation: neuralGlow 3.5s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .activity-section::before,
+  .activity-section::after { animation: none; }
+}
+
