@@ -131,6 +131,7 @@ export default async function HomePage() {
 
           <div className="hero-visual" aria-label="Ilustrasi jaringan IoT peternakan">
             <span className="product-pill">AgriTech / IoT</span>
+            <span className="iot-robot" aria-hidden="true"><i /><i /></span>
             <Image
               src="/assets/iot-network.svg"
               alt="Ilustrasi IoT: sensor suhu, kelembapan, dan kondisi tanah terhubung melalui gateway ke analisis data dan dasbor. Bukan data sensor nyata."

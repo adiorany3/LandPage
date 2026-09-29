@@ -854,3 +854,58 @@ body::before {
   .activity-section::after { animation: none; }
 }
 
+/* Decorative robot beside AgriTech / IoT label. */
+.iot-robot {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(2, 8px);
+  gap: 6px;
+  width: 42px;
+  height: 34px;
+  place-content: center;
+  border: 2px solid var(--accent-2);
+  border-radius: 10px 10px 14px 14px;
+  background: rgba(7, 22, 18, .82);
+  box-shadow: 0 0 18px rgba(63, 184, 176, .35);
+}
+.iot-robot::before {
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  width: 2px;
+  height: 8px;
+  background: var(--accent-2);
+  box-shadow: 0 -4px 0 1px var(--accent);
+  transform: translateX(-50%);
+}
+.iot-robot::after {
+  content: "";
+  position: absolute;
+  right: 7px;
+  bottom: 5px;
+  left: 7px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--accent-2);
+}
+.iot-robot i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #8aff9b;
+  box-shadow: 0 0 8px #8aff9b;
+  animation: robotBlink 2.8s steps(1, end) infinite;
+}
+.iot-robot i + i { animation-delay: .08s; }
+@keyframes robotBlink {
+  0%, 42%, 46%, 100% { opacity: 1; transform: scaleY(1); }
+  43%, 45% { opacity: .15; transform: scaleY(.15); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .iot-robot i { animation: none; }
+}
+
