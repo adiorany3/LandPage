@@ -9,18 +9,12 @@ export default function ThemeAndNav() {
   const [showTop, setShowTop] = useState(false);
 
   useEffect(() => {
-    const saved = window.localStorage.getItem("theme");
-    const shouldUseLight = saved === "light";
+    const shouldUseLight = window.localStorage.getItem("theme") === "light";
     document.body.classList.toggle("light", shouldUseLight);
-    setLight(shouldUseLight);
-    setShowTop(window.scrollY > 500);
-
     const onScroll = () => setShowTop(window.scrollY > 500);
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   function toggleTheme() {
@@ -32,31 +26,12 @@ export default function ThemeAndNav() {
 
   return (
     <>
-      <button className="theme-toggle" onClick={toggleTheme} aria-label="Ubah tema">
-        {light ? "☾" : "☀"}
-      </button>
-      <button
-        className="menu-toggle"
-        onClick={() => setOpen((value) => !value)}
-        aria-expanded={open}
-        aria-label="Buka navigasi"
-      >
-        ☰
-      </button>
+      <button className="theme-toggle" onClick={toggleTheme} aria-label="Ubah tema">{light ? "☾" : "☀"}</button>
+      <button className="menu-toggle" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label="Buka navigasi">☰</button>
       <nav className={`mobile-nav ${open ? "open" : ""}`} aria-label="Navigasi mobile">
-        {navItems.map((item) => (
-          <a key={item.href} href={item.href} target={item.external ? "_blank" : undefined} rel={item.external ? "noreferrer" : undefined} onClick={() => setOpen(false)}>
-            {item.label}
-          </a>
-        ))}
+        {navItems.map((item) => <a key={item.href} href={item.href} target={item.external ? "_blank" : undefined} rel={item.external ? "noreferrer" : undefined} onClick={() => setOpen(false)}>{item.label}</a>)}
       </nav>
-      <button
-        className={`top-button ${showTop ? "show" : ""}`}
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        aria-label="Kembali ke atas"
-      >
-        ↑
-      </button>
+      <button className={`top-button ${showTop ? "show" : ""}`} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Kembali ke atas">↑</button>
     </>
   );
 }
