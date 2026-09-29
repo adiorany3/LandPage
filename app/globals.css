@@ -666,7 +666,11 @@ main .section-heading h2 { background: none; color: var(--text); -webkit-text-fi
 .workflow-grid, .blog-grid { grid-template-columns: repeat(3, 1fr); }
 .pipeline-item, .workflow-card, .blog-card { padding: 20px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface-soft); }
 .pipeline-outcomes > div { display: grid; gap: 4px; }
-.activity-section { display: grid; grid-template-columns: minmax(240px, .7fr) minmax(0, 1.3fr); gap: 32px; align-items: start; }
+.activity-section { position: relative; isolation: isolate; display: grid; grid-template-columns: minmax(240px, .7fr) minmax(0, 1.3fr); gap: 32px; align-items: start; overflow: hidden; }
+.activity-section::before, .activity-section::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
+.activity-section::before { z-index: -2; opacity: .45; background: repeating-linear-gradient(148deg, transparent 0 92px, rgba(63, 184, 176, .1) 93px, transparent 94px 184px), repeating-linear-gradient(32deg, transparent 0 118px, rgba(111, 216, 138, .08) 119px, transparent 120px 236px); animation: neuralSignal 8s ease-in-out infinite; }
+.activity-section::after { z-index: -1; opacity: .8; background: radial-gradient(circle at 12% 28%, #6fd88a 0 2px, transparent 3px), radial-gradient(circle at 38% 74%, #3fb8b0 0 2px, transparent 3px), radial-gradient(circle at 66% 22%, #6fd88a 0 2px, transparent 3px), radial-gradient(circle at 88% 68%, #3fb8b0 0 2px, transparent 3px), radial-gradient(circle at 52% 48%, rgba(111, 216, 138, .14), transparent 20%); background-size: 100% 100%; filter: drop-shadow(0 0 8px rgba(111, 216, 138, .7)); animation: neuralGlow 3.5s ease-in-out infinite; }
+.activity-section > * { position: relative; z-index: 1; }
 .activity-section .section-heading { max-width: 480px; }
 .live-badge { display: inline-flex; align-items: center; gap: 6px; margin-left: 8px; padding: 4px 8px; border: 1px solid rgba(111, 216, 138, .35); border-radius: 999px; background: rgba(111, 216, 138, .1); color: var(--accent); font-size: .68rem; letter-spacing: .08em; vertical-align: middle; }
 .live-badge i { width: 7px; height: 7px; border-radius: 50%; background: #6fd88a; box-shadow: 0 0 0 3px rgba(111, 216, 138, .14), 0 0 14px rgba(111, 216, 138, .9); animation: livePulse 1.8s ease-in-out infinite; }
@@ -765,6 +769,8 @@ button { cursor: pointer; }
 @keyframes floatAgro {50%{transform:translateY(-10px)}}
 @keyframes sensorPulse {50%{box-shadow:0 0 20px rgba(63,184,176,.35); transform:translateY(-3px)}}
 @keyframes dataFlow {50%{transform:scale(1.15);opacity:.4}}
+@keyframes neuralSignal {50%{transform:translate(12px, -8px); opacity:.7}}
+@keyframes neuralGlow {50%{opacity:.35; filter:drop-shadow(0 0 18px rgba(111,216,138,1))}}
 @keyframes livePulse {50%{opacity:.45; box-shadow:0 0 0 5px rgba(111,216,138,.1), 0 0 22px rgba(111,216,138,1)}}
 
 /* Reveal + kartu masuk hanya saat JS aktif dan gerak diizinkan, agar tanpa JS konten tetap terlihat. */
