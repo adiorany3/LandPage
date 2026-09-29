@@ -588,6 +588,20 @@ body::before {
   transform: translateY(-3px);
   border-color: rgba(111, 216, 138, .4);
 }
+.pipeline-item, .floating-tags span, .tag-list span, .profile-links a, .project-filters button {
+  transition: transform .25s ease, border-color .25s ease, background-color .25s ease, box-shadow .25s ease;
+}
+.pipeline-item:hover, .pipeline-item:focus-within {
+  transform: translateY(-5px);
+  border-color: var(--accent-2);
+  box-shadow: 0 12px 28px rgba(63, 184, 176, .14);
+}
+.floating-tags span:hover, .tag-list span:hover, .profile-links a:hover, .project-filters button:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-2);
+  background: var(--surface-strong);
+}
+.btn:active, .project-filters button:active { transform: translateY(1px); }
 .site-header { border-radius: 16px; }
 .eyebrow { letter-spacing: .16em; }
 .hero h1 { letter-spacing: -.03em; }
@@ -738,15 +752,22 @@ button { cursor: pointer; }
 
 /* Reveal + kartu masuk hanya saat JS aktif dan gerak diizinkan, agar tanpa JS konten tetap terlihat. */
 @keyframes repoIn {from{opacity:0; transform:translateY(14px)}}
+@keyframes pipelineIn {from{opacity:0; transform:translateY(16px)}}
 @media (prefers-reduced-motion: no-preference) {
   .js .reveal {opacity:0; transform:translateY(28px); filter:blur(8px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1), filter .8s cubic-bezier(.22,1,.36,1)}
   .js .reveal.visible {opacity:1; transform:none; filter:none}
   .js .repo-card {animation:repoIn .7s cubic-bezier(.22,1,.36,1) backwards; animation-delay:var(--card-delay, 0ms); transition:transform .6s cubic-bezier(.22,1,.36,1), box-shadow .6s cubic-bezier(.22,1,.36,1)}
   .js .repo-card:hover {transform:translateY(-8px) scale(1.012)}
+  .pipeline-item {animation: pipelineIn .65s cubic-bezier(.22,1,.36,1) both}
+  .pipeline-item:nth-child(2) {animation-delay:90ms}
+  .pipeline-item:nth-child(3) {animation-delay:180ms}
+  .pipeline-item:nth-child(4) {animation-delay:270ms}
+  .pipeline-item:nth-child(5) {animation-delay:360ms}
   .hero-visual > img {animation:none; transition:transform 1s cubic-bezier(.22,1,.36,1), filter 1s ease}
   .hero-visual:hover > img {transform:scale(1.025); filter:drop-shadow(0 30px 70px rgba(63,184,176,.3))}
 }
 @media (prefers-reduced-motion: reduce) {
   .js .reveal, .js .reveal.visible {opacity:1; transform:none; filter:none}
-  .hero-visual img, .floating-tags span, .hero::before {animation:none !important; transition:none !important}
+  .pipeline-item, .hero-visual img, .floating-tags span, .hero::before {animation:none !important; transition:none !important}
+  .pipeline-item:hover, .pipeline-item:focus-within, .floating-tags span:hover, .tag-list span:hover, .profile-links a:hover, .project-filters button:hover {transform:none}
 }
