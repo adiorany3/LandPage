@@ -140,7 +140,7 @@ export default async function HomePage() {
             />
             <div className="glass-card avatar-card">
               <Image src="/assets/avatar.svg" alt="Avatar Galuh Adi Insani" width={120} height={120} />
-              <div><strong>Galuh Adi</strong><span>Research Tools Builder</span></div>
+              <div><strong>Galuh Adi Insani</strong><span>Research Tools Builder</span></div>
             </div>
             <div className="floating-tags" aria-hidden="true">
               <span>Formulation</span><span>Analysis</span><span>Export</span>
