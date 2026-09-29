@@ -668,6 +668,8 @@ main .section-heading h2 { background: none; color: var(--text); -webkit-text-fi
 .pipeline-outcomes > div { display: grid; gap: 4px; }
 .activity-section { display: grid; grid-template-columns: minmax(240px, .7fr) minmax(0, 1.3fr); gap: 32px; align-items: start; }
 .activity-section .section-heading { max-width: 480px; }
+.live-badge { display: inline-flex; align-items: center; gap: 6px; margin-left: 8px; padding: 4px 8px; border: 1px solid rgba(111, 216, 138, .35); border-radius: 999px; background: rgba(111, 216, 138, .1); color: var(--accent); font-size: .68rem; letter-spacing: .08em; vertical-align: middle; }
+.live-badge i { width: 7px; height: 7px; border-radius: 50%; background: #6fd88a; box-shadow: 0 0 0 3px rgba(111, 216, 138, .14), 0 0 14px rgba(111, 216, 138, .9); animation: livePulse 1.8s ease-in-out infinite; }
 .activity-list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
 .activity-item { display: flex; align-items: center; gap: 14px; padding: 16px 18px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface-soft); transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
 .activity-item:hover { transform: translateY(-2px); border-color: var(--accent-2); box-shadow: 0 12px 28px rgba(63, 184, 176, .12); }
@@ -763,6 +765,7 @@ button { cursor: pointer; }
 @keyframes floatAgro {50%{transform:translateY(-10px)}}
 @keyframes sensorPulse {50%{box-shadow:0 0 20px rgba(63,184,176,.35); transform:translateY(-3px)}}
 @keyframes dataFlow {50%{transform:scale(1.15);opacity:.4}}
+@keyframes livePulse {50%{opacity:.45; box-shadow:0 0 0 5px rgba(111,216,138,.1), 0 0 22px rgba(111,216,138,1)}}
 
 /* Reveal + kartu masuk hanya saat JS aktif dan gerak diizinkan, agar tanpa JS konten tetap terlihat. */
 @keyframes repoIn {from{opacity:0; transform:translateY(14px)}}

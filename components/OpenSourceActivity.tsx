@@ -13,7 +13,7 @@ export default function OpenSourceActivity({ activities }: { activities: GitHubA
   return (
     <section className="section activity-section" aria-labelledby="activity-title">
       <div className="section-heading">
-        <p className="eyebrow">Open Source Activity</p>
+        <p className="eyebrow">Open Source Activity <span className="live-badge"><i aria-hidden="true" /> Live</span></p>
         <h2 id="activity-title">Aktivitas terbaru di GitHub.</h2>
         <p>Kontribusi publik dan repository yang sedang dikerjakan oleh <a href="https://github.com/adiorany3" target="_blank" rel="noopener noreferrer">@adiorany3</a>.</p>
       </div>
