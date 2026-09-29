@@ -128,7 +128,7 @@ export default async function HomePage() {
             </div>
           </div>
 
-          <div className="hero-visual" aria-label="Ilustrasi jaringan IoT pertanian">
+          <div className="hero-visual" aria-label="Ilustrasi jaringan IoT peternakan">
             <span className="product-pill">AgriTech / IoT</span>
             <Image
               src="/assets/iot-network.svg"
@@ -187,7 +187,7 @@ export default async function HomePage() {
               <Image src="/assets/avatar.svg" alt="Monogram Galuh Adi Insani" width={120} height={120} />
               <div>
                 <p className="eyebrow">Profil akademik • Pengembang</p>
-                <h2 id="github-title">Perangkat lunak untuk pertanian dan penelitian.</h2>
+                <h2 id="github-title">Perangkat lunak bidang agro dan penelitian.</h2>
                 <h3>{academic.name}</h3>
                 <span>@adiorany3 · {academic.faculty} · Universitas Gadjah Mada</span>
                 <p>
