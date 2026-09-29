@@ -819,6 +819,36 @@ button { cursor: pointer; }
   box-shadow: inset 0 0 42px rgba(63,184,176,.08), 0 0 24px rgba(111,216,138,.08);
   animation: neuralGlow 3.5s ease-in-out infinite;
 }
+
+/* Matrix rain: moving binary columns with restrained green pulse. */
+body::before {
+  content: "01001110 01000101 01010100 01010111 01010011 01000101 01000011 01010101 01010010 01000101 01000001 01000011 01000011 01000101 01010011 01010011";
+  color: rgba(111, 216, 138, .2);
+  font: 700 .8rem/2 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: .7em;
+  white-space: pre-wrap;
+  word-break: break-all;
+  opacity: .62;
+  text-shadow: 0 0 8px rgba(111, 216, 138, .65);
+  background:
+    linear-gradient(rgba(111, 216, 138, .045) 1px, transparent 1px),
+    repeating-linear-gradient(90deg, transparent 0 7%, rgba(111, 216, 138, .08) 7.2% 7.45%, transparent 7.7% 14%),
+    radial-gradient(ellipse at 50% 0, rgba(31, 135, 78, .22), transparent 58%),
+    linear-gradient(90deg, rgba(0, 0, 0, .6), transparent 18% 82%, rgba(0, 0, 0, .6));
+  background-size: 100% 4px, 100% 100%, 100% 100%, 100% 100%;
+  animation: matrixRain 15s linear infinite, matrixPulse 3.2s ease-in-out infinite;
+}
+@keyframes matrixRain {
+  from { background-position: 0 0, 0 -100vh, 0 0, 0 0; }
+  to { background-position: 0 0, 0 100vh, 0 0, 0 0; }
+}
+@keyframes matrixPulse {
+  50% { opacity: .35; filter: brightness(1.35); }
+}
+@media (prefers-reduced-motion: reduce) {
+  body::before { animation: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .activity-section::before,
   .activity-section::after { animation: none; }
