@@ -565,18 +565,28 @@ body {
     var(--bg);
 }
 body::before {
-  content: "";
+  content: "01001110 01000101 01010100 01010111\A 01010011 01000101 01000011 01010101 01010010 01000101\A 01000001 01000011 01000011 01000101 01010011 01010011";
   position: fixed;
   inset: 0;
   z-index: -1;
+  overflow: hidden;
   pointer-events: none;
-  opacity: .25;
-  background-image:
-    linear-gradient(rgba(111, 216, 138, .07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(111, 216, 138, .07) 1px, transparent 1px);
-  background-size: 42px 42px;
-  mask-image: linear-gradient(to bottom, #000, transparent 75%);
+  color: rgba(111, 216, 138, .2);
+  font: 700 clamp(.7rem, 1.1vw, 1rem)/2.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 1.2em;
+  white-space: pre-wrap;
+  word-break: break-all;
+  opacity: .55;
+  text-shadow: 0 0 12px rgba(111, 216, 138, .42);
+  background:
+    linear-gradient(rgba(111, 216, 138, .055) 1px, transparent 1px),
+    repeating-linear-gradient(90deg, transparent 0 7.5%, rgba(111, 216, 138, .06) 7.6% 7.8%, transparent 7.9% 15%),
+    radial-gradient(ellipse at 50% 0, rgba(31, 135, 78, .18), transparent 55%),
+    linear-gradient(90deg, rgba(0, 0, 0, .5), transparent 20% 80%, rgba(0, 0, 0, .5));
+  background-size: 100% 4px, 100% 100%, 100% 100%, 100% 100%;
+  mask-image: linear-gradient(to bottom, #000, rgba(0, 0, 0, .8) 70%, transparent);
 }
+body.light::before { display: none; }
 .site-header, .stats div, .glass-card, .project-card, .profile-card, .workflow-card,
 .stack-card, .contact-card, .blog-card, .pipeline-card, .repo-card, .github-sync-card {
   border-color: var(--border);
