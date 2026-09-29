@@ -31,7 +31,8 @@ export function parseEggPrice(html: string) {
   const date = main.match(/<time\b[^>]*datetime="(\d{4}-\d{2}-\d{2})T/i)?.[1];
   // ponytail: hanya ringkasan nasional HTML Sun Egg; gunakan API resmi jika tersedia.
   const text = main.replace(/<script\b[\s\S]*?<\/script>/gi, "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
-  const price = text.match(/Rp\s+([\d.]+)\s*\/\s*kg\s+[+−-]?[\d.,]+%\s+vs kemarin\s+Rata-rata nasional/i)?.[1];
+  const price = text.match(/Rata-rata lokasi tercatat\s+Rp\s+([\d.]+)\s*\/\s*kg\b/i)?.[1]
+    ?? text.match(/Rp\s+([\d.]+)\s*\/\s*kg\s+[+−-]?[\d.,]+%\s+vs kemarin\s+Rata-rata nasional/i)?.[1];
   if (!date || !price || !Number.isFinite(Date.parse(date)) || Number(price.replaceAll(".", "")) <= 0) throw new Error("Format ringkasan harga telur tidak dikenali");
   return { price, date, fallback: false };
 }
