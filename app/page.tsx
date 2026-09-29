@@ -47,12 +47,44 @@ export default async function HomePage() {
   const portfolioStats = stats.map((item, index) =>
     index === 0 ? { ...item, value: String(portfolio.totalRepositories) } : item
   );
+  const articleItems = [...news, ...livestockNews].map((item, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    url: item.link,
+    name: item.title,
+  }));
+  const siteSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://www.adioranye.my.id/#website",
+        name: "Adioranye",
+        url: "https://www.adioranye.my.id/",
+        description: "Artikel AgriTech, peternakan, analisis data, dan komputasi ilmiah oleh Galuh Adi Insani.",
+        inLanguage: "id-ID",
+        publisher: { "@id": "https://www.adioranye.my.id/#person" },
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://www.adioranye.my.id/#articles",
+        name: "Artikel dan berita terkait AgriTech serta peternakan",
+        itemListOrder: "https://schema.org/ItemListOrderDescending",
+        numberOfItems: articleItems.length,
+        itemListElement: articleItems,
+      },
+    ],
+  };
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema).replace(/</g, "\\u003c") }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema).replace(/</g, "\\u003c") }}
       />
       <a className="skip-link" href="#main">Lewati ke konten utama</a>
 
