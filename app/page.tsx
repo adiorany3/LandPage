@@ -5,8 +5,9 @@ import CommodityPrices from "@/components/CommodityPrices";
 import ProjectShowcase from "@/components/ProjectShowcase";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import ThemeAndNav from "@/components/ThemeAndNav";
+import OpenSourceActivity from "@/components/OpenSourceActivity";
 import { links, navItems, stack, stats, workflow } from "@/data/content";
-import { getGitHubPortfolio } from "@/lib/github";
+import { getGitHubActivity, getGitHubPortfolio } from "@/lib/github";
 import { academicUrl, getAcademicProfile } from "@/lib/academic";
 import { getNews, getLivestockNews } from "@/lib/news";
 
@@ -43,7 +44,7 @@ export const revalidate = 3600;
 
 export default async function HomePage() {
   const year = new Date().getFullYear();
-  const [portfolio, academic, news, livestockNews] = await Promise.all([getGitHubPortfolio(), getAcademicProfile(), getNews(), getLivestockNews()]);
+  const [portfolio, activity, academic, news, livestockNews] = await Promise.all([getGitHubPortfolio(), getGitHubActivity(), getAcademicProfile(), getNews(), getLivestockNews()]);
   const portfolioStats = stats.map((item, index) =>
     index === 0 ? { ...item, value: String(portfolio.totalRepositories) } : item
   );
@@ -264,6 +265,8 @@ export default async function HomePage() {
           totalRepositories={portfolio.totalRepositories}
           source={portfolio.source}
         />
+
+        <OpenSourceActivity activities={activity} />
 
         <section className="section workflow-section" id="process" aria-labelledby="process-title">
           <RevealOnScroll className="section-heading">

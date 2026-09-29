@@ -665,6 +665,13 @@ main .section-heading h2 { background: none; color: var(--text); -webkit-text-fi
 .pipeline { grid-template-columns: repeat(5, 1fr); }
 .workflow-grid, .blog-grid { grid-template-columns: repeat(3, 1fr); }
 .pipeline-item, .workflow-card, .blog-card { padding: 20px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface-soft); }
+.pipeline-outcomes > div { display: grid; gap: 4px; }
+.activity-list { display: grid; gap: 12px; max-width: 760px; margin: 24px 0 0; padding: 0; list-style: none; }
+.activity-item { display: flex; align-items: center; gap: 12px; padding: 16px 18px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface-soft); }
+.activity-dot { width: 10px; height: 10px; flex: 0 0 auto; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px rgba(111, 216, 138, .12); }
+.activity-item div { display: grid; gap: 3px; }
+.activity-item time { color: var(--muted); font-size: .8rem; }
+.activity-item a { color: var(--accent-2); }
 .blog-card { min-width: 0; overflow-wrap: anywhere; }
 .pipeline-number, .pipeline-icon { color: var(--accent-2); font-family: ui-monospace, monospace; }
 .pipeline-arrow, .project-marquee { display: none; }

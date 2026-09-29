@@ -32,7 +32,6 @@ export function parseAcademicProfile(header: string, details: string) {
     "EDUCATION BACKGROUND": "Pendidikan",
     "RESEARCH CLUSTER/GROUP": "Kelompok riset",
     "RESEARCH INTEREST": "Minat riset",
-    "SCHOLARSHIP": "Beasiswa",
     "WORK EXPERIENCE": "Pengalaman",
     "COMPETENCE/ CERTIFICATION": "Pelatihan dan sertifikasi"
   };
@@ -46,7 +45,7 @@ export function parseAcademicProfile(header: string, details: string) {
   if (!name.includes("Galuh Adi Insani") || !fields[0] || !fields[1] || !sections.some(section => section.title === "Pendidikan") || !sections.some(section => section.title === "Minat riset")) {
     throw new Error("Struktur profil Acadstaff tidak valid");
   }
-  return { name, faculty: fields[0], address: fields[1], sections };
+  return { name, faculty: fields[0], address: fields[1], sections: sections.filter(section => section.title !== "Beasiswa") };
 }
 
 export async function getAcademicProfile() {

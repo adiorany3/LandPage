@@ -38,6 +38,14 @@ export type GitHubPortfolio = {
   source: "github" | "fallback";
 };
 
+export type GitHubActivity = {
+  id: string;
+  type: string;
+  repo: string;
+  url: string;
+  createdAt: string;
+};
+
 const featuredNames = new Set([
   "ransumruminansia",
   "OneWay",
@@ -243,6 +251,37 @@ function sortProjects(projects: GitHubProject[]): GitHubProject[] {
     if (a.featured !== b.featured) return a.featured ? -1 : 1;
     return Date.parse(b.updatedAt) - Date.parse(a.updatedAt);
   });
+}
+
+type GitHubEventResponse = {
+  id: string;
+  type: string;
+  repo?: { name: string };
+  payload?: { ref?: string; action?: string };
+  created_at: string;
+};
+
+export async function getGitHubActivity(): Promise<GitHubActivity[]> {
+  try {
+    const response = await fetch("https://api.github.com/users/adiorany3/events/public?per_page=8", {
+      headers: { Accept: "application/vnd.github+json", "User-Agent": "adioranye-landpage" },
+      next: { revalidate: 1800 },
+      signal: AbortSignal.timeout(7000)
+    });
+    if (!response.ok) throw new Error(`GitHub events request failed: ${response.status}`);
+    return ((await response.json()) as GitHubEventResponse[])
+      .filter((event) => event.repo?.name)
+      .slice(0, 6)
+      .map((event) => ({
+        id: event.id,
+        type: event.type,
+        repo: event.repo!.name,
+        url: `https://github.com/${event.repo!.name}`,
+        createdAt: event.created_at
+      }));
+  } catch {
+    return [];
+  }
 }
 
 export async function getGitHubPortfolio(): Promise<GitHubPortfolio> {
