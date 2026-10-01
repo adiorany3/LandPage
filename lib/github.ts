@@ -171,27 +171,19 @@ const fallbackRows: Array<{
 
 function projectCategory(name: string, description = "", topics: string[] = []): ProjectCategory {
   const searchable = `${name} ${description} ${topics.join(" ")}`.toLowerCase();
-
-  if (
-    /(detection|detect|deteksi|classification|klasifikasi|prediction|prediksi|randomforest|vision|birdnet|face|sperm|dna|scab|desease|disease|object|sentimen|heart)/.test(
-      searchable
-    )
-  ) {
-    return "AI & Vision";
+  
+  const patterns: Array<[ProjectCategory, RegExp]> = [
+    ["AI & Vision", /(detection|detect|deteksi|classification|klasifikasi|prediction|prediksi|randomforest|vision|birdnet|face|sperm|dna|scab|desease|disease|object|sentimen|heart)/],
+    ["Statistics", /(anova|ttest|t-test|statistik|statistic|review|bibliografi|analisadata|data analysis|factorial)/],
+    ["AgriTech", /(ternak|ransum|sapi|karkas|dairy|feed|pakan|livestock|milk|biogas|ayam|telur|broiler|heatstress|inbreed|recording|kentang|plant|fruit|agri)/]
+  ];
+  
+  for (const [category, pattern] of patterns) {
+    if (pattern.test(searchable)) {
+      return category;
+    }
   }
-
-  if (/(anova|ttest|t-test|statistik|statistic|review|bibliografi|analisadata|data analysis|factorial)/.test(searchable)) {
-    return "Statistics";
-  }
-
-  if (
-    /(ternak|ransum|sapi|karkas|dairy|feed|pakan|livestock|milk|biogas|ayam|telur|broiler|heatstress|inbreed|recording|kentang|plant|fruit|agri)/.test(
-      searchable
-    )
-  ) {
-    return "AgriTech";
-  }
-
+  
   return "Web & Tools";
 }
 

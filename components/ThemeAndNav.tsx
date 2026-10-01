@@ -9,8 +9,16 @@ export default function ThemeAndNav() {
   const [showTop, setShowTop] = useState(false);
 
   useEffect(() => {
-    const shouldUseLight = window.localStorage.getItem("theme") === "light";
-    document.body.classList.toggle("light", shouldUseLight);
+    const stored = window.localStorage.getItem("theme");
+    if (stored === "light") setLight(true);
+  }, []);
+
+  useEffect(() => {
+    document.body.classList.toggle("light", light);
+    window.localStorage.setItem("theme", light ? "light" : "dark");
+  }, [light]);
+
+  useEffect(() => {
     const onScroll = () => setShowTop(window.scrollY > 500);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -18,10 +26,7 @@ export default function ThemeAndNav() {
   }, []);
 
   function toggleTheme() {
-    const next = !light;
-    setLight(next);
-    document.body.classList.toggle("light", next);
-    window.localStorage.setItem("theme", next ? "light" : "dark");
+    setLight(prev => !prev);
   }
 
   return (

@@ -13,6 +13,7 @@ export default function RevealOnScroll({ className = "", children, ...props }: P
     if (!node) return;
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      node.classList.add("visible");
       return;
     }
 

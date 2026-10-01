@@ -11,7 +11,12 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: url },
   openGraph: {
-    title, description, url, type: "website", locale: "id_ID", siteName: "Adioranye",
+    title,
+    description,
+    url,
+    type: "website",
+    locale: "id_ID",
+    siteName: "Adioranye",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Galuh Adi Insani — Inovasi Peternakan dan AgriTech" }]
   },
   twitter: { card: "summary_large_image", title, description, images: ["/opengraph-image"] }
@@ -33,7 +38,12 @@ const schema = {
     url: "https://www.adioranye.my.id/"
   },
   sameAs: repository,
-  featureList: ["Formulasi ransum manual", "Optimasi biaya dengan pemrograman linear", "Analisis nutrisi dan kebutuhan mineral", "Perhitungan biaya ransum"]
+  featureList: [
+    "Formulasi ransum manual",
+    "Optimasi biaya dengan pemrograman linear",
+    "Analisis nutrisi dan kebutuhan mineral",
+    "Perhitungan biaya ransum"
+  ]
 };
 
 export default function RansumRuminansiaPage() {
@@ -50,16 +60,16 @@ export default function RansumRuminansiaPage() {
           <div className="section-heading">
             <p className="eyebrow">Inovasi peternakan • AgriTech</p>
             <h1 id="innovation-title">Ransum Ruminansia: aplikasi formulasi pakan ternak</h1>
-            <p className="lead">Karya <Link href="/">Galuh Adi Insani</Link> untuk membantu penyusunan pakan sapi, kambing, dan domba dengan mempertimbangkan kebutuhan nutrisi, bahan pakan, dan biaya.</p>
+            <p className="lead">Karya <Link href="/">Galuh Adi Insani</Link> untuk membantu penyusunan pakan sapi, kambing, dan domba.</p>
           </div>
           <div className="workflow-grid">
             <section className="workflow-card">
               <h2>Masalah yang ditangani</h2>
-              <p>Perubahan komposisi atau harga bahan dapat memengaruhi keseimbangan nutrisi dan biaya ransum. Pengguna perlu meninjau keduanya sebelum memilih formulasi.</p>
+              <p>Formulasi pakan ruminansia memerlukan keseimbangan nutrisi, ketersediaan bahan, dan efisiensi biaya. Aplikasi membantu menyederhanakan proses ini dengan alat yang terstruktur.</p>
             </section>
             <section className="workflow-card">
-              <h2>Fitur dan metode</h2>
-              <p>Susun ransum secara manual atau gunakan optimasi pemrograman linear untuk mencari biaya minimum sesuai batasan nutrisi. Tinjau komposisi, analisis nutrisi, kebutuhan mineral, dan biaya hasil formulasi.</p>
+              <h2>Pendekatan dan metode</h2>
+              <p>Pengguna dapat menyusun ransum secara manual atau memakai optimasi pemrograman linear untuk mencari biaya minimum sesuai batasan nutrisi. Tinjau komposisi, analisis nutrisi, kebutuhan mineral, dan biaya hasil formulasi.</p>
             </section>
             <section className="workflow-card">
               <h2>Teknologi aplikasi</h2>
