@@ -87,9 +87,9 @@ export default async function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema).replace(/</g, "\\u003c") }}
       />
+      <div id="top" aria-hidden="true" />
       <a className="skip-link" href="#main">Lewati ke konten utama</a>
-
-      <header className="site-header" id="top">
+      <header className="site-header">
         <a className="brand" href="#top" aria-label="Kembali ke bagian atas">
           <Image src="/assets/avatar.svg" alt="Monogram Galuh Adi Insani" width={120} height={120} />
           <span>

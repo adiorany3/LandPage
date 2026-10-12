@@ -652,6 +652,7 @@ body.light {
 }
 * { box-sizing: border-box; }
 html { scroll-padding-top: 110px; }
+html:has(#top:target) { scroll-padding-top: 0; }
 body { background: var(--bg); }
 img { max-width: 100%; height: auto; }
 .site-header { display: flex; align-items: center; gap: 12px; background: var(--surface); }
