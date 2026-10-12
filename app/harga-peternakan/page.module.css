@@ -68,3 +68,36 @@
   .shell :global(.price-list-heading) { display: block; }
   .shell :global(.price-grid) { grid-template-columns: 1fr; }
 }
+.shell :global(.chart-panel) { margin-top: 36px; padding: clamp(20px, 3vw, 32px); border: 1px solid var(--border); border-radius: 18px; background: var(--surface); box-shadow: var(--shadow); }
+.shell :global(.chart-top) { display: flex; align-items: start; justify-content: space-between; gap: 24px; }
+.shell :global(.chart-top h2) { margin: 8px 0 4px; font-size: clamp(1.5rem, 3vw, 2rem); }
+.shell :global(.chart-top p), .shell :global(.chart-bottom), .shell :global(.chart-summary span), .shell :global(.chart-summary time) { color: var(--muted); }
+.shell :global(.chart-controls) { display: grid; min-width: min(290px, 100%); gap: 8px; }
+.shell :global(.chart-controls label) { font-size: .78rem; font-weight: 700; }
+.shell :global(.chart-controls select), .shell :global(.chart-ranges button) { min-height: 44px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font: inherit; }
+.shell :global(.chart-ranges) { display: flex; gap: 6px; }
+.shell :global(.chart-ranges button) { flex: 1; cursor: pointer; font-size: .8rem; }
+.shell :global(.chart-ranges button[aria-pressed="true"]) { border-color: var(--accent); background: var(--surface-strong); color: var(--accent); }
+.shell :global(.chart-summary) { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 28px; }
+.shell :global(.chart-summary > div) { display: grid; align-content: start; gap: 8px; min-width: 0; padding: 18px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface-soft); }
+.shell :global(.chart-summary span), .shell :global(.chart-summary time) { font-size: .75rem; }
+.shell :global(.chart-summary strong) { font-size: clamp(1rem, 2vw, 1.45rem); line-height: 1.25; overflow-wrap: anywhere; }
+.shell :global(.chart-summary small) { font-size: .8rem; font-weight: 400; }
+.shell :global(.trend-up) { color: #ffb588; }
+.shell :global(.trend-down) { color: var(--accent); }
+.shell :global(.chart-plot) { margin-top: 24px; padding: 8px 4px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg); overflow: hidden; }
+.shell :global(.chart-plot svg) { display: block; width: 100%; height: auto; min-height: 215px; color: var(--muted); }
+.shell :global(.chart-bottom) { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; margin-top: 12px; font-size: .8rem; }
+.shell :global(.chart-bottom a) { color: var(--accent-2); text-decoration: underline; text-underline-offset: 3px; }
+.shell :global(.chart-data) { margin-top: 20px; border-top: 1px solid var(--border); padding-top: 14px; }
+.shell :global(.chart-data summary) { cursor: pointer; font-weight: 700; }
+.shell :global(.chart-table-scroll) { max-height: 300px; overflow: auto; margin-top: 12px; }
+.shell :global(.chart-data table) { width: 100%; border-collapse: collapse; text-align: left; font-variant-numeric: tabular-nums; }
+.shell :global(.chart-data caption) { padding: 8px 0; text-align: left; color: var(--muted); }
+.shell :global(.chart-data th), .shell :global(.chart-data td) { padding: 8px; border-bottom: 1px solid var(--border); }
+.shell :global(.chart-data th:last-child), .shell :global(.chart-data td:last-child) { text-align: right; }
+@media (max-width: 700px) {
+  .shell :global(.chart-top) { flex-direction: column; }
+  .shell :global(.chart-controls) { width: 100%; }
+  .shell :global(.chart-summary) { grid-template-columns: 1fr; }
+}

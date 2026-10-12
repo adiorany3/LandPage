@@ -1,9 +1,11 @@
 import { formatPriceChange, getCommodityPrices, pricesUrl } from "@/lib/prices";
 import { eggPriceUrl, eggArchiveUrl, getEggPrice, getEggArchive } from "@/lib/egg-price";
 import RevealOnScroll from "./RevealOnScroll";
+import PriceChart from "./PriceChart";
+import { getPriceHistory } from "@/lib/price-export";
 
 export default async function CommodityPrices() {
-  const [prices, currentEgg, archive] = await Promise.all([getCommodityPrices(), getEggPrice(), getEggArchive()]);
+  const [prices, currentEgg, archive, history] = await Promise.all([getCommodityPrices(), getEggPrice(), getEggArchive(), getPriceHistory()]);
   const useArchive = archive.length > 0 && archive[0].date >= currentEgg.date && (currentEgg.fallback || archive[0].date > currentEgg.date);
   const egg = useArchive ? { ...archive[0], fallback: false } : currentEgg;
   const eggSource = useArchive ? `${eggArchiveUrl}/${egg.date}` : eggPriceUrl;
@@ -37,8 +39,9 @@ export default async function CommodityPrices() {
         ))}</ul> : <p>Daftar arsip belum tersedia. Buka sumber untuk melihat riwayat.</p>}
         <a href={eggArchiveUrl} target="_blank" rel="noopener noreferrer">Lihat seluruh arsip di Sun Egg ↗</a>
       </details>
+      <PriceChart records={history} />
       <div className="price-list-heading">
-        <div><span className="price-label">DATA KOMODITAS / 02</span><h2>Ringkasan harga lainnya</h2></div>
+        <div><span className="price-label">DATA KOMODITAS / 03</span><h2>Ringkasan harga lainnya</h2></div>
         {prices.some(item => item.fallback) && <p>Arsip harga sesuai tanggal data.</p>}
       </div>
       {prices.length ? (
