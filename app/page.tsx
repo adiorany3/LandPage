@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import ContactCard from "@/components/ContactCard";
 import BlogFeed from "@/components/BlogFeed";
-import CommodityPrices from "@/components/CommodityPrices";
 import ProjectShowcase from "@/components/ProjectShowcase";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import ThemeAndNav from "@/components/ThemeAndNav";
@@ -312,7 +311,6 @@ export default async function HomePage() {
 
         <BlogFeed news={news} />
         <BlogFeed news={livestockNews} livestock />
-        <CommodityPrices />
 
         <section className="section contact-section" id="contact" aria-labelledby="contact-title">
           <RevealOnScroll className="contact-card">

@@ -8,7 +8,7 @@ export default async function CommodityPrices() {
   const egg = useArchive ? { ...archive[0], fallback: false } : currentEgg;
   const eggSource = useArchive ? `${eggArchiveUrl}/${egg.date}` : eggPriceUrl;
   return (
-    <section className="section" id="harga-peternakan" aria-labelledby="prices-title">
+    <section className="section" aria-labelledby="prices-title">
       <RevealOnScroll className="section-heading">
         <p className="eyebrow">Harga komoditas peternakan</p>
         <h2 id="prices-title">Pantau harga telur, daging, ternak, pakan, dan susu.</h2>

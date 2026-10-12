@@ -17,6 +17,7 @@ Portfolio Galuh Adi Insani dengan katalog repository GitHub otomatis, animasi in
 - Animasi otomatis dinonaktifkan saat pengguna memakai `prefers-reduced-motion`.
 - Light mode dan dark mode.
 - Tampilan responsif untuk desktop, tablet, dan mobile.
+- Menu Harga komoditas membuka halaman `/harga-peternakan` dengan harga telur, daging, ternak, pakan, susu, dan tautan sumber yang diperbarui berkala.
 - Metadata SEO beranda mengikuti judul artikel terbaru yang berhasil dimuat; daftar artikel pada structured data diperbarui bersama feed, sementara tautan artikel tetap mengarah ke penerbit asal.
 - `robots.txt` dan `sitemap.xml` mencantumkan halaman milik situs ini (bukan artikel di domain pihak ketiga).
 
