@@ -34,21 +34,19 @@ export default function BlogFeed({ news, livestock = false }: { news: NewsItem[]
           const published = post.published && !Number.isNaN(Date.parse(post.published)) ? new Date(post.published).toISOString() : undefined;
           const schema = {
             "@context": "https://schema.org",
-            "@type": "BlogPosting",
+            "@type": "Article",
             headline: post.title,
             description: excerpt,
             url: post.link,
-            ...(published ? { datePublished: published, dateModified: published } : {}),
-            author: { "@type": "Person", "@id": "https://www.adioranye.my.id/#person", name: "Galuh Adi Insani" },
-            publisher: { "@type": "Person", "@id": "https://www.adioranye.my.id/#person", name: "Galuh Adi Insani" },
-            isPartOf: { "@type": "WebSite", name: "Adioranye", url: "https://www.adioranye.my.id/" },
+            ...(published ? { datePublished: published } : {}),
+            isPartOf: { "@type": "WebPage", "@id": "https://www.adioranye.my.id/#articles" },
             articleSection: sectionName,
             inLanguage: "id-ID"
           };
           return (
             <RevealOnScroll className="blog-card" key={`${post.title}-${post.link}`}>
               <article>
-                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
+                {news.length > 0 && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />}
                 <span className="journal-label">Sumber: {post.source}{published ? <> · <time dateTime={published}>{new Date(published).toLocaleDateString("id-ID")}</time></> : ""}</span>
                 <h3><a href={post.link} target="_blank" rel="noopener noreferrer">{post.title}</a></h3>
                 <p>{excerpt}</p>

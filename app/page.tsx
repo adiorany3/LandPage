@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import ContactCard from "@/components/ContactCard";
 import BlogFeed from "@/components/BlogFeed";
@@ -42,18 +43,35 @@ const infographicSteps = [
 
 export const revalidate = 3600;
 
+export async function generateMetadata(): Promise<Metadata> {
+  const [news, livestockNews, blogPosts] = await Promise.all([getNews(), getLivestockNews(), getBlogPosts()]);
+  const latestTitle = [...news, ...livestockNews, ...blogPosts].find(item => item.title.length <= 85)?.title;
+  const title = "Galuh Adi Insani | Inovasi Peternakan & AgriTech";
+  const description = latestTitle
+    ? `Artikel terbaru: ${latestTitle}. Jelajahi riset dan aplikasi AgriTech karya Galuh Adi Insani.`
+    : "Artikel AgriTech, peternakan, analisis data, dan aplikasi riset karya Galuh Adi Insani.";
+  return {
+    title: { absolute: title },
+    description,
+    alternates: { canonical: "/" },
+    openGraph: { title, description, url: "/", type: "website", siteName: "Adioranye", locale: "id_ID", images: ["/opengraph-image"] },
+    twitter: { card: "summary_large_image", title, description, images: ["/opengraph-image"] },
+  };
+}
+
 export default async function HomePage() {
   const year = new Date().getFullYear();
   const [portfolio, activity, academic, news, livestockNews, blogPosts] = await Promise.all([getGitHubPortfolio(), getGitHubActivity(), getAcademicProfile(), getNews(), getLivestockNews(), getBlogPosts()]);
   const portfolioStats = stats.map((item, index) =>
     index === 0 ? { ...item, value: String(portfolio.totalRepositories) } : item
   );
-  const articleItems = [...news, ...livestockNews].map((item, index) => ({
-    "@type": "ListItem",
-    position: index + 1,
-    url: item.link,
-    name: item.title,
-  }));
+  const articleItems = [...new Map([...news, ...livestockNews, ...blogPosts].map(item => [item.link, item])).values()]
+    .map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: item.link,
+      name: item.title,
+    }));
   const siteSchema = {
     "@context": "https://schema.org",
     "@graph": [
