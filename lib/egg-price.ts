@@ -6,10 +6,9 @@ export function parseEggArchive(html: string) {
   for (const [, date, body] of html.matchAll(/<a\b[^>]*href="\/harga-telur\/arsip\/(\d{4}-\d{2}-\d{2})"[^>]*>([\s\S]*?)<\/a>/g)) {
     const text = body.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
     const price = text.match(/Rp\s+([\d.]+)\s+Rata-rata nasional/)?.[1];
-    const parsedDate = new Date(date);
-    const dateValue = parsedDate.toISOString().slice(0, 10);
-    if (!price || !Number.isFinite(parsedDate.getTime()) || parsedDate.toISOString().slice(0, 10) !== dateValue || !/^[1-9]\d{0,2}(?:\.\d{3})*$/.test(price)) continue;
-    entries.set(dateValue, { date: dateValue, price });
+    const parsedDate = new Date(`${date}T00:00:00.000Z`);
+    if (!price || !Number.isFinite(parsedDate.getTime()) || parsedDate.toISOString().slice(0, 10) !== date || !/^[1-9]\d{0,2}(?:\.\d{3})*$/.test(price)) continue;
+    entries.set(date, { date, price });
   }
   return [...entries.values()].sort((a, b) => b.date.localeCompare(a.date));
 }
@@ -34,7 +33,8 @@ export function parseEggPrice(html: string) {
   const text = main.replace(/<script\b[\s\S]*?<\/script>/gi, "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
   const price = text.match(/Rata-rata lokasi tercatat\s+Rp\s+([\d.]+)\s*\/\s*kg\b/i)?.[1]
     ?? text.match(/Rp\s+([\d.]+)\s*\/\s*kg\s+[+−-]?[\d.,]+%\s+vs kemarin\s+Rata-rata nasional/i)?.[1];
-  if (!date || !price || !Number.isFinite(Date.parse(date)) || Number(price.replaceAll(".", "")) <= 0) throw new Error("Format ringkasan harga telur tidak dikenali");
+  const parsedDate = date ? new Date(`${date}T00:00:00.000Z`) : null;
+  if (!date || !price || !parsedDate || !Number.isFinite(parsedDate.getTime()) || parsedDate.toISOString().slice(0, 10) !== date || Number(price.replaceAll(".", "")) <= 0) throw new Error("Format ringkasan harga telur tidak dikenali");
   return { price, date, fallback: false };
 }
 

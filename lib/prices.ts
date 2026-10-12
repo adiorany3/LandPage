@@ -1,5 +1,5 @@
 export const pricesUrl = "https://sunegg.id/harga-komoditas";
-export type CommodityPrice = { name: string; level: string; date: string; unit: string; price: string; link: string; fallback?: boolean };
+export type CommodityPrice = { name: string; level: string; date: string; unit: string; price: string; link: string; change?: string; fallback?: boolean };
 
 // ponytail: snapshot terverifikasi, bukan cache persisten; gunakan DB jika perlu menyimpan setiap pembaruan berhasil.
 const fallbackPrices: CommodityPrice[] = [
@@ -16,9 +16,10 @@ export function parsePrices(html: string): CommodityPrice[] {
   for (const [, slug, body] of html.matchAll(/<a\b[^>]*href="\/harga-komoditas\/([a-z0-9-]+)"[^>]*>([\s\S]*?)<\/a>/g)) {
     const text = body.replace(/<svg\b[\s\S]*?<\/svg>/g, "").replace(/<!--[\s\S]*?-->/g, "").replace(/<[^>]*>/g, " ").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/\s+/g, " ").trim();
     const match = text.match(/^(.+?)\s+(Eceran|Grosir|Peternak)\s*·?\s*(\d{1,2}\s+[A-Za-z]+\s+\d{4})\s*·?\s*\/(kg|butir|ekor|liter)\s+Rp\s*([\d.]+(?:,\d+)?)(?:\s|$)/);
+    const change = text.match(/([+-]?\s*\d+(?:,\d+)?\s*%)/)?.[1].replace(/\s+/g, "");
     if (!match) continue;
     const [, name, level, date, unit, price] = match;
-    items.set(slug, { name, level, date, unit, price, link: `${pricesUrl}/${slug}` });
+    items.set(slug, { name, level, date, unit, price, link: `${pricesUrl}/${slug}`, ...(change ? { change } : {}) });
   }
   return [...items.values()];
 }
@@ -34,4 +35,14 @@ export async function getCommodityPrices(): Promise<CommodityPrice[]> {
     console.warn("Harga komoditas tidak tersedia.", error instanceof Error ? error.message : "Kesalahan jaringan");
     return fallbackPrices;
   }
+}
+
+export function formatPriceChange(item: Pick<CommodityPrice, "change" | "fallback">): string {
+  if (item.fallback || !item.change) return "Perubahan belum tersedia";
+  const change = item.change.replace(/\s+/g, "");
+  const value = Number(change.replace("%", "").replace(",", "."));
+  if (!Number.isFinite(value)) return "Perubahan belum tersedia";
+  if (value > 0) return `Naik ${change.startsWith("+") ? change : `+${change}`}`;
+  if (value < 0) return `Turun ${change}`;
+  return "Tidak berubah 0%";
 }

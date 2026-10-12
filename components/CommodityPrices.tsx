@@ -1,4 +1,4 @@
-import { getCommodityPrices, pricesUrl } from "@/lib/prices";
+import { formatPriceChange, getCommodityPrices, pricesUrl } from "@/lib/prices";
 import { eggPriceUrl, eggArchiveUrl, getEggPrice, getEggArchive } from "@/lib/egg-price";
 import RevealOnScroll from "./RevealOnScroll";
 
@@ -39,6 +39,7 @@ export default async function CommodityPrices() {
               <span className="journal-label">{item.level} · Data: {item.date}</span>
               <h3>{item.name}</h3>
               <p><strong>Rp {item.price}</strong> /{item.unit}</p>
+              <p className="price-change">{formatPriceChange(item)}</p>
               <a href={item.link} target="_blank" rel="noreferrer">Detail harga {item.name} ↗</a>
             </RevealOnScroll>
           ))}
