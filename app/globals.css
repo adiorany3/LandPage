@@ -111,8 +111,10 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   background: var(--surface);
   color: var(--text);
   cursor: pointer;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
 }
-.theme-toggle, .menu-toggle { width: 40px; height: 40px; }
+.theme-toggle:hover, .menu-toggle:hover { transform: translateY(-2px); border-color: var(--accent); background: var(--surface-strong); }
+.theme-toggle, .menu-toggle { width: 42px; height: 42px; }
 .menu-toggle { display: none; }
 .mobile-nav {
   display: none;
@@ -125,7 +127,9 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   border-radius: 22px;
   background: rgba(7, 17, 31, 0.95);
   backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
 }
+.mobile-nav a { padding: 10px 12px; border-radius: 12px; }
 body.light .mobile-nav { background: rgba(255, 255, 255, 0.97); }
 .top-button {
   position: fixed;

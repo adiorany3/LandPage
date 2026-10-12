@@ -7,8 +7,9 @@ export function parseEggArchive(html: string) {
     const text = body.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
     const price = text.match(/Rp\s+([\d.]+)\s+Rata-rata nasional/)?.[1];
     const parsedDate = new Date(date);
-    if (!price || !Number.isFinite(parsedDate.getTime()) || parsedDate.toISOString().slice(0, 10) !== date || !/^[1-9]\d{0,2}(?:\.\d{3})*$/.test(price)) continue;
-    entries.set(date, { date, price });
+    const dateValue = parsedDate.toISOString().slice(0, 10);
+    if (!price || !Number.isFinite(parsedDate.getTime()) || parsedDate.toISOString().slice(0, 10) !== dateValue || !/^[1-9]\d{0,2}(?:\.\d{3})*$/.test(price)) continue;
+    entries.set(dateValue, { date: dateValue, price });
   }
   return [...entries.values()].sort((a, b) => b.date.localeCompare(a.date));
 }
