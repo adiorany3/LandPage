@@ -1048,3 +1048,32 @@ body:has(.blog-ticker) .top-button { bottom: 76px; }
   background: color-mix(in srgb, var(--accent) 20%, var(--surface-strong));
   clip-path: polygon(100% 0, 0 100%, 100% 100%);
 }
+/* A brief crack overlay stays on the clicked link; reduced motion uses native navigation. */
+.nav a, .mobile-nav a { position: relative; isolation: isolate; }
+.nav a::after, .mobile-nav a::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  z-index: 1;
+  border: 1px solid rgba(218, 255, 246, .8);
+  border-radius: inherit;
+  background:
+    linear-gradient(30deg, transparent 48%, rgba(255,255,255,.95) 49%, transparent 50%) 50% 50% / 100% 100%,
+    linear-gradient(142deg, transparent 47%, rgba(255,255,255,.8) 48%, transparent 49%) 50% 50% / 100% 100%,
+    linear-gradient(68deg, transparent 48%, rgba(255,255,255,.9) 49%, transparent 50%) 10% 50% / 55% 100%,
+    linear-gradient(105deg, transparent 48%, rgba(255,255,255,.8) 49%, transparent 50%) 90% 50% / 60% 100%,
+    radial-gradient(circle at 52% 50%, rgba(255,255,255,.7) 0 2px, transparent 4px);
+  box-shadow: 0 0 18px rgba(122, 239, 221, .35), inset 0 0 10px rgba(255,255,255,.22);
+  opacity: 0;
+  pointer-events: none;
+}
+.nav a.glass-crack::after, .mobile-nav a.glass-crack::after { animation: glassCrack .54s ease-out both; }
+@keyframes glassCrack {
+  0% { opacity: 0; transform: scale(.52); }
+  18% { opacity: 1; transform: scale(1); }
+  60% { opacity: .9; }
+  100% { opacity: 0; transform: scale(1.12); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav a.glass-crack::after, .mobile-nav a.glass-crack::after { animation: none; }
+}
