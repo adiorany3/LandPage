@@ -85,7 +85,7 @@ export default function PriceChart({ records }: { records: PriceRecord[] }) {
         </div>}
       </div>
       <div className="chart-bottom"><span>{active.level} · Sumber: <a href={latest.source} target="_blank" rel="noopener noreferrer">Sun Egg ↗</a></span><span>Grafik mengikuti tanggal data, bukan waktu pengambilan.</span></div>
-      <details className="chart-data"><summary>Lihat data dalam tabel ({points.length} tanggal)</summary><div className="chart-table-scroll"><table><caption>Riwayat {active.product}, {active.level}, rupiah per {active.unit}</caption><thead><tr><th scope="col">Tanggal</th><th scope="col">Harga (Rp/{active.unit})</th></tr></thead><tbody>{points.map(item => <tr key={item.date}><td><time dateTime={item.date}>{item.date}</time></td><td>{rupiah.format(item.price)}</td></tr>)}</tbody></table></div></details>
+      <details className="chart-data"><summary>Lihat data dalam tabel ({points.length} tanggal)</summary><div className="chart-table-scroll" tabIndex={0} role="region" aria-label={`Riwayat harga ${active.product}`}><table><caption>Riwayat {active.product}, {active.level}, rupiah per {active.unit}</caption><thead><tr><th scope="col">Tanggal</th><th scope="col">Harga (Rp/{active.unit})</th></tr></thead><tbody>{points.map(item => <tr key={item.date}><td><time dateTime={item.date}>{item.date}</time></td><td>{rupiah.format(item.price)}</td></tr>)}</tbody></table></div></details>
     </section>
   );
 }
