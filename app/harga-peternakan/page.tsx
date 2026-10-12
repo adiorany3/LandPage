@@ -19,9 +19,15 @@ export const metadata: Metadata = {
 export default function HargaPeternakanPage() {
   return (
     <main className={styles.shell}>
-      <nav aria-label="Navigasi utama" className={styles.navigation}>
-        <Link href="/">← Kembali ke beranda</Link>
-      </nav>
+      <header className={styles.header}>
+        <Link className={styles.brand} href="/" aria-label="Adioranye, kembali ke beranda">
+          <span className={styles.mark}>A<span>.</span></span>
+          <span><strong>ADIORANYE</strong><small>DATA / PETERNAKAN</small></span>
+        </Link>
+        <nav aria-label="Navigasi utama" className={styles.navigation}>
+          <Link href="/">← Kembali ke beranda</Link>
+        </nav>
+      </header>
       <CommodityPrices />
     </main>
   );
