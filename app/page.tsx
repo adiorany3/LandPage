@@ -9,7 +9,7 @@ import OpenSourceActivity from "@/components/OpenSourceActivity";
 import { links, navItems, stack, stats, workflow } from "@/data/content";
 import { getGitHubActivity, getGitHubPortfolio } from "@/lib/github";
 import { academicUrl, getAcademicProfile } from "@/lib/academic";
-import { getNews, getLivestockNews } from "@/lib/news";
+import { getNews, getLivestockNews, getBlogPosts } from "@/lib/news";
 
 const personSchema = {
   "@context": "https://schema.org",
@@ -44,7 +44,7 @@ export const revalidate = 3600;
 
 export default async function HomePage() {
   const year = new Date().getFullYear();
-  const [portfolio, activity, academic, news, livestockNews] = await Promise.all([getGitHubPortfolio(), getGitHubActivity(), getAcademicProfile(), getNews(), getLivestockNews()]);
+  const [portfolio, activity, academic, news, livestockNews, blogPosts] = await Promise.all([getGitHubPortfolio(), getGitHubActivity(), getAcademicProfile(), getNews(), getLivestockNews(), getBlogPosts()]);
   const portfolioStats = stats.map((item, index) =>
     index === 0 ? { ...item, value: String(portfolio.totalRepositories) } : item
   );
@@ -308,6 +308,21 @@ export default async function HomePage() {
           </RevealOnScroll>
         </section>
       </main>
+
+      {blogPosts.length > 0 && (
+        <aside className="blog-ticker" aria-label="Catatan Insani terbaru">
+          <span className="blog-ticker-label">CATATAN INSANI <strong>TERBARU</strong></span>
+          <div className="blog-ticker-window">
+            <div className="blog-ticker-track">
+              {[...blogPosts, ...blogPosts].map((post, index) => (
+                <a key={`${post.link}-${index}`} href={post.link} target="_blank" rel="noopener noreferrer" tabIndex={index >= blogPosts.length ? -1 : undefined} aria-hidden={index >= blogPosts.length ? true : undefined}>
+                  <span aria-hidden="true">●</span>{post.title}
+                </a>
+              ))}
+            </div>
+          </div>
+        </aside>
+      )}
 
       <footer className="site-footer">
         <span>© {year} Galuh Adi Insani.</span>

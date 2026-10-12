@@ -12,6 +12,7 @@ Portfolio Galuh Adi Insani dengan katalog repository GitHub otomatis, animasi in
 - Pencarian berdasarkan nama, deskripsi, bahasa, kategori, dan topic GitHub.
 - Tombol tampilkan lebih banyak untuk katalog berukuran besar.
 - Ticker repository bergerak dengan pause saat hover.
+- Ticker tetap di bawah halaman menampilkan judul Catatan Insani terbaru dan berhenti saat disorot atau difokuskan.
 - Animasi stagger, orbit, code pulse, pointer glow, dan card tilt.
 - Animasi otomatis dinonaktifkan saat pengguna memakai `prefers-reduced-motion`.
 - Light mode dan dark mode.

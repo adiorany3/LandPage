@@ -37,6 +37,19 @@ function parseFeed(xml: string, defaultSource: string) {
   })).filter(item => item.title && /^https?:\/\//.test(item.link));
 }
 
+export async function getBlogPosts(): Promise<NewsItem[]> {
+  try {
+    const response = await fetch(blogUrl, FETCH_OPTS);
+    if (!response.ok) throw new Error("Blog feed unavailable");
+    return parseFeed(await response.text(), "Catatan Insani")
+      .sort((a, b) => Date.parse(b.published) - Date.parse(a.published))
+      .slice(0, 6);
+  } catch (error) {
+    console.warn("Catatan Insani gagal dimuat.", error instanceof Error ? error.message : "Kesalahan jaringan");
+    return [];
+  }
+}
+
 export async function getNews(): Promise<NewsItem[]> {
   try {
     const responses = await Promise.all([newsUrl, blogUrl].map(url => fetch(url, FETCH_OPTS)));
