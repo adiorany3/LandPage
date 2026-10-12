@@ -17,7 +17,7 @@ export default function PriceChart({ records }: { records: PriceRecord[] }) {
   const active = products.find(item => `${item.product}|${item.level}|${item.unit}` === selected) ?? products[0];
   const full = records.filter(item => item.product === active.product && item.level === active.level && item.unit === active.unit)
     .sort((a, b) => a.date.localeCompare(b.date));
-  const cutoff = range && full.length ? new Date(`${full.at(-1)!.date}T00:00:00Z`).getTime() - (range - 1) * 86400000 : 0;
+  const cutoff = range && full.length ? Date.parse(`${full.at(-1)!.date}T00:00:00Z`) - (range - 1) * 86400000 : 0;
   const points = range ? full.filter(item => Date.parse(`${item.date}T00:00:00Z`) >= cutoff) : full;
   const values = points.map(item => item.price);
   const min = Math.min(...values);
@@ -59,6 +59,7 @@ export default function PriceChart({ records }: { records: PriceRecord[] }) {
           </div>
         </div>
       </div>
+      <p className="chart-note">Data terakhir {active.product}: <time dateTime={latest.date}>{latest.date}</time>. Grafik hanya memuat tanggal yang tersedia di sumber; tidak menganggap data lama sebagai harga hari ini.</p>
       <div className="chart-summary">
         <div><span>HARGA TERAKHIR</span><strong>Rp {rupiah.format(latest.price)}<small> /{active.unit}</small></strong><time dateTime={latest.date}>Data {latest.date}</time></div>
         <div><span>PERUBAHAN PERIODE</span><strong className={difference > 0 ? "trend-up" : difference < 0 ? "trend-down" : ""}>{difference > 0 ? "+" : difference < 0 ? "−" : ""}Rp {rupiah.format(Math.abs(difference))}</strong><span>{first.date} – {latest.date}</span></div>

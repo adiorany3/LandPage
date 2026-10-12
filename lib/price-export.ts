@@ -1,6 +1,6 @@
 import { eggArchiveUrl, getEggArchive } from "./egg-price";
 import { getCommodityPrices, pricesUrl } from "./prices";
-import { parseCommodityHistory, type PriceRecord } from "./price-history";
+import { parseCommodityHistory, matchesLatestPrice, type PriceRecord } from "./price-history";
 
 export async function getPriceHistory(): Promise<PriceRecord[]> {
   const [commodities, eggs] = await Promise.all([getCommodityPrices(), getEggArchive()]);
@@ -12,7 +12,8 @@ export async function getPriceHistory(): Promise<PriceRecord[]> {
     try {
       const response = await fetch(item.link, { next: { revalidate: 1800 }, signal: AbortSignal.timeout(8000) });
       if (!response.ok) return [];
-      return parseCommodityHistory(await response.text(), item.name, item.level, item.unit, item.link);
+      const history = parseCommodityHistory(await response.text(), item.name, item.level, item.unit, item.link);
+      return matchesLatestPrice(item, history) ? history : [];
     } catch {
       return [];
     }

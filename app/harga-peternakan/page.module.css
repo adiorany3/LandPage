@@ -105,3 +105,4 @@
 .shell :global(.chart-tooltip) { position: absolute; top: 14px; z-index: 1; display: grid; gap: 2px; padding: 9px 13px; border: 1px solid var(--accent); border-radius: 9px; background: #102920; color: #f2f8f2; box-shadow: 0 8px 24px rgba(0, 0, 0, .35); transform: translateX(-50%); pointer-events: none; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .shell :global(.chart-tooltip time) { font-size: .75rem; color: #b9dac3; }
 .shell :global(.chart-tooltip strong) { font-size: .9rem; }
+.shell :global(.chart-note) { margin: 18px 0 0; padding: 10px 14px; border-left: 3px solid var(--accent-2); border-radius: 4px; background: var(--surface-strong); color: var(--muted); font-size: .85rem; }
