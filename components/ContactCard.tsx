@@ -20,17 +20,19 @@ export default async function ContactCard() {
   return (
     <div className={styles.card}>
       <div className={styles.details}>
-        <p className="eyebrow">Kartu kontak</p>
+        <p className={styles.label}>KARTU KONTAK / DIGITAL</p>
         <h3>Galuh Adi Insani</h3>
-        <p>AgriTech &amp; Scientific Computing</p>
-        <p>Universitas Gadjah Mada</p>
-        <a href="mailto:adioranye@ugm.ac.id">adioranye@ugm.ac.id</a>
-        <a href="https://www.adioranye.my.id/">www.adioranye.my.id</a>
-        <a className="btn primary" href={`data:text/vcard;charset=utf-8,${encodeURIComponent(vcard)}`} download="galuh-adi-insani.vcf">Simpan kontak</a>
+        <p className={styles.role}>AgriTech &amp; Scientific Computing</p>
+        <p className={styles.organization}>Universitas Gadjah Mada</p>
+        <div className={styles.channels}>
+          <a href="mailto:adioranye@ugm.ac.id"><span>Email</span>adioranye@ugm.ac.id</a>
+          <a href="https://www.adioranye.my.id/"><span>Website</span>www.adioranye.my.id</a>
+        </div>
+        <a className={styles.save} href={`data:text/vcard;charset=utf-8,${encodeURIComponent(vcard)}`} download="galuh-adi-insani.vcf">Simpan kontak <span aria-hidden="true">↓</span></a>
       </div>
       <figure className={styles.qr}>
-        <Image src={qr} alt="QR kartu kontak Galuh Adi Insani" width={360} height={360} unoptimized />
-        <figcaption>Pindai QR, lalu konfirmasi simpan kontak di ponsel.</figcaption>
+        <div className={styles.qrFrame}><Image src={qr} alt="QR kartu kontak Galuh Adi Insani" width={360} height={360} unoptimized /></div>
+        <figcaption>Pindai QR untuk menyimpan kontak di ponsel.</figcaption>
       </figure>
     </div>
   );

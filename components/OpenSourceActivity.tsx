@@ -13,17 +13,19 @@ export default function OpenSourceActivity({ activities }: { activities: GitHubA
   return (
     <section className="section activity-section" aria-labelledby="activity-title">
       <div className="section-heading">
-        <p className="eyebrow">Open Source Activity <span className="live-badge"><i aria-hidden="true" /> Live</span></p>
-        <h2 id="activity-title">Aktivitas terbaru di GitHub.</h2>
-        <p>Kontribusi publik dan repository yang sedang dikerjakan oleh <a href="https://github.com/adiorany3" target="_blank" rel="noopener noreferrer">@adiorany3</a>.</p>
+        <p className="eyebrow">OPEN SOURCE / 01</p>
+        <h2 id="activity-title">Aktivitas terbaru <span>di GitHub.</span></h2>
+        <p>Jejak kontribusi publik dari <a href="https://github.com/adiorany3" target="_blank" rel="noopener noreferrer">@adiorany3 ↗</a>. Data diperbarui berkala.</p>
+        <span className="activity-status"><span aria-hidden="true" /> {activities.length ? `${activities.length} AKTIVITAS PUBLIK` : "LIHAT PROFIL GITHUB"}</span>
       </div>
       {activities.length ? (
         <ol className="activity-list">
           {activities.map((activity) => (
             <li className="activity-item" key={activity.id}>
               <span className="activity-dot" aria-hidden="true" />
-              <div>
-                <strong>{labels[activity.type] ?? "beraktivitas di"} <a href={activity.url} target="_blank" rel="noopener noreferrer">{activity.repo}</a></strong>
+              <div className="activity-info">
+                <span className="activity-type">{labels[activity.type] ?? "beraktivitas di"}</span>
+                <a href={activity.url} target="_blank" rel="noopener noreferrer">{activity.repo} <span aria-hidden="true">↗</span></a>
                 <time dateTime={activity.createdAt}>{new Intl.DateTimeFormat("id-ID", { dateStyle: "medium" }).format(new Date(activity.createdAt))}</time>
               </div>
             </li>

@@ -5,6 +5,7 @@ import QRCode from "qrcode";
 import styles from "./page.module.css";
 
 const apkUrl = "https://simpan.ugm.ac.id/s/RJ7fSgwdX2GHlO3/download";
+const virusTotalUrl = "https://www.virustotal.com/gui/url/d28404a1a9750e72d2d23e5348c3e90f8b5c953b619e9f074ebbf013fef7f746?nocache=1";
 
 export const metadata: Metadata = {
   title: "Download Aplikasi Android",
@@ -49,6 +50,16 @@ export default async function DownloadPage() {
             </div>
           </section>
         </div>
+
+        <section className={styles.scanCard} aria-labelledby="scan-title">
+          <div>
+            <p className={styles.label}>PEMERIKSAAN TAUTAN</p>
+            <h2 id="scan-title">Laporan VirusTotal</h2>
+            <p>Tautan unduhan SIMPAN UGM telah memiliki halaman laporan di VirusTotal. Buka laporan untuk melihat hasil pemindaian dan tanggal analisis terbaru langsung dari sumbernya.</p>
+            <p className={styles.note}>Laporan ini memeriksa URL unduhan, bukan menjamin keamanan file APK. Hasil dapat berubah; periksa kembali sebelum memasang.</p>
+          </div>
+          <a className={styles.scanLink} href={virusTotalUrl} target="_blank" rel="noopener noreferrer">Lihat hasil pemindaian <span aria-hidden="true">↗</span></a>
+        </section>
 
         <section className={styles.steps} aria-labelledby="steps-title">
           <div><p className={styles.label}>PANDUAN SINGKAT</p><h2 id="steps-title">Cara memasang</h2></div>

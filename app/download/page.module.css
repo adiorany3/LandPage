@@ -29,12 +29,12 @@
 .intro h1 span { color: var(--green); }
 .intro > p:last-child { max-width: 650px; margin: 20px 0 0; color: #b9d0c0; font-size: 1.05rem; }
 .grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 20px; }
-.downloadCard, .qrCard, .steps { border: 1px solid var(--line); border-radius: 18px; background: rgba(10, 29, 21, .93); box-shadow: 0 20px 60px rgba(0, 0, 0, .2); }
+.downloadCard, .qrCard, .scanCard, .steps { border: 1px solid var(--line); border-radius: 18px; background: rgba(10, 29, 21, .93); box-shadow: 0 20px 60px rgba(0, 0, 0, .2); }
 .downloadCard, .qrCard { min-width: 0; padding: clamp(22px, 3vw, 36px); }
 .cardHeading { display: flex; align-items: center; gap: 16px; margin-bottom: 26px; }
 .icon { display: grid; width: 50px; height: 50px; flex: none; place-items: center; border: 1px solid rgba(102, 217, 220, .3); border-radius: 12px; color: #66d9dc; font-size: 1.5rem; }
 .cardHeading .label { margin-bottom: 5px; }
-.downloadCard h2, .qrCard h2, .steps h2 { margin: 0; font-size: 1.35rem; line-height: 1.3; }
+.downloadCard h2, .qrCard h2, .scanCard h2, .steps h2 { margin: 0; font-size: 1.35rem; line-height: 1.3; }
 .downloadCard > p:not(.note), .qrCard p:not(.label) { color: #b9d0c0; }
 .downloadButton { display: inline-flex; min-height: 48px; align-items: center; justify-content: space-between; gap: 30px; margin-top: 20px; padding: 11px 20px; border-radius: 10px; background: var(--green); color: #07120f; font-weight: 750; transition: background .2s, transform .2s; }
 .downloadButton:hover { background: #a7f3bf; transform: translateY(-2px); }
@@ -44,6 +44,12 @@
 .qrCard p:not(.label) { margin-bottom: 0; font-size: .9rem; }
 .qrFrame { display: grid; width: fit-content; max-width: 100%; place-items: center; padding: 12px; border-radius: 14px; background: #fff; }
 .qrFrame img { display: block; max-width: 100%; height: auto; }
+.scanCard { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 20px; padding: clamp(22px, 3vw, 36px); }
+.scanCard > div { max-width: 650px; }
+.scanCard p:not(.label):not(.note) { color: #b9d0c0; }
+.scanCard .note { margin-top: 12px; }
+.scanLink { display: inline-flex; min-height: 48px; align-items: center; justify-content: space-between; gap: 20px; flex: none; padding: 10px 16px; border: 1px solid var(--line); border-radius: 10px; color: var(--green); font-weight: 700; }
+.scanLink:hover { border-color: var(--green); background: rgba(112, 227, 160, .1); }
 .steps { display: grid; grid-template-columns: 1fr 2fr; gap: 30px; margin-top: 20px; padding: clamp(22px, 3vw, 36px); }
 .steps ol { display: grid; gap: 18px; margin: 0; padding: 0; list-style: none; counter-reset: step; }
 .steps li { display: grid; grid-template-columns: 36px 1fr; column-gap: 14px; counter-increment: step; }
@@ -52,6 +58,7 @@
 .steps li span { margin-top: 4px; color: #b9d0c0; font-size: .9rem; }
 @media (max-width: 740px) {
   .grid, .steps { grid-template-columns: 1fr; }
+  .scanCard { align-items: flex-start; flex-direction: column; }
   .content { padding-top: 48px; }
   .intro { margin-bottom: 32px; }
   .qrCard { align-items: flex-start; text-align: left; }
