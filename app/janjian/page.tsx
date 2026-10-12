@@ -42,10 +42,7 @@ export default function JanjianPage() {
           src={bookingUrl}
           title="Janjian dengan Galuh Adi Insani"
         />
-        <div className={styles.panelFooter}>
-          <span>Pilih tanggal dan waktu di kalender</span>
-          <a href={bookingUrl} target="_blank" rel="noopener noreferrer">Buka kalender di tab baru ↗</a>
-        </div>
+        <div className={styles.panelFooter}>Pilih tanggal dan waktu di kalender</div>
       </section>
     </main>
   );

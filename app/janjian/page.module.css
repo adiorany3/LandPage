@@ -23,7 +23,7 @@
 .brand strong { font: 750 .78rem/1.5 ui-monospace, monospace; letter-spacing: .12em; }
 .brand small { color: #93aa9d; font: 600 .55rem/1.5 ui-monospace, monospace; letter-spacing: .09em; }
 .home { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 9px; color: #c7ded0; font-size: .83rem; transition: background .2s, color .2s; }
-.home:hover, .panelFooter a:hover { background: rgba(112, 227, 160, .1); color: #fff; }
+.home:hover { background: rgba(112, 227, 160, .1); color: #fff; }
 .intro { display: flex; align-items: end; justify-content: space-between; gap: 24px; padding-block: 20px 4px; }
 .eyebrow { display: flex; align-items: center; gap: 9px; margin: 0 0 10px; color: var(--green); font: 700 .7rem ui-monospace, monospace; letter-spacing: .16em; }
 .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 12px var(--green); }
@@ -42,7 +42,6 @@
 .panelLabel { color: #a6c3b3; font: 600 .64rem ui-monospace, monospace; letter-spacing: .08em; }
 .calendar { display: block; width: 100%; min-height: 540px; flex: 1; border: 0; background: #fff; }
 .panelFooter { min-height: 48px; padding: 8px 20px; border-top: 1px solid var(--line); color: #b6cdbd; font-size: .75rem; }
-.panelFooter a { padding: 6px; color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 600px) {
   .shell { gap: 18px; padding: 12px 10px 24px; }
   .header { gap: 8px; }
