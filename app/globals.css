@@ -915,10 +915,45 @@ body::before {
   0%, 42%, 46%, 100% { opacity: 1; transform: scaleY(1); }
   43%, 45% { opacity: .15; transform: scaleY(.15); }
 }
-@media (prefers-reduced-motion: reduce) {
-  .iot-robot i { animation: none; }
+.iot-heartbeat {
+  position: absolute;
+  top: 19px;
+  right: 70px;
+  z-index: 2;
+  display: grid;
+  width: 128px;
+  height: 32px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(7, 22, 18, .82);
+  box-shadow: 0 0 16px rgba(63, 184, 176, .15);
 }
-
+.iot-heartbeat svg { width: 120px; height: 32px; }
+.iot-heartbeat path {
+  stroke: #8aff9b;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 146;
+  stroke-dashoffset: 146;
+  filter: drop-shadow(0 0 4px #6fd88a);
+  animation: heartbeatTrace 2.4s ease-in-out infinite;
+}
+@keyframes heartbeatTrace {
+  0% { stroke-dashoffset: 146; opacity: .35; }
+  45%, 75% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: -146; opacity: .35; }
+}
+@media (max-width: 420px) {
+  .iot-heartbeat { right: 66px; width: 96px; }
+  .iot-heartbeat svg { width: 90px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .iot-robot i, .iot-heartbeat path { animation: none; }
+  .iot-heartbeat path { stroke-dashoffset: 0; }
+}
 
 .blog-ticker {
   position: fixed;
