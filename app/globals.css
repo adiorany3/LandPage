@@ -793,6 +793,11 @@ button { cursor: pointer; }
   background-clip: text;
   color: transparent;
 }
+body.light .hero h1 {
+  background: none;
+  color: var(--text);
+  -webkit-text-fill-color: currentColor;
+}
 
 /* Future AgriTech experience */
 .hero-visual img { animation: floatAgro 7s ease-in-out infinite; filter: drop-shadow(0 24px 56px rgba(63,184,176,.2)); }
