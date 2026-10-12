@@ -22,7 +22,7 @@ export default function BlogFeed({ news, livestock = false }: { news: NewsItem[]
   const sectionName = livestock ? "Berita peternakan" : "Catatan tentang riset, data, dan proses membangun produk";
   return (
     <section className="section" aria-labelledby={titleId}>
-      <RevealOnScroll className="section-heading">
+      <RevealOnScroll className={livestock ? "section-heading" : "section-heading journal-note"}>
         <p className="eyebrow">{livestock ? "Berita peternakan" : news.length ? "Berita terkait" : "Catatan Insani"}</p>
         <h2 id={titleId}>{livestock ? "Kabar terbaru dunia peternakan." : "Catatan tentang riset, data, dan proses membangun produk."}</h2>
         {livestock && <p>Berita tujuh hari terakhir. Pembaruan otomatis setiap 30 menit saat halaman diakses.</p>}
