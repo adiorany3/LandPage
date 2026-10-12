@@ -481,10 +481,16 @@ h1 span {
 .top-button.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
 
 .site-footer {
-  padding: 80px 0 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding: 32px 0;
   color: var(--muted);
   font-size: .85rem;
 }
+.site-footer a { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
 
 .sr-only {
   position: absolute;
