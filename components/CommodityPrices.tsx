@@ -54,6 +54,10 @@ export default async function CommodityPrices() {
           ))}
         </div>
       ) : <p>Harga belum tersedia. Silakan periksa sumber langsung.</p>}
+      <div className="price-export">
+        <div><h2>Unduh riwayat harga</h2><p>File Excel memuat tanggal dan harga yang tersedia di arsip telur serta grafik komoditas saat diunduh. Data baru ikut masuk saat sumber memperbaruinya; riwayat lama dibatasi ketersediaan sumber.</p></div>
+        <a href="/api/harga-peternakan/arsip" download="arsip-harga-peternakan.xlsx">Unduh XLSX ↓</a>
+      </div>
       <p className="price-sources">Sumber: <a href={pricesUrl} target="_blank" rel="noopener noreferrer">Sun Egg</a>, yang mencantumkan BAPANAS melalui <a href="https://simponiternak.pertanian.go.id/" target="_blank" rel="noopener noreferrer">SIMPONI Ternak — Kementerian Pertanian RI</a>.</p>
     </section>
   );
