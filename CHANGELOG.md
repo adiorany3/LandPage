@@ -3,7 +3,7 @@
 ## 1.2.1
 - Menambahkan halaman `/edukasi-peternakan` berisi ringkasan modul pakan, kesehatan, dan data, serta artikel berita peternakan otomatis dari feed Google News tujuh hari terakhir.
 - Structured data `CollectionPage` untuk halaman edukasi dan penambahan rute di `sitemap.xml`.
-- Menyatukan header dan menu seluruh subhalaman (`/ai`, `/download`, `/edukasi-peternakan`, `/harga-peternakan`, `/janjian`, `/inovasi/ransum-ruminansia`) lewat komponen `SubpageHeader`, dengan navigasi penuh dari `navItems` dan penanda `aria-current="page"`.
+- Menyatukan header dan menu seluruh subhalaman (`/ai`, `/download`, `/edukasi-peternakan`, `/harga-peternakan`, `/janjian`, `/inovasi/ransum-ruminansia`) lewat komponen `SubpageHeader`, dengan navigasi penuh dari `navItems` (tanpa tombol kembali tambahan, tanpa entri Janjian) dan penanda `aria-current="page"`.
 
 - Menghapus kelas dan DOM yang tidak punya aturan CSS: pointer tilt/glow, orbit kartu, baris kode, ambient background.
 - Memulihkan CSS reveal dan animasi masuk kartu (`--card-delay`) yang sebelumnya tidak berpengaruh, dengan penjaga `prefers-reduced-motion` dan tanpa JS.

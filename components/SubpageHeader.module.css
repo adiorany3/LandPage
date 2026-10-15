@@ -50,8 +50,7 @@
   list-style: none;
 }
 
-.nav a,
-.home {
+.nav a {
   display: inline-flex;
   min-height: 44px;
   align-items: center;
@@ -64,12 +63,8 @@
   text-decoration: none;
 }
 
-.home { flex: none; font-weight: 700; }
-
 .nav a:hover,
-.nav a:focus-visible,
-.home:hover,
-.home:focus-visible {
+.nav a:focus-visible {
   border-color: var(--accent-2);
   background: var(--surface-strong);
 }
@@ -81,6 +76,5 @@
 
 @media (max-width: 650px) {
   .brand small { display: none; }
-  .nav a,
-  .home { padding-inline: 9px; font-size: .75rem; }
+  .nav a { padding-inline: 9px; font-size: .75rem; }
 }

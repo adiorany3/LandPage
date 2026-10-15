@@ -30,7 +30,6 @@ export default function SubpageHeader({
           </a>
         ))}
       </nav>
-      <Link className={styles.home} href="/">&larr; Beranda</Link>
     </header>
   );
 }
