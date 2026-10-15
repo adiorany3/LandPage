@@ -319,6 +319,7 @@ export default async function HomePage() {
                 <p className="eyebrow">CONNECT / 01</p>
                 <h2 id="contact-title">Mari bangun sesuatu <span>yang berguna.</span></h2>
                 <p>Terbuka untuk kolaborasi open-source, aplikasi riset, dashboard statistik, dan produk AgriTech berbasis data.</p>
+                <a className="btn primary" href="/jianjian">Janjian&#8202;·&#8202;Jadwal Pertemuan</a>
               </div>
               <span className="contact-status"><span aria-hidden="true" /> TERBUKA UNTUK KOLABORASI</span>
             </div>

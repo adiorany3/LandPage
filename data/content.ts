@@ -1,9 +1,7 @@
 export const navItems = [
-  { label: "Ringkasan", href: "#overview" },
   { label: "Studi kasus", href: "#studi-kasus" },
   { label: "Profil", href: "#github" },
   { label: "Proyek", href: "#projects" },
-  { label: "Proses", href: "#process" },
   { label: "Harga komoditas", href: "/harga-peternakan", external: false },
   { label: "Edukasi peternakan", href: "/edukasi-peternakan", external: false },
   { label: "Adioranye AI", href: "/ai", external: false },
