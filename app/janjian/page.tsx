@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import styles from "./page.module.css";
+import SubpageHeader from "@/components/SubpageHeader";
 
 const bookingUrl = "https://cal.com/galuh-adi-insani/30min?layout=month_view";
 
@@ -13,15 +13,7 @@ export const metadata: Metadata = {
 export default function JanjianPage() {
   return (
     <main className={styles.shell}>
-      <header className={styles.header}>
-        <Link className={styles.brand} href="/" aria-label="Adioranye, kembali ke beranda">
-          <span className={styles.mark}>A<span>.</span></span>
-          <span><strong>ADIORANYE</strong><small>RESEARCH &amp; TECHNOLOGY</small></span>
-        </Link>
-        <nav aria-label="Navigasi utama">
-          <Link className={styles.home} href="/">← Kembali ke beranda</Link>
-        </nav>
-      </header>
+      <SubpageHeader activeHref="/janjian" section="RESEARCH &amp; TECHNOLOGY" />
 
       <section className={styles.intro} aria-labelledby="booking-title">
         <div>

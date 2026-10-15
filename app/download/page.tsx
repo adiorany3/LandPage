@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import QRCode from "qrcode";
 import styles from "./page.module.css";
+import SubpageHeader from "@/components/SubpageHeader";
 
 const apkUrl = "https://simpan.ugm.ac.id/s/RJ7fSgwdX2GHlO3/download";
 const virusTotalUrl = "https://www.virustotal.com/gui/url/d28404a1a9750e72d2d23e5348c3e90f8b5c953b619e9f074ebbf013fef7f746?nocache=1";
@@ -17,13 +17,7 @@ export default async function DownloadPage() {
   const qr = await QRCode.toDataURL(apkUrl, { width: 240, margin: 2 });
   return (
     <main className={styles.shell}>
-      <header className={styles.header}>
-        <Link className={styles.brand} href="/" aria-label="Adioranye, kembali ke beranda">
-          <span className={styles.mark}>A<span>.</span></span>
-          <span><strong>ADIORANYE</strong><small>RESEARCH &amp; TECHNOLOGY</small></span>
-        </Link>
-        <nav aria-label="Navigasi utama"><Link className={styles.home} href="/">← Kembali ke beranda</Link></nav>
-      </header>
+      <SubpageHeader section="RESEARCH &amp; TECHNOLOGY" />
 
       <div className={styles.content}>
         <section className={styles.intro} aria-labelledby="download-title">

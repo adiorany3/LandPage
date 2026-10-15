@@ -3,6 +3,7 @@ import Link from "next/link";
 import BlogFeed from "@/components/BlogFeed";
 import { educationModules } from "@/data/education";
 import { getLivestockNews } from "@/lib/news";
+import SubpageHeader from "@/components/SubpageHeader";
 import styles from "./page.module.css";
 
 export const revalidate = 1800;
@@ -71,12 +72,7 @@ export default async function EdukasiPeternakanPage() {
       <a className="skip-link" href="#main">
         Lewati ke konten utama
       </a>
-      <header className="site-header">
-        <Link className="brand" href="/">Galuh Adi Insani</Link>
-        <nav aria-label="Navigasi halaman">
-          <Link href="/">&larr; Kembali ke beranda</Link>
-        </nav>
-      </header>
+      <SubpageHeader activeHref="/edukasi-peternakan" section="DATA / PETERNAKAN" />
       <main id="main">
         <article className="section" aria-labelledby="education-title">
           <div className="section-heading">

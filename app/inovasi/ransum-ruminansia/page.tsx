@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import SubpageHeader from "@/components/SubpageHeader";
 
 const title = "Ransum Ruminansia: Aplikasi Formulasi Pakan Ternak";
 const description = "Ransum Ruminansia karya Galuh Adi Insani membantu formulasi pakan sapi, kambing, dan domba melalui analisis nutrisi, biaya, dan optimasi pemrograman linear.";
@@ -51,10 +52,7 @@ export default function RansumRuminansiaPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
       <a className="skip-link" href="#main">Lewati ke konten utama</a>
-      <header className="site-header">
-        <Link className="brand" href="/">Galuh Adi Insani</Link>
-        <nav aria-label="Navigasi halaman"><Link href="/#projects">Semua proyek</Link></nav>
-      </header>
+      <SubpageHeader activeHref="/#projects" section="RESEARCH & TECHNOLOGY" />
       <main id="main">
         <article className="section" aria-labelledby="innovation-title">
           <div className="section-heading">

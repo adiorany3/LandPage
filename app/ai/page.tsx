@@ -1,18 +1,10 @@
-import Link from "next/link";
 import styles from "./page.module.css";
+import SubpageHeader from "@/components/SubpageHeader";
 
 export default function AiPage() {
   return (
     <main className={styles.shell}>
-      <header className={styles.header}>
-        <Link className={styles.brand} href="/" aria-label="Adioranye, kembali ke beranda">
-          <span className={styles.brandMark}>A<span>.</span></span>
-          <span><strong>ADIORANYE</strong><small>INTELLIGENCE SYSTEM</small></span>
-        </Link>
-        <nav className={styles.navigation} aria-label="Navigasi utama">
-          <Link href="/download">Download aplikasi ↗</Link>
-        </nav>
-      </header>
+      <SubpageHeader activeHref="/ai" section="INTELLIGENCE SYSTEM" />
       <section className={styles.workspace} aria-label="Adioranye AI workspace">
         <div className={styles.panelTop}>
           <div><span className={styles.panelIcon} aria-hidden="true">✳</span><div><strong>ADIORANYE AI</strong><small>Asisten riset dan produktivitas</small></div></div>

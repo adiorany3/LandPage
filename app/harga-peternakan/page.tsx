@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import CommodityPrices from "@/components/CommodityPrices";
 import styles from "./page.module.css";
+import SubpageHeader from "@/components/SubpageHeader";
 
 export const revalidate = 1800;
 
@@ -19,15 +19,7 @@ export const metadata: Metadata = {
 export default function HargaPeternakanPage() {
   return (
     <main className={styles.shell}>
-      <header className={styles.header}>
-        <Link className={styles.brand} href="/" aria-label="Adioranye, kembali ke beranda">
-          <span className={styles.mark}>A<span>.</span></span>
-          <span><strong>ADIORANYE</strong><small>DATA / PETERNAKAN</small></span>
-        </Link>
-        <nav aria-label="Navigasi utama" className={styles.navigation}>
-          <Link href="/">← Kembali ke beranda</Link>
-        </nav>
-      </header>
+      <SubpageHeader activeHref="/harga-peternakan" section="DATA / PETERNAKAN" />
       <CommodityPrices />
     </main>
   );
