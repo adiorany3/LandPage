@@ -3,9 +3,9 @@
 ## 1.2.1
 - Menambahkan halaman `/edukasi-peternakan` berisi ringkasan modul pakan, kesehatan, dan data, serta artikel berita peternakan otomatis dari feed Google News tujuh hari terakhir.
 - Structured data `CollectionPage` untuk halaman edukasi dan penambahan rute di `sitemap.xml`.
-- Memangkas `navItems` menjadi enam entri (menu `Proses` dan `Ringkasan` dihapus) dan menambahkan `white-space: nowrap` pada `.nav a`/`.mobile-nav a` supaya tidak ada item menu yang pecah dua baris, merapikan `.nav` subhalaman (menempel ke kanan, menyusut pada 1080px/650px), dan lebar header subhalaman dinaikkan ke 1340px agar seluruh label panjang seperti `Harga komoditas` dan `Edukasi peternakan` muat tanpa terpotong. Bagian `#process` dan `#studi-kasus` tetap ada sebagai tujuan tautan internal.
+- Memangkas `navItems` menjadi tujuh entri (menu `Janjian`, `Proses`, dan `Ringkasan` dihapus) dan menambahkan `white-space: nowrap` pada `.nav a`/`.mobile-nav a` supaya tidak ada item menu yang pecah dua baris. Bagian `#process` dan `#studi-kasus` tetap ada sebagai tujuan tautan internal.
 - Menambahkan tombol `Janjian · Jadwal Pertemuan` di blok Kontak beranda yang menuju `/janjian`, sekaligus mengetatkan selektor gaya paragraf deskriptif pada `.contact-heading`.
-- Menyatukan header dan menu seluruh subhalaman (`/ai`, `/download`, `/edukasi-peternakan`, `/harga-peternakan`, `/janjian`, `/inovasi/ransum-ruminansia`) lewat komponen `SubpageHeader`, dengan navigasi penuh dari `navItems` (tanpa tombol kembali tambahan, tanpa entri Janjian) dan penanda `aria-current="page"`.
+- Menyatukan header seluruh subhalaman (`/ai`, `/download`, `/edukasi-peternakan`, `/harga-peternakan`, `/janjian`, `/inovasi/ransum-ruminansia`) dengan beranda: `SubpageHeader` kini memakai kelas global `site-header`, `.brand`, dan `.nav` yang sama,sehingga tombol tema dan menu mobile ikut tersedia. CSS module `SubpageHeader.module.css` dihapus karena tidak lagi dipakai.
 
 - Menghapus kelas dan DOM yang tidak punya aturan CSS: pointer tilt/glow, orbit kartu, baris kode, ambient background.
 - Memulihkan CSS reveal dan animasi masuk kartu (`--card-delay`) yang sebelumnya tidak berpengaruh, dengan penjaga `prefers-reduced-motion` dan tanpa JS.
