@@ -1,8 +1,17 @@
 .header {
+  position: sticky;
+  top: 12px;
+  z-index: 50;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 14px 18px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
 }
 
 .header,
@@ -56,24 +65,26 @@
   display: inline-flex;
   min-height: 44px;
   align-items: center;
-  padding: 8px 14px;
-  border: 1px solid var(--border);
-  border-radius: 9px;
-  background: var(--surface);
-  color: var(--text);
-  font-size: .85rem;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: .84rem;
   text-decoration: none;
   white-space: nowrap;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }
 
 .nav a:hover,
 .nav a:focus-visible {
-  border-color: var(--accent-2);
+  border-color: var(--border);
   background: var(--surface-strong);
+  color: var(--text);
 }
 
 .nav a[aria-current="page"] {
   border-color: var(--accent-2);
+  background: var(--surface-strong);
   color: var(--accent);
 }
 

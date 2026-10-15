@@ -15,6 +15,8 @@
 - Menambahkan script `npm test`, `"type": "module"`, entri `/ai` dan `/download` di sitemap.
 - Menghapus aset SVG yang tidak dipakai dan mengeluarkan `.DS_Store` dari repository.
 
+- Menu subhalaman disamakan dengan beranda: header `sticky` dengan efek glass (`backdrop-filter: blur(18px)`), link nav berbentuk pill `999px` berwarna `--muted` yang berubah ke `--surface-strong` saat hover, dan penanda halaman aktif. Semua subhalaman berbagi komponen `SubpageHeader` sehingga perubahan ini berlaku seragam.
+
 ## 1.2.0
 
 - Mengganti daftar project statis dengan sinkronisasi GitHub otomatis.
