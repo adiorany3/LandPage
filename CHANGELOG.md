@@ -15,7 +15,7 @@
 - Menambahkan script `npm test`, `"type": "module"`, entri `/ai` dan `/download` di sitemap.
 - Menghapus aset SVG yang tidak dipakai dan mengeluarkan `.DS_Store` dari repository.
 
-- Menu subhalaman disamakan dengan beranda: header `sticky` dengan efek glass (`backdrop-filter: blur(18px)`), link nav berbentuk pill `999px` berwarna `--muted` yang berubah ke `--surface-strong` saat hover, dan penanda halaman aktif. Semua subhalaman berbagi komponen `SubpageHeader` sehingga perubahan ini berlaku seragam.
+- Menu subhalaman disamakan dengan beranda: seluruh subhalaman kini memakai kelas global `site-header`/`.brand`/`.nav` yang sama, lengkap dengan avatar, nama `@adiorany3`, tombol tema dan menu mobile dari `ThemeAndNav`, efek glass `backdrop-filter: blur(18px)`, dan link nav berbentuk pill `999px`. CSS module `SubpageHeader.module.css` dihapus karena tidak lagi dipakai.
 
 ## 1.2.0
 

@@ -1,9 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import { navItems } from "@/data/content";
-import styles from "./SubpageHeader.module.css";
+import ThemeAndNav from "./ThemeAndNav";
 
-// ponytail: satu shell untuk semua subhalaman; tambah prop bila suatu halaman
-// butuh gaya header berbeda alih-alih mem forked markup per halaman.
+// ponytail: memakai kelas global `.site-header` yang sama persis dengan beranda
+// supaya navigasi, brand, dan efek glass tidak pernah berbeda antarhalaman.
 export default function SubpageHeader({
   activeHref,
   section
@@ -12,12 +13,15 @@ export default function SubpageHeader({
   section?: string;
 }) {
   return (
-    <header className={styles.header}>
-      <Link className={styles.brand} href="/" aria-label="Adioranye, kembali ke beranda">
-        <span className={styles.mark}>A<span>.</span></span>
-        <span><strong>ADIORANYE</strong><small>{section ?? "RESEARCH & TECHNOLOGY"}</small></span>
+    <header className="site-header">
+      <Link className="brand" href="/#top" aria-label="Kembali ke bagian atas">
+        <Image src="/assets/avatar.svg" alt="Monogram Galuh Adi Insani" width={120} height={120} />
+        <span>
+          <strong>Galuh Adi Insani</strong>
+          <small>{section ?? "@adiorany3"}</small>
+        </span>
       </Link>
-      <nav className={styles.nav} aria-label="Navigasi utama">
+      <nav className="nav" aria-label="Navigasi utama">
         {navItems.map((item) => (
           <a
             key={item.href}
@@ -30,6 +34,7 @@ export default function SubpageHeader({
           </a>
         ))}
       </nav>
+      <ThemeAndNav />
     </header>
   );
 }
