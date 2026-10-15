@@ -18,6 +18,7 @@ Portfolio Galuh Adi Insani dengan katalog repository GitHub otomatis, animasi in
 - Light mode dan dark mode.
 - Tampilan responsif untuk desktop, tablet, dan mobile.
 - Menu Harga komoditas membuka halaman `/harga-peternakan` dengan harga telur, daging, ternak, pakan, susu, dan tautan sumber yang diperbarui berkala.
+- Menu Edukasi peternakan membuka halaman `/edukasi-peternakan` dengan ringkasan modul pakan, kesehatan, dan data, ditambah artikel berita peternakan yang dimuat otomatis dari feed Google News tujuh hari terakhir dan diperbarui tiap 30 menit. Materi bersifat konseptual dan bukan pengganti pemeriksaan dokter hewan atau standar pakan resmi.
 - Dashboard harga menampilkan grafik tren responsif dengan pilihan komoditas, rentang 7/30 hari atau semua data yang tersedia, harga per tanggal saat kursor diarahkan ke grafik, ringkasan harga, serta tabel riwayat yang dapat dibaca tanpa grafik.
 - Tombol Unduh XLSX mengambil arsip telur dan riwayat grafik komoditas yang tersedia dari sumber saat file diminta. Tanggal baru ikut masuk saat sumber memperbaruinya; ini bukan arsip permanen dan tidak memuat tanggal yang sudah tidak tersedia di sumber.
 - Metadata SEO beranda mengikuti judul artikel terbaru yang berhasil dimuat; daftar artikel pada structured data diperbarui bersama feed, sementara tautan artikel tetap mengarah ke penerbit asal.
