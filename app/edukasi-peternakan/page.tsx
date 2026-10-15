@@ -3,6 +3,7 @@ import Link from "next/link";
 import BlogFeed from "@/components/BlogFeed";
 import { educationModules } from "@/data/education";
 import { getLivestockNews } from "@/lib/news";
+import styles from "./page.module.css";
 
 export const revalidate = 1800;
 
@@ -88,25 +89,41 @@ export default async function EdukasiPeternakanPage() {
             </p>
           </div>
 
-          <div className="workflow-grid">
+          <nav className={styles.index} aria-label="Daftar modul">
+            <span className={styles.indexTitle}>Modul</span>
             {educationModules.map((module) => (
-              <section key={module.slug} className="workflow-card" id={module.slug}>
-                <p className="eyebrow">{module.field}</p>
-                <h2>{module.title}</h2>
-                <p>{module.summary}</p>
-                <p>
-                  <strong>Sasaran:</strong> {module.audience}
-                </p>
-                {module.lessons.map((lesson) => (
-                  <div key={lesson.title}>
-                    <h3>{lesson.title}</h3>
-                    <ul>
-                      {lesson.points.map((point) => (
-                        <li key={point}>{point}</li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
+              <a key={module.slug} href={`#${module.slug}`}>
+                {module.field}
+                <small>{module.title}</small>
+              </a>
+            ))}
+          </nav>
+
+          <div className={styles.moduleGrid}>
+            {educationModules.map((module) => (
+              <section key={module.slug} className={styles.module} id={module.slug} aria-labelledby={`${module.slug}-title`}>
+                <header>
+                  <span className={styles.field}>{module.field}</span>
+                  <h2 id={`${module.slug}-title`}>{module.title}</h2>
+                  <p className={styles.summary}>{module.summary}</p>
+                  <p className={styles.audience}>
+                    <strong>Sasaran:</strong> {module.audience}
+                  </p>
+                </header>
+                <ol className={styles.lessons}>
+                  {module.lessons.map((lesson, index) => (
+                    <li className={styles.lesson} key={lesson.title}>
+                      <h3>
+                        {index + 1}. {lesson.title}
+                      </h3>
+                      <ul className={styles.points}>
+                        {lesson.points.map((point) => (
+                          <li key={point}>{point}</li>
+                        ))}
+                      </ul>
+                    </li>
+                  ))}
+                </ol>
               </section>
             ))}
           </div>
