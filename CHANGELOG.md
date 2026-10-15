@@ -17,6 +17,8 @@
 
 - Menu subhalaman disamakan dengan beranda: seluruh subhalaman kini memakai kelas global `site-header`/`.brand`/`.nav` yang sama, lengkap dengan avatar, nama `@adiorany3`, tombol tema dan menu mobile dari `ThemeAndNav`, efek glass `backdrop-filter: blur(18px)`, dan link nav berbentuk pill `999px`. CSS module `SubpageHeader.module.css` dihapus karena tidak lagi dipakai.
 
+- Menyesuaikan tampilan `/ai`: panel workspace memakai efek kaca frosted (`backdrop-filter: blur(22px) saturate(180%)`, lapisan sheen, dan pasangan bayangan inset), tinggi panel dihitung dari `100dvh` dengan `flex: none` sehingga header sticky tidak pernah menutupi iframe, serta aturan `.header`/`.brand`/`.navigation` yang sudah tidak terpakai dihapus beserta blok media query-nya.
+
 ## 1.2.0
 
 - Mengganti daftar project statis dengan sinkronisasi GitHub otomatis.
