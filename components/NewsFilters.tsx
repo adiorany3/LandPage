@@ -12,6 +12,12 @@ type RangeKey = (typeof RANGES)[number]["key"];
 
 export type FeedItem = { title: string; link: string; published: string; source: string; excerpt?: string };
 
+export function dayKey(value: string) {
+  const date = new Date(value);
+  if (!Number.isFinite(date.getTime())) return "";
+  return [date.getFullYear(), String(date.getMonth() + 1).padStart(2, "0"), String(date.getDate()).padStart(2, "0")].join("-");
+}
+
 export function dayLabel(iso: string) {
   const date = new Date(iso);
   const today = new Date();
@@ -32,7 +38,7 @@ export default function NewsFilters({ items }: { items: FeedItem[] }) {
   }, []);
   const active = RANGES.find((option) => option.key === range);
   const available = useMemo(
-    () => [...new Set(items.map((item) => item.published.slice(0, 10)))].sort().reverse(),
+    () => [...new Set(items.map((item) => dayKey(item.published)).filter(Boolean))].sort().reverse(),
     [items]
   );
   const visible = useMemo(() => {
@@ -41,13 +47,13 @@ export default function NewsFilters({ items }: { items: FeedItem[] }) {
       const time = Date.parse(item.published);
       if (!Number.isFinite(time)) return false;
       if (cutoff && time < cutoff) return false;
-      return !day || item.published.slice(0, 10) === day;
+      return !day || dayKey(item.published) === day;
     });
   }, [active, day, items, now]);
   const groups = useMemo(() => {
     const map = new Map<string, FeedItem[]>();
     for (const item of visible) {
-      const key = item.published.slice(0, 10);
+      const key = dayKey(item.published);
       map.set(key, [...(map.get(key) ?? []), item]);
     }
     return [...map.entries()].sort((a, b) => b[0].localeCompare(a[0]));
@@ -86,11 +92,14 @@ export default function NewsFilters({ items }: { items: FeedItem[] }) {
                     "@type": "NewsArticle",
                     headline: item.title,
                     url: item.link,
-                    datePublished: item.published,
+                    datePublished: new Date(item.published).toISOString(),
                     articleSection: "Berita terkait",
                     inLanguage: "id-ID"
                   }).replace(/</g, "\\u003c") }} />
-                  <span className="journal-label">{item.source}</span>
+                  <span className="journal-label">
+                    {item.source}
+                    {Number.isFinite(Date.parse(item.published)) && <> · <time dateTime={new Date(item.published).toISOString()}>{new Date(item.published).toLocaleDateString("id-ID")}</time></>}
+                  </span>
                   <h4><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></h4>
                   {item.excerpt && <p>{item.excerpt}</p>}
                 </article>
