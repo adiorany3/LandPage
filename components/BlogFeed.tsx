@@ -1,32 +1,8 @@
-import FeedSkeleton from "./FeedSkeleton";
 import NewsFilters from "./NewsFilters";
 import RevealOnScroll from "./RevealOnScroll";
-import type { NewsItem } from "@/lib/news";
+import { FALLBACK_POSTS, type NewsItem } from "@/lib/news";
 
 export type FeedKind = "journal" | "news" | "livestock";
-
-const POST = (title: string, excerpt: string): NewsItem => ({
-  title,
-  excerpt,
-  link: "https://catataninsani.wordpress.com",
-  published: "",
-  source: "Catatan Insani"
-});
-
-const FALLBACK_POSTS: NewsItem[] = [
-  POST(
-    "Membawa rumus penelitian ke aplikasi web",
-    "Cara menyusun metode ilmiah menjadi alur input, kalkulasi, validasi, dan hasil yang mudah dipahami."
-  ),
-  POST(
-    "Mengapa visualisasi penting dalam alat statistik",
-    "Visual yang tepat membantu pengguna membaca pola, perbedaan, dan konteks hasil numerik."
-  ),
-  POST(
-    "Membangun produk AgriTech yang sederhana",
-    "Produk riset perlu fokus pada keputusan pengguna, bukan sekadar jumlah fitur."
-  )
-];
 
 const LABELS: Record<FeedKind, { eyebrow: string; heading: string; id: string; section: string; empty: string; note?: string }> = {
   journal: {
@@ -66,7 +42,6 @@ export default function BlogFeed({ news, kind = "journal" }: { news: NewsItem[];
         {labels.note && <p>{labels.note}</p>}
       </RevealOnScroll>
       {items.length === 0 && <p>{labels.empty}</p>}
-      {items.length === 0 && kind !== "livestock" && <FeedSkeleton />}
       {items.length > 0 && kind === "news" && <NewsFilters items={items} />}
       {items.length > 0 && kind !== "news" && (
         <div className="blog-grid">

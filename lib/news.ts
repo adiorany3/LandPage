@@ -2,7 +2,7 @@ export type NewsItem = { title: string; link: string; published: string; source:
 
 const BLOG_FEED = "https://catataninsani.wordpress.com/feed/";
 // Catatan Insani dipakai saat feed gagal dimuat, supaya bagian Catatan tidak pernah kosong.
-const FALLBACK_POSTS: NewsItem[] = [
+export const FALLBACK_POSTS: NewsItem[] = [
   {
     title: "Membawa rumus penelitian ke aplikasi web",
     link: "https://catataninsani.wordpress.com",

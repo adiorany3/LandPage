@@ -1,5 +1,6 @@
 "use client";
 
+import { dayKey, dayLabel, relativeLabel } from "@/lib/dates";
 import { useEffect, useMemo, useState } from "react";
 
 const RANGES = [
@@ -12,25 +13,10 @@ type RangeKey = (typeof RANGES)[number]["key"];
 
 export type FeedItem = { title: string; link: string; published: string; source: string; excerpt?: string };
 
-export function dayKey(value: string) {
-  const date = new Date(value);
-  if (!Number.isFinite(date.getTime())) return "";
-  return [date.getFullYear(), String(date.getMonth() + 1).padStart(2, "0"), String(date.getDate()).padStart(2, "0")].join("-");
-}
-
-export function dayLabel(iso: string) {
-  const date = new Date(iso);
-  const today = new Date();
-  const startOfDay = (value: Date) => new Date(value.getFullYear(), value.getMonth(), value.getDate()).getTime();
-  const diff = Math.round((startOfDay(today) - startOfDay(date)) / 86400000);
-  if (diff === 0) return "Hari ini";
-  if (diff === 1) return "Kemarin";
-  return date.toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
-}
-
 export default function NewsFilters({ items }: { items: FeedItem[] }) {
   const [range, setRange] = useState<RangeKey>("all");
   const [day, setDay] = useState<string | null>(null);
+  const [source, setSource] = useState<string | null>(null);
   const [now, setNow] = useState(() => Date.now());
   useEffect(() => {
     const timer = setInterval(() => setNow(Date.now()), 60000);
@@ -41,15 +27,17 @@ export default function NewsFilters({ items }: { items: FeedItem[] }) {
     () => [...new Set(items.map((item) => dayKey(item.published)).filter(Boolean))].sort().reverse(),
     [items]
   );
+  const sources = useMemo(() => [...new Set(items.map((item) => item.source).filter(Boolean))].sort(), [items]);
   const visible = useMemo(() => {
     const cutoff = active?.days ? now - active.days * 86400000 : null;
     return items.filter((item) => {
       const time = Date.parse(item.published);
       if (!Number.isFinite(time)) return false;
       if (cutoff && time < cutoff) return false;
+      if (source && item.source !== source) return false;
       return !day || dayKey(item.published) === day;
     });
-  }, [active, day, items, now]);
+  }, [active, day, items, now, source]);
   const groups = useMemo(() => {
     const map = new Map<string, FeedItem[]>();
     for (const item of visible) {
@@ -64,7 +52,7 @@ export default function NewsFilters({ items }: { items: FeedItem[] }) {
       <div className="news-filters">
         <div className="news-filter-row" role="group" aria-label="Rentang waktu berita">
           {RANGES.map((option) => (
-            <button key={option.key} type="button" className={option.key === range ? "active" : ""} onClick={() => { setRange(option.key); setDay(null); }}>
+            <button key={option.key} type="button" className={option.key === range ? "active" : ""} aria-pressed={option.key === range} onClick={() => { setRange(option.key); setDay(null); setSource(null); }}>
               {option.label}
             </button>
           ))}
@@ -74,6 +62,15 @@ export default function NewsFilters({ items }: { items: FeedItem[] }) {
             {available.map((option) => (
               <button key={option} type="button" className={day === option ? "active" : ""} aria-pressed={day === option} onClick={() => setDay(day === option ? null : option)}>
                 {dayLabel(`${option}T00:00:00`)}
+              </button>
+            ))}
+          </div>
+        )}
+        {sources.length > 1 && (
+          <div className="news-filter-row" role="group" aria-label="Saring berdasarkan sumber">
+            {sources.map((option) => (
+              <button key={option} type="button" className={source === option ? "active" : ""} aria-pressed={source === option} onClick={() => setSource(source === option ? null : option)}>
+                {option}
               </button>
             ))}
           </div>
@@ -98,7 +95,7 @@ export default function NewsFilters({ items }: { items: FeedItem[] }) {
                   }).replace(/</g, "\\u003c") }} />
                   <span className="journal-label">
                     {item.source}
-                    {Number.isFinite(Date.parse(item.published)) && <> · <time dateTime={new Date(item.published).toISOString()}>{new Date(item.published).toLocaleDateString("id-ID")}</time></>}
+                    {Number.isFinite(Date.parse(item.published)) && <> · <time dateTime={new Date(item.published).toISOString()}>{relativeLabel(item.published, now)}</time></>}
                   </span>
                   <h4><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></h4>
                   {item.excerpt && <p>{item.excerpt}</p>}
