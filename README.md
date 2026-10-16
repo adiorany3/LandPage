@@ -5,7 +5,7 @@ Portfolio Galuh Adi Insani dengan katalog repository GitHub otomatis, animasi in
 ## Fitur utama
 
 - Daftar repository diambil dari akun `github.com/adiorany3` melalui GitHub REST API.
-- Data diperbarui otomatis setiap satu jam melalui Next.js ISR.
+- Data halaman beranda diperbarui saat diakses setelah 30 menit melalui Next.js ISR.
 - Data cadangan lokal tetap tampil jika GitHub API tidak dapat diakses.
 - Enam repository pinned ditempatkan sebagai project unggulan.
 - Filter AgriTech, Statistics, AI & Vision, serta Web & Tools.
@@ -18,7 +18,7 @@ Portfolio Galuh Adi Insani dengan katalog repository GitHub otomatis, animasi in
 - Light mode dan dark mode.
 - Tampilan responsif untuk desktop, tablet, dan mobile.
 - Menu Harga komoditas membuka halaman `/harga-peternakan` dengan harga telur, daging, ternak, pakan, susu, dan tautan sumber yang diperbarui berkala.
-- Menu Edukasi peternakan membuka halaman `/edukasi-peternakan` dengan ringkasan modul pakan, kesehatan, dan data, ditambah artikel berita peternakan yang dimuat otomatis dari feed Google News tujuh hari terakhir dan diperbarui tiap 30 menit. Materi bersifat konseptual dan bukan pengganti pemeriksaan dokter hewan atau standar pakan resmi.
+- Menu Edukasi peternakan membuka halaman `/edukasi-peternakan` dengan ringkasan modul pakan, kesehatan, dan data. Berita peternakan pada halaman ini dan beranda diambil dari dua pencarian feed Google News, disaring berdasarkan tanggal terbit tujuh hari terakhir, dihapus duplikatnya, lalu diurutkan dari yang terbaru. Konten diperbarui saat halaman diakses setelah 30 menit (bukan polling di tab yang tetap terbuka). Jika sumber gagal atau tidak ada artikel yang valid, halaman menampilkan pesan ketersediaan tanpa berita buatan. Materi bersifat konseptual dan bukan pengganti pemeriksaan dokter hewan atau standar pakan resmi.
 - Semua subhalaman memakai satu header bersama (`components/SubpageHeader.tsx`): logo ADIORANYE, navigasi penuh dari `navItems`, dengan halaman aktif ditandai `aria-current="page"`.
 - Dashboard harga menampilkan grafik tren responsif dengan pilihan komoditas, rentang 7/30 hari atau semua data yang tersedia, harga per tanggal saat kursor diarahkan ke grafik, ringkasan harga, serta tabel riwayat yang dapat dibaca tanpa grafik.
 - Tombol Unduh XLSX mengambil arsip telur dan riwayat grafik komoditas yang tersedia dari sumber saat file diminta. Tanggal baru ikut masuk saat sumber memperbaruinya; ini bukan arsip permanen dan tidak memuat tanggal yang sudah tidak tersedia di sumber.

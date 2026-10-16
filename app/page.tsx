@@ -40,7 +40,7 @@ const infographicSteps = [
   { number: "05", label: "Keputusan", detail: "Insight yang dapat langsung dipakai", icon: "✓" }
 ];
 
-export const revalidate = 3600;
+export const revalidate = 1800;
 
 export async function generateMetadata(): Promise<Metadata> {
   const [news, livestockNews, blogPosts] = await Promise.all([getNews(), getLivestockNews(), getBlogPosts()]);

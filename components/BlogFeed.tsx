@@ -25,18 +25,18 @@ export default function BlogFeed({ news, livestock = false }: { news: NewsItem[]
       <RevealOnScroll className={livestock ? "section-heading" : "section-heading journal-note"}>
         <p className="eyebrow">{livestock ? "Berita peternakan" : news.length ? "Berita terkait" : "Catatan Insani"}</p>
         <h2 id={titleId}>{livestock ? "Kabar terbaru dunia peternakan." : "Catatan tentang riset, data, dan proses membangun produk."}</h2>
-        {livestock && <p>Berita tujuh hari terakhir. Pembaruan otomatis setiap 30 menit saat halaman diakses.</p>}
+        {livestock && <p>Berita peternakan dari berbagai penerbit dalam tujuh hari terakhir, diurutkan dari yang terbaru. Diperbarui saat halaman diakses setelah 30 menit.</p>}
       </RevealOnScroll>
       {livestock && !items.length && <p>Berita peternakan terbaru belum tersedia. Silakan coba lagi nanti.</p>}
       <div className="blog-grid">
         {items.map((post) => {
-          const excerpt = post.excerpt || `Berita terbaru ${livestock ? "bidang peternakan" : "terkait Galuh Adi Insani"} dari ${post.source}.`;
+          const excerpt = post.excerpt || (livestock ? "" : `Berita terbaru terkait Galuh Adi Insani dari ${post.source}.`);
           const published = post.published && !Number.isNaN(Date.parse(post.published)) ? new Date(post.published).toISOString() : undefined;
           const schema = {
             "@context": "https://schema.org",
             "@type": "Article",
             headline: post.title,
-            description: excerpt,
+            ...(excerpt ? { description: excerpt } : {}),
             url: post.link,
             ...(published ? { datePublished: published } : {}),
             isPartOf: { "@type": "WebPage", "@id": "https://www.adioranye.my.id/#articles" },
@@ -49,7 +49,7 @@ export default function BlogFeed({ news, livestock = false }: { news: NewsItem[]
                 {news.length > 0 && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />}
                 <span className="journal-label">Sumber: {post.source}{published ? <> · <time dateTime={published}>{new Date(published).toLocaleDateString("id-ID")}</time></> : ""}</span>
                 <h3><a href={post.link} target="_blank" rel="noopener noreferrer">{post.title}</a></h3>
-                <p>{excerpt}</p>
+                {excerpt && <p>{excerpt}</p>}
                 <a href={post.link} target="_blank" rel="noopener noreferrer">
                   {news.length ? "Baca berita ↗" : "Baca catatan ↗"}
                 </a>
