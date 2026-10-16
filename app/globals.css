@@ -720,6 +720,38 @@ main .section-heading h2 { background: none; color: var(--text); -webkit-text-fi
   .activity-section { grid-template-columns: 1fr; }
 }
 .blog-card { min-width: 0; overflow-wrap: anywhere; }
+/* Skeleton feed: kartu placeholder saat berita belum diterima. */
+.blog-skeleton { display: grid; gap: 10px; align-content: start; }
+.blog-skeleton-label, .blog-skeleton-title, .blog-skeleton-line { display: block; border-radius: 6px; background: var(--surface-strong); }
+.blog-skeleton-label { width: 40%; height: 12px; }
+.blog-skeleton-title { width: 82%; height: 20px; }
+.blog-skeleton-line { width: 100%; height: 14px; }
+.blog-skeleton-line-short { width: 62%; }
+@media (prefers-reduced-motion: no-preference) {
+  .blog-skeleton-label, .blog-skeleton-title, .blog-skeleton-line { animation: blogSkeletonPulse 1.4s ease-in-out infinite; }
+  .blog-skeleton-label { animation-delay: .1s; }
+  .blog-skeleton-title { animation-delay: .2s; }
+  .blog-skeleton-line { animation-delay: .3s; }
+}
+@keyframes blogSkeletonPulse { 50% { opacity: .45; } }
+/* Filter rentang waktu + pengelompokan berita per hari. */
+.news-filters { display: grid; gap: 10px; margin-top: 24px; }
+.news-filter-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.news-filter-row button { min-height: 44px; padding: 0 16px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface-soft); color: var(--muted); font: 700 .76rem ui-monospace, monospace; letter-spacing: .06em; }
+.news-filter-row button:hover { border-color: var(--accent-2); color: var(--text); }
+.news-filter-row button.active { border-color: var(--accent-2); background: var(--surface-strong); color: var(--accent); }
+.news-filter-count { margin: 0; color: var(--muted); font-size: .78rem; }
+.news-day-group { grid-column: 1 / -1; display: grid; gap: 10px; }
+.news-day-label { margin: 0; color: var(--accent-2); font: 700 .78rem ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; }
+.news-day-list { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.news-day-list .blog-card { display: grid; gap: 8px; align-content: start; }
+.news-day-list h4 { margin: 0; font-size: 1rem; line-height: 1.35; }
+.news-day-list h4 a { color: var(--text); }
+.news-day-list h4 a:hover { color: var(--accent-2); text-decoration: underline; }
+.news-day-list p { margin: 0; color: var(--muted); font-size: .85rem; line-height: 1.6; }
+.journal-label { display: block; margin-bottom: 8px; color: var(--muted); font: 600 .74rem ui-monospace, monospace; letter-spacing: .04em; }
+.journal-label time { color: var(--accent-2); }
+@media (max-width: 700px) { .news-day-list { grid-template-columns: 1fr; } }
 .pipeline-number, .pipeline-icon { color: var(--accent-2); font-family: ui-monospace, monospace; }
 .pipeline-arrow, .project-marquee { display: none; }
 .project-toolbar { margin-top: 28px; }

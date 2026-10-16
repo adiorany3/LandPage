@@ -124,7 +124,7 @@ export default async function EdukasiPeternakanPage() {
             ))}
           </div>
 
-          <BlogFeed news={livestockNews} livestock />
+          <BlogFeed news={livestockNews} kind="livestock" />
 
           <section className="section-heading">
             <h2>Batasan penggunaan materi</h2>
