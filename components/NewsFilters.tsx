@@ -102,6 +102,7 @@ export default function NewsFilters({ items }: { items: FeedItem[] }) {
                   </span>
                   <h4><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></h4>
                   {item.excerpt && <p>{item.excerpt}</p>}
+                  <a className="news-card-cta" href={item.link} target="_blank" rel="noopener noreferrer">Baca berita ↗</a>
                 </article>
               ))}
             </div>
