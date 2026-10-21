@@ -49,7 +49,7 @@
 }
 .panelTop { min-height: 62px; justify-content: space-between; padding: 0 20px; border-bottom: 1px solid var(--ai-line); background: linear-gradient(180deg, rgba(255, 255, 255, .07), rgba(36, 115, 83, .12) 60%, transparent); }
 .panelTop > div { gap: 12px; }
-.panelIcon { display: grid; width: 32px; height: 32px; place-items: center; border: 1px solid rgba(102, 217, 220, .3); border-radius: 9px; color: var(--ai-cyan); font-size: 1.1rem; }
+.panelIcon { width: 32px; height: 32px; flex: none; border: 1px solid rgba(102, 217, 220, .3); border-radius: 9px; object-fit: cover; }
 .panelTop strong, .panelTop small { display: block; }
 .panelTop strong { font: 700 .7rem ui-monospace, monospace; letter-spacing: .08em; }
 .panelTop small { margin-top: 4px; color: var(--ai-muted); font-size: .7rem; }
