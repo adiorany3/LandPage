@@ -8,6 +8,16 @@ export const metadata: Metadata = {
   title: "Janjian",
   description: "Pilih waktu untuk berbincang dengan Galuh Adi Insani.",
   alternates: { canonical: "/janjian" },
+  openGraph: {
+    title: "Janjian dengan Galuh Adi Insani",
+    description: "Pilih waktu untuk berdiskusi tentang riset, teknologi, atau peluang kolaborasi.",
+    url: "/janjian",
+    type: "website",
+    locale: "id_ID",
+    siteName: "Adioranye",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Janjian dengan Galuh Adi Insani" }],
+  },
+  twitter: { card: "summary_large_image", images: ["/opengraph-image"] },
 };
 
 export default function JanjianPage() {

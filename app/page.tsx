@@ -84,6 +84,28 @@ export default async function HomePage() {
         publisher: { "@id": "https://www.adioranye.my.id/#person" },
       },
       {
+        "@type": "WebPage",
+        "@id": "https://www.adioranye.my.id/#webpage",
+        name: "Galuh Adi Insani | Inovasi Peternakan & AgriTech",
+        url: "https://www.adioranye.my.id/",
+        description: "Artikel AgriTech, peternakan, analisis data, dan komputasi ilmiah oleh Galuh Adi Insani.",
+        isPartOf: { "@id": "https://www.adioranye.my.id/#website" },
+        about: { "@id": "https://www.adioranye.my.id/#person" },
+        inLanguage: "id-ID",
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.adioranye.my.id/#breadcrumb",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Beranda",
+            item: "https://www.adioranye.my.id/",
+          },
+        ],
+      },
+      {
         "@type": "ItemList",
         "@id": "https://www.adioranye.my.id/#articles",
         name: "Artikel dan berita terkait AgriTech serta peternakan",

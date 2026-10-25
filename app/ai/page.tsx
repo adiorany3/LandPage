@@ -1,7 +1,28 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import styles from "./page.module.css";
 import SubpageHeader from "@/components/SubpageHeader";
 import aiLogo from "../../pic/adioranyeai.jpg";
+
+const title = "Adioranye AI | Asisten Riset dan Produktivitas";
+const description = "Gunakan Adioranye AI sebagai ruang bantu untuk riset, produktivitas, dan eksplorasi ide berbasis percakapan.";
+
+export const metadata: Metadata = {
+  title,
+  description,
+  alternates: { canonical: "/ai" },
+  robots: { index: false, follow: true },
+  openGraph: {
+    title,
+    description,
+    url: "/ai",
+    type: "website",
+    locale: "id_ID",
+    siteName: "Adioranye",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Adioranye AI" }],
+  },
+  twitter: { card: "summary_large_image", title, description, images: ["/opengraph-image"] },
+};
 
 export default function AiPage() {
   return (

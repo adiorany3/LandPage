@@ -11,6 +11,16 @@ export const metadata: Metadata = {
   title: "Download Aplikasi Android",
   description: "Unduh aplikasi Android melalui SIMPAN UGM. Tersedia tautan langsung, kode QR, dan panduan pemasangan.",
   alternates: { canonical: "/download" },
+  openGraph: {
+    title: "Download Aplikasi Android",
+    description: "Unduh aplikasi Android melalui SIMPAN UGM. Tersedia tautan langsung, kode QR, dan panduan pemasangan.",
+    url: "/download",
+    type: "website",
+    locale: "id_ID",
+    siteName: "Adioranye",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Download aplikasi Android" }],
+  },
+  twitter: { card: "summary_large_image", images: ["/opengraph-image"] },
 };
 
 export default async function DownloadPage() {
