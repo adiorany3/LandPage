@@ -5,7 +5,7 @@ export const navItems = [
   { label: "Harga komoditas", href: "/harga-peternakan", external: false },
   { label: "Edukasi peternakan", href: "/edukasi-peternakan", external: false },
   { label: "Adioranye AI", href: "/ai", external: false },
-{ label: "Kontak", href: "#contact" }
+  { label: "Kontak", href: "#contact" }
 ];
 
 export const stats = [

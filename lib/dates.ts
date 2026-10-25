@@ -13,9 +13,10 @@ export function dayKey(value: string) {
   return [date.getFullYear(), String(date.getMonth() + 1).padStart(2, "0"), String(date.getDate()).padStart(2, "0")].join("-");
 }
 
-export function dayLabel(iso: string) {
+export function dayLabel(iso: string, referenceNow = Date.now()) {
   const date = toJakarta(new Date(iso));
-  const today = toJakarta(new Date());
+  if (!Number.isFinite(date.getTime())) return "";
+  const today = toJakarta(new Date(referenceNow));
   const startOfDay = (value: Date) => new Date(value.getFullYear(), value.getMonth(), value.getDate()).getTime();
   const diff = Math.round((startOfDay(today) - startOfDay(date)) / 86400000);
   if (diff === 0) return "Hari ini";
@@ -34,5 +35,5 @@ export function relativeLabel(iso: string, now: number) {
   if (hours < 24) return `${hours} jam lalu`;
   const days = Math.round(hours / 24);
   if (days < 7) return `${days} hari lalu`;
-  return dayLabel(iso);
+  return dayLabel(iso, now);
 }
