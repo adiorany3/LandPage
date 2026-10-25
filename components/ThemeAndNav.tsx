@@ -5,20 +5,23 @@ import { navItems } from "@/data/content";
 
 export default function ThemeAndNav() {
   const [light, setLight] = useState(false);
+  const [themeReady, setThemeReady] = useState(false);
   const [open, setOpen] = useState(false);
   const [showTop, setShowTop] = useState(false);
 
   useEffect(() => {
     const frame = requestAnimationFrame(() => {
-      if (window.localStorage.getItem("theme") === "light") setLight(true);
+      setLight(window.localStorage.getItem("theme") === "light");
+      setThemeReady(true);
     });
     return () => cancelAnimationFrame(frame);
   }, []);
 
   useEffect(() => {
+    if (!themeReady) return;
     document.body.classList.toggle("light", light);
     window.localStorage.setItem("theme", light ? "light" : "dark");
-  }, [light]);
+  }, [light, themeReady]);
 
   useEffect(() => {
     const onNavClick = (event: MouseEvent) => {

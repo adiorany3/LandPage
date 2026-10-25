@@ -1,6 +1,6 @@
 "use client";
 
-import { dayKey, dayLabel, relativeLabel } from "@/lib/dates";
+import { dayKey, dayLabel, relativeLabel, TZ } from "@/lib/dates";
 import { useEffect, useMemo, useState } from "react";
 
 const RANGES = [
@@ -17,10 +17,14 @@ export default function NewsFilters({ items }: { items: FeedItem[] }) {
   const [range, setRange] = useState<RangeKey>("all");
   const [day, setDay] = useState<string | null>(null);
   const [source, setSource] = useState<string | null>(null);
-  const [now, setNow] = useState(() => Date.now());
+  const [now, setNow] = useState<number | null>(null);
   useEffect(() => {
+    const frame = requestAnimationFrame(() => setNow(Date.now()));
     const timer = setInterval(() => setNow(Date.now()), 60000);
-    return () => clearInterval(timer);
+    return () => {
+      cancelAnimationFrame(frame);
+      clearInterval(timer);
+    };
   }, []);
   const active = RANGES.find((option) => option.key === range);
   const available = useMemo(
@@ -29,7 +33,7 @@ export default function NewsFilters({ items }: { items: FeedItem[] }) {
   );
   const sources = useMemo(() => [...new Set(items.map((item) => item.source).filter(Boolean))].sort(), [items]);
   const visible = useMemo(() => {
-    const cutoff = active?.days ? now - active.days * 86400000 : null;
+    const cutoff = active?.days && now !== null ? now - active.days * 86400000 : null;
     return items.filter((item) => {
       const time = Date.parse(item.published);
       if (!Number.isFinite(time)) return false;
@@ -61,7 +65,7 @@ export default function NewsFilters({ items }: { items: FeedItem[] }) {
           <div className="news-filter-row" role="group" aria-label="Saring berdasarkan hari">
             {available.map((option) => (
               <button key={option} type="button" className={day === option ? "active" : ""} aria-pressed={day === option} onClick={() => setDay(day === option ? null : option)}>
-                {dayLabel(`${option}T00:00:00`)}
+                {dayLabel(`${option}T00:00:00`, now ?? 0)}
               </button>
             ))}
           </div>
@@ -80,7 +84,7 @@ export default function NewsFilters({ items }: { items: FeedItem[] }) {
       <div className="blog-grid">
         {groups.map(([date, group]) => (
           <section className="news-day-group" key={date}>
-            <h3 className="news-day-label">{dayLabel(`${date}T00:00:00`)}</h3>
+            <h3 className="news-day-label">{dayLabel(`${date}T00:00:00`, now ?? 0)}</h3>
             <div className="news-day-list">
               {group.map((item) => (
                 <article className="blog-card" key={`${item.title}-${item.link}`}>
@@ -95,7 +99,13 @@ export default function NewsFilters({ items }: { items: FeedItem[] }) {
                   }).replace(/</g, "\\u003c") }} />
                   <span className="journal-label">
                     {item.source}
-                    {Number.isFinite(Date.parse(item.published)) && <> · <time dateTime={new Date(item.published).toISOString()}>{relativeLabel(item.published, now)}</time></>}
+                    {Number.isFinite(Date.parse(item.published)) && (
+                      <> · <time dateTime={new Date(item.published).toISOString()}>
+                        {now === null
+                          ? new Intl.DateTimeFormat("id-ID", { dateStyle: "medium", timeZone: TZ }).format(new Date(item.published))
+                          : relativeLabel(item.published, now)}
+                      </time></>
+                    )}
                   </span>
                   <h4><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></h4>
                   {item.excerpt && <p>{item.excerpt}</p>}
