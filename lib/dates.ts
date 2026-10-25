@@ -14,14 +14,15 @@ export function dayKey(value: string) {
 }
 
 export function dayLabel(iso: string, referenceNow = Date.now()) {
-  const date = toJakarta(new Date(iso));
-  if (!Number.isFinite(date.getTime())) return "";
+  const sourceDate = new Date(iso);
+  if (!Number.isFinite(sourceDate.getTime())) return "";
+  const date = toJakarta(sourceDate);
   const today = toJakarta(new Date(referenceNow));
   const startOfDay = (value: Date) => new Date(value.getFullYear(), value.getMonth(), value.getDate()).getTime();
   const diff = Math.round((startOfDay(today) - startOfDay(date)) / 86400000);
   if (diff === 0) return "Hari ini";
   if (diff === 1) return "Kemarin";
-  return date.toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric", timeZone: TZ });
+  return sourceDate.toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric", timeZone: TZ });
 }
 
 // Selisih terhadap waktu sekarang, supaya berita baru terbaca "2 jam lalu" bukan tanggal absolut.

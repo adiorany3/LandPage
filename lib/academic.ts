@@ -7,8 +7,8 @@ const fallback = {
   sections: [
     { title: "Bidang keahlian", items: ["Agricultural and Veterinary Sciences / Genetic and Animal Breeding / Animal Genetics and Production"] },
     { title: "Pendidikan", items: ["Master, Ilmu Peternakan, Fakultas Peternakan UGM, Indonesia, 01/2009–01/2011", "Undergraduate, Produksi Ternak, Fakultas Peternakan UGM, Indonesia, 09/2002–11/2007"] },
-    { title: "Kelompok riset", items: ["Poultry Breeding, Animal Breeding / Bioinformatics, Recording / Big Data Analysis", "Science Data Sciencecluster - Science technology"] },
-    { title: "Minat riset", items: ["Animal Genetics, Bioinformatics, Data Analysis, Genetics Poultry"] }
+    { title: "Kelompok riset", items: ["Poultry Breeding, Animal Breeding / Bioinformatics, Recording / Big Data Analysis for Science and Data Sciencecluster - Science and technology"] },
+    { title: "Minat riset", items: ["Animal Genetics, Bioinformatics, Data Analysis, Data Science, Genetics Poultry"] }
   ]
 };
 

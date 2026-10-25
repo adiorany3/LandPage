@@ -105,10 +105,14 @@ export async function getBlogPosts(): Promise<NewsItem[]> {
 
 export async function getNews(): Promise<NewsItem[]> {
   try {
-    const responses = await Promise.all([newsUrl, BLOG_FEED].map(url => fetch(url, FETCH_OPTS)));
-    if (responses.some(response => !response.ok)) throw new Error("News feed unavailable");
-    const [google, blog] = await Promise.all(responses.map(response => response.text()));
-    return [...parseFeed(google, "Google News"), ...parseFeed(blog, "Catatan Insani")].sort((a, b) => Date.parse(b.published) - Date.parse(a.published)).slice(0, MAX_NEWS);
+    const feeds = await Promise.allSettled([newsUrl, BLOG_FEED].map(async (url, index) => {
+      const response = await fetch(url, FETCH_OPTS);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return parseFeed(await response.text(), index === 0 ? "Google News" : "Catatan Insani");
+    }));
+    if (feeds.every(feed => feed.status === "rejected")) throw new Error("News feeds unavailable");
+    return feeds.flatMap(feed => feed.status === "fulfilled" ? feed.value : [])
+      .sort((a, b) => Date.parse(b.published) - Date.parse(a.published)).slice(0, MAX_NEWS);
   } catch (error) {
     console.warn("Pencarian berita gagal.", error instanceof Error ? error.message : "Kesalahan jaringan");
     return [];
