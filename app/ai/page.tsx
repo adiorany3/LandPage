@@ -45,7 +45,7 @@ export default function AiPage() {
           allow="microphone;clipboard-write"
         />
       </section>
-      <footer className={styles.footer}><span>AGROTECH <b>·</b> DATA <b>·</b> AI</span><a href="https://www.adioranye.my.id/download">Download adioranye AI</a><span>Periksa kembali informasi penting sebelum digunakan.</span></footer>
+      <footer className={styles.footer}><span>AGROTECH <b>·</b> DATA <b>·</b> AI</span><a href="https://www.adioranye.my.id/download"><strong>Download adioranye AI for Android</strong></a><span>Periksa kembali informasi penting sebelum digunakan.</span></footer>
     </main>
   );
 }
