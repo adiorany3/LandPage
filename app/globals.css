@@ -739,6 +739,84 @@ main .section-heading h2 { background: none; color: var(--text); -webkit-text-fi
 .journal-label { display: block; margin-bottom: 8px; color: var(--muted); font: 600 .74rem ui-monospace, monospace; letter-spacing: .04em; }
 .journal-label time { color: var(--accent-2); }
 @media (max-width: 700px) { .news-day-list { grid-template-columns: 1fr; } }
+
+/* Futuristic agro layer: farm telemetry visual language without extra assets. */
+:root {
+  --agro-glow: rgba(111, 216, 138, .28);
+  --tech-glow: rgba(89, 198, 214, .24);
+}
+body {
+  background-image:
+    radial-gradient(circle at 12% 8%, var(--agro-glow), transparent 26rem),
+    radial-gradient(circle at 88% 20%, var(--tech-glow), transparent 28rem),
+    linear-gradient(var(--surface-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--surface-soft) 1px, transparent 1px);
+  background-size: auto, auto, 48px 48px, 48px 48px;
+}
+.site-header {
+  border-color: rgba(111, 216, 138, .34);
+  background: linear-gradient(105deg, rgba(111, 216, 138, .12), transparent 42%), var(--surface);
+}
+.brand strong { letter-spacing: .02em; }
+.brand small::before { content: "● "; color: var(--accent); }
+.hero { position: relative; }
+.hero-copy { position: relative; z-index: 1; }
+.hero h1 { text-wrap: balance; }
+.hero h1::after {
+  content: "";
+  display: block;
+  width: 5rem;
+  height: 3px;
+  margin-top: 22px;
+  background: linear-gradient(90deg, var(--agro), var(--tech));
+  box-shadow: 0 0 18px var(--agro-glow);
+}
+.hero-visual {
+  isolation: isolate;
+  overflow: hidden;
+  border-color: var(--tech);
+  background:
+    radial-gradient(circle at 50% 45%, rgba(89, 198, 214, .18), transparent 9rem),
+    linear-gradient(135deg, rgba(111, 216, 138, .14), transparent 52%),
+    var(--surface-soft);
+}
+.hero-visual::before {
+  content: "FIELD NODE // 01\A SENSOR NETWORK // ONLINE\A DATA → INSIGHT → ACTION";
+  position: absolute;
+  top: 22px;
+  right: 24px;
+  z-index: -1;
+  color: rgba(111, 216, 138, .42);
+  font: 700 .62rem/2 ui-monospace, monospace;
+  letter-spacing: .12em;
+  white-space: pre;
+}
+.hero-visual::after {
+  content: "";
+  position: absolute;
+  inset: 18%;
+  z-index: -1;
+  border: 1px dashed rgba(89, 198, 214, .4);
+  border-radius: 50%;
+  box-shadow: 0 0 60px rgba(89, 198, 214, .12);
+}
+.product-pill { border-color: var(--tech); color: var(--tech) !important; }
+.avatar-card { border-color: rgba(111, 216, 138, .4); }
+.stats div, .profile-metrics div { position: relative; overflow: hidden; }
+.stats div::before, .profile-metrics div::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: linear-gradient(var(--agro), var(--tech));
+}
+.section-heading h2, .profile-main h2, .stack-card h2 { text-wrap: balance; }
+.pipeline-card, .stack-card, .contact-card { background: linear-gradient(135deg, rgba(111, 216, 138, .08), transparent 45%), var(--surface); }
+.tag-list span { border-color: rgba(111, 216, 138, .3); }
+.repo-visual { background: linear-gradient(135deg, rgba(89, 198, 214, .2), rgba(111, 216, 138, .1)), var(--surface-soft); }
+@media (prefers-reduced-motion: reduce) {
+  .hero-visual::after { box-shadow: none; }
+}
 .pipeline-number, .pipeline-icon { color: var(--accent-2); font-family: ui-monospace, monospace; }
 .pipeline-arrow, .project-marquee { display: none; }
 .project-toolbar { margin-top: 28px; }

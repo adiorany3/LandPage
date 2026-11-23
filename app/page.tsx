@@ -344,6 +344,8 @@ export default async function HomePage() {
 
         <BlogFeed news={livestockNews} kind="livestock" />
 
+        <BlogFeed news={blogPosts} kind="journal" />
+
         <section className="section contact-section" id="contact" aria-labelledby="contact-title">
           <RevealOnScroll className="contact-card">
             <div className="contact-heading">
