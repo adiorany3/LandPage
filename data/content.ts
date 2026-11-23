@@ -61,5 +61,7 @@ export const links = [
   { label: "Kaggle: @adioranye", href: "https://www.kaggle.com/adioranye" },
   { label: "LinkedIn: Galuh Adi Insani", href: "https://www.linkedin.com/in/galuh-adi-insani-1aa0a5105/" },
   { label: "Spotify: Galuh Adi Insani", href: "https://open.spotify.com/intl-id/artist/4tXRCUibCj6E18p64s9YG4" },
+  { label: "TikTok: @galuh.adi.insani", href: "https://www.tiktok.com/@galuh.adi.insani" },
+  { label: "Threads: @insanigaluh", href: "https://www.threads.com/@insanigaluh" },
   { label: "Telegram: @adioranye", href: "https://t.me/adioranye" }
 ];

@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/janjian", changeFrequency: "monthly" as const, priority: 0.6 },
   ].map(({ path, changeFrequency, priority }) => ({
     url: `https://www.adioranye.my.id${path || "/"}`,
+    lastModified: new Date(),
     changeFrequency,
     priority,
   }));

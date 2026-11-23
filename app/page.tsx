@@ -19,6 +19,7 @@ const personSchema = {
   alternateName: ["adiorany3", "adioranye"],
   description: "Pengembang aplikasi AgriTech, formulasi pakan ternak, analisis statistik, dan komputasi ilmiah.",
   url: "https://www.adioranye.my.id/",
+  image: "https://www.adioranye.my.id/assets/avatar.svg",
   sameAs: [
     "https://github.com/adiorany3",
     "https://acadstaff.ugm.ac.id/galuhadiinsani",
@@ -26,7 +27,9 @@ const personSchema = {
     "https://sinta.kemdiktisaintek.go.id/authors/profile/5972626/?view=researches",
     "https://www.linkedin.com/in/galuh-adi-insani-1aa0a5105/",
     "https://catataninsani.wordpress.com",
-    "https://www.adioranye.my.id/ai"
+    "https://www.adioranye.my.id/ai",
+    "https://www.tiktok.com/@galuh.adi.insani",
+    "https://www.threads.com/@insanigaluh"
   ],
   jobTitle: "AgriTech & Scientific Computing Developer",
   knowsAbout: ["AgriTech", "Scientific Computing", "Statistical Analysis", "Streamlit", "Next.js"]
