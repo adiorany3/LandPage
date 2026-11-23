@@ -60,5 +60,6 @@ export const links = [
   { label: "SINTA: Research profile", href: "https://sinta.kemdiktisaintek.go.id/authors/profile/5972626/?view=researches" },
   { label: "Kaggle: @adioranye", href: "https://www.kaggle.com/adioranye" },
   { label: "LinkedIn: Galuh Adi Insani", href: "https://www.linkedin.com/in/galuh-adi-insani-1aa0a5105/" },
+  { label: "Spotify: Galuh Adi Insani", href: "https://open.spotify.com/intl-id/artist/4tXRCUibCj6E18p64s9YG4" },
   { label: "Telegram: @adioranye", href: "https://t.me/adioranye" }
 ];
