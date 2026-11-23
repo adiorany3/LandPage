@@ -87,5 +87,38 @@ export const educationModules: EducationModule[] = [
         ]
       }
     ]
+  },
+  {
+    slug: "peternakan-presisi",
+    title: "Peternakan presisi: IoT, PLF, dan DSS",
+    field: "Teknologi",
+    audience: "Peneliti, mahasiswa, dan pelaku usaha yang memakai teknologi di peternakan",
+    summary: "Memahami sensor IoT, Precision Livestock Farming (PLF), dan sistem pendukung keputusan (DSS) untuk keputusan peternakan berbasis data.",
+    lessons: [
+      {
+        title: "Sensor IoT dan data kandang",
+        points: [
+          "Sensor suhu, kelembapan, amonia, air, dan konsumsi pakan menghasilkan data berkala.",
+          "Gateway mengirim data ke dasbor; pastikan satuan dan pencatatan waktu konsisten.",
+          "Data sensor perlu divalidasi dengan kondisi lapangan sebelum dipakai mengambil keputusan."
+        ]
+      },
+      {
+        title: "Precision Livestock Farming (PLF)",
+        points: [
+          "PLF memakai data per hewan atau per kelompok untuk manajemen yang lebih tepat.",
+          "Manfaat muncul ketika data diubah menjadi tindakan harian, bukan sekadar dasbor.",
+          "Mulai dari satu variabel penting, misalnya konsumsi pakan, sebelum memperluas."
+        ]
+      },
+      {
+        title: "Sistem pendukung keputusan (DSS)",
+        points: [
+          "DSS menggabungkan data, model, dan aturan menjadi rekomendasi yang dapat ditinjau.",
+          "Contoh: formulasi ransum biaya minimum, evaluasi performa, dan peringatan dini.",
+          "Keputusan akhir tetap pada peternak; DSS membantu, bukan menggantikan penilaian ahli."
+        ]
+      }
+    ]
   }
 ];

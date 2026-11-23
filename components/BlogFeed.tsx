@@ -1,6 +1,7 @@
 import NewsFilters from "./NewsFilters";
 import RevealOnScroll from "./RevealOnScroll";
 import { FALLBACK_POSTS, type NewsItem } from "@/lib/news";
+import { blogSubscription } from "@/data/content";
 
 export type FeedKind = "journal" | "news" | "livestock";
 
@@ -76,6 +77,16 @@ export default function BlogFeed({ news, kind = "journal" }: { news: NewsItem[];
               </RevealOnScroll>
             );
           })}
+        </div>
+      )}
+      {kind === "journal" && (
+        <div className="hero-actions" aria-label="Berlangganan Catatan Insani">
+          <a className="btn primary" href={blogSubscription.follow} target="_blank" rel="noopener noreferrer">
+            Daftarkan email untuk tulisan baru <span aria-hidden="true">↗</span>
+          </a>
+          <a className="btn ghost" href={blogSubscription.feed} target="_blank" rel="noopener noreferrer" type="application/rss+xml">
+            RSS feed <span aria-hidden="true">↗</span>
+          </a>
         </div>
       )}
     </section>

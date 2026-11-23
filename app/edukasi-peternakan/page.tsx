@@ -8,9 +8,9 @@ import styles from "./page.module.css";
 
 export const revalidate = 1800;
 
-const title = "Edukasi Peternakan: Pakan, Kesehatan, dan Data";
+const title = "Edukasi Peternakan Presisi: Pakan, IoT, PLF, DSS, dan Data";
 const description =
-  "Ringkasan materi edukasi peternakan tentang dasar nutrisi ruminansia, kesehatan ternak, dan pembacaan data peternakan untuk mahasiswa, peternak, dan penyuluh lapangan.";
+  "Panduan edukasi peternakan presisi tentang nutrisi ruminansia, kesehatan ternak, data analitik, sensor IoT, Precision Livestock Farming (PLF), dan sistem pendukung keputusan (DSS) untuk mahasiswa, peneliti, peternak, dan penyuluh lapangan.";
 const url = "https://www.adioranye.my.id/edukasi-peternakan";
 
 export const metadata: Metadata = {
@@ -57,7 +57,23 @@ const schema = {
     name: module.title,
     description: module.summary,
     url: `${url}#${module.slug}`
-  }))
+  })),
+  publisher: {
+    "@type": "Organization",
+    "@id": "https://www.adioranye.my.id/#organization",
+    name: "Adioranye",
+    url: "https://www.adioranye.my.id/",
+    founder: { "@id": "https://www.adioranye.my.id/#person" }
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Beranda", item: "https://www.adioranye.my.id/" },
+    { "@type": "ListItem", position: 2, name: "Edukasi Peternakan Presisi", item: url }
+  ]
 };
 
 export default async function EdukasiPeternakanPage() {
@@ -69,6 +85,10 @@ export default async function EdukasiPeternakanPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c") }}
+      />
       <a className="skip-link" href="#main">
         Lewati ke konten utama
       </a>
@@ -76,12 +96,13 @@ export default async function EdukasiPeternakanPage() {
       <main id="main">
         <article className="section" aria-labelledby="education-title">
           <div className="section-heading">
-            <p className="eyebrow">Edukasi - Peternakan</p>
-            <h1 id="education-title">Edukasi peternakan: pakan, kesehatan, dan data</h1>
+            <p className="eyebrow">Edukasi • Peternakan presisi • PLF / DSS</p>
+            <h1 id="education-title">Edukasi peternakan presisi: pakan, IoT, PLF, DSS, dan data</h1>
             <p className="lead">
-              Ringkasan konseptual untuk mahasiswa, peternak, dan penyuluh lapangan. Materi ini
-              membantu memahami dasar peternakan sebelum masuk ke formulasi ransum atau protokol
-              kesehatan. Artikel terbaru bidang peternakan dimuat otomatis di bawah.
+              Ringkasan konseptual untuk mahasiswa, peneliti, peternak, dan penyuluh lapangan.
+              Pelajari nutrisi ruminansia, kesehatan ternak, data analitik, sensor IoT,
+              Precision Livestock Farming (PLF), dan sistem pendukung keputusan (DSS).
+              Artikel terbaru bidang peternakan dimuat otomatis di bawah.
             </p>
           </div>
 

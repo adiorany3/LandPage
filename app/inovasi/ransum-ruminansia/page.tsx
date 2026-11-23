@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SubpageHeader from "@/components/SubpageHeader";
 
-const title = "Ransum Ruminansia: Aplikasi Formulasi Pakan Ternak";
-const description = "Ransum Ruminansia karya Galuh Adi Insani membantu formulasi pakan sapi, kambing, dan domba melalui analisis nutrisi, biaya, dan optimasi pemrograman linear.";
+const title = "Ransum Ruminansia: DSS Formulasi Pakan Ternak";
+const description = "Ransum Ruminansia karya Galuh Adi Insani adalah sistem pendukung keputusan (DSS) untuk formulasi pakan sapi, kambing, dan domba melalui analisis data nutrisi, biaya, dan optimasi pemrograman linear.";
 const url = "https://www.adioranye.my.id/inovasi/ransum-ruminansia";
 const repository = "https://github.com/adiorany3/ransumruminansia";
 
@@ -21,6 +21,15 @@ export const metadata: Metadata = {
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Galuh Adi Insani — Inovasi Peternakan dan AgriTech" }]
   },
   twitter: { card: "summary_large_image", title, description, images: ["/opengraph-image"] }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Beranda", item: "https://www.adioranye.my.id/" },
+    { "@type": "ListItem", position: 2, name: "Ransum Ruminansia", item: url }
+  ]
 };
 
 const schema = {
@@ -51,13 +60,14 @@ export default function RansumRuminansiaPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c") }} />
       <a className="skip-link" href="#main">Lewati ke konten utama</a>
       <SubpageHeader activeHref="/#projects" section="RESEARCH & TECHNOLOGY" />
       <main id="main">
         <article className="section" aria-labelledby="innovation-title">
           <div className="section-heading">
-            <p className="eyebrow">Inovasi peternakan • AgriTech</p>
-            <h1 id="innovation-title">Ransum Ruminansia: aplikasi formulasi pakan ternak</h1>
+            <p className="eyebrow">Inovasi peternakan • DSS • Data analitik</p>
+            <h1 id="innovation-title">Ransum Ruminansia: DSS formulasi pakan ternak</h1>
             <p className="lead">Karya <Link href="/">Galuh Adi Insani</Link> untuk membantu penyusunan pakan sapi, kambing, dan domba.</p>
           </div>
           <div className="workflow-grid">

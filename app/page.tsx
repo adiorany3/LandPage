@@ -6,7 +6,7 @@ import ProjectShowcase from "@/components/ProjectShowcase";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import ThemeAndNav from "@/components/ThemeAndNav";
 import OpenSourceActivity from "@/components/OpenSourceActivity";
-import { links, navItems, stack, stats, workflow } from "@/data/content";
+import { expertise, links, navItems, stack, stats, workflow } from "@/data/content";
 import { getGitHubActivity, getGitHubPortfolio } from "@/lib/github";
 import { academicUrl, getAcademicProfile } from "@/lib/academic";
 import { getNews, getLivestockNews, getBlogPosts } from "@/lib/news";
@@ -17,7 +17,7 @@ const personSchema = {
   "@id": "https://www.adioranye.my.id/#person",
   name: "Galuh Adi Insani",
   alternateName: ["adiorany3", "adioranye"],
-  description: "Pengembang aplikasi AgriTech, formulasi pakan ternak, analisis statistik, dan komputasi ilmiah.",
+  description: "Pengembang aplikasi AgriTech dan sistem pendukung keputusan (DSS) peternakan: formulasi pakan, analisis statistik, data sensor IoT, dan komputasi ilmiah.",
   url: "https://www.adioranye.my.id/",
   image: "https://www.adioranye.my.id/assets/avatar.svg",
   sameAs: [
@@ -29,10 +29,11 @@ const personSchema = {
     "https://catataninsani.wordpress.com",
     "https://www.adioranye.my.id/ai",
     "https://www.tiktok.com/@galuh.adi.insani",
-    "https://www.threads.com/@insanigaluh"
+    "https://www.threads.com/@insanigaluh",
+    "https://www.instagram.com/insanigaluh/"
   ],
   jobTitle: "AgriTech & Scientific Computing Developer",
-  knowsAbout: ["AgriTech", "Scientific Computing", "Statistical Analysis", "Streamlit", "Next.js"]
+  knowsAbout: ["AgriTech", "Precision Livestock Farming", "Decision Support System", "Data Analytics", "IoT peternakan", "Statistical Analysis", "Streamlit", "Next.js", "Mentoring", "Entrepreneurship", "Startup AgriTech"]
 };
 
 const infographicSteps = [
@@ -148,18 +149,20 @@ export default async function HomePage() {
       <main id="main">
         <section className="hero" id="overview" aria-labelledby="hero-title">
           <div className="hero-copy">
-            <p className="eyebrow">AgriTech • Statistika • Komputasi Ilmiah</p>
+            <p className="eyebrow">AgriTech • Peternakan presisi • Data analitik</p>
             <h1 id="hero-title">Galuh Adi Insani — Inovasi Peternakan dan AgriTech.</h1>
             <p className="lead">
-              Saya membangun aplikasi web untuk perhitungan peternakan, analisis statistik,
-              dan pengolahan data penelitian. Dirancang untuk peneliti, mahasiswa, peternak,
-              dan praktisi lapangan.
+              Saya membangun aplikasi web dan sistem pendukung keputusan (DSS) untuk
+              peternakan presisi: formulasi ransum, analisis statistik, data sensor IoT,
+              dan pengolahan data penelitian. Dirancang untuk peneliti, mahasiswa,
+              peternak, dan praktisi lapangan.
             </p>
             <div className="hero-actions">
               <a className="btn primary" href="#studi-kasus">Baca studi kasus</a>
               <a className="btn ghost" href="#projects">
                 Lihat proyek
               </a>
+              <a className="btn ghost" href="/edukasi-peternakan#peternakan-presisi">Modul peternakan presisi</a>
             </div>
             <div className="stats" aria-label="Ringkasan portfolio">
               {portfolioStats.map((item) => (
@@ -251,7 +254,7 @@ export default async function HomePage() {
             <div className="profile-metrics">
               <div><strong>{portfolio.totalRepositories}</strong><span>Public repos</span></div>
               <div><strong>6</strong><span>Featured products</span></div>
-              <div><strong>9</strong><span>Main technologies</span></div>
+              <div><strong>{expertise.length}</strong><span>Areas of expertise</span></div>
               <div><strong>1</strong><span>Clear product focus</span></div>
             </div>
           </RevealOnScroll>
@@ -329,8 +332,11 @@ export default async function HomePage() {
           <RevealOnScroll className="stack-card">
             <p className="eyebrow">Main Stack</p>
             <h2 id="stack-title">Scientific computing bertemu product engineering.</h2>
-            <p>Stack mendukung kalkulasi ilmiah, prototyping cepat, API development, dan landing page modern.</p>
-            <div className="tag-list large">{stack.map((item) => <span key={item}>{item}</span>)}</div>
+            <p>Topik keahlian mendukung riset dan produk; stack di bawah adalah alat kerjanya.</p>
+            <div className="tag-list" aria-label="Topik keahlian">
+              {expertise.map((item) => <span key={item}>{item}</span>)}
+            </div>
+            <div className="tag-list large" style={{ marginTop: 12 }}>{stack.map((item) => <span key={item}>{item}</span>)}</div>
           </RevealOnScroll>
         </section>
 

@@ -63,5 +63,23 @@ export const links = [
   { label: "Spotify: Galuh Adi Insani", href: "https://open.spotify.com/intl-id/artist/4tXRCUibCj6E18p64s9YG4" },
   { label: "TikTok: @galuh.adi.insani", href: "https://www.tiktok.com/@galuh.adi.insani" },
   { label: "Threads: @insanigaluh", href: "https://www.threads.com/@insanigaluh" },
+  { label: "Instagram: @insanigaluh", href: "https://www.instagram.com/insanigaluh/" },
   { label: "Telegram: @adioranye", href: "https://t.me/adioranye" }
 ];
+
+export const expertise = [
+  "Peternakan presisi (Precision Livestock Farming)",
+  "Sistem pendukung keputusan (DSS) peternakan",
+  "IoT dan sensor peternakan",
+  "Data analitik dan statistika",
+  "Formulasi ransum ternak",
+  "Smart farming",
+  "Mentoring startup AgriTech dan bisnis peternakan",
+  "Founder dan pengembang startup peternakan modern",
+];
+
+export const blogSubscription = {
+  url: "https://catataninsani.wordpress.com/",
+  feed: "https://catataninsani.wordpress.com/feed/",
+  follow: "https://subscribe.wordpress.com/?blog=620435&sub=1"
+};
