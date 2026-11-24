@@ -69,7 +69,7 @@ export default function AiPage() {
         </div>
         <p className={styles.note}>Jawaban bersifat bantu, bukan pengganti dokter hewan, ahli nutrisi, atau keputusan resmi. Periksa kembali informasi penting sebelum digunakan.</p>
       </section>
-      <footer className={styles.footer}><span>AGROTECH <b>·</b> DATA <b>·</b> AI</span><a href="https://www.adioranye.my.id/download"><strong>Download adioranye AI for Android</strong></a><span>Periksa kembali informasi penting sebelum digunakan.</span></footer>
+      <footer className={styles.footer}><span>AGROTECH <b>·</b> DATA <b>·</b> AI</span><span>Periksa kembali informasi penting sebelum digunakan.</span></footer>
     </main>
   );
 }
